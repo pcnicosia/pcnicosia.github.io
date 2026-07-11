@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Google Fonts: Inter (Stile Apple) -->
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <!-- Libreria AOS per le animazioni fluide -->
@@ -18,12 +18,12 @@
         /* Regole Generali Elite */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505; /* Nero profondo, molto elegante */
+            background-color: #050505;
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* Effetto Vetro (Glassmorphism) per la Navbar */
+        /* Effetto Vetro per la Navbar */
         .glass-nav {
             background: rgba(10, 10, 10, 0.6);
             backdrop-filter: blur(15px);
@@ -66,14 +66,13 @@
 
         /* Hero a schermo intero */
         .hero-section {
-            height: 100vh; /* Prende il 100% dell'altezza dello schermo */
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             background: url('https://images.unsplash.com/photo-1587556930799-8dca6a284617?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
         }
 
-        /* Sfumatura che dal trasparente va al nero profondo del sito */
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
@@ -83,18 +82,40 @@
 
         .hero-content {
             position: relative;
-            z-index: 2; /* Tiene il testo sopra la sfumatura */
+            z-index: 2;
         }
 
         h1 {
             font-weight: 800;
-            letter-spacing: -1px; /* Stringe leggermente le lettere stile Apple */
-            font-size: clamp(2.5rem, 5vw, 4.5rem); /* Si adatta perfettamente a telefoni e PC */
+            letter-spacing: -1px;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
         }
         
         .testo-leggero {
-            color: #a1a1a6; /* Il classico grigio elegante di Apple */
+            color: #a1a1a6;
             font-weight: 400;
+        }
+
+        /* --- NUOVE REGOLE PER LE CARD E LE ALLERTE --- */
+        .elite-card {
+            background: rgba(25, 25, 25, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.3s ease, border-color 0.3s ease;
+        }
+        .elite-card:hover {
+            transform: translateY(-10px);
+            background: rgba(35, 35, 35, 0.8);
+            border-color: rgba(230, 92, 0, 0.5);
+        }
+        
+        .custom-alert {
+            background: rgba(230, 92, 0, 0.05);
+            border: 1px solid rgba(230, 92, 0, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
     </style>
 </head>
@@ -112,8 +133,8 @@
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link text-white mx-2" href="#">L'Associazione</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#">Aree d'Intervento</a></li>
-                    <li class="nav-item"><a class="nav-link text-danger fw-bold mx-2" href="#">⚠️ Allerte</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#servizi">Aree d'Intervento</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger fw-bold mx-2" href="#allerte">⚠️ Allerte</a></li>
                 </ul>
                 <a href="#" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
@@ -124,35 +145,72 @@
     <header class="hero-section text-center">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            
-            <!-- data-aos aggiunge l'animazione dal basso -->
             <h1 class="mb-4" data-aos="fade-up" data-aos-duration="1000">
                 Pronti a intervenire.<br>
-                <span class="text-anpas-orange" style="color: #e65c00;">Sempre al vostro fianco.</span>
+                <span style="color: #e65c00;">Sempre al vostro fianco.</span>
             </h1>
-            
             <p class="lead mb-5 px-lg-5 testo-leggero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 Dal 1990 la Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V. opera per la sicurezza, la salute e il supporto sociale del territorio.
             </p>
-            
             <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <a href="#" class="btn btn-elite-primary shadow-lg">Segnala un'emergenza</a>
-                <a href="#" class="btn btn-elite-outline">Scopri i nostri mezzi</a>
+                <a href="#servizi" class="btn btn-elite-outline">Scopri le Attività</a>
             </div>
-            
         </div>
     </header>
+
+    <!-- NUOVA SEZIONE: ALLERTE E AREE DI INTERVENTO -->
+    <section id="servizi" class="py-5" style="position: relative; z-index: 10;">
+        <div class="container py-5">
+            
+            <!-- Banner Allerte Meteo / Info -->
+            <div id="allerte" class="alert custom-alert d-flex align-items-center mb-5 p-4" data-aos="fade-up">
+                <div class="fs-1 me-4">🌤️</div>
+                <div>
+                    <h5 class="fw-bold mb-1 text-white">Nessuna criticità in corso</h5>
+                    <p class="mb-0 testo-leggero">La situazione sul territorio di Nicosia e dintorni è attualmente regolare. Nessuna allerta meteo diramata dal DRPC.</p>
+                </div>
+            </div>
+
+            <!-- Griglia dei Servizi -->
+            <div class="row g-4 mt-2">
+                
+                <!-- Card 1: Emergenza Sanitaria -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="elite-card h-100 p-5">
+                        <div class="mb-4 fs-1" style="color: #e65c00;">🚑</div>
+                        <h4 class="fw-bold mb-3">Emergenza Sanitaria</h4>
+                        <p class="testo-leggero mb-0">Trasporto infermi, assistenza medica a manifestazioni e primo soccorso con ambulanze attrezzate.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Protezione Civile -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="elite-card h-100 p-5">
+                        <div class="mb-4 fs-1" style="color: #e65c00;">⛑️</div>
+                        <h4 class="fw-bold mb-3">Protezione Civile</h4>
+                        <p class="testo-leggero mb-0">Prevenzione, gestione delle calamità naturali, antincendio boschivo e ricerca dispersi.</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Supporto Sociale -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="elite-card h-100 p-5">
+                        <div class="mb-4 fs-1" style="color: #e65c00;">🤝</div>
+                        <h4 class="fw-bold mb-3">Supporto Sociale</h4>
+                        <p class="testo-leggero mb-0">Consegna farmaci, assistenza fasce deboli, distribuzione viveri e supporto in emergenza alla popolazione.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
     <script>
-        // Inizializza il motore delle animazioni
-        AOS.init({
-            once: true, // L'animazione avviene solo la prima volta che si scorre
-            offset: 50
-        });
+        AOS.init({ once: true, offset: 50 });
     </script>
 </body>
 </html>
