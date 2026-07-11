@@ -11,7 +11,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* Sfondo Élite con Bagliori (Mesh Gradient) */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #050505;
@@ -60,7 +59,6 @@
         }
         .btn-elite-outline:hover { background-color: white; color: black; }
 
-        /* Hero Page Interna (Più corta, 60vh) */
         .page-hero {
             height: 60vh;
             display: flex;
@@ -82,7 +80,6 @@
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
-        /* Box Valori e Organigramma */
         .value-box {
             background: rgba(255, 255, 255, 0.03);
             border-left: 4px solid #e65c00;
@@ -91,29 +88,39 @@
             height: 100%;
         }
         
+        /* Silhouette Élite per l'avatar temporaneo */
         .org-card {
             background: rgba(20, 20, 20, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 24px;
+            padding: 35px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
-        .org-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+        .avatar-placeholder {
+            width: 110px;
+            height: 110px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #e65c00;
             border-radius: 50%;
-            border: 3px solid #e65c00;
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            color: #a1a1a6;
+            font-size: 2.5rem;
         }
-        
-        footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
+
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+        }
         footer a { color: #a1a1a6; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR IN VETRO -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-tight" href="index.html">P.A. Nicosia O.d.V.</a>
@@ -122,7 +129,6 @@
             </button>
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="navbar-nav mx-auto">
-                    <!-- LINK ALLA HOME AGGIORNATO -->
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html">Home</a></li>
                     
                     <li class="nav-item dropdown">
@@ -136,20 +142,19 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="#">Sanitario</a></li>
-                            <li><a class="dropdown-item" href="#">Sociale</a></li>
+                            <li><a class="dropdown-item" href="index.html#servizi">Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="index.html#servizi">Sanitario</a></li>
+                            <li><a class="dropdown-item" href="index.html#servizi">Sociale</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
                 </ul>
                 <a href="#" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER CHI SIAMO (Immagine sfumata) -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
@@ -159,7 +164,6 @@
         </div>
     </header>
 
-    <!-- SEZIONE STORIA -->
     <section id="storia" class="py-5">
         <div class="container py-5">
             <div class="row align-items-center g-5">
@@ -175,7 +179,6 @@
         </div>
     </section>
 
-    <!-- SEZIONE MISSIONE E VALORI -->
     <section id="valori" class="py-5 bg-dark bg-opacity-25">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -204,7 +207,6 @@
         </div>
     </section>
 
-    <!-- SEZIONE ORGANIGRAMMA -->
     <section id="organigramma" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
@@ -214,18 +216,19 @@
             <div class="row justify-content-center g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="org-card h-100">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Presidente">
-                        <h5 class="fw-bold mb-1">Nome Cognome</h5>
+                        
+                        <div class="avatar-placeholder">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h5 class="fw-bold mb-1">Luigi Cassata</h5>
                         <p class="text-warning small fw-bold mb-3">PRESIDENTE</p>
-                        <p class="testo-leggero small mb-0">Rappresentante legale dell'associazione e coordinatore generale delle attività operative e sociali.</p>
+                        <p class="testo-leggero small mb-0">Rappresentante legale dell'associazione e coordinatore generale delle attività operative, sanitarie e sociali sul territorio.</p>
                     </div>
                 </div>
-                <!-- Puoi copiare e incollare il blocco "org-card" per aggiungere Vice Presidente, Segretario, ecc. -->
             </div>
         </div>
     </section>
 
-    <!-- FOOTER SEMPLIFICATO -->
     <footer class="py-4 text-center mt-5">
         <div class="container">
             <p class="mb-0 testo-leggero small">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</p>
