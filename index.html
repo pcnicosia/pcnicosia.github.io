@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</title>
+    
+    <!-- Bootstrap CSS per la grafica moderna -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* Colori Istituzionali */
+        .bg-anpas-blue { background-color: #004b87 !important; }
+        
+        /* Stile della sezione gigante iniziale (Hero) */
+        .hero-section {
+            background: linear-gradient(rgba(0, 75, 135, 0.9), rgba(0, 75, 135, 0.9)), url('https://images.unsplash.com/photo-1587556930799-8dca6a284617?q=80&w=2000&auto=format&fit=crop') center/cover;
+            color: white;
+            padding: 120px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DI NAVIGAZIONE (NAVBAR) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-anpas-blue shadow sticky-top">
+        <div class="container">
+            <!-- Nome in alto a sinistra -->
+            <a class="navbar-brand fw-bold" href="#">P.A. Nicosia O.d.V.</a>
+            
+            <!-- Bottone "Hamburger" per i telefoni -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Voci del menu -->
+            <div class="collapse navbar-collapse" id="menuNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Chi Siamo</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-warning" href="#">⚠️ Allerte</a></li>
+                </ul>
+                <a href="#" class="btn btn-warning fw-bold rounded-pill px-4">Diventa Volontario</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Intestazione Principale) -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h1>
+            <p class="lead mb-5 px-lg-5">Al servizio della comunità. Emergenza sanitaria, Protezione Civile e supporto sociale costante sul nostro territorio.</p>
+            
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#" class="btn btn-danger btn-lg fw-bold shadow">Emergenze</a>
+                <a href="#" class="btn btn-outline-light btn-lg fw-bold shadow">Scopri le Attività</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Script per far funzionare i menu a tendina su smartphone -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
