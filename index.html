@@ -5,60 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</title>
     
-    <!-- Bootstrap CSS per la grafica moderna -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Google Fonts: Inter (Stile Apple) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Libreria AOS per le animazioni fluide -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* Colori Istituzionali */
-        .bg-anpas-blue { background-color: #004b87 !important; }
-        
-        /* Stile della sezione gigante iniziale (Hero) */
-        .hero-section {
-            background: linear-gradient(rgba(0, 75, 135, 0.9), rgba(0, 75, 135, 0.9)), url('https://images.unsplash.com/photo-1587556930799-8dca6a284617?q=80&w=2000&auto=format&fit=crop') center/cover;
+        /* Regole Generali Elite */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505; /* Nero profondo, molto elegante */
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Effetto Vetro (Glassmorphism) per la Navbar */
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Stile Bottoni Elite */
+        .btn-elite-primary {
+            background-color: #e65c00;
             color: white;
-            padding: 120px 0;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-elite-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.4);
+            color: white;
+        }
+        
+        .btn-elite-outline {
+            background-color: transparent;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.2s;
+        }
+        .btn-elite-outline:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Hero a schermo intero */
+        .hero-section {
+            height: 100vh; /* Prende il 100% dell'altezza dello schermo */
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1587556930799-8dca6a284617?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        /* Sfumatura che dal trasparente va al nero profondo del sito */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, #050505 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Tiene il testo sopra la sfumatura */
+        }
+
+        h1 {
+            font-weight: 800;
+            letter-spacing: -1px; /* Stringe leggermente le lettere stile Apple */
+            font-size: clamp(2.5rem, 5vw, 4.5rem); /* Si adatta perfettamente a telefoni e PC */
+        }
+        
+        .testo-leggero {
+            color: #a1a1a6; /* Il classico grigio elegante di Apple */
+            font-weight: 400;
         }
     </style>
 </head>
 <body>
 
-    <!-- BARRA DI NAVIGAZIONE (NAVBAR) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-anpas-blue shadow sticky-top">
+    <!-- NAVBAR IN VETRO -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
-            <!-- Nome in alto a sinistra -->
-            <a class="navbar-brand fw-bold" href="#">P.A. Nicosia O.d.V.</a>
+            <a class="navbar-brand fw-bold tracking-tight" href="#">P.A. Nicosia O.d.V.</a>
             
-            <!-- Bottone "Hamburger" per i telefoni -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Voci del menu -->
             <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Chi Siamo</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold text-warning" href="#">⚠️ Allerte</a></li>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#">L'Associazione</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-2" href="#">Aree d'Intervento</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger fw-bold mx-2" href="#">⚠️ Allerte</a></li>
                 </ul>
-                <a href="#" class="btn btn-warning fw-bold rounded-pill px-4">Diventa Volontario</a>
+                <a href="#" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION (Intestazione Principale) -->
+    <!-- HERO SECTION APPLE-STYLE -->
     <header class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h1>
-            <p class="lead mb-5 px-lg-5">Al servizio della comunità. Emergenza sanitaria, Protezione Civile e supporto sociale costante sul nostro territorio.</p>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
             
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#" class="btn btn-danger btn-lg fw-bold shadow">Emergenze</a>
-                <a href="#" class="btn btn-outline-light btn-lg fw-bold shadow">Scopri le Attività</a>
+            <!-- data-aos aggiunge l'animazione dal basso -->
+            <h1 class="mb-4" data-aos="fade-up" data-aos-duration="1000">
+                Pronti a intervenire.<br>
+                <span class="text-anpas-orange" style="color: #e65c00;">Sempre al vostro fianco.</span>
+            </h1>
+            
+            <p class="lead mb-5 px-lg-5 testo-leggero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                Dal 1990 la Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V. opera per la sicurezza, la salute e il supporto sociale del territorio.
+            </p>
+            
+            <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <a href="#" class="btn btn-elite-primary shadow-lg">Segnala un'emergenza</a>
+                <a href="#" class="btn btn-elite-outline">Scopri i nostri mezzi</a>
             </div>
+            
         </div>
     </header>
 
-    <!-- Script per far funzionare i menu a tendina su smartphone -->
+    <!-- SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Inizializza il motore delle animazioni
+        AOS.init({
+            once: true, // L'animazione avviene solo la prima volta che si scorre
+            offset: 50
+        });
+    </script>
 </body>
 </html>
