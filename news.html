@@ -76,7 +76,6 @@
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
-        /* Lista Notizie in modalità Timeline/Archivio */
         .archive-item {
             background: rgba(20, 20, 20, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -144,8 +143,8 @@
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">CRONOLOGIA ATTIVITÀ</span>
-            <h1 class="display-4 fw-bold text-white mb-2">Archivio Attività</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">La raccolta storica di tutti gli interventi, le esercitazioni e i progetti sociali portati a termine dall'Associazione.</p>
+            <h1 class="display-4 fw-bold text-white mb-2">Archivio News</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">La raccolta storica di tutti gli interventi, i comunicati ufficiali e i progetti sociali portati a termine dall'Associazione.</p>
         </div>
     </header>
 
@@ -154,10 +153,31 @@
             <div class="row g-4 justify-content-center">
                 
                 <div class="col-lg-10" data-aos="fade-up">
+                    
+                    <!-- NOTIZIA IN EVIDENZA: AGGRESSIONE RIPOSTO -->
+                    <div class="archive-item mb-4 border-danger" style="background: rgba(220, 53, 69, 0.03);">
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-4">
+                            <div>
+                                <span class="badge bg-danger px-3 py-1 rounded-pill fw-bold text-white small me-2 mb-2"><i class="fa-solid fa-bullhorn me-2"></i>COMUNICATO ANPAS</span>
+                                <h3 class="fw-bold text-white d-block mb-0 mt-1">Basta aggressioni ai soccorritori: solidarietà alla Croce Blu</h3>
+                            </div>
+                            <span class="text-danger small fw-bold">Ultime 24h</span>
+                        </div>
+                        <p class="testo-leggero mb-3">Il Presidente Regionale di ANPAS Sicilia, a nome di tutto il movimento delle Pubbliche Assistenze siciliane, esprime la più ferma condanna e la totale solidarietà alla Croce Blu di Catania per la vile aggressione subita dai propri volontari durante un intervento del 118 nel comune di Riposto.</p>
+                        <p class="testo-leggero mb-4">I volontari in servizio, intervenuti prontamente per soccorrere un ferito, sono stati presi di mira con una violenza inaccettabile che ha causato, oltre alla gravissima intimidazione fisica e psicologica, anche ingenti danni ai materiali e alle apparecchiature a bordo del mezzo di soccorso.</p>
+                        
+                        <blockquote class="border-start border-danger border-3 ps-4 mb-4 text-white fst-italic">
+                            "Non è più tollerabile che chi risponde a una richiesta d'aiuto per salvare vite umane debba temere per la propria incolumità. I nostri volontari sono una risorsa preziosa per il territorio, un presidio di solidarietà e salute pubblica. Subire aggressioni e vedere danneggiati gli strumenti salvavita, acquistati con i sacrifici dei cittadini e delle associazioni, è un insulto a tutta la comunità civile."
+                        </blockquote>
+                        
+                        <p class="testo-leggero mb-0">ANPAS Sicilia si stringe attorno ai volontari aggrediti e al direttivo della Croce Blu di Catania, ribadendo la necessità urgente di tutele reali e concrete per tutto il personale del soccorso. L'intero movimento regionale continuerà a operare a testa alta, ma chiede alle istituzioni e alle forze dell'ordine un segnale forte e immediato affinché simili episodi non restino impuniti e non abbiano più a ripetersi.</p>
+                    </div>
+
+                    <!-- ARCHIVIO PRECEDENTE -->
                     <div class="archive-item mb-4">
                         <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
                             <div>
-                                <span class="badge bg-danger px-3 py-1 rounded-pill fw-bold text-white small me-2">PROT. CIVILE</span>
+                                <span class="badge bg-primary px-3 py-1 rounded-pill fw-bold text-white small me-2">PROT. CIVILE</span>
                                 <h4 class="fw-bold text-white d-inline-block align-middle mb-0 mt-2 mt-sm-0">Monitoraggio del territorio e Campagna estiva A.I.B.</h4>
                             </div>
                             <span class="text-secondary small fw-bold">Luglio 2026</span>
@@ -192,6 +212,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
