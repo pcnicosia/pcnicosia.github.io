@@ -88,12 +88,20 @@
             border-color: rgba(255, 255, 255, 0.12);
         }
 
-        /* Stile aggiuntivo per l'articolo in evidenza */
         .article-lead {
             color: #e5e5ea;
             font-size: 1.15rem;
             line-height: 1.8;
             font-weight: 400;
+        }
+
+        /* Nuovo contenitore per le foto con testo per non tagliarle mai */
+        .article-image-container {
+            width: 100%;
+            background-color: #050505;
+            text-align: center;
+            border-bottom: 4px solid #dc3545;
+            padding: 20px 0;
         }
 
         footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
@@ -164,11 +172,13 @@
                 
                 <div class="col-lg-10" data-aos="fade-up">
                     
-                    <!-- ARTICOLO EDITORIALE IN EVIDENZA -->
+                    <!-- ARTICOLO EDITORIALE IN EVIDENZA (IMMAGINE NON TAGLIATA) -->
                     <div class="archive-item mb-5 p-0 overflow-hidden border-danger" style="background: rgba(18, 18, 18, 0.8);">
                         
-                        <!-- Immagine di Copertina (Header Articolo) -->
-                        <img src="aggressione.JPG" alt="Basta aggressioni ai soccorritori" class="w-100 object-fit-cover" style="height: 450px; border-bottom: 4px solid #dc3545;">
+                        <!-- Nuovo contenitore che non taglia l'immagine -->
+                        <div class="article-image-container">
+                            <img src="aggressione.JPG" alt="Basta aggressioni ai soccorritori" style="max-height: 500px; max-width: 100%; height: auto; object-fit: contain;">
+                        </div>
                         
                         <!-- Corpo Testuale dell'Articolo -->
                         <div class="p-4 p-md-5">
