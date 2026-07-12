@@ -72,7 +72,7 @@
             background-image: radial-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
             background-size: 35px 35px;
         }
-        .page-hero-content { position: relative; z-index: 2; }
+        .page-hero-content { relative; z-index: 2; }
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
@@ -83,9 +83,6 @@
             padding: 30px;
             backdrop-filter: blur(10px);
             transition: border-color 0.3s;
-        }
-        .archive-item:hover {
-            border-color: rgba(255, 255, 255, 0.12);
         }
 
         .article-lead {
@@ -99,7 +96,6 @@
             width: 100%;
             background-color: #050505;
             text-align: center;
-            border-bottom: 4px solid #0d6efd;
             padding: 0; 
         }
 
@@ -166,92 +162,9 @@
     <section class="py-5">
         <div class="container py-4">
             <div class="row g-4 justify-content-center">
-                
-                <div class="col-lg-10" data-aos="fade-up">
-                    
-                    <!-- ARTICOLO EDITORIALE IN EVIDENZA CON NOME IMMAGINE CORRETTO -->
-                    <div class="archive-item mb-5 p-0 overflow-hidden border-primary" style="background: rgba(18, 18, 18, 0.8);">
-                        
-                        <div class="article-image-container">
-                            <img src="sour.JPG" alt="Foto Accordo SOUR" style="width: 100%; height: auto; max-height: 500px; object-fit: cover;">
-                        </div>
-                        
-                        <div class="p-4 p-md-5">
-                            
-                            <div class="d-flex align-items-center flex-wrap gap-3 mb-4 border-bottom border-secondary border-opacity-25 pb-4">
-                                <span class="badge bg-primary px-3 py-2 rounded-pill fw-bold text-white small"><i class="fa-solid fa-handshake me-2"></i>ISTITUZIONALE</span>
-                                <span class="text-secondary small fw-bold"><i class="fa-regular fa-calendar me-2"></i>01 Luglio 2026</span>
-                                <span class="text-secondary small fw-bold"><i class="fa-regular fa-clock me-2"></i>3 min di lettura</span>
-                            </div>
-                            
-                            <h2 class="fw-bold text-white mb-4 display-6" style="letter-spacing: -1px;">Protezione Civile, Regione Siciliana e Anpas Sicilia insieme per la Sala Operativa Unica Regionale</h2>
-                            
-                            <p class="article-lead mb-4">
-                                Rafforzare la capacità di monitoraggio del territorio e di gestione delle emergenze attraverso una collaborazione strutturata tra Pubblica Amministrazione e volontariato organizzato fortemente voluta dal direttore Cocina. È questo l’obiettivo della convenzione sottoscritta tra il Dipartimento regionale della Protezione Civile della Presidenza della Regione Siciliana e Anpas Sicilia, che entra ora nella fase operativa dopo il completamento del percorso formativo rivolto ai volontari destinati a operare a supporto della Sala Operativa Unica Regionale (SOUR).
-                            </p>
-                            
-                            <p class="testo-leggero mb-4" style="line-height: 1.8;">
-                                La SOUR rappresenta il centro nevralgico del sistema regionale di Protezione Civile, assicurando il monitoraggio continuo del territorio, il raccordo con gli enti coinvolti e il coordinamento delle attività di gestione delle emergenze. Il percorso formativo, curato dal dott. Mannella, responsabile della Sala Operativa Unica Regionale, ha consentito ai volontari di acquisire competenze specifiche sulle procedure operative, sull’impiego delle piattaforme informatiche dedicate, sulla gestione dei flussi informativi e sulle modalità di supporto alle attività della Sala Operativa.
-                            </p>
-                            
-                            <p class="testo-leggero mb-4" style="line-height: 1.8;">
-                                I volontari selezionati, già in possesso di una consolidata esperienza nelle attività di Protezione Civile, saranno progressivamente coinvolti nello sviluppo di competenze specialistiche nell’utilizzo delle piattaforme digitali per la gestione delle emergenze, nelle procedure operative, nella sicurezza informatica e nella comunicazione istituzionale in emergenza.
-                            </p>
-
-                            <blockquote class="border-start border-primary border-4 ps-4 py-3 my-5 text-white fst-italic fs-5" style="background: linear-gradient(to right, rgba(13, 110, 253, 0.08), transparent); border-radius: 0 10px 10px 0;">
-                                "Dal 2020, quando sono rientrato alla guida del Dipartimento regionale della Protezione Civile, ho voluto imprimere una svolta decisa al sistema del volontariato organizzato. Oggi, a distanza di sei anni, possiamo contare su una realtà siciliana altamente qualificata, meglio attrezzata, fortemente motivata e sempre più specializzata. Il progetto “Pro_Digi” rappresenta un esempio di eccellenza. Ciò dimostra come la sinergia tra istituzioni e volontariato organizzato rappresenti uno dei principali punti di forza della Protezione Civile siciliana."
-                                <footer class="blockquote-footer mt-2 test-secondary text-end">Salvo Cocina, <cite title="Source Title">Direttore DRPC Sicilia</cite></footer>
-                            </blockquote>
-
-                            <blockquote class="border-start border-warning border-4 ps-4 py-3 my-5 text-white fst-italic fs-5" style="background: linear-gradient(to right, rgba(255, 193, 7, 0.08), transparent); border-radius: 0 10px 10px 0;">
-                                "Questo accordo rappresenta un importante esempio di collaborazione tra istituzioni e volontariato organizzato. I nostri volontari metteranno a disposizione competenze, esperienza e spirito di servizio per contribuire al rafforzamento della capacità di monitoraggio e di risposta del sistema regionale di Protezione Civile."
-                                <footer class="blockquote-footer mt-2 test-secondary text-end">Lorenzo Colaleo, <cite title="Source Title">Presidente Anpas Sicilia</cite></footer>
-                            </blockquote>
-                            
-                            <p class="testo-leggero mb-0" style="line-height: 1.8;">
-                                La collaborazione consentirà di verificare l’efficacia di un modello organizzativo fondato sulla piena integrazione tra strutture pubbliche e volontariato organizzato. Qualora i risultati confermino la validità dell’iniziativa, il modello potrà essere progressivamente esteso anche alle altre organizzazioni di volontariato di Protezione Civile iscritte nell’Elenco territoriale della Regione Siciliana, così da valorizzare le migliori competenze disponibili e rafforzare ulteriormente la capacità di risposta del sistema regionale.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- ARCHIVIO STORICO -->
-                    <h4 class="fw-bold text-white mb-4 mt-5 border-bottom border-secondary border-opacity-25 pb-3">Notizie Precedenti</h4>
-                    
-                    <div class="archive-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div>
-                                <span class="badge bg-danger px-3 py-1 rounded-pill fw-bold text-white small me-2">COMUNICATO</span>
-                                <h5 class="fw-bold text-white d-inline-block align-middle mb-0 mt-2 mt-sm-0">Basta aggressioni ai soccorritori: solidarietà alla Croce Blu</h5>
-                            </div>
-                            <span class="text-secondary small fw-bold">11 Luglio 2026</span>
-                        </div>
-                        <p class="testo-leggero small mb-0">Il Presidente Regionale di ANPAS Sicilia, a nome di tutto il movimento delle Pubbliche Assistenze siciliane, esprime la più ferma condanna e la totale solidarietà alla Croce Blu di Catania per la vile aggressione subita dai propri volontari durante un intervento del 118 nel comune di Riposto.</p>
-                    </div>
-
-                    <div class="archive-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div>
-                                <span class="badge bg-secondary px-3 py-1 rounded-pill fw-bold text-white small me-2">PROT. CIVILE</span>
-                                <h5 class="fw-bold text-white d-inline-block align-middle mb-0 mt-2 mt-sm-0">Monitoraggio del territorio e Campagna estiva A.I.B.</h5>
-                            </div>
-                            <span class="text-secondary small fw-bold">Luglio 2026</span>
-                        </div>
-                        <p class="testo-leggero small mb-0">Presidio costante dei nostri volontari dotati di moduli idrici ad alta pressione per prevenire ed arginare focolari estivi nelle aree verdi comunali di Nicosia.</p>
-                    </div>
-
-                    <div class="archive-item mb-4">
-                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
-                            <div>
-                                <span class="badge bg-info px-3 py-1 rounded-pill fw-bold text-dark small me-2">SOCIALE</span>
-                                <h5 class="fw-bold text-white d-inline-block align-middle mb-0 mt-2 mt-sm-0">Consegna alimentari al centro Caritas sussidiario</h5>
-                            </div>
-                            <span class="text-secondary small fw-bold">Giugno 2026</span>
-                        </div>
-                        <p class="testo-leggero small mb-0">In collaborazione con la rete locale, sono state completate le operazioni logistiche di stoccaggio e scarico dei pacchi dono per il sostentamento dei nuclei familiari più fragili.</p>
-                    </div>
-
+                <div id="dynamic-news-page" class="col-lg-10">
+                    <div class="text-center py-5 text-secondary"><i class="fa-solid fa-circle-notch fa-spin me-2"></i>Caricamento articoli...</div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -296,6 +209,85 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true, offset: 50 });</script>
+    <script>
+        AOS.init({ once: true, offset: 50 });
+
+        fetch('news.json')
+            .then(response => response.json())
+            .then(data => {
+                const targetArea = document.getElementById('dynamic-news-page');
+                let fullHtml = '';
+
+                if(data.length === 0) {
+                    targetArea.innerHTML = '<div class="text-center text-secondary">Nessun articolo presente nell\'archivio.</div>';
+                    return;
+                }
+
+                // 1. GESTIONE DELL'ARTICOLO PRINCIPALE (Il primo elemento del JSON)
+                const primo = data[0];
+                
+                // Gestione dinamica dei blocchi di citazione (mostrati solo se presenti nel database JSON)
+                let blockquote1 = primo.citazione_1 ? `
+                    <blockquote class="border-start ${primo.borderClass || 'border-danger'} border-4 ps-4 py-3 my-5 text-white fst-italic fs-5" style="background: linear-gradient(to right, rgba(255,255,255,0.03), transparent); border-radius: 0 10px 10px 0;">
+                        "${primo.citazione_1}"
+                        ${primo.autore_citazione_1 ? `<footer class="blockquote-footer mt-2 text-secondary text-end">${primo.autore_citazione_1}</footer>` : ''}
+                    </blockquote>` : '';
+                
+                let blockquote2 = primo.citazione_2 ? `
+                    <blockquote class="border-start border-warning border-4 ps-4 py-3 my-5 text-white fst-italic fs-5" style="background: linear-gradient(to right, rgba(255,193,7,0.04), transparent); border-radius: 0 10px 10px 0;">
+                        "${primo.citazione_2}"
+                        ${primo.autore_citazione_2 ? `<footer class="blockquote-footer mt-2 text-secondary text-end">${primo.autore_citazione_2}</footer>` : ''}
+                    </blockquote>` : '';
+
+                fullHtml += `
+                    <div class="archive-item mb-5 p-0 overflow-hidden ${primo.borderClass || ''}" style="background: rgba(18, 18, 18, 0.8);">
+                        <div class="article-image-container">
+                            <img src="${primo.immagine}" alt="${primo.titolo}" style="width:100%; height:auto; max-height:520px; object-fit:cover;">
+                        </div>
+                        <div class="p-4 p-md-5">
+                            <div class="d-flex align-items-center flex-wrap gap-3 mb-4 border-bottom border-secondary border-opacity-25 pb-4">
+                                <span class="badge ${primo.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${primo.categoria}</span>
+                                <span class="text-secondary small fw-semibold"><i class="fa-regular fa-calendar me-2"></i>${primo.data}</span>
+                                <span class="text-secondary small fw-semibold"><i class="fa-regular fa-clock me-2"></i>${primo.lettura}</span>
+                            </div>
+                            <h2 class="fw-bold text-white mb-4 display-6" style="letter-spacing: -1px;">${primo.titolo}</h2>
+                            <p class="article-lead mb-4">${primo.lead}</p>
+                            ${primo.paragrafo_1 ? `<p class="testo-leggero mb-4">${primo.paragrafo_1}</p>` : ''}
+                            ${primo.paragrafo_2 ? `<p class="testo-leggero mb-4">${primo.paragrafo_2}</p>` : ''}
+                            ${blockquote1}
+                            ${blockquote2}
+                            ${primo.paragrafo_3 ? `<p class="testo-leggero mb-0">${primo.paragrafo_3}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                // 2. GESTIONE DELLE NOTIZIE PRECEDENTI (Tutte le altre dalla seconda in poi)
+                if(data.length > 1) {
+                    fullHtml += `<h4 class="fw-bold text-white mb-4 mt-5 border-bottom border-secondary border-opacity-25 pb-3">Notizie Precedenti</h4>`;
+                    
+                    for(let i = 1; i < data.length; i++) {
+                        const item = data[i];
+                        fullHtml += `
+                            <div class="archive-item mb-4" data-aos="fade-up">
+                                <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+                                    <div>
+                                        <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-1 rounded-pill fw-bold text-white small me-2">${item.categoria}</span>
+                                        <h5 class="fw-bold text-white d-inline-block align-middle mb-0 mt-2 mt-sm-0">${item.titolo}</h5>
+                                    </div>
+                                    <span class="text-secondary small fw-bold">${item.data}</span>
+                                </div>
+                                <p class="testo-leggero small mb-0">${item.descrizione_breve}</p>
+                            </div>
+                        `;
+                    }
+                }
+
+                targetArea.innerHTML = fullHtml;
+            })
+            .catch(err => {
+                console.error("Errore database notizie:", err);
+                document.getElementById('dynamic-news-page').innerHTML = '<div class="text-center text-danger">Errore nel caricamento dell\'archivio.</div>';
+            });
+    </script>
 </body>
 </html>
