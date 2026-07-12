@@ -65,7 +65,6 @@
             align-items: flex-end;
             padding-bottom: 5rem;
             position: relative;
-            /* Foto temporanea a tema soccorso */
             background: url('https://images.unsplash.com/photo-1542618035-77987820464c?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
         }
         .page-hero-overlay {
@@ -114,14 +113,13 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR SINCRONIZZATA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-    <img src="IMG_0460.jpeg" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-    <span>P.A. Nicosia O.d.V.</span>
-</a>
-
+                <img src="IMG_0460.jpeg" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
+                <span>P.A. Nicosia O.d.V.</span>
+            </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -140,9 +138,9 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold" href="#">Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="index.html#servizi">Sanitario</a></li>
-                            <li><a class="dropdown-item" href="index.html#servizi">Sociale</a></li>
+                            <li><a class="dropdown-item fw-bold text-white" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="index.html#servizi"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -225,7 +223,6 @@
         </div>
     </section>
 
-    <!-- FOOTER ISTITUZIONALE COMPLETO CON DATI REALI -->
     <footer id="contatti" class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
