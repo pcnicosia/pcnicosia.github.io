@@ -115,19 +115,42 @@
             border-radius: 20px;
         }
 
-        .intervento-card {
-            position: relative;
+        /* CARD EDITORIALI NEWS COSTRUITE ALLA PERFEZIONE */
+        .news-card {
+            background: rgba(18, 18, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
             overflow: hidden;
-            height: 400px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(15px);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
         }
-        .intervento-card:hover { transform: scale(1.02); }
-        .intervento-img-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.2) 60%, rgba(0,0,0,0) 100%);
-            display: flex; flex-direction: column; justify-content: flex-end; padding: 35px;
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .news-img-box {
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .news-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .news-card:hover .news-img {
+            transform: scale(1.04);
+        }
+        .news-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
@@ -253,30 +276,62 @@
         <div class="container py-5">
             <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3" data-aos="fade-up">
                 <div>
-                    <h2 class="display-6 text-white mb-2">Operatività sul Campo</h2>
-                    <p class="testo-leggero mb-0">Cronologia delle ultime attività e dei principali interventi di soccorso gestiti dalla nostra O.d.V.</p>
+                    <h2 class="display-6 text-white mb-2">Novità ed Attività Recenti</h2>
+                    <p class="testo-leggero mb-0">Rimani aggiornato sulle ultime operazioni sul campo, i progetti e le attività gestite dalla nostra O.d.V.</p>
                 </div>
-                <a href="#" class="btn btn-elite-outline">Vedi Archivio News</a>
+                <a href="news.html" class="btn btn-elite-outline">Vedi Archivio News</a>
             </div>
+            
             <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="intervento-card" style="background: url('Passamano.JPG') center/cover;">
-                        <div class="intervento-img-overlay">
-                            <span class="badge bg-info text-dark mb-2 align-self-start px-3 py-2 rounded-pill fw-bold">SOCIALE</span>
-                            <h3 class="fw-bold text-white mb-2">Supporto e Distribuzione Beni</h3>
-                            <p class="testo-leggero small mb-0">Attività stabili di assistenza alla popolazione e distribuzione di beni di prima necessità in collaborazione con gli enti del territorio.</p>
+                
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card">
+                        <div class="news-img-box">
+                            <img src="canadair.JPG" alt="Campagna AIB" class="news-img">
+                        </div>
+                        <div class="news-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-danger px-3 py-2 rounded-pill fw-bold text-white small">PROT. CIVILE</span>
+                                <span class="small text-secondary fw-semibold">Luglio 2026</span>
+                            </div>
+                            <h5 class="fw-bold text-white mb-2">Campagna Estiva A.I.B. attiva sul territorio</h5>
+                            <p class="testo-leggero small mb-0 flex-grow-1">Squadre antincendio schierate H24 per il monitoraggio dei boschi nicosiani e la prontezza operativa in coordinamento con la sala della Regione Siciliana.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="intervento-card" style="background: url('Cardiaco.JPG') center/cover;">
-                        <div class="intervento-img-overlay">
-                            <span class="badge bg-warning text-dark mb-2 align-self-start px-3 py-2 rounded-pill fw-bold">FORMAZIONE</span>
-                            <h3 class="fw-bold text-white mb-2">Addestramento e Corsi BLSD</h3>
-                            <p class="testo-leggero small mb-0">Sessioni costanti di formazione sul primo soccorso e manovre rianimatorie per garantire la massima prontezza operativa dei volontari.</p>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card">
+                        <div class="news-img-box">
+                            <img src="Passamano.JPG" alt="Distribuzione beni" class="news-img">
+                        </div>
+                        <div class="news-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-info px-3 py-2 rounded-pill fw-bold text-dark small">SOCIALE</span>
+                                <span class="small text-secondary fw-semibold">Giugno 2026</span>
+                            </div>
+                            <h5 class="fw-bold text-white mb-2">Distribuzione straordinaria beni alimentari</h5>
+                            <p class="testo-leggero small mb-0 flex-grow-1">Completata con successo la consegna dei pacchi della solidarietà al centro di raccolta Caritas per il supporto capillare delle famiglie fragili locali.</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-card">
+                        <div class="news-img-box">
+                            <img src="Cardiaco.JPG" alt="Corsi Primo Soccorso" class="news-img">
+                        </div>
+                        <div class="news-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-warning px-3 py-2 rounded-pill fw-bold text-dark small">FORMAZIONE</span>
+                                <span class="small text-secondary fw-semibold">Maggio 2026</span>
+                            </div>
+                            <h5 class="fw-bold text-white mb-2">Aperti i corsi BLSD alla cittadinanza</h5>
+                            <p class="testo-leggero small mb-0 flex-grow-1">Nuove sessioni di addestramento sulle manovre rianimatorie salvavita e uso del defibrillatore aperte a scuole, aziende e privati cittadini.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
