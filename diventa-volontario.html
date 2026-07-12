@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diventa Volontario - P.A. Nicosia O.d.V.</title>
     
+    <link rel="icon" type="image/png" href="Logo.PNG">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,6 +50,17 @@
             transform: translateX(4px);
         }
 
+        .btn-elite-outline {
+            background-color: transparent;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.2s;
+        }
+        .btn-elite-outline:hover { background-color: white; color: black; }
+
         .btn-elite-primary {
             background-color: #e65c00;
             color: white;
@@ -81,6 +94,28 @@
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
+        /* Card Testimonianze */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 35px;
+            height: 100%;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s;
+        }
+        .testimonial-card:hover {
+            border-color: rgba(230, 92, 0, 0.2);
+        }
+        .quote-icon {
+            font-size: 2.5rem;
+            color: rgba(230, 92, 0, 0.15);
+            position: absolute;
+            top: 20px;
+            right: 25px;
+        }
+
         .form-container-card {
             background: rgba(20, 20, 20, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -102,12 +137,8 @@
             border-color: rgba(230, 92, 0, 0.5);
             box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.15);
         }
-        .form-select option {
-            background: #0f0f10;
-            color: white;
-        }
+        .form-select option { background: #0f0f10; color: white; }
 
-        /* Checkbox personalizzata GDPR */
         .form-check-input {
             background-color: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.15);
@@ -177,9 +208,48 @@
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">UNISCITI A NOI</span>
             <h1 class="display-4 fw-bold text-white mb-2">Diventa Volontario</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Metti le tue competenze e il tuo tempo a disposizione della comunità. Compila il modulo sottostante per inviare la tua candidatura.</p>
+            <p class="lead testo-leggero col-lg-8 mb-0">Metti le tue competenze e il tuo tempo a disposition della comunità. Scopri la forza del gruppo attraverso le parole delle nostre squadre.</p>
         </div>
     </header>
+
+    <section class="py-5 bg-black bg-opacity-20">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="h3 fw-bold text-white mb-2">La Voce del Nostro Gruppo</h2>
+                <p class="testo-leggero max-w-xl mx-auto small">Cosa significa indossare la divisa arancione della Pubblica Assistenza? Lo raccontano i nostri operatori.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p class="testo-leggero fst-italic mb-4">"Ho iniziato quasi per gioco, cercando un modo per impiegare i pomeriggi liberi durante l'università. Oggi la Protezione Civile è la mia seconda famiglia. Salire sul modulo antincendio o montare una tenda d'emergenza ti insegna il valore del coordinamento, della disciplina e dell'aiuto reciproco. Ti cambia dentro."</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-gradient px-3 py-2 rounded-circle fw-bold text-dark" style="background: #e65c00;">G</div>
+                            <div>
+                                <h6 class="fw-bold text-white mb-0">Giuseppe</h6>
+                                <span class="text-secondary small">Volontario Settore Protezione Civile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p class="testo-leggero fst-italic mb-4">"Ricordo ancora il mio primo servizio in ambulanza: l'adrenalina, la paura di sbagliare, ma anche la forza incredibile trasmessa dal caposquadra. Svolgere attività sociosanitaria sul territorio ti mette a stretto contatto con la fragilità delle persone, ma lo sguardo di ringraziamento di un anziano ripaga di ogni singola notte in bianco."</p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-gradient px-3 py-2 rounded-circle fw-bold text-dark" style="background: #0d6efd;">F</div>
+                            <div>
+                                <h6 class="fw-bold text-white mb-0">Francesca</h6>
+                                <span class="text-secondary small">Operatrice Soccorso Sanitario</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="py-5">
         <div class="container py-4">
@@ -187,6 +257,9 @@
                 <div class="col-lg-9" data-aos="fade-up" data-aos-delay="100">
                     
                     <div class="form-container-card shadow-lg">
+                        <h4 class="fw-bold text-white mb-2">Invia la tua Candidatura</h4>
+                        <p class="testo-leggero small mb-4">Compila il modulo inserendo i tuoi dati istituzionali. Verrai ricontattato dalla segreteria per partecipare alla prossima sessione informativa d'inserimento.</p>
+                        
                         <form action="#" method="POST">
                             <div class="row g-4">
                                 <div class="col-md-6">
@@ -277,7 +350,7 @@
                 </div>
             </div>
             <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | Portale Istituzionale</p>
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-white">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
