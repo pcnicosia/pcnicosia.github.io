@@ -87,7 +87,6 @@
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
-        /* Pannello Allerta Live */
         .status-panel {
             background: rgba(25, 25, 25, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -107,7 +106,6 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(25, 135, 84, 0); }
         }
 
-        /* Card Procedure */
         .proc-card {
             background: rgba(20, 20, 20, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -118,7 +116,6 @@
         }
         .proc-card:hover { border-color: rgba(255, 255, 255, 0.15); }
 
-        /* Form Stile Premium */
         .elite-input {
             background: rgba(30, 30, 30, 0.5) !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -127,10 +124,7 @@
             padding: 14px;
             transition: border-color 0.3s;
         }
-        .elite-input:focus {
-            border-color: #e65c00 !important;
-            box-shadow: none !important;
-        }
+        .elite-input:focus { border-color: #e65c00 !important; box-shadow: none !important; }
 
         footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
         footer a { color: #a1a1a6; text-decoration: none; }
@@ -138,11 +132,10 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="IMG_0460.jpeg" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
                 <span>P.A. Nicosia O.d.V.</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
@@ -164,7 +157,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="index.html#servizi"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -178,12 +171,11 @@
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Documenti</a></li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
                 </ul>
-                <a href="#" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER OPERATIVO -->
     <header class="page-hero">
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
@@ -193,7 +185,6 @@
         </div>
     </header>
 
-    <!-- MONITORAGGIO LIVE -->
     <section id="allerte" class="py-5">
         <div class="container py-4">
             <div class="status-panel" data-aos="fade-up">
@@ -206,7 +197,6 @@
                         <p class="testo-leggero mb-0">I bollettini emessi dal Dipartimento Regionale della Protezione Civile non evidenziano rischi meteo, idrogeologici o idrici significativi per il comune di Nicosia. Il livello di attenzione è impostato su <strong>VERDE (Generica vigilanza)</strong>.</p>
                     </div>
                     <div class="col-md-4 text-md-end">
-                        <!-- LINK DIRETTO CORRETTO -->
                         <a href="https://www.protezionecivilesicilia.it/" target="_blank" class="btn btn-elite-outline w-100"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Bollettino DRPC</a>
                     </div>
                 </div>
@@ -214,14 +204,12 @@
         </div>
     </section>
 
-    <!-- PROCEDURE DI SICUREZZA -->
     <section id="procedure" class="py-5">
         <div class="container py-4">
             <div class="mb-5" data-aos="fade-up">
                 <h2 class="fw-bold text-white mb-2">Procedure di Autoprotezione</h2>
                 <p class="testo-leggero">Le buone pratiche da adottare immediatamente per ridurre i rischi in caso di calamità.</p>
             </div>
-            
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="proc-card">
@@ -248,7 +236,6 @@
         </div>
     </section>
 
-    <!-- NUMERI UTILI -->
     <section id="numeri" class="py-5 bg-dark bg-opacity-25">
         <div class="container py-4">
             <div class="row align-items-center g-5">
@@ -291,7 +278,6 @@
         </div>
     </section>
 
-    <!-- MODULO SEGNALAZIONE -->
     <section id="segnala" class="py-5">
         <div class="container py-5">
             <div class="row justify-content-center">
@@ -300,7 +286,6 @@
                         <h2 class="fw-bold text-white mb-2">Segnala un'Emergenza non Urgente</h2>
                         <p class="testo-leggero">Utilizza questo modulo per segnalare situazioni di potenziale rischio sul territorio (es. alberi pericolanti, dissesti stradali o piccoli smottamenti) che non richiedono l'intervento immediato del 112.</p>
                     </div>
-
                     <form class="row g-4">
                         <div class="col-md-6">
                             <label class="form-label small fw-semibold text-secondary">Nome Completo</label>
@@ -327,13 +312,15 @@
         </div>
     </section>
 
-    <!-- FOOTER ISTITUZIONALE COMPLETO -->
     <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
                     <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
-                    <p class="testo-leggero small pe-lg-4">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS). Aderente ad ANPAS.</p>
+                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                        <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
+                    </div>
                     <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
                     <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
@@ -343,7 +330,7 @@
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
                         <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="#">Area Riservata Volontari</a></li>
+                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
