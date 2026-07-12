@@ -65,7 +65,6 @@
             align-items: flex-end;
             padding-bottom: 5rem;
             position: relative;
-            /* COPERTINA REALE CON IL COLLARE CERVICALE */
             background: url('Collare.JPG') center/cover no-repeat;
         }
         .page-hero-overlay {
@@ -87,10 +86,7 @@
             height: 100%;
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
         }
-        .elite-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(220, 53, 69, 0.4);
-        }
+        .elite-card:hover { transform: translateY(-8px); border-color: rgba(220, 53, 69, 0.4); }
 
         .icon-box {
             width: 70px; height: 70px; border-radius: 18px;
@@ -109,7 +105,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="IMG_0460.jpeg" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
                 <span>P.A. Nicosia O.d.V.</span>
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
@@ -118,7 +114,6 @@
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html">Home</a></li>
-                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
@@ -130,15 +125,23 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html">Protezione Civile</a></li>
-                            <li><a class="dropdown-item fw-bold text-white" href="#">Sanitario</a></li>
-                            <li><a class="dropdown-item" href="index.html#servizi">Sociale</a></li>
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item fw-bold text-white" href="#"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Documenti</a></li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
                 </ul>
-                <a href="#" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
         </div>
     </nav>
@@ -155,7 +158,6 @@
     <section class="py-5" style="position: relative; z-index: 10;">
         <div class="container py-5">
             <div class="row g-4 mb-5">
-                
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="elite-card">
                         <div class="icon-box text-danger"><i class="fa-solid fa-truck-medical"></i></div>
@@ -163,7 +165,6 @@
                         <p class="testo-leggero mb-0">Servizio dedicato al trasporto infermi, dializzati, dimissioni ospedaliere e trasferimenti a lungo raggio. Gestione logistica con ambulanze di tipo A allestite con apparecchiature elettromedicali avanzate.</p>
                     </div>
                 </div>
-
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="elite-card">
                         <div class="icon-box text-danger"><i class="fa-solid fa-kit-medical"></i></div>
@@ -184,7 +185,6 @@
                     <img src="Cardiaco.JPG" alt="Corso BLSD" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-25" style="width: 100%; object-fit: cover; max-height: 450px;">
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -193,7 +193,10 @@
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
                     <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
-                    <p class="testo-leggero small pe-lg-4">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS). Aderente ad ANPAS.</p>
+                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                        <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
+                    </div>
                     <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
                     <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
@@ -203,7 +206,7 @@
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
                         <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="#">Area Riservata Volontari</a></li>
+                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
