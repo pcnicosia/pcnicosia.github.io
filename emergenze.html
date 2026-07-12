@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allerte ed Emergenze - P.A. Nicosia O.d.V.</title>
+    <title>Emergenze e Segnalazioni - P.A. Nicosia O.d.V.</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -15,8 +15,8 @@
             font-family: 'Inter', sans-serif;
             background-color: #050505;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(220, 53, 69, 0.06), transparent 40%),
-                radial-gradient(circle at 90% 30%, rgba(230, 92, 0, 0.04), transparent 40%);
+                radial-gradient(circle at 50% 10%, rgba(220, 53, 69, 0.03), transparent 45%),
+                radial-gradient(circle at 80% 80%, rgba(230, 92, 0, 0.01), transparent 40%);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -48,17 +48,6 @@
             transform: translateX(4px);
         }
 
-        .btn-elite-primary {
-            background-color: #e65c00;
-            color: white;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            border: none;
-            transition: transform 0.2s;
-        }
-        .btn-elite-primary:hover { transform: translateY(-2px); color: white; }
-
         .btn-elite-outline {
             background-color: transparent;
             color: white;
@@ -70,61 +59,81 @@
         }
         .btn-elite-outline:hover { background-color: white; color: black; }
 
+        .btn-elite-danger {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50px;
+            padding: 14px 35px;
+            font-weight: 600;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-elite-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.4);
+            color: white;
+        }
+
         .page-hero {
             height: 50vh;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
             position: relative;
-            background: linear-gradient(135deg, #0f0505 0%, #050505 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1e0508 100%);
         }
         .page-hero-pattern {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(220, 53, 69, 0.1) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(220, 53, 69, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
-        .status-panel {
-            background: rgba(25, 25, 25, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .emergency-box-card {
+            background: rgba(220, 53, 69, 0.03);
+            border: 1px solid rgba(220, 53, 69, 0.15);
             border-radius: 24px;
             padding: 40px;
             backdrop-filter: blur(10px);
         }
 
-        .pulse-green {
-            width: 14px; height: 14px; background: #198754; border-radius: 50%;
-            display: inline-block; box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7);
-            animation: pulseG 2s infinite;
-        }
-        @keyframes pulseG {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(25, 135, 84, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(25, 135, 84, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(25, 135, 84, 0); }
-        }
-
-        .proc-card {
-            background: rgba(20, 20, 20, 0.6);
+        .form-container-card {
+            background: rgba(20, 20, 20, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 30px;
-            height: 100%;
-            transition: border-color 0.3s;
+            border-radius: 24px;
+            padding: 45px;
+            backdrop-filter: blur(15px);
         }
-        .proc-card:hover { border-color: rgba(255, 255, 255, 0.15); }
 
-        .elite-input {
-            background: rgba(30, 30, 30, 0.5) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            color: #ffffff !important;
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 14px;
-            transition: border-color 0.3s;
+            color: white !important;
+            padding: 14px 20px;
+            transition: all 0.3s;
         }
-        .elite-input:focus { border-color: #e65c00 !important; box-shadow: none !important; }
+        .form-control:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(220, 53, 69, 0.5);
+            box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15);
+        }
+        .form-select option { background: #0f0f10; color: white; }
+
+        .form-check-input {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.2em;
+            transition: all 0.2s;
+        }
+        .form-check-input:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
 
         footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
         footer a { color: #a1a1a6; text-decoration: none; }
@@ -150,6 +159,7 @@
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -163,13 +173,13 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="#allerte">⚠️ Allerte Meteo</a></li>
+                            <li><a class="dropdown-item fw-bold text-danger" href="#"><i class="fa-solid fa-bullhorn me-2 text-danger"></i> Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="#procedure">Procedure di Sicurezza</a></li>
                             <li><a class="dropdown-item" href="#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
                 <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
             </div>
@@ -179,142 +189,91 @@
     <header class="page-hero">
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider">CENTRALE OPERATIVA</span>
-            <h1 class="display-4 fw-bold text-white mb-2">Allerte ed Emergenze</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Monitoraggio in tempo reale del territorio nicosiano e indicazioni ufficiali per la gestione delle criticità.</p>
+            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider">GESTIONE CRITICITÀ</span>
+            <h1 class="display-4 fw-bold text-white mb-2">Emergenze e Segnalazioni</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">Linee guida operative per la sicurezza, bollettini ufficiali e canali per l'invio di segnalazioni non urgenti sul territorio.</p>
         </div>
     </header>
 
-    <section id="allerte" class="py-5">
+    <section class="py-5">
         <div class="container py-4">
-            <div class="status-panel" data-aos="fade-up">
-                <div class="row align-items-center g-4">
-                    <div class="col-md-8">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <span class="pulse-green"></span>
-                            <h4 class="fw-bold mb-0 text-success">STATO ATTUALE: NESSUNA CRITICITÀ</h4>
+            <div class="row g-5">
+                
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div id="numeri" class="emergency-box-card h-100">
+                        <h4 class="fw-bold text-white mb-4"><i class="fa-solid fa-phone-flip text-danger me-2"></i>Numeri di Emergenza</h4>
+                        <p class="testo-leggero small mb-4">In caso di pericolo immediato, minaccia per l'incolumità fisica o incendi estesi, contatta subito i numeri di soccorso nazionali:</p>
+                        <div class="p-3 rounded-3 mb-3 bg-danger bg-opacity-10 border border-danger border-opacity-25">
+                            <h5 class="fw-bold text-white mb-1">NUE: 112</h5>
+                            <p class="mb-0 text-secondary small">Numero Unico d'Emergenza Europeo</p>
                         </div>
-                        <p class="testo-leggero mb-0">I bollettini emessi dal Dipartimento Regionale della Protezione Civile non evidenziano rischi meteo, idrogeologici o idrici significativi per il comune di Nicosia. Il livello di attenzione è impostato su <strong>VERDE (Generica vigilanza)</strong>.</p>
-                    </div>
-                    <div class="col-md-4 text-md-end">
-                        <a href="https://www.protezionecivilesicilia.it/" target="_blank" class="btn btn-elite-outline w-100"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Bollettino DRPC</a>
+                        <div class="p-3 rounded-3 mb-3 bg-white bg-opacity-5 border border-secondary border-opacity-25">
+                            <h5 class="fw-bold text-white mb-1">Vigili del Fuoco: 115</h5>
+                            <p class="mb-0 text-secondary small">Specifico per incendi e soccorso tecnico</p>
+                        </div>
+                        <div class="p-3 rounded-3 bg-white bg-opacity-5 border border-secondary border-opacity-25">
+                            <h5 class="fw-bold text-white mb-1">Emergenza Sanitaria: 118</h5>
+                            <p class="mb-0 text-secondary small">Specifico per malori o traumi medici</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="procedure" class="py-5">
-        <div class="container py-4">
-            <div class="mb-5" data-aos="fade-up">
-                <h2 class="fw-bold text-white mb-2">Procedure di Autoprotezione</h2>
-                <p class="testo-leggero">Le buone pratiche da adottare immediatamente per ridurre i rischi in caso di calamità.</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="proc-card">
-                        <div class="fs-2 text-danger mb-3"><i class="fa-solid fa-cloud-showers-water"></i></div>
-                        <h5 class="fw-bold mb-3">Rischio Alluvione / Idrogeologico</h5>
-                        <p class="testo-leggero small">Evita di transitare nei pressi di sottopassi o zone depresse. Non scendere nei locali sotterranei e rimani ai piani alti degli edifici. Non tentare mai di superare un corso d'acqua in piena, né a piedi né in auto.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="proc-card">
-                        <div class="fs-2 text-warning mb-3"><i class="fa-solid fa-fire"></i></div>
-                        <h5 class="fw-bold mb-3">Rischio Incendio Boschivo (AIB)</h5>
-                        <p class="testo-leggero small">Se avvisti un incendio, mantieni la calma e allontanati in dizione opposta al vento. Chiudi porte e finestre per evitare l'ingresso di fumo. Segnala subito la posizione esatta ai numeri di soccorso.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="proc-card">
-                        <div class="fs-2 text-info mb-3"><i class="fa-solid fa-house-chimney-crack"></i></div>
-                        <h5 class="fw-bold mb-3">Rischio Sismico</h5>
-                        <p class="testo-leggero small">Durante la scossa cerca riparo sotto una trave portante o un tavolo robusto. Non usare l'ascensore e fai attenzione a cosa cade. Al termine della scossa esci con calma raggiungendo l'area di attesa comunale più vicina.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="numeri" class="py-5 bg-dark bg-opacity-25">
-        <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5" data-aos="fade-right">
-                    <h2 class="fw-bold text-white mb-3">Numeri di Emergenza</h2>
-                    <p class="testo-leggero">Contatti fondamentali attivi H24 per la richiesta di soccorso immediato sul territorio nazionale e locale.</p>
-                    <div class="p-4 rounded-4 mt-4" style="background: rgba(220, 53, 69, 0.05); border: 1px solid rgba(220, 53, 69, 0.15);">
-                        <h6 class="fw-bold text-danger mb-1"><i class="fa-solid fa-circle-exclamation me-2"></i>In caso di pericolo imminente</h6>
-                        <p class="small text-secondary mb-0">Contatta subito il Numero Unico di Emergenza europeo o i canali diretti dell'associazione.</p>
-                    </div>
-                </div>
-                <div class="col-lg-7" data-aos="fade-left">
-                    <div class="status-panel p-0 overflow-hidden border-0">
-                        <ul class="list-group list-group-flush text-white bg-transparent">
-                            <li class="list-group-item bg-transparent border-secondary border-opacity-25 py-4 d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="fw-bold mb-1">NUE (Numero Unico Emergenze)</h6>
-                                    <p class="small text-secondary mb-0">Soccorso Sanitario, Vigili del Fuoco, Forze dell'Ordine</p>
+                <div class="col-lg-8" data-aos="fade-left">
+                    <div class="form-container-card shadow-lg">
+                        <h4 class="fw-bold text-white mb-2">Segnalazione Non Urgente</h4>
+                        <p class="testo-leggero small mb-4">Invia una nota alla nostra sala operativa per segnalare dissesti idrogeologici, alberi pericolanti o criticità logistiche sul territorio nicosiano.</p>
+                        
+                        <form action="#" method="POST">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Nome e Cognome *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Mario Rossi" required>
                                 </div>
-                                <a href="tel:112" class="btn btn-danger px-4 rounded-pill fw-bold">112</a>
-                            </li>
-                            <li class="list-group-item bg-transparent border-secondary border-opacity-25 py-4 d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="fw-bold mb-1">P.A. Nicosia (Reperibilità Mobile)</h6>
-                                    <p class="small text-secondary mb-0">Coordinamento Volontari e Reperibilità interna</p>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Recapito Telefonico *</label>
+                                    <input type="tel" class="form-control" placeholder="333-1234567" required>
                                 </div>
-                                <a href="tel:3296411659" class="btn btn-outline-light px-4 rounded-pill fw-bold">329-6411659</a>
-                            </li>
-                            <li class="list-group-item bg-transparent border-0 py-4 d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="fw-bold mb-1">Sala Operativa DRPC Sicilia</h6>
-                                    <p class="small text-secondary mb-0">Sorveglianza e protezione civile regionale</p>
+                                <div class="col-12">
+                                    <label class="form-label small text-secondary fw-semibold">Località o Indirizzo preciso della criticità *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Contrada San GIACOMO, incrocio SS 120" required>
                                 </div>
-                                <a href="tel:800404040" class="btn btn-outline-light px-4 rounded-pill fw-bold">800-404040</a>
-                            </li>
-                        </ul>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Tipologia di Problema *</label>
+                                    <select class="form-select" required>
+                                        <option value="" disabled selected>Seleziona una categoria...</option>
+                                        <option value="dissesto">Dissesto stradale o Frana</option>
+                                        <option value="albero">Albero pericolante / Ostacolo</option>
+                                        <option value="allagamento">Allagamento o Ostruzione canali</option>
+                                        <option value="altro">Altra segnalazione logistica</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small text-secondary fw-semibold">Descrizione dettagliata dell'evento *</label>
+                                    <textarea class="form-control" rows="4" placeholder="Fornisci quanti più dettagli possibili per permettere alle nostre squadre di valutare lo stato dei luoghi..." required></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacyCheckEmergenze" required>
+                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckEmergenze">
+                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR per le sole finalità di verifica, gestione e coordinamento della segnalazione inoltrata sul territorio, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del sito. *
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn btn-elite-danger shadow">Invia Segnalazione</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="segnala" class="py-5">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bold text-white mb-2">Segnala un'Emergenza non Urgente</h2>
-                        <p class="testo-leggero">Utilizza questo modulo per segnalare situazioni di potenziale rischio sul territorio (es. alberi pericolanti, dissesti stradali o piccoli smottamenti) che non richiedono l'intervento immediato del 112.</p>
-                    </div>
-
-                    <form class="row g-4">
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Nome Completo</label>
-                            <input type="text" class="form-control elite-input" placeholder="Es. Mario Rossi" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Recapito Telefonico</label>
-                            <input type="tel" class="form-control elite-input" placeholder="Es. 347 1234567" required>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-semibold text-secondary">Localizzazione della segnalazione</label>
-                            <input type="text" class="form-control elite-input" placeholder="Es. Via Bernardo di falco, incrocio nord" required>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-semibold text-secondary">Descrizione della criticità</label>
-                            <textarea class="form-control elite-input" rows="4" placeholder="Fornisci dettagli precisi sulla situazione riscontrata..." required></textarea>
-                        </div>
-                        <div class="col-12 text-center pt-3">
-                            <button type="submit" class="btn btn-elite-primary px-5 py-3 shadow-lg"><i class="fa-solid fa-paper-plane me-2"></i>Invia Segnalazione</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contatti" class="py-5">
+    <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
@@ -340,7 +299,7 @@
                     <ul class="list-unstyled text-secondary small">
                         <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
