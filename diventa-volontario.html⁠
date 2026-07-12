@@ -101,7 +101,6 @@
             margin-bottom: 20px;
         }
 
-        /* Form Premium Stile Apple */
         .elite-input, .elite-select {
             background: rgba(30, 30, 30, 0.4) !important;
             border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -169,7 +168,7 @@
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Documenti</a></li>
                     <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
                 </ul>
-                <a href="#" class="btn btn-elite-primary btn-sm px-4">Diventa Volontario</a>
+                <a href="diventa-volontario.html" class="btn btn-elite-primary btn-sm px-4">Diventa Volontario</a>
             </div>
         </div>
     </nav>
@@ -179,7 +178,7 @@
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">UNISCITI A NOI</span>
             <h1 class="display-4 fw-bold text-white mb-2">Fai la differenza.</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Metti il tuo tempo e le tue competenze al servizio della comunità di Nicosia. Diventa parte della nostra grande famiglia.</p>
+            <p class="lead testo-leggero col-lg-8 mb-0">Metti il tuo tempo e le deine competenze al servizio della comunità di Nicosia. Diventa parte della nostra grande famiglia.</p>
         </div>
     </header>
 
@@ -202,7 +201,7 @@
                     <div class="elite-card">
                         <div class="icon-box text-info"><i class="fa-solid fa-graduation-cap"></i></div>
                         <h4 class="fw-bold mb-3">Il Percorso Formativo</h4>
-                        <p class="testo-leggero small mb-0">Ogni nuovo aspirante affronta un corso base introduttivo gratuito per comprendere le dinamiche di sicurezza e radiocomunicazione. Successivamente, in base alle tue inclinazioni, sarai indirizzato a corsi di specializzazione certificati regionali (DRPC) o sanitari (BLSD / PTC) per operare con massima professionalità sui mezzi e sul campo.</p>
+                        <p class="testo-leggero small mb-0">Ogni nuovo aspirante affronta un corso base introspettivo gratuito per comprendere le dinamiche di sicurezza e radiocomunicazione. Successivamente, in base alle tue inclinazioni, sarai indirizzato a corsi di specializzazione certificati regionali (DRPC) o sanitari (BLSD / PTC) per operare con massima professionalità sui mezzi e sul campo.</p>
                     </div>
                 </div>
             </div>
