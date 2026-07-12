@@ -15,8 +15,8 @@
             font-family: 'Inter', sans-serif;
             background-color: #050505;
             background-image: 
-                radial-gradient(circle at 80% 20%, rgba(230, 92, 0, 0.05), transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(0, 123, 255, 0.03), transparent 40%);
+                radial-gradient(circle at 50% 10%, rgba(230, 92, 0, 0.02), transparent 45%),
+                radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.01), transparent 40%);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -52,8 +52,9 @@
             background-color: #e65c00;
             color: white;
             border-radius: 50px;
-            padding: 14px 35px;
+            padding: 12px 35px;
             font-weight: 600;
+            letter-spacing: 0.5px;
             border: none;
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -63,65 +64,61 @@
             color: white;
         }
 
-        .btn-elite-outline {
-            background-color: transparent;
-            color: white;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.2s;
-        }
-        .btn-elite-outline:hover { background-color: white; color: black; }
-
         .page-hero {
             height: 50vh;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
             position: relative;
-            background: linear-gradient(135deg, #0a0a0a 0%, #140b02 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1c0e02 100%);
         }
         .page-hero-pattern {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(230, 92, 0, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
         .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
         
-        .elite-card {
-            background: rgba(20, 20, 20, 0.6);
+        .form-container-card {
+            background: rgba(20, 20, 20, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 24px;
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            height: 100%;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+            padding: 45px;
+            backdrop-filter: blur(15px);
         }
-        .elite-card:hover { border-color: rgba(230, 92, 0, 0.3); }
 
-        .icon-box {
-            width: 60px; height: 60px; border-radius: 16px;
+        .form-control, .form-select {
             background: rgba(255, 255, 255, 0.03);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: white !important;
+            padding: 14px 20px;
+            transition: all 0.3s;
+        }
+        .form-control:focus, .form-select:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(230, 92, 0, 0.5);
+            box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.15);
+        }
+        .form-select option {
+            background: #0f0f10;
+            color: white;
         }
 
-        .elite-input, .elite-select {
-            background: rgba(30, 30, 30, 0.4) !important;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            color: #ffffff !important;
-            border-radius: 12px;
-            padding: 14px;
-            transition: border-color 0.3s, background-color 0.3s;
+        /* Checkbox personalizzata GDPR */
+        .form-check-input {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.2em;
+            transition: all 0.2s;
         }
-        .elite-input:focus, .elite-select:focus {
-            border-color: #e65c00 !important;
-            background-color: rgba(40, 40, 40, 0.6) !important;
-            box-shadow: none !important;
+        .form-check-input:checked {
+            background-color: #e65c00;
+            border-color: #e65c00;
         }
 
         footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
@@ -148,6 +145,7 @@
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -166,10 +164,10 @@
                             <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="#">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <a href="#" class="btn btn-elite-primary btn-sm px-4">Diventa Volontario</a>
+                <a href="#" class="btn btn-elite-outline btn-sm px-4 active border-white">Diventa Volontario</a>
             </div>
         </div>
     </nav>
@@ -178,90 +176,75 @@
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">UNISCITI A NOI</span>
-            <h1 class="display-4 fw-bold text-white mb-2">Fai la differenza.</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Metti il tuo tempo e le tue competenze al servizio della comunità di Nicosia. Diventa parte della nostra grande famiglia.</p>
+            <h1 class="display-4 fw-bold text-white mb-2">Diventa Volontario</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">Metti le tue competenze e il tuo tempo a disposizione della comunità. Compila il modulo sottostante per inviare la tua candidatura.</p>
         </div>
     </header>
 
     <section class="py-5">
         <div class="container py-4">
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="elite-card">
-                        <div class="icon-box text-warning"><i class="fa-solid fa-address-card"></i></div>
-                        <h4 class="fw-bold mb-3">I Requisiti per iniziare</h4>
-                        <ul class="list-unstyled text-secondary small">
-                            <li class="mb-2 text-white"><i class="fa-solid fa-check text-success me-2"></i> Aver compiuto il 18° anno di età.</li>
-                            <li class="mb-2 text-white"><i class="fa-solid fa-check text-success me-2"></i> Idoneità psico-fisica allo svolgimento delle attività scelte.</li>
-                            <li class="mb-2 text-white"><i class="fa-solid fa-check text-success me-2"></i> Condivisione profonda dei valori fondanti di ANPAS e del volontariato.</li>
-                            <li class="mb-2 text-white"><i class="fa-solid fa-check text-success me-2"></i> Serietà, costanza e attitudine al lavoro di squadra in emergenza.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="elite-card">
-                        <div class="icon-box text-info"><i class="fa-solid fa-graduation-cap"></i></div>
-                        <h4 class="fw-bold mb-3">Il Percorso Formativo</h4>
-                        <p class="testo-leggero small mb-0">Ogni nuovo aspirante affronta un corso base introduttivo gratuito per comprendere le dinamiche di sicurezza e radiocomunicazione. Successivamente, in base alle tue inclinazioni, sarai indirizzato a corsi di specializzazione certificati regionali (DRPC) o sanitari (BLSD / PTC) per operare con massima professionalità sui mezzi e sul campo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="modulo-iscrizione" class="py-5 bg-dark bg-opacity-25">
-        <div class="container py-4">
             <div class="row justify-content-center">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bold text-white mb-2">Modulo di Contatto Aspirante Volontario</h2>
-                        <p class="testo-leggero">Compila i campi sottostanti. La segreteria dell'associazione prenderà in carico la richiesta e ti ricontatterà per un colloquio conoscitivo.</p>
+                <div class="col-lg-9" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <div class="form-container-card shadow-lg">
+                        <form action="#" method="POST">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Nome *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Mario" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Cognome *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Rossi" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
+                                    <input type="email" class="form-control" placeholder="mario.rossi@gmail.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Numero di Telefono *</label>
+                                    <input type="tel" class="form-control" placeholder="333-1234567" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Data di Nascita *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Area di Interesse Principale *</label>
+                                    <select class="form-select" required>
+                                        <option value="" disabled selected>Seleziona un'area...</option>
+                                        <option value="protezione-civile">Protezione Civile & Logistica</option>
+                                        <option value="sanitario">Emergenza Sanitaria & Soccorso</option>
+                                        <option value="sociale">Supporto Sociale & Popolazione</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small text-secondary fw-semibold">Presentazione o note aggiuntive (Opzionale)</label>
+                                    <textarea class="form-control" rows="4" placeholder="Raccontaci qualcosa di te, se hai già esperienze pregresse o particolari patenti/qualifiche..."></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacyCheckVolontari" required>
+                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckVolontari">
+                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per le finalità istituzionali legate alla valutazione e alla gestione della mia candidatura come volontario, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del portale. *
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn btn-elite-primary shadow">Invia Candidatura</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <form class="row g-4">
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Nome</label>
-                            <input type="text" class="form-control elite-input" placeholder="Es. Giuseppe" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Cognome</label>
-                            <input type="text" class="form-control elite-input" placeholder="Es. Catania" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Data di Nascita</label>
-                            <input type="date" class="form-control elite-input" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-semibold text-secondary">Recapito Telefonico</label>
-                            <input type="tel" class="form-control elite-input" placeholder="Es. 329 1234567" required>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-semibold text-secondary">Indirizzo Email</label>
-                            <input type="email" class="form-control elite-input" placeholder="Es. nome@gmail.com" required>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-semibold text-secondary">Area Operativa di preferenza</label>
-                            <select class="form-select elite-select" required>
-                                <option value="" disabled selected>Scegli il settore in cui vorresti operare...</option>
-                                <option value="pc">Protezione Civile</option>
-                                <option value="sanitario">Sanitario</option>
-                                <option value="sociale">Sociale</option>
-                                <option value="indeciso">Tutti i settori</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label small fw-semibold text-secondary">Breve presentazione o note (Opzionale)</label>
-                            <textarea class="form-control elite-input" rows="4" placeholder="Raccontaci qualcosa di te..."></textarea>
-                        </div>
-                        <div class="col-12 text-center pt-3">
-                            <button type="submit" class="btn btn-elite-primary px-5 py-3 shadow-lg"><i class="fa-solid fa-paper-plane me-2"></i>Invia Candidatura</button>
-                        </div>
-                    </form>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contatti" class="py-5 mt-5">
+    <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
@@ -279,7 +262,7 @@
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
                         <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="#">Area Riservata Volontari</a></li>
+                        <li class="mb-2"><a href="#">Diventa Volontario</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
@@ -287,7 +270,7 @@
                     <ul class="list-unstyled text-secondary small">
                         <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
