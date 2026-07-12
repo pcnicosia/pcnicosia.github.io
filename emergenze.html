@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergenze e Segnalazioni - P.A. Nicosia O.d.V.</title>
     
-    <!-- Favicon Ufficiale -->
     <link rel="icon" type="image/png" href="Logo.PNG">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -147,7 +146,6 @@
             transition: transform 0.3s, border-color 0.3s;
         }
         .procedure-card:hover {
-            transform: translateY(-5px);
             border-color: rgba(255, 193, 7, 0.4);
         }
 
@@ -157,7 +155,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
@@ -203,7 +200,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="page-hero">
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
@@ -216,15 +212,19 @@
     <section class="py-5">
         <div class="container py-4">
             
-            <!-- SEZIONE 1: ALLERTE METEO -->
             <div id="allerte" class="row mb-5" data-aos="fade-up">
                 <div class="col-12">
                     <div class="p-4 rounded-4 border border-success border-opacity-25 d-flex align-items-center gap-4 flex-wrap" style="background: rgba(25, 135, 84, 0.05);">
                         <div class="fs-1 text-success"><i class="fa-solid fa-cloud-sun"></i></div>
-                        <div>
+                        <div class="flex-grow-1">
                             <span class="badge bg-success mb-2">LIVELLO DI ALLERTA: VERDE</span>
                             <h4 class="fw-bold text-white mb-1">Nessuna criticità meteo in corso</h4>
-                            <p class="testo-leggero small mb-0">Il bollettino del Dipartimento Regionale della Protezione Civile non segnala criticità idrogeologiche o idrauliche per il territorio di Nicosia nelle prossime 24 ore.</p>
+                            <p class="testo-leggero small mb-0">
+                                Il bollettino del Dipartimento Regionale della Protezione Civile non segnala criticità idrogeologiche o idrauliche per il territorio di Nicosia nelle prossime 24 ore.
+                                <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/dipartimento-protezione-civile" target="_blank" class="text-success fw-bold text-decoration-none d-inline-block ms-md-2 mt-2 mt-md-0 hover-underline">
+                                    Apri comunicazioni Regione Siciliana <i class="fa-solid fa-arrow-up-right-from-square small ms-1"></i>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -232,7 +232,6 @@
 
             <div class="row g-5 mb-5">
                 
-                <!-- SEZIONE 2: NUMERI UTILI E DI EMERGENZA -->
                 <div class="col-lg-4" data-aos="fade-right">
                     <div id="numeri" class="emergency-box-card h-100">
                         <h4 class="fw-bold text-white mb-4"><i class="fa-solid fa-phone-flip text-danger me-2"></i>Numeri di Emergenza</h4>
@@ -243,13 +242,12 @@
                             <p class="mb-0 text-secondary small">Numero Unico d'Emergenza Europeo</p>
                         </div>
                         
-                        <!-- Box scuri a prova di browser per evitare l'effetto invisibile -->
-                        <div class="p-3 rounded-3 mb-3 border border-secondary border-opacity-25" style="background: rgba(255,255,255,0.05);">
+                        <div class="p-3 rounded-3 mb-3 border border-secondary border-opacity-25" style="background: rgba(255,255,255,0.04);">
                             <h5 class="fw-bold text-white mb-1">Vigili del Fuoco: 115</h5>
                             <p class="mb-0 text-secondary small">Specifico per incendi e soccorso tecnico</p>
                         </div>
                         
-                        <div class="p-3 rounded-3 mb-4 border border-secondary border-opacity-25" style="background: rgba(255,255,255,0.05);">
+                        <div class="p-3 rounded-3 mb-4 border border-secondary border-opacity-25" style="background: rgba(255,255,255,0.04);">
                             <h5 class="fw-bold text-white mb-1">Emergenza Sanitaria: 118</h5>
                             <p class="mb-0 text-secondary small">Specifico per malori o traumi medici</p>
                         </div>
@@ -265,7 +263,6 @@
                     </div>
                 </div>
 
-                <!-- SEZIONE 3: MODULO SEGNALAZIONI GDPR -->
                 <div class="col-lg-8" data-aos="fade-left">
                     <div class="form-container-card shadow-lg">
                         <h4 class="fw-bold text-white mb-2">Segnalazione Non Urgente</h4>
@@ -319,7 +316,6 @@
 
             </div>
 
-            <!-- SEZIONE 4: PROCEDURE DI SICUREZZA -->
             <div id="procedure" class="row mt-5 pt-4 border-top border-secondary border-opacity-25" data-aos="fade-up">
                 <div class="col-12 mb-4">
                     <h3 class="fw-bold text-white mb-2">Procedure di Sicurezza e Autoprotezione</h3>
@@ -367,7 +363,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
