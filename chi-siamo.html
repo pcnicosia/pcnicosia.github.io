@@ -4,129 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - P.A. Nicosia O.d.V.</title>
-    
     <link rel="icon" type="image/png" href="Logo.PNG">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* TEMA CHIARO COME HOMEPAGE */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; }
 
-        /* NAVBAR CHIARA */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s ease;
         }
 
-        .navbar-brand span {
-            color: #1d1d1f !important;
-            font-size: 0.8rem;
-            line-height: 1.3;
-            max-width: 250px;
-            display: inline-block;
-        }
-
-        .nav-link {
-            color: #434344 !important;
-            font-weight: 500;
-        }
+        .nav-link { color: #434344 !important; font-weight: 500; }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        .dropdown-menu {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .dropdown-item {
-            color: #434344 !important;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-        .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.08);
-            color: #e65c00 !important;
-            transform: translateX(4px);
-        }
+        .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .dropdown-item { color: #434344 !important; font-size: 0.9rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
-        .btn-elite-outline {
-            background-color: transparent;
-            color: #1d1d1f;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            transition: all 0.2s;
-        }
-        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; }
+        .btn-elite-outline { background-color: transparent; color: #1d1d1f; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: 1px solid rgba(0, 0, 0, 0.2); transition: all 0.2s; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
-        /* HERO DELLA TUA STRUTTURA CON OVERLAY CHIARO */
-        .page-hero {
-            height: 60vh;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 5rem;
-            position: relative;
-            background: url('Foto.gruppo.JPG') center/cover no-repeat;
-        }
-        .page-hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.8) 60%, #ffffff 100%);
-            z-index: 1;
-        }
+        .page-hero { height: 60vh; display: flex; align-items: flex-end; padding-bottom: 5rem; position: relative; background: url('Foto.gruppo.JPG') center/cover no-repeat; }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.8) 60%, #ffffff 100%); z-index: 1; }
         .page-hero-content { position: relative; z-index: 2; }
 
         .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
-        /* BOX VALORI IN VERSIONE CHIARA */
-        .value-box {
-            background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.05);
-            border-left: 4px solid #e65c00;
-            padding: 30px;
-            border-radius: 0 15px 15px 0;
-            height: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s;
-        }
-        .value-box:hover {
-            transform: translateY(-5px);
-        }
+        .value-box { background: #ffffff; border: 1px solid rgba(0,0,0,0.05); border-left: 4px solid #e65c00; padding: 30px; border-radius: 0 15px 15px 0; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s; }
+        .value-box:hover { transform: translateY(-5px); }
         
-        /* CARD ORGANIGRAMMA IN VERSIONE CHIARA */
-        .org-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 24px;
-            padding: 35px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-        }
-        .avatar-placeholder {
-            width: 110px; height: 110px;
-            background: rgba(230, 92, 0, 0.08);
-            border: 2px solid #e65c00;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px auto; color: #e65c00; font-size: 2.5rem;
-        }
+        .org-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 24px; padding: 35px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
+        .avatar-placeholder { width: 110px; height: 110px; background: rgba(230, 92, 0, 0.08); border: 2px solid #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #e65c00; font-size: 2.5rem; }
 
-        /* FOOTER CHIARO */
         footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
         footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
@@ -138,10 +52,14 @@
         <div class="container-fluid px-xl-5">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 75px; height: 75px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
-                <span class="text-wrap fw-bold text-uppercase text-dark d-none d-sm-block">
-                    P.A. Pubblica Assistenza<br>Gruppo Volontari<br>Protezione Civile Nicosia O.d.V.
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.8rem; line-height: 1.3; min-width: 220px;">
+                    P.A. PUBBLICA ASSISTENZA<br>
+                    GRUPPO VOLONTARI<br>
+                    PROTEZIONE CIVILE<br>
+                    NICOSIA O.D.V.
                 </span>
             </a>
+
             <div class="d-flex align-items-center ms-auto order-lg-3">
                 <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4 me-4 d-none d-lg-block">Diventa Volontario</a>
                 <img src="Anpas.PNG" alt="Aderente ANPAS" class="me-3" style="height: 55px; object-fit: contain;">
@@ -149,6 +67,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
+
             <div class="collapse navbar-collapse order-lg-2" id="menuNav">
                 <ul class="navbar-nav mx-auto text-center text-lg-start mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
@@ -158,7 +77,6 @@
                             <li><a class="dropdown-item" href="#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="#valori">Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="#organigramma">Organigramma</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -293,7 +211,7 @@
                 </div>
             </div>
             <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-underline">Privacy Policy</a></p>
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
