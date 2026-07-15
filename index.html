@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</title>
+    <title>P.A. Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V.</title>
+    
     <link rel="icon" type="image/png" href="Logo.PNG">
-
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -15,41 +15,58 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #1d1d1f;
             overflow-x: hidden;
         }
 
+        /* NAVBAR CHIARA ED ELITE */
         .glass-nav {
-            background: rgba(10, 10, 10, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
+        .navbar-brand span {
+            color: #1d1d1f !important;
+            font-size: 0.85rem;
+            line-height: 1.3;
+            max-width: 320px;
+            display: inline-block;
+        }
+
+        .nav-link {
+            color: #434344 !important;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #e65c00 !important;
+        }
+
         .dropdown-menu {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 12px;
             padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .dropdown-item {
-            color: #a1a1a6 !important;
+            color: #434344 !important;
             font-size: 0.9rem;
             padding: 8px 16px;
             border-radius: 6px;
             transition: all 0.2s ease;
         }
         .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.1);
-            color: #ffffff !important;
+            background: rgba(230, 92, 0, 0.08);
+            color: #e65c00 !important;
             transform: translateX(4px);
         }
 
+        /* PULSANTI */
         .btn-elite-primary {
             background-color: #e65c00;
             color: white;
@@ -62,22 +79,26 @@
         }
         .btn-elite-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.4);
+            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25);
             color: white;
         }
         
         .btn-elite-outline {
             background-color: transparent;
-            color: white;
+            color: #1d1d1f;
             border-radius: 50px;
             padding: 12px 30px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(5px);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
         }
-        .btn-elite-outline:hover { background-color: white; color: black; }
+        .btn-elite-outline:hover { 
+            background-color: #1d1d1f; 
+            color: #ffffff; 
+            border-color: #1d1d1f;
+        }
 
+        /* HERO SECTION LIGHT */
         .hero-section {
             height: 100vh;
             display: flex;
@@ -90,47 +111,50 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.6) 60%, #050505 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 60%, #ffffff 100%);
             z-index: 1;
         }
 
         .hero-content { position: relative; z-index: 2; }
 
-        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.5rem, 5vw, 4.5rem); }
-        .testo-leggero { color: #a1a1a6; font-weight: 400; }
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: #1d1d1f; }
+        .testo-leggero { color: #515154; font-weight: 400; }
 
+        /* SCHEDE STRUTTURA CHIARA */
         .elite-card {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 24px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s;
         }
         .elite-card:hover {
             transform: translateY(-8px);
             border-color: rgba(230, 92, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(230, 92, 0, 0.08);
         }
         
         .custom-alert {
-            background: rgba(230, 92, 0, 0.03);
-            border: 1px solid rgba(230, 92, 0, 0.15);
+            background: rgba(230, 92, 0, 0.04);
+            border: 1px solid rgba(230, 92, 0, 0.2);
             border-radius: 20px;
         }
 
         .news-card {
-            background: rgba(18, 18, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 24px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
             overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(15px);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
         }
         .news-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
         }
         .news-img-box {
             height: 240px;
@@ -154,27 +178,27 @@
             flex-grow: 1;
         }
 
-        footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
-        footer a { color: #a1a1a6; text-decoration: none; transition: color 0.2s; }
+        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
+        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="#">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
-                <span>P.A. Nicosia O.d.V.</span>
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-2">
+        <div class="container-fluid px-xl-5">
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center me-4" href="#">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 65px; height: 65px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="text-wrap fw-bold text-uppercase text-dark">P.A. Pubblica Assistenza<br>Gruppo Volontari<br>Protezione Civile Nicosia O.d.V.</span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+            <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menuNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link text-white active mx-1" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active mx-1" href="#">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -183,7 +207,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
@@ -191,17 +215,20 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="contatti.html">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <div class="d-flex align-items-center mt-3 mt-lg-0">
+                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                    <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 48px; margin-left: 20px; object-fit: contain;">
+                </div>
             </div>
         </div>
     </nav>
@@ -214,29 +241,29 @@
                 <span style="color: #e65c00;">Sempre al vostro fianco.</span>
             </h1>
             <p class="lead mb-5 px-lg-5 testo-leggero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                Dal 1990 la Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V. opera per la sicurezza, la salute e il supporto sociale del territorio.
+                Dal 1990 la Pubblica Assistenza opera per la sicurezza, la salute e il supporto sociale del territorio di Nicosia e dintorni.
             </p>
             <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <a href="emergenze.html#numeri" class="btn btn-elite-primary shadow-lg"><i class="fa-solid fa-phone-volume me-2"></i>Contatti Rapidi</a>
+                <a href="emergenze.html#numeri" class="btn btn-elite-primary shadow"><i class="fa-solid fa-phone-volume me-2"></i>Contatti Rapidi</a>
                 <a href="#servizi" class="btn btn-elite-outline">Scopri le Attività</a>
             </div>
         </div>
     </header>
 
-    <section id="servizi" class="py-5" style="position: relative; z-index: 10;">
+    <section id="servizi" class="py-5" style="position: relative; z-index: 10; background-color: #ffffff;">
         <div class="container py-5">
             <a href="emergenze.html" class="text-decoration-none d-block">
                 <div id="allerte" class="alert custom-alert d-flex align-items-center mb-5 p-4" data-aos="fade-up">
                     <div class="fs-1 me-4">🌤️</div>
                     <div>
-                        <h5 class="fw-bold mb-1 text-white">Nessuna criticità in corso</h5>
-                        <p class="mb-0 testo-leggero">La situazione sul territorio di Nicosia e dintorni è attualmente regolare. Tocca qui per i bollettini ufficiali.</p>
+                        <h5 class="fw-bold mb-1 text-dark">Nessuna criticità in corso</h5>
+                        <p class="mb-0 text-secondary">La situazione sul territorio di Nicosia e dintorni è attualmente regolare. Tocca qui per i bollettini ufficiali.</p>
                     </div>
                 </div>
             </a>
 
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 text-white mb-3">Le Nostre Aree d'Intervento</h2>
+                <h2 class="display-6 text-dark mb-3 fw-bold">Le Nostre Aree d'Intervento</h2>
                 <p class="testo-leggero max-w-xl mx-auto">Strutture operative specializzate pronte a rispondere a ogni esigenza della comunità.</p>
             </div>
 
@@ -245,7 +272,7 @@
                     <a href="sanitario.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-ambulance"></i></div>
-                            <h4 class="fw-bold mb-3 text-white">Emergenza Sanitaria</h4>
+                            <h4 class="fw-bold mb-3 text-dark">Emergenza Sanitaria</h4>
                             <p class="testo-leggero mb-0">Trasporto infermi, assistenza medica a eventi e squadre stabili di primo soccorso attivo sul territorio.</p>
                         </div>
                     </a>
@@ -254,7 +281,7 @@
                     <a href="protezione-civile.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-helmet-safety"></i></div>
-                            <h4 class="fw-bold mb-3 text-white">Protezione Civile</h4>
+                            <h4 class="fw-bold mb-3 text-dark">Protezione Civile</h4>
                             <p class="testo-leggero mb-0">Soccorso tecnico, campagna Antincendio Boschivo (AIB), logistica d'emergenza e ricerca dispersi.</p>
                         </div>
                     </a>
@@ -263,8 +290,8 @@
                     <a href="sociale.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-hands-holding-child"></i></div>
-                            <h4 class="fw-bold mb-3 text-white">Supporto Sociale</h4>
-                            <p class="testo-leggero mb-0">Assistenza mirata alla popolazione, distribuzione beni di prima necessità e progetti di inclusione comunitaria.</p>
+                            <h4 class="fw-bold mb-3 text-dark">Supporto Sociale</h4>
+                            <p class="testo-leggero mb-0">Atteggiamento mirato alla popolazione, distribuzione beni di prima necessità e progetti di inclusione comunitaria.</p>
                         </div>
                     </a>
                 </div>
@@ -272,11 +299,11 @@
         </div>
     </section>
 
-    <section id="interventi" class="py-5" style="position: relative; z-index: 10;">
+    <section id="interventi" class="py-5" style="position: relative; z-index: 10; background-color: #f5f5f7;">
         <div class="container py-5">
             <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3" data-aos="fade-up">
                 <div>
-                    <h2 class="display-6 text-white mb-2">Novità ed Attività Recenti</h2>
+                    <h2 class="display-6 text-dark mb-2 fw-bold">Novità ed Attività Recenti</h2>
                     <p class="testo-leggero mb-0">Rimani aggiornato sulle ultime operazioni sul campo, i comunicati e le attività gestite dalla nostra O.d.V.</p>
                 </div>
                 <a href="news.html" class="btn btn-elite-outline">Vedi Archivio News</a>
@@ -288,20 +315,20 @@
         </div>
     </section>
 
-    <footer id="contatti" class="py-5 mt-5">
+    <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
-                    <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
+                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
                     <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
                         <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
                     </div>
-                    <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
+                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
                 <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-white mb-3">Collegamenti istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -310,9 +337,9 @@
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-white mb-3">Contatti Istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
                     <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
                         <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
@@ -320,8 +347,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | Portale Istituzionale</p>
+            <div class="border-top pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -331,12 +358,12 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // IL MOTORE SATELLITARE: Legge il file JSON e genera le prime 3 notizie
+        // MOTORE AUTOMATICO NOTIZIE CORRETTO PER IL LIGHT MODE
         fetch('news.json')
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('news-home-container');
-                const primeTre = data.slice(0, 3); // Prende solo le prime 3 notizie del database
+                const primeTre = data.slice(0, 3);
                 let htmlCode = '';
 
                 primeTre.forEach(item => {
@@ -351,7 +378,7 @@
                                         <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${item.categoria}</span>
                                         <span class="small text-secondary fw-semibold">${item.data}</span>
                                     </div>
-                                    <h5 class="fw-bold text-white mb-2">${item.titolo}</h5>
+                                    <h5 class="fw-bold text-dark mb-2">${item.titolo}</h5>
                                     <p class="testo-leggero small mb-3 flex-grow-1">${item.descrizione_breve}</p>
                                     <a href="news.html" class="${item.linkClass || 'text-secondary'} small text-decoration-none fw-bold">Leggi l'articolo <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
@@ -362,7 +389,7 @@
                 container.innerHTML = htmlCode;
             })
             .catch(err => {
-                console.error("Errore nel caricamento del database news:", err);
+                console.error("Errore database news:", err);
                 document.getElementById('news-home-container').innerHTML = '<div class="text-center text-danger">Impossibile caricare le novità recenti.</div>';
             });
     </script>
