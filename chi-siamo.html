@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - P.A. Nicosia O.d.V.</title>
+    
     <link rel="icon" type="image/png" href="Logo.PNG">
-
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -15,123 +15,137 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(230, 92, 0, 0.04), transparent 30%),
-                radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.02), transparent 30%);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #1d1d1f;
             overflow-x: hidden;
         }
 
         .glass-nav {
-            background: rgba(10, 10, 10, 0.75);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
+        .navbar-brand span {
+            color: #1d1d1f !important;
+            font-size: 0.8rem;
+            line-height: 1.3;
+            max-width: 250px;
+            display: inline-block;
+        }
+
+        .nav-link {
+            color: #434344 !important;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+
         .dropdown-menu {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 12px;
             padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
         .dropdown-item {
-            color: #a1a1a6 !important;
+            color: #434344 !important;
             font-size: 0.9rem;
             padding: 8px 16px;
+            border-radius: 6px;
             transition: all 0.2s ease;
         }
         .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.1);
-            color: #ffffff !important;
+            background: rgba(230, 92, 0, 0.08);
+            color: #e65c00 !important;
             transform: translateX(4px);
         }
 
         .btn-elite-outline {
             background-color: transparent;
-            color: white;
+            color: #1d1d1f;
             border-radius: 50px;
             padding: 12px 30px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
         }
-        .btn-elite-outline:hover { background-color: white; color: black; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; }
 
+        /* HERO SECTIONS IN LIGHT MODE */
         .page-hero {
-            height: 60vh;
+            height: 45vh;
             display: flex;
             align-items: flex-end;
-            padding-bottom: 5rem;
+            padding-bottom: 4rem;
             position: relative;
-            background: url('Foto.gruppo.JPG') center/cover no-repeat;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .page-hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.8) 60%, #050505 100%);
-            z-index: 1;
+        .page-hero-pattern {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
-        .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
+        .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
-        .value-box {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 4px solid #e65c00;
-            padding: 30px;
-            border-radius: 0 15px 15px 0;
-            height: 100%;
+        .timeline-box {
+            border-left: 3px solid #e65c00;
+            padding-left: 30px;
+            position: relative;
         }
-        
-        .org-card {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 35px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-        .avatar-placeholder {
-            width: 110px; height: 110px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid #e65c00;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 20px auto; color: #a1a1a6; font-size: 2.5rem;
+        .timeline-dot {
+            width: 15px; height: 15px; background: #e65c00; border-radius: 50%;
+            position: absolute; left: -9px; top: 5px;
         }
 
-        footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
-        footer a { color: #a1a1a6; text-decoration: none; }
+        .organigramma-card {
+            background: #f5f5f7;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
+        footer a { color: #515154; text-decoration: none; }
+        footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-2">
+        <div class="container-fluid px-xl-5">
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
-                <span>P.A. Nicosia O.d.V.</span>
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 75px; height: 75px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="text-wrap fw-bold text-uppercase text-dark d-none d-sm-block">
+                    P.A. Pubblica Assistenza<br>Gruppo Volontari<br>Protezione Civile Nicosia O.d.V.
+                </span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html">Home</a></li>
+            <div class="d-flex align-items-center ms-auto order-lg-3">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4 me-4 d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="me-3" style="height: 55px; object-fit: contain;">
+                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse order-lg-2" id="menuNav">
+                <ul class="navbar-nav mx-auto text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="#valori">Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
@@ -139,129 +153,149 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <div class="text-center mt-3 d-lg-none pb-3">
+                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <header class="page-hero">
-        <div class="page-hero-overlay"></div>
+        <div class="page-hero-pattern"></div>
         <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">DAL 1990</span>
-            <h1 class="display-4 fw-bold text-white mb-2">La Nostra Storia</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Un impegno costante per la sicurezza, la prevenzione e la solidarietà nel cuore della Sicilia.</p>
+            <span class="badge bg-dark text-white mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">LA NOSTRA IDENTITÀ</span>
+            <h1 class="display-5 fw-bold text-dark mb-2">Chi Siamo</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">Scopri la storia, i valori e la struttura organizzativa che muovono ogni giorno le nostre squadre sul territorio.</p>
         </div>
     </header>
 
     <section id="storia" class="py-5">
-        <div class="container py-5">
-            <div class="row align-items-center g-5">
+        <div class="container py-4">
+            <div class="row g-5 align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h2 class="display-6 fw-bold mb-4">Oltre tre decenni al servizio della comunità nicosiana.</h2>
-                    <p class="testo-leggero">Nata dalla volontà di un gruppo di cittadini attivi, la Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V. ha mosso i suoi primi passi nel 1990. Da allora, abbiamo attraversato emergenze nazionali, allerte meteo locali e crisi sanitarie, mantenendo sempre saldo un unico obiettivo: essere dove c'è bisogno.</p>
-                    <p class="testo-leggero">Oggi siamo una realtà strutturata e iscritta al RUNTS, che opera in stretta sinergia con il Dipartimento Regionale della Protezione Civile, il 118 e le istituzioni locali, portando professionalità e mezzi all'avanguardia sul territorio.</p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <!-- QUI C'ERA L'ERRORE: HO CORRETTO CHIOSA IN CHIESA -->
-                    <img src="Logo%20chiesa.JPG" alt="Volontari in Chiesa" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-25" style="width: 100%; object-fit: cover; max-height: 500px;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="valori" class="py-5 bg-dark bg-opacity-25">
-        <div class="container py-5">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 fw-bold">I Nostri Pilastri</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="value-box">
-                        <h4 class="fw-bold mb-3"><i class="fa-solid fa-hands-holding text-warning me-2"></i> Solidarietà</h4>
-                        <p class="testo-leggero mb-0">Agire disinteressatamente in favore di chi si trova in situazione di vulnerabilità, senza distinzioni.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="value-box">
-                        <h4 class="fw-bold mb-3"><i class="fa-solid fa-shield-halved text-warning me-2"></i> Prevenzione</h4>
-                        <p class="testo-leggero mb-0">Diffondere la cultura della sicurezza nella comunità prima ancora che si verifichi l'emergenza.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="value-box">
-                        <h4 class="fw-bold mb-3"><i class="fa-solid fa-graduation-cap text-warning me-2"></i> Formazione</h4>
-                        <p class="testo-leggero mb-0">Garantire un aggiornamento continuo dei nostri volontari per operare con massima professionalità.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="organigramma" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 fw-bold">Direttivo</h2>
-                <p class="testo-leggero">Le figure istituzionali alla guida dell'Associazione.</p>
-            </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="org-card h-100">
-                        <div class="avatar-placeholder">
-                            <i class="fa-solid fa-user-tie"></i>
+                    <h2 class="fw-bold text-dark mb-4">Una storia di impegno e solidarietà</h2>
+                    <p class="testo-leggero mb-3">La Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia nasce nel 1990 dalla volontà di un gruppo di cittadini decisi a costituire un presidio stabile di sicurezza e solidarietà sociale.</p>
+                    <p class="testo-leggero mb-4">Nel corso di oltre trent'anni di attività, l'Associazione è cresciuta fino a diventare un punto di riferimento essenziale per il territorio nicosiano e per l'intera provincia di Enna, espandendo le proprie competenze dal soccorso sanitario di emergenza fino alle complesse operazioni di Protezione Civile e antincendio boschivo.</p>
+                    
+                    <div class="timeline-box mt-4">
+                        <div class="mb-4 position-relative">
+                            <div class="timeline-dot"></div>
+                            <h6 class="fw-bold text-dark mb-1">1990 - La Fondazione</h6>
+                            <p class="small text-secondary">Costituzione del primo nucleo stabile di volontari operativi.</p>
                         </div>
-                        <h5 class="fw-bold mb-1">Luigi Cassata</h5>
-                        <p class="text-warning small fw-bold mb-3">PRESIDENTE</p>
-                        <p class="testo-leggero small mb-0">Rappresentante legale dell'associazione e coordinatore generale delle attività operative, sanitarie e sociali sul territorio.</p>
+                        <div class="mb-4 position-relative">
+                            <div class="timeline-dot"></div>
+                            <h6 class="fw-bold text-dark mb-1">2004 - L'ingresso in ANPAS</h6>
+                            <p class="small text-secondary">Affiliazione formale alla rete delle Pubbliche Assistenze Italiane.</p>
+                        </div>
+                        <div class="position-relative">
+                            <div class="timeline-dot"></div>
+                            <h6 class="fw-bold text-dark mb-1">Oggi - Iscrizione al RUNTS</h6>
+                            <p class="small text-secondary">Ente del Terzo Settore pienamente qualificato e integrato nel sistema nazionale.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="valori" class="col-lg-6" data-aos="fade-left">
+                    <div class="p-5 rounded-4 bg-light border">
+                        <h3 class="fw-bold text-dark mb-4">I Nostri Valori Guida</h3>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="fs-3 text-warning"><i class="fa-solid fa-heart-pulse"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-dark mb-1">Altruismo Operativo</h5>
+                                <p class="small text-secondary mb-0">Mettiamo il nostro tempo e le nostre competenze professionali a disposizione di chiunque si trovi in condizioni di fragilità o pericolo.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mb-4">
+                            <div class="fs-3 text-primary"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-dark mb-1">Imparzialità</h5>
+                                <p class="small text-secondary mb-0">Interveniamo ovunque sia richiesto, senza distinzione di genere, nazionalità, credo religioso o appartenenza politica.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <div class="fs-3 text-success"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-dark mb-1">Responsabilità Collettiva</h5>
+                                <p class="small text-secondary mb-0">Operiamo in stretta collaborazione con gli enti locali, la Regione Siciliana e la rete ANPAS per promuovere la cultura della prevenzione.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contatti" class="py-5 mt-5">
+    <section id="organigramma" class="py-5 bg-light border-top border-bottom">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="fw-bold text-dark mb-2">Struttura Organizzativa</h2>
+                <p class="testo-leggero small">I responsabili istituzionali eletti dall'Assemblea dei Soci per la guida dell'Ente.</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="organigramma-card shadow-sm">
+                        <h5 class="fw-bold text-dark mb-1">Consiglio Direttivo</h5>
+                        <p class="small text-secondary mb-3">Organo di Amministrazione</p>
+                        <span class="badge bg-dark text-white px-3 py-2 rounded-pill">P.A. Nicosia O.d.V.</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="organigramma-card shadow-sm border-primary" style="background: rgba(13,110,253,0.02);">
+                        <h5 class="fw-bold text-dark mb-1">Assemblea dei Soci</h5>
+                        <p class="small text-secondary mb-3">Organo Sovrano dell'Ente</p>
+                        <span class="badge bg-primary px-3 py-2 rounded-pill">Tutti i Volontari</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
-                    <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
+                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
                     <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
                         <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
                     </div>
-                    <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
+                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
                 <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-white mb-3">Collegamenti istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#storia">La Nostra Storia</a></li>
-                        <li class="mb-2"><a href="#valori">Missione e Valori</a></li>
+                        <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
+                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
                         <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
                         <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-white mb-3">Contatti Istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
                     <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | Portale Istituzionale</p>
+            <div class="border-top pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
