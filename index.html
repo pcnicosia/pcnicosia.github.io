@@ -14,12 +14,22 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; }
 
+        /* NAVBAR ALTA E ISTITUZIONALE */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.90); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+            transition: all 0.3s ease;
         }
 
-        .nav-link { color: #434344 !important; font-weight: 500; }
+        /* STRUTTURA DELLE VOCI DEL MENU OTTIMIZZATA PER RISPARMIARE SPAZIO */
+        .nav-link { 
+            color: #434344 !important; 
+            font-weight: 600; 
+            font-size: 0.85rem; /* Ridotto leggermente per aumentare lo spazio orizzontale */
+            letter-spacing: -0.1px;
+        }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -29,7 +39,17 @@
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .btn-elite-outline { background-color: transparent; color: #1d1d1f; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: 1px solid rgba(0, 0, 0, 0.2); transition: all 0.2s; }
+        /* PULSANTE DIVENTA VOLONTARIO OTTIMIZZATO */
+        .btn-elite-outline { 
+            background-color: transparent; 
+            color: #1d1d1f; 
+            border-radius: 50px; 
+            padding: 10px 22px; /* Ridotto leggermente per fare spazio al logo ANPAS */
+            font-weight: 600; 
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.2); 
+            transition: all 0.2s; 
+        }
         .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
         .hero-section { height: 100vh; display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
@@ -55,23 +75,21 @@
         footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
 
-        /* REGOLA SALVA-IPAD: COMPRIME GLI SPAZI SOLO SUI TABLET PER EVITARE SFORAMENTI */
-        @media (min-width: 992px) and (max-width: 1199px) {
-            .navbar-brand img { width: 55px !important; height: 55px !important; }
-            .navbar-brand span { font-size: 0.65rem !important; }
-            .nav-link { font-size: 0.8rem !important; margin-left: 2px !important; margin-right: 2px !important; }
+        /* REGOLE DI ADATTABILITÀ STRUTTURALE PER SCHEMI IPAD/MEDIO-GRANDI */
+        @media (min-width: 992px) and (max-width: 1200px) {
+            .nav-link { font-size: 0.78rem !important; margin-left: 2px !important; margin-right: 2px !important; }
             .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
-            img[src="Anpas.PNG"] { height: 42px !important; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-2">
-        <div class="container-fluid px-3 px-md-4 px-xl-5">
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
+        <div class="container-fluid px-4 px-xl-5">
+            
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 65px; height: 65px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 12px; background: white;">
-                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.75rem; line-height: 1.3; min-width: 210px;">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
                     P.A. PUBBLICA ASSISTENZA<br>
                     GRUPPO VOLONTARI<br>
                     PROTEZIONE CIVILE<br>
@@ -79,9 +97,9 @@
                 </span>
             </a>
 
-            <div class="d-flex align-items-center gap-2 gap-md-3 ms-auto order-lg-3">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-3 d-none d-lg-block">Diventa Volontario</a>
-                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 50px; object-fit: contain; max-width: 80px;">
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
                 <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
