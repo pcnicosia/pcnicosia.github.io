@@ -12,87 +12,62 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; padding-top: 100px; }
 
-        /* NAVBAR ALTA E ISTITUZIONALE BI-BILANCIATA (AGGIORNATA COME HOME) */
+        /* NAVBAR ADATTATA (Identica alla Home) */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.90); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.90); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s ease;
         }
 
-        .nav-link { 
-            color: #434344 !important; 
-            font-weight: 600; 
-            font-size: 0.98rem; 
-            letter-spacing: -0.1px;
-        }
+        .nav-link { color: #434344 !important; font-weight: 600; font-size: 0.98rem; }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
-        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; }
+        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; }
 
         .btn-elite-outline { 
-            background-color: transparent; 
-            color: #1d1d1f; 
-            border-radius: 50px; 
-            padding: 10px 22px;
-            font-weight: 600; 
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 0, 0, 0.2); 
-            transition: all 0.2s; 
+            background-color: transparent; color: #1d1d1f; border-radius: 50px; padding: 10px 22px;
+            font-weight: 600; font-size: 0.8rem; border: 1px solid rgba(0, 0, 0, 0.2); 
         }
-        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; }
 
-        /* REGOLA CENTRATURA ASSOLUTA E COMPRESSIONE IPAD (COME HOME) */
+        /* TITOLO RESPONSIVO: Si riduce su schermi piccoli */
+        h1.display-4 { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 800; line-height: 1.1; }
+
+        /* CORREZIONE PER MOBILE: Se la barra si sovrappone, aumenta il padding del corpo */
+        @media (max-width: 991px) { body { padding-top: 120px; } }
+
+        /* REGOLE CENTRATURA (WINGS) */
         @media (min-width: 992px) {
-            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
+            .nav-left-wing { flex: 1 1 0%; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
             .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
-            .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
         }
-
-        @media (min-width: 992px) and (max-width: 1200px) {
-            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
-            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
-        }
-
-        /* --- FINE CSS NAVBAR --- IL RESTO È IL TUO CODICE ADATTATO AL CHIARO --- */
-
-        .page-hero {
-            height: 50vh; display: flex; align-items: flex-end; padding-bottom: 4rem; position: relative;
-            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%); border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .page-hero-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px); background-size: 35px 35px; }
-        .page-hero-content { position: relative; z-index: 2; }
 
         .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
         .provincia-badge {
-            background: rgba(230, 92, 0, 0.1); color: #e65c00; font-weight: 700; font-size: 0.8rem;
-            padding: 6px 16px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;
+            background: rgba(230, 92, 0, 0.1); color: #e65c00; font-weight: 700; font-size: 0.75rem;
+            padding: 5px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;
             display: inline-block; margin-bottom: 15px;
         }
 
         .association-card {
             background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; padding: 35px;
-            height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s, border-color 0.3s;
+            height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s;
         }
-        .association-card:hover { transform: translateY(-5px); border-color: rgba(0, 123, 255, 0.3); }
+        .association-card:hover { transform: translateY(-5px); border-color: rgba(230, 92, 0, 0.2); }
 
         footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
-        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
-        footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR CENTRATA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container-fluid px-4 px-xl-5">
-            
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
                 <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
@@ -102,7 +77,6 @@
                     NICOSIA O.D.V.
                 </span>
             </a>
-
             <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
                 <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
                 <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
@@ -110,12 +84,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
             <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
                 <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -142,15 +115,12 @@
                     <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
                     <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <div class="text-center mt-3 d-lg-none pb-3">
-                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
-                </div>
             </div>
         </div>
     </nav>
-    <header class="page-hero">
-        <div class="page-hero-pattern"></div>
-        <div class="container page-hero-content" data-aos="fade-up">
+
+    <header class="py-5" style="background-color: #f8f9fa;">
+        <div class="container py-4">
             <span class="badge bg-primary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">RETE NAZIONALE ANPAS</span>
             <h1 class="display-4 fw-bold text-dark mb-2">Pubbliche Assistenze del Territorio</h1>
             <p class="lead testo-leggero col-lg-8 mb-0">Non risiedi a Nicosia? Trova la Pubblica Assistenza più vicina al tuo comune per ricevere supporto o unirti come volontario.</p>
