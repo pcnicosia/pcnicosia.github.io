@@ -23,16 +23,19 @@
             transition: all 0.3s ease;
         }
 
+        /* VOCI MENU PRINCIPALE INGRANDITE */
         .nav-link { 
             color: #434344 !important; 
             font-weight: 600; 
-            font-size: 0.85rem;
+            font-size: 0.98rem; /* Ingrandito per dare più importanza */
             letter-spacing: -0.1px;
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .dropdown-item { color: #434344 !important; font-size: 0.9rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
+        
+        /* SOTTOMENU INGRANDITO */
+        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
         .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
@@ -73,7 +76,7 @@
         footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
 
-        /* REGOLA CENTRATURA ASSOLUTA: CREA LE "3 ALI" PERFETTAMENTE SIMMETRICHE (SOLO DESKTOP E IPAD) */
+        /* REGOLA CENTRATURA ASSOLUTA: CREA LE "3 ALI" PERFETTAMENTE SIMMETRICHE */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 1 1 0%; min-width: 0; }
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
@@ -81,20 +84,19 @@
             .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
         }
 
-        /* REGOLE DI ADATTABILITÀ STRUTTURALE PER SCHERMI MEDIO-GRANDI */
+        /* REGOLE DI ADATTABILITÀ STRUTTURALE PER SCHERMI MEDIO-GRANDI (IPAD) - FONT RICALIBRATO */
         @media (min-width: 992px) and (max-width: 1200px) {
-            .nav-link { font-size: 0.78rem !important; margin-left: 2px !important; margin-right: 2px !important; }
+            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
             .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR INNALZATA (py-3) CON REGOLE "WINGS" PER CENTRATURA ASSOLUTA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container-fluid px-4 px-xl-5">
             
-            <!-- 1. ALA SINISTRA (Logo P.A.) -->
+            <!-- 1. ALA SINISTRA -->
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
                 <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
@@ -105,7 +107,7 @@
                 </span>
             </a>
 
-            <!-- 3. ALA DESTRA (Diventa Volontario + ANPAS) -->
+            <!-- 3. ALA DESTRA -->
             <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
                 <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
                 <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
