@@ -13,65 +13,22 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* 1. CORREZIONE OVERLAP: padding-top sposta il contenuto sotto la navbar */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1d1d1f;
-            overflow-x: hidden;
-            padding-top: 120px;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; padding-top: 120px; }
 
-        /* 2. NAVBAR ALTA E BILANCIATA */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .nav-link { 
-            color: #434344 !important; 
-            font-weight: 600; 
-            font-size: 0.98rem; 
-            letter-spacing: -0.1px; 
-        }
+        /* NAVBAR */
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.3s ease; }
+        .nav-link { color: #434344 !important; font-weight: 600; font-size: 0.98rem; letter-spacing: -0.1px; }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
-
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
         .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
-        .btn-elite-outline {
-            background-color: transparent;
-            color: #1d1d1f;
-            border-radius: 50px;
-            padding: 10px 22px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            transition: all 0.2s;
-        }
+        /* BOTTONI */
+        .btn-elite-outline { background-color: transparent; color: #1d1d1f; border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid rgba(0, 0, 0, 0.2); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 35px; font-weight: 600; letter-spacing: 0.5px; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
 
-        .btn-elite-primary {
-            background-color: #e65c00;
-            color: white;
-            border-radius: 50px;
-            padding: 12px 35px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-elite-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25);
-            color: white;
-        }
-
-        /* REGOLA CENTRATURA ASSOLUTA A "3 ALI" */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 1 1 0%; min-width: 0; }
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
@@ -79,88 +36,36 @@
             .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
         }
 
-        @media (min-width: 992px) and (max-width: 1200px) {
-            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
-            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
-        }
-
-        /* 3. HERO SECTION (Gradiente Chiaro/Arancio) */
-        .page-hero {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-            position: relative;
-            background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .page-hero-pattern {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(230, 92, 0, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-        }
+        /* HERO SECTION */
+        .page-hero { padding-top: 2rem; padding-bottom: 4rem; position: relative; background: linear-gradient(135deg, #fff3e0 0%, #ffffff 100%); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .page-hero-pattern { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(230, 92, 0, 0.05) 1px, transparent 1px); background-size: 30px 30px; }
         .page-hero-content { position: relative; z-index: 2; }
-
         .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
-        /* CARD TESTIMONIANZE (TEMA CHIARO) */
-        .testimonial-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 20px;
-            padding: 35px;
-            height: 100%;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(230, 92, 0, 0.3);
-            box-shadow: 0 15px 35px rgba(230, 92, 0, 0.08);
-        }
-        .quote-icon {
-            font-size: 2.5rem;
-            color: rgba(230, 92, 0, 0.1);
-            position: absolute;
-            top: 20px;
-            right: 25px;
-        }
+        /* CARD ELITE E REQUISITI */
+        .elite-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; padding: 30px; height: 100%; }
+        .elite-card:hover { transform: translateY(-5px); border-color: rgba(230, 92, 0, 0.3); box-shadow: 0 15px 35px rgba(230, 92, 0, 0.08); }
+        
+        .req-icon { width: 60px; height: 60px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
 
-        /* FORM DI CANDIDATURA (TEMA CHIARO) */
-        .form-container-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 24px;
-            padding: 45px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-        }
+        /* PERCORSO FORMATIVO (TIMELINE VERTICALE) */
+        .timeline-step { display: flex; margin-bottom: 30px; position: relative; }
+        .timeline-step:last-child { margin-bottom: 0; }
+        .timeline-icon { width: 50px; height: 50px; background: #e65c00; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; z-index: 2; border: 4px solid #f8f9fa; }
+        .timeline-content { padding-left: 20px; padding-top: 10px; }
+        .timeline-step::before { content: ''; position: absolute; left: 24px; top: 50px; bottom: -30px; width: 2px; background: rgba(230, 92, 0, 0.2); z-index: 1; }
+        .timeline-step:last-child::before { display: none; }
 
-        .form-control, .form-select {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 12px;
-            color: #1d1d1f !important;
-            padding: 14px 20px;
-            transition: all 0.3s;
-        }
-        .form-control:focus, .form-select:focus {
-            background: #ffffff;
-            border-color: rgba(230, 92, 0, 0.5);
-            box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.15);
-        }
-        .form-select option { background: #ffffff; color: #1d1d1f; }
+        /* TESTIMONIANZE */
+        .testimonial-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 20px; padding: 35px; height: 100%; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s; }
+        .testimonial-card:hover { transform: translateY(-5px); border-color: rgba(230, 92, 0, 0.3); }
+        .quote-icon { font-size: 2.5rem; color: rgba(230, 92, 0, 0.1); position: absolute; top: 20px; right: 25px; }
 
-        .form-check-input {
-            background-color: #ffffff;
-            border: 1px solid #adb5bd;
-            width: 1.25rem;
-            height: 1.25rem;
-            margin-top: 0.2em;
-            transition: all 0.2s;
-        }
-        .form-check-input:checked {
-            background-color: #e65c00;
-            border-color: #e65c00;
-        }
+        /* FORM */
+        .form-container-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 24px; padding: 45px; box-shadow: 0 15px 40px rgba(0,0,0,0.04); }
+        .form-control, .form-select { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 12px; padding: 14px 20px; transition: all 0.3s; }
+        .form-control:focus, .form-select:focus { background: #ffffff; border-color: rgba(230, 92, 0, 0.5); box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.15); }
+        .form-check-input:checked { background-color: #e65c00; border-color: #e65c00; }
 
         footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
         footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
@@ -169,10 +74,9 @@
 </head>
 <body>
 
-    <!-- NAVBAR PERFETTA -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container-fluid px-4 px-xl-5">
-            
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
                 <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
@@ -182,15 +86,13 @@
                     NICOSIA O.D.V.
                 </span>
             </a>
-
             <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <a href="#modulo-iscrizione" class="btn btn-elite-outline btn-sm d-none d-lg-block">Compila Modulo</a>
                 <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
                 <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-
             <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
                 <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
@@ -222,24 +124,213 @@
                     <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
                     <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <div class="text-center mt-3 d-lg-none pb-3">
-                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
-                </div>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER CHIARO -->
+    <!-- HEADER -->
     <header class="page-hero">
         <div class="page-hero-pattern"></div>
         <div class="container page-hero-content pt-5" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">UNISCITI A NOI</span>
             <h1 class="display-4 fw-bold text-dark mb-2">Diventa Volontario</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Metti le tue competenze e il tuo tempo a disposizione della comunità. Scopri la forza del gruppo attraverso le parole delle nostre squadre.</p>
+            <p class="lead testo-leggero col-lg-8 mb-4">Non servono superpoteri, ma formazione, costanza e voglia di mettersi a disposizione. Scopri il percorso per entrare nella nostra Pubblica Assistenza.</p>
+            <a href="#modulo-iscrizione" class="btn btn-elite-primary shadow"><i class="fa-solid fa-user-plus me-2"></i>Invia Candidatura</a>
         </div>
     </header>
 
-    <section class="py-5 bg-light border-top border-bottom">
+    <!-- 1. REQUISITI -->
+    <section class="py-5 bg-white border-bottom">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="h3 fw-bold text-dark mb-2">Requisiti per Diventare Volontario</h2>
+                <p class="testo-leggero max-w-xl mx-auto small">Secondo le normative vigenti per gli Operatori di Protezione Civile e Pubblica Assistenza (D.Lgs 117/17).</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="elite-card text-center">
+                        <div class="req-icon mx-auto"><i class="fa-solid fa-cake-candles"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Età Anagrafica</h5>
+                        <p class="testo-leggero small mb-0">Aver compiuto <strong>18 anni</strong> per i servizi operativi d'emergenza. (Possibilità di inserimento a 16 anni per attività non operative previo consenso dei genitori).</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="elite-card text-center">
+                        <div class="req-icon mx-auto"><i class="fa-solid fa-notes-medical"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Idoneità Medica</h5>
+                        <p class="testo-leggero small mb-0">Certificato medico di <strong>sana e robusta costituzione</strong> e idoneità psicofisica per lo svolgimento delle attività operative sul campo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="elite-card text-center">
+                        <div class="req-icon mx-auto"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Fedina Penale</h5>
+                        <p class="testo-leggero small mb-0">Assenza di condanne penali passate in giudicato o carichi pendenti gravi, per garantire la totale sicurezza e affidabilità del Corpo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="elite-card text-center">
+                        <div class="req-icon mx-auto"><i class="fa-regular fa-handshake"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Motivazione</h5>
+                        <p class="testo-leggero small mb-0">Piena condivisione dei valori ANPAS, predisposizione al lavoro di squadra e disponibilità di tempo da dedicare alla formazione.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PERCORSO FORMATIVO -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="h3 fw-bold text-dark mb-3">Il Tuo Percorso tra Noi</h2>
+                    <p class="testo-leggero mb-4">L'entusiasmo è il punto di partenza, ma in emergenza l'improvvisazione non è ammessa. Ogni nuovo aspirante volontario segue un iter preciso per operare in totale sicurezza.</p>
+                </div>
+                <div class="col-lg-6 offset-lg-1" data-aos="fade-left">
+                    <div class="timeline-step">
+                        <div class="timeline-icon">1</div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-dark mb-1">Colloquio Conoscitivo</h5>
+                            <p class="testo-leggero small">Un incontro informale con il Direttivo per capire le tue attitudini, il tempo che puoi mettere a disposizione e presentarti le nostre aree d'intervento.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">2</div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-dark mb-1">Corso Base (Sicurezza e Primo Soccorso)</h5>
+                            <p class="testo-leggero small">Frequenza obbligatoria al corso introduttivo. Comprende storia del movimento, nozioni base di primo soccorso civile e normativa sulla sicurezza (D.Lgs 81/08).</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">3</div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-dark mb-1">Affiancamento Operativo</h5>
+                            <p class="testo-leggero small">Periodo di prova sul campo come "Osservatore". Sarai affiancato da volontari anziani (tutor) per familiarizzare con mezzi, attrezzature e procedure operative standard.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">4</div>
+                        <div class="timeline-content">
+                            <h5 class="fw-bold text-dark mb-1">Formazione Specialistica</h5>
+                            <p class="testo-leggero small">In base al settore scelto (Sanitario, Antincendio o Logistica), frequenterai i corsi avanzati regionali o nazionali per acquisire la qualifica operativa definitiva.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CORSI DISPONIBILI -->
+    <section class="py-5 bg-white border-bottom">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="h3 fw-bold text-dark mb-2">Corsi di Specializzazione</h2>
+                <p class="testo-leggero max-w-xl mx-auto small">La formazione all'interno dell'associazione è continua, gratuita per i volontari, ed erogata da istruttori certificati ANPAS e Dipartimento Regionale.</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="elite-card border-top border-danger border-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-heart-pulse text-danger me-2"></i>Area Sanitaria</h5>
+                        <ul class="list-unstyled testo-leggero small">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Corso <strong>BLSD / PBLSD</strong> (Uso del Defibrillatore adulti e pediatrico).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Corso <strong>PTC</strong> (Traumi e immobilizzazione).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Abilitazione <strong>Autista Soccorritore</strong> (Guida in emergenza 118).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="elite-card border-top border-warning border-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Protezione Civile</h5>
+                        <ul class="list-unstyled testo-leggero small">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Corso Operatore <strong>A.I.B.</strong> (Antincendio Boschivo).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Operatore di <strong>Colonna Mobile</strong> (Montaggio tendopoli, segreteria da campo).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Ricerca persone disperse.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="elite-card border-top border-secondary border-4">
+                        <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-tower-cell text-secondary me-2"></i>Area Trasversale</h5>
+                        <ul class="list-unstyled testo-leggero small">
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Addetto <strong>Sala Operativa</strong> e Telecomunicazioni Radio (TLC).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Corso Operatori Droni (Progetto PRODIGI).</li>
+                            <li class="mb-2"><i class="fa-solid fa-check text-success me-2"></i>Formazione Psicologia dell'Emergenza.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MODULO ISCRIZIONE -->
+    <section id="modulo-iscrizione" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-9" data-aos="fade-up">
+                    <div class="form-container-card">
+                        <h4 class="fw-bold text-dark mb-2">Invia la tua Candidatura</h4>
+                        <p class="testo-leggero small mb-4">Compila il modulo inserendo i tuoi dati personali. Verrai ricontattato dalla segreteria per fissare il colloquio conoscitivo.</p>
+                        
+                        <form action="#" method="POST">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Nome *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Mario" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Cognome *</label>
+                                    <input type="text" class="form-control" placeholder="Esempio: Rossi" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
+                                    <input type="email" class="form-control" placeholder="mario.rossi@gmail.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Numero di Telefono *</label>
+                                    <input type="tel" class="form-control" placeholder="333-1234567" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Data di Nascita *</label>
+                                    <input type="date" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small text-secondary fw-semibold">Area di Interesse Principale *</label>
+                                    <select class="form-select" required>
+                                        <option value="" disabled selected>Seleziona un'area...</option>
+                                        <option value="protezione-civile">Protezione Civile & Logistica</option>
+                                        <option value="sanitario">Emergenza Sanitaria & Soccorso</option>
+                                        <option value="sociale">Supporto Sociale & Popolazione</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small text-secondary fw-semibold">Presentazione o note aggiuntive (Opzionale)</label>
+                                    <textarea class="form-control" rows="4" placeholder="Raccontaci qualcosa di te, se hai già patenti, qualifiche o esperienze di volontariato pregresse..."></textarea>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacyCheckVolontari" required>
+                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckVolontari">
+                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per le finalità istituzionali legate alla valutazione della mia candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del portale. *
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 text-end mt-4">
+                                    <button type="submit" class="btn btn-elite-primary shadow">Invia Candidatura</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIANZE -->
+    <section class="py-5 bg-white">
         <div class="container py-4">
             <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="h3 fw-bold text-dark mb-2">La Voce del Nostro Gruppo</h2>
@@ -278,73 +369,7 @@
         </div>
     </section>
 
-    <section class="py-5 bg-white">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-9" data-aos="fade-up" data-aos-delay="100">
-                    
-                    <div class="form-container-card">
-                        <h4 class="fw-bold text-dark mb-2">Invia la tua Candidatura</h4>
-                        <p class="testo-leggero small mb-4">Compila il modulo inserendo i tuoi dati personali. Verrai ricontattato dalla segreteria per partecipare alla prossima sessione informativa d'inserimento.</p>
-                        
-                        <form action="#" method="POST">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Nome *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Mario" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Cognome *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Rossi" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
-                                    <input type="email" class="form-control" placeholder="mario.rossi@gmail.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Numero di Telefono *</label>
-                                    <input type="tel" class="form-control" placeholder="333-1234567" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Data di Nascita *</label>
-                                    <input type="date" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Area di Interesse Principale *</label>
-                                    <select class="form-select" required>
-                                        <option value="" disabled selected>Seleziona un'area...</option>
-                                        <option value="protezione-civile">Protezione Civile & Logistica</option>
-                                        <option value="sanitario">Emergenza Sanitaria & Soccorso</option>
-                                        <option value="sociale">Supporto Sociale & Popolazione</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Presentazione o note aggiuntive (Opzionale)</label>
-                                    <textarea class="form-control" rows="4" placeholder="Raccontaci qualcosa di te, se hai già esperienze pregresse o particolari patenti/qualifiche..."></textarea>
-                                </div>
-
-                                <div class="col-12 mt-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="privacyCheckVolontari" required>
-                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckVolontari">
-                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per le finalità istituzionali legate alla valutazione e alla gestione della mia candidatura come volontario, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del portale. *
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 text-end mt-4">
-                                    <button type="submit" class="btn btn-elite-primary shadow">Invia Candidatura</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER STANDARD CHIARO -->
+    <!-- FOOTER -->
     <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
