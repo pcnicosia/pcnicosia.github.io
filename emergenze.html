@@ -83,18 +83,19 @@
             .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
         }
 
-        /* 3. HERO SECTION (Gradiente Chiaro) */
+        /* 3. HERO SECTION CON FOTO PIOGGIA E SFUMATURA CHIARA */
         .page-hero {
-            padding-top: 2rem;
+            height: 55vh;
+            display: flex;
+            align-items: flex-end;
             padding-bottom: 4rem;
             position: relative;
-            background: linear-gradient(135deg, #fef5f5 0%, #f8f9fa 100%);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: url('Pioggia.JPG') center/cover no-repeat; /* <-- NOME FOTO QUI */
         }
-        .page-hero-pattern {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(220, 53, 69, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.85) 60%, #ffffff 100%);
+            z-index: 1;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
@@ -168,6 +169,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR PERFETTA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container-fluid px-4 px-xl-5">
             
@@ -227,9 +229,10 @@
         </div>
     </nav>
 
+    <!-- HEADER CON FOTO PIOGGIA.JPG E SFUMATURA -->
     <header class="page-hero">
-        <div class="page-hero-pattern"></div>
-        <div class="container page-hero-content pt-5" data-aos="fade-up">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider">GESTIONE CRITICITÀ</span>
             <h1 class="display-4 fw-bold text-dark mb-2">Emergenze e Segnalazioni</h1>
             <p class="lead testo-leggero col-lg-8 mb-0">Linee guida operative per la sicurezza, bollettini ufficiali e canali per l'invio di segnalazioni non urgenti sul territorio.</p>
@@ -239,6 +242,7 @@
     <section class="py-5 bg-white">
         <div class="container py-4">
             
+            <!-- ALERT BOX -->
             <div id="allerte" class="row mb-5" data-aos="fade-up">
                 <div class="col-12">
                     <div class="p-4 rounded-4 border border-success border-opacity-50 d-flex align-items-center gap-4 flex-wrap" style="background: rgba(25, 135, 84, 0.05);">
@@ -259,6 +263,7 @@
 
             <div class="row g-5 mb-5">
                 
+                <!-- NUMERI EMERGENZA -->
                 <div class="col-lg-4" data-aos="fade-right">
                     <div id="numeri" class="emergency-box-card h-100">
                         <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-phone-flip text-danger me-2"></i>Numeri di Emergenza</h4>
@@ -290,6 +295,7 @@
                     </div>
                 </div>
 
+                <!-- MODULO SEGNALAZIONE -->
                 <div class="col-lg-8" data-aos="fade-left">
                     <div class="form-container-card">
                         <h4 class="fw-bold text-dark mb-2">Segnalazione Non Urgente</h4>
@@ -343,6 +349,7 @@
 
             </div>
 
+            <!-- PROCEDURE DI SICUREZZA -->
             <div id="procedure" class="row mt-5 pt-4 border-top border-secondary border-opacity-10" data-aos="fade-up">
                 <div class="col-12 mb-4">
                     <h3 class="fw-bold text-dark mb-2">Procedure di Sicurezza e Autoprotezione</h3>
@@ -390,6 +397,7 @@
         </div>
     </section>
 
+    <!-- FOOTER STANDARD CHIARO -->
     <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
@@ -416,14 +424,14 @@
                     <ul class="list-unstyled text-secondary small">
                         <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
+            <div class="border-top border-secondary pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-white">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
