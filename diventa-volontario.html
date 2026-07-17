@@ -129,15 +129,30 @@
     </nav>
 
     <!-- HEADER -->
-    <header class="page-hero">
+        <!-- HEADER CON FOTO D'ÉLITE -->
+    <header class="page-hero overflow-hidden">
         <div class="page-hero-pattern"></div>
-        <div class="container page-hero-content pt-5" data-aos="fade-up">
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">UNISCITI A NOI</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Diventa Volontario</h1>
-            <p class="lead testo-leggero col-lg-8 mb-4">Non servono superpoteri, ma formazione, costanza e voglia di mettersi a disposizione. Scopri il percorso per entrare nella nostra Pubblica Assistenza.</p>
-            <a href="#modulo-iscrizione" class="btn btn-elite-primary shadow"><i class="fa-solid fa-user-plus me-2"></i>Invia Candidatura</a>
+        <div class="container page-hero-content pt-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider shadow-sm">UNISCITI A NOI</span>
+                    <h1 class="display-4 fw-bold text-dark mb-3" style="letter-spacing: -1px;">Diventa Volontario</h1>
+                    <p class="lead testo-leggero mb-4 pe-lg-4">Non servono superpoteri, ma formazione, costanza e voglia di mettersi a disposizione. Unisciti alla nostra famiglia e scopri la forza di fare la differenza insieme.</p>
+                    <a href="#modulo-iscrizione" class="btn btn-elite-primary shadow"><i class="fa-solid fa-user-plus me-2"></i>Invia Candidatura</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="position-relative text-center text-lg-end mt-4 mt-lg-0">
+                        <!-- Effetto luce dietro la foto -->
+                        <div class="position-absolute rounded-circle" style="width: 250px; height: 250px; background: rgba(230, 92, 0, 0.15); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; filter: blur(50px);"></div>
+                        
+                        <!-- Immagine -->
+                        <img src="diventa-volobtario.JPG" alt="Gruppo Volontari ANPAS" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
+
 
     <!-- 1. REQUISITI -->
     <section class="py-5 bg-white border-bottom">
