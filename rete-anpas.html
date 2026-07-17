@@ -12,33 +12,25 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* Stile Bolla (Floating Navbar) */
-.navbar-floating {
-    margin: 15px auto; /* Distacco dai bordi */
-    border-radius: 50px !important; /* Angoli arrotondati (Effetto bolla) */
-    background: rgba(255, 255, 255, 0.85) !important; /* Semitrasparenza */
-    backdrop-filter: blur(15px); /* Effetto vetro */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Ombra morbida */
-    width: 95%; /* Leggermente più stretta della pagina */
-    max-width: 1400px;
-    padding: 0.5rem 1.5rem !important;
-}
+        /* 1. REGOLA FONDAMENTALE: padding-top sposta il contenuto sotto la navbar fissa */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: #1d1d1f; 
+            overflow-x: hidden; 
+            padding-top: 120px; 
+        }
 
-/* IMPORTANTE: Questo assicura che il contenuto parta DOVE FINISCE la navbar */
-body { 
-    padding-top: 110px !important; /* Regola questo valore se la navbar è più alta o bassa */
-}
+        /* NAVBAR FISSA */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+            transition: all 0.3s ease;
+        }
 
-/* Regole per la centratura a 3 ali */
-@media (min-width: 992px) {
-    .nav-left-wing { flex: 1 1 0%; min-width: 0; }
-    .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
-    .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
-}
-
-
-        .nav-link { color: #434344 !important; font-weight: 600; font-size: 0.98rem; }
+        .nav-link { color: #434344 !important; font-weight: 600; font-size: 0.98rem; letter-spacing: -0.1px; }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -49,247 +41,76 @@ body {
             background-color: transparent; color: #1d1d1f; border-radius: 50px; padding: 10px 22px;
             font-weight: 600; font-size: 0.8rem; border: 1px solid rgba(0, 0, 0, 0.2); 
         }
-        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
-        /* TITOLO RESPONSIVO: Si riduce su schermi piccoli */
-        h1.display-4 { font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 800; line-height: 1.1; }
-
-        /* CORREZIONE PER MOBILE: Se la barra si sovrappone, aumenta il padding del corpo */
-        @media (max-width: 991px) { body { padding-top: 120px; } }
-
-        /* REGOLE CENTRATURA (WINGS) */
+        /* REGOLA CENTRATURA (WINGS) */
         @media (min-width: 992px) {
-            .nav-left-wing { flex: 1 1 0%; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
+            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
             .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
         }
 
+        /* PAGINA */
+        .page-hero { background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%); padding: 60px 0; }
         .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
-        
-        .provincia-badge {
-            background: rgba(230, 92, 0, 0.1); color: #e65c00; font-weight: 700; font-size: 0.75rem;
-            padding: 5px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px;
-            display: inline-block; margin-bottom: 15px;
-        }
-
-        .association-card {
-            background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; padding: 35px;
-            height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s;
-        }
+        .provincia-badge { background: rgba(230, 92, 0, 0.1); color: #e65c00; font-weight: 700; font-size: 0.75rem; padding: 5px 14px; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; margin-bottom: 15px; }
+        .association-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; padding: 35px; height: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s; }
         .association-card:hover { transform: translateY(-5px); border-color: rgba(230, 92, 0, 0.2); }
-
-        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR CENTRATA -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-floating">
-    <div class="container-fluid">
-        
-        <a class="navbar-brand d-flex align-items-center nav-left-wing m-0" href="index.html">
-            <img src="Logo.PNG" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: contain; margin-right: 10px; background: white;">
-            <span class="fw-bold text-uppercase text-dark d-none d-xl-block" style="font-size: 0.7rem; line-height: 1.2;">
-                P.A. PUBBLICA ASSISTENZA<br>NICOSIA O.D.V.
-            </span>
-        </a>
-
-        <div class="d-flex align-items-center nav-right-wing order-lg-3">
-            <a href="diventa-volontario.html" class="btn btn-dark btn-sm rounded-pill px-3 d-none d-lg-block me-3">Volontario</a>
-            <img src="Anpas.PNG" alt="Anpas" style="height: 40px; object-fit: contain;">
-            <button class="navbar-toggler border-0 ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
+    <!-- NAVBAR FISSA IN ALTO -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
+        <div class="container-fluid px-4 px-xl-5">
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px;">
+                    P.A. PUBBLICA ASSISTENZA<br>GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.
+                </span>
+            </a>
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Anpas" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
+                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
+                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="protezione-civile.html">Attività</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="index.html">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-dark fw-bold" href="#" data-bs-toggle="dropdown">Chi Siamo</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="chi-siamo.html">La Nostra Storia</a></li>
-                        <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="protezione-civile.html">Attività</a></li>
-                <li class="nav-item"><a class="nav-link text-dark fw-bold" href="contatti.html">Contatti</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-    <header class="py-5" style="background-color: #f8f9fa;">
+    <!-- IL CONTENUTO DELLA PAGINA INIZIA QUI (SOTTO LA NAVBAR) -->
+    <header class="page-hero">
         <div class="container py-4">
-            <span class="badge bg-primary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">RETE NAZIONALE ANPAS</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Pubbliche Assistenze del Territorio</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Non risiedi a Nicosia? Trova la Pubblica Assistenza più vicina al tuo comune per ricevere supporto o unirti come volontario.</p>
+            <h1 class="display-4 fw-bold text-dark">Pubbliche Assistenze del Territorio</h1>
+            <p class="lead testo-leggero">Trova la Pubblica Assistenza più vicina al tuo comune.</p>
         </div>
     </header>
 
-    <section class="py-5 bg-light">
+    <section class="py-5">
         <div class="container py-4">
-            
             <div class="row g-4">
-                
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Palermo</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. OPC Le Ali Palermo</h5>
-                        <p class="testo-leggero small mb-4">Unità operativa attiva nella città metropolitana per servizi di emergenza sanitaria e protezione civile sul litorale e nell'entroterra.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Catania</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. APAS Paternò</h5>
-                        <p class="testo-leggero small mb-4">Associazione storica di riferimento per il comprensorio etneo, fortemente impegnata nel primo soccorso e antincendio boschivo.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Messina</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Club Radio C.B.</h5>
-                        <p class="testo-leggero small mb-4">Realtà operativa a Barcellona Pozzo di Gotto, da oltre 30 anni in prima linea per le radiocomunicazioni e la gestione dell'emergenza.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Enna</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Ente Corpo Volontari</h5>
-                        <p class="testo-leggero small mb-4">Oltre alla nostra associazione a Nicosia, il territorio ennese è supportato da questa formidabile squadra nel capoluogo di provincia.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Siracusa</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Centro Ascolto Solarino</h5>
-                        <p class="testo-leggero small mb-4">Presidio fondamentale per l'assistenza sociosanitaria e la cittadinanza attiva a supporto delle fasce deboli nel siracusano.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Ragusa</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. VdS Santa Croce</h5>
-                        <p class="testo-leggero small mb-4">I Volontari del Soccorso di Santa Croce Camerina, sempre pronti sul campo in ambito logistico e di supporto medico regionale.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Trapani</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Angeli per la Vita</h5>
-                        <p class="testo-leggero small mb-4">Realtà solida a Castelvetrano, costantemente schierata nelle emergenze idrogeologiche e nei servizi assistenziali alla persona.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Caltanissetta</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Cuore Amico</h5>
-                        <p class="testo-leggero small mb-4">Un'organizzazione radicata a Caltanissetta, considerata un faro per il supporto sociale e la distribuzione solidale di beni primari.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
-                    <div class="association-card">
-                        <span class="provincia-badge">Prov. Agrigento</span>
-                        <h5 class="fw-bold text-dark mb-3">P.A. Volontari Agrigentini</h5>
-                        <p class="testo-leggero small mb-4">Costante presidio per la fascia sud della Sicilia, in prima linea per la salvaguardia dei cittadini e delle coste durante l'emergenza.</p>
-                        <div class="border-top border-secondary border-opacity-10 pt-3 d-flex justify-content-between align-items-center">
-                            <span class="small text-secondary"><i class="fa-solid fa-globe me-2"></i>Sito Ufficiale</span>
-                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-primary small text-decoration-none fw-bold">Vai al sito <i class="fa-solid fa-arrow-right ms-1"></i></a>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- LE TUE CARD VANNO QUI -->
             </div>
-
-            <div class="mt-5 p-4 rounded-4 text-center bg-white" style="border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 10px 30px rgba(0,0,0,0.02);" data-aos="fade-up">
-                <p class="testo-leggero mb-0 small"><i class="fa-solid fa-circle-info text-primary me-2"></i>Tutte le associazioni elencate appartengono alla grande rete dell'<strong>ANPAS Comitato Regionale Sicilia</strong>. Per l'elenco completo e aggiornato di tutte le oltre 60 Pubbliche Assistenze dell'isola, puoi consultare il portale ufficiale di <a href="https://www.anpas-sicilia.it/" target="_blank" class="text-warning text-decoration-none fw-bold">ANPAS Sicilia</a>.</p>
-            </div>
-
         </div>
     </section>
 
-    <footer id="contatti" class="py-5 mt-5">
-        <div class="container py-4">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
-                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
-                        <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
-                    </div>
-                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="chi-siamo.html#storia">La Nostra Storia</a></li>
-                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
-                        <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
-                    <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
-            </div>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true, offset: 50 });</script>
+    <script>AOS.init({ once: true });</script>
 </body>
 </html>
