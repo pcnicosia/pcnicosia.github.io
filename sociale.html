@@ -6,194 +6,222 @@
     <title>Area Sociale - P.A. Nicosia O.d.V.</title>
     <link rel="icon" type="image/png" href="Logo.PNG">
     
-
-
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        /* 1. CORREZIONE OVERLAP: padding-top sposta il contenuto sotto la navbar */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            background-image: 
-                radial-gradient(circle at 15% 30%, rgba(0, 123, 255, 0.04), transparent 35%),
-                radial-gradient(circle at 85% 70%, rgba(230, 92, 0, 0.02), transparent 35%);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #1d1d1f;
             overflow-x: hidden;
+            padding-top: 120px;
         }
 
+        /* 2. NAVBAR ALTA E BILANCIATA */
         .glass-nav {
-            background: rgba(10, 10, 10, 0.75);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
-        .dropdown-menu {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 10px;
+        .nav-link { 
+            color: #434344 !important; 
+            font-weight: 600; 
+            font-size: 0.98rem; 
+            letter-spacing: -0.1px; 
         }
-        .dropdown-item {
-            color: #a1a1a6 !important;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            transition: all 0.2s ease;
-        }
-        .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.1);
-            color: #ffffff !important;
-            transform: translateX(4px);
-        }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+
+        .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
         .btn-elite-outline {
             background-color: transparent;
-            color: white;
+            color: #1d1d1f;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 10px 22px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
         }
-        .btn-elite-outline:hover { background-color: white; color: black; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
+        /* REGOLA CENTRATURA ASSOLUTA A "3 ALI" */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
+            .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
+            .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
+        }
+
+        @media (min-width: 992px) and (max-width: 1200px) {
+            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
+            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
+        }
+
+        /* 3. HERO SECTION CON FOTO PASSAMANO E SFUMATURA CHIARA */
         .page-hero {
-            height: 60vh;
+            height: 55vh;
             display: flex;
             align-items: flex-end;
-            padding-bottom: 5rem;
+            padding-bottom: 4rem;
             position: relative;
             background: url('Passamano.JPG') center/cover no-repeat;
         }
         .page-hero-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,0.7) 60%, #050505 100%);
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.85) 60%, #ffffff 100%);
             z-index: 1;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
-        .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
+        .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
+        /* CARTE AREA SOCIALE (TEMA CHIARO CON ACCENTI AZZURRI) */
         .elite-card {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
             border-radius: 24px;
-            backdrop-filter: blur(10px);
             padding: 40px;
             height: 100%;
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .elite-card:hover { transform: translateY(-8px); border-color: rgba(0, 123, 255, 0.4); }
+        .elite-card:hover { 
+            transform: translateY(-8px); 
+            border-color: rgba(13, 202, 240, 0.4); 
+            box-shadow: 0 15px 35px rgba(13, 202, 240, 0.1); 
+        }
 
         .icon-box {
             width: 70px; height: 70px; border-radius: 18px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(13, 202, 240, 0.1);
             display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 2rem; border: 1px solid rgba(13, 202, 240, 0.2);
             margin-bottom: 25px;
         }
 
-        footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
-        footer a { color: #a1a1a6; text-decoration: none; }
+        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
+        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR PERFETTA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
-                <span>P.A. Nicosia O.d.V.</span>
+        <div class="container-fluid px-4 px-xl-5">
+            
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
+                    P.A. PUBBLICA ASSISTENZA<br>
+                    GRUPPO VOLONTARI<br>
+                    PROTEZIONE CIVILE<br>
+                    NICOSIA O.D.V.
+                </span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html">Home</a></li>
+
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
+                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
+                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item fw-bold text-white" href="#"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item fw-bold text-info" href="#"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html#contatti">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
                 </ul>
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <div class="text-center mt-3 d-lg-none pb-3">
+                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- HEADER CON FOTO PASSAMANO.JPG -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-info text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">SETTORE SOCIALE</span>
-            <h1 class="display-4 fw-bold text-white mb-2">Supporto Sociale</h1>
+            <h1 class="display-4 fw-bold text-dark mb-2">Supporto Sociale</h1>
             <p class="lead testo-leggero col-lg-8 mb-0">Vicini alle fasce fragili della popolazione con progetti di assistenza mirata, inclusione e distribuzione solidale di beni primari.</p>
         </div>
     </header>
 
-    <section class="py-5" style="position: relative; z-index: 10;">
+    <section class="py-5 bg-white">
         <div class="container py-5">
             <div class="row g-4">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="elite-card">
                         <div class="icon-box text-info"><i class="fa-solid fa-box-tissue"></i></div>
-                        <h4 class="fw-bold mb-3">Distribuzione Beni di Prima Necessità</h4>
+                        <h4 class="fw-bold text-dark mb-3">Distribuzione Beni di Prima Necessità</h4>
                         <p class="testo-leggero mb-0">Raccolta, stoccaggio e distribuzione periodica di generi alimentari a lunga conservazione, prodotti per l'infanzia e presidi igienico-sanitari. Un'azione concreta coordinata in rete con i centri di solidarietà e la Caritas locale per raggiungere capillarmente i nuclei familiari in condizioni di momentanea vulnerabilità.</p>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="elite-card">
                         <div class="icon-box text-info"><i class="fa-solid fa-wheelchair"></i></div>
-                        <h4 class="fw-bold mb-3">Assistenza alla Popolazione Fragile</h4>
-                        <p class="testo-leggero mb-0">Servizi di prossimità dedicati agli anziani e alle persone con ridotta mobilità nel comune di Nicosia. Consegna della spesa a dornicilio, ritiro farmaci salvavita e piccoli supporti logistici quotidiani, attivati specialmente in concomitanza di ondate di calore estive o rigide temperature invernali.</p>
+                        <h4 class="fw-bold text-dark mb-3">Assistenza alla Popolazione Fragile</h4>
+                        <p class="testo-leggero mb-0">Servizi di prossimità dedicati agli anziani e alle persone con ridotta mobilità nel comune di Nicosia. Consegna della spesa a domicilio, ritiro farmaci salvavita e piccoli supporti logistici quotidiani, attivati specialmente in concomitanza di ondate di calore estive o rigide temperature invernali.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER STANDARD CHIARO -->
     <footer id="contatti" class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
-                    <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
+                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
                     <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
                         <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
                     </div>
-                    <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
+                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
                 <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-white mb-3">Collegamenti istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -202,9 +230,9 @@
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-white mb-3">Contatti Istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
                     <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
                         <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
@@ -212,8 +240,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | Portale Istituzionale</p>
+            <div class="border-top pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
