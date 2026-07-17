@@ -30,13 +30,14 @@
         .nav-link { 
             color: #434344 !important; 
             font-weight: 600; 
-            font-size: 0.98rem;
+            font-size: 0.98rem; /* Ingrandito per dare più importanza */
             letter-spacing: -0.1px;
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         
+        /* SOTTOMENU INGRANDITO */
         .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
         .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
@@ -281,7 +282,6 @@
                 <a href="news.html" class="btn btn-elite-outline">Vedi Archivio Completo</a>
             </div>
             
-            <!-- MODIFICA: IL CONTENITORE ORA USA LA CLASSE DEL CAROSELLO -->
             <div id="news-home-container" class="news-carousel">
                 <div class="text-center py-5 text-secondary w-100"><i class="fa-solid fa-circle-notch fa-spin me-2"></i>Caricamento notizie...</div>
             </div>
@@ -352,7 +352,6 @@
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('news-home-container');
-                // Ho aumentato a 6 il limite, così carica tutte e 5 le tue notizie nel carosello!
                 const ultimeNews = data.slice(0, 6);
                 let htmlCode = '';
                 
@@ -368,7 +367,7 @@
                                     </div>
                                     <h5 class="fw-bold text-dark mb-2">${item.titolo}</h5>
                                     <p class="testo-leggero small mb-3 flex-grow-1">${item.descrizione_breve}</p>
-                                    <a href="news.html" class="${item.linkClass || 'text-secondary'} small text-decoration-none fw-bold">Leggi l'articolo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                    <a href="news.html?id=${data.indexOf(item)}" class="${item.linkClass || 'text-secondary'} small text-decoration-none fw-bold">Leggi l'articolo <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>`;
