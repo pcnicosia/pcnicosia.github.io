@@ -30,14 +30,13 @@
         .nav-link { 
             color: #434344 !important; 
             font-weight: 600; 
-            font-size: 0.98rem; /* Ingrandito per dare più importanza */
+            font-size: 0.98rem;
             letter-spacing: -0.1px;
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         
-        /* SOTTOMENU INGRANDITO */
         .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
         .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
@@ -68,18 +67,51 @@
         
         .custom-alert { background: rgba(230, 92, 0, 0.04); border: 1px solid rgba(230, 92, 0, 0.2); border-radius: 20px; }
 
-        .news-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform 0.4s, border-color 0.3s; }
-        .news-card:hover { transform: translateY(-6px); border-color: rgba(0, 0, 0, 0.15); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); }
+        /* MODIFICA: CAROSELLO STILE VIDEOGIOCO PER LE NEWS */
+        .news-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 1rem 0.5rem 2rem 0.5rem; /* Spazio per le ombre */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Nasconde scrollbar su Firefox */
+            cursor: grab; /* Cursore a "manina" per il PC */
+        }
+        .news-carousel::-webkit-scrollbar {
+            display: none; /* Nasconde scrollbar su Chrome/Safari */
+        }
+        .news-carousel:active {
+            cursor: grabbing; /* Cursore "afferrato" */
+        }
+
+        .news-carousel-item {
+            flex: 0 0 85%; /* Su mobile la card occupa l'85%, lasciando sbucare la successiva! */
+            scroll-snap-align: center;
+            max-width: 400px; /* Limite larghezza */
+            display: flex; /* Assicura che le card siano alte uguali */
+        }
+        @media (min-width: 768px) {
+            .news-carousel-item {
+                flex: 0 0 calc(33.333% - 1rem); /* Su PC mostra 3 card per volta */
+                scroll-snap-align: start;
+                max-width: none;
+            }
+        }
+
+        .news-card { width: 100%; background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform 0.4s, border-color 0.3s; pointer-events: none; /* Previene bug durante il trascinamento */ }
+        .news-carousel-item:hover .news-card { transform: translateY(-6px); border-color: rgba(0, 0, 0, 0.15); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); }
+        .news-card * { pointer-events: auto; /* Riattiva i clic dentro la card */ }
+        
         .news-img-box { height: 240px; width: 100%; overflow: hidden; position: relative; }
         .news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .news-card:hover .news-img { transform: scale(1.04); }
+        .news-carousel-item:hover .news-img { transform: scale(1.04); }
         .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 
         footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
         footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
 
-        /* REGOLA CENTRATURA ASSOLUTA: CREA LE "3 ALI" PERFETTAMENTE SIMMETRICHE */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 1 1 0%; min-width: 0; }
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
@@ -87,7 +119,6 @@
             .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
         }
 
-        /* REGOLE DI ADATTABILITÀ STRUTTURALE PER SCHERMI MEDIO-GRANDI (IPAD) - FONT RICALIBRATO */
         @media (min-width: 992px) and (max-width: 1200px) {
             .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
             .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
@@ -123,7 +154,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
         <div class="container-fluid px-4 px-xl-5">
-            
             <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
                 <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
@@ -248,10 +278,12 @@
                     <h2 class="display-6 text-dark mb-2 fw-bold">Novità ed Attività Recenti</h2>
                     <p class="testo-leggero mb-0">Rimani aggiornato sulle ultime operazioni sul campo, i comunicati e le attività gestite dalla nostra O.d.V.</p>
                 </div>
-                <a href="news.html" class="btn btn-elite-outline">Vedi Archivio News</a>
+                <a href="news.html" class="btn btn-elite-outline">Vedi Archivio Completo</a>
             </div>
-            <div id="news-home-container" class="row g-4">
-                <div class="text-center py-5 text-secondary"><i class="fa-solid fa-circle-notch fa-spin me-2"></i>Caricamento notizie...</div>
+            
+            <!-- MODIFICA: IL CONTENITORE ORA USA LA CLASSE DEL CAROSELLO -->
+            <div id="news-home-container" class="news-carousel">
+                <div class="text-center py-5 text-secondary w-100"><i class="fa-solid fa-circle-notch fa-spin me-2"></i>Caricamento notizie...</div>
             </div>
         </div>
     </section>
@@ -303,7 +335,7 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // NAVBAR DINAMICA (Shrink on scroll)
+        // NAVBAR DINAMICA
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.glass-nav');
             if (window.scrollY > 50) {
@@ -315,17 +347,20 @@
             }
         });
 
+        // GENERAZIONE DELLE CARD E LOGICA DEL CAROSELLO
         fetch('news.json')
             .then(response => response.json())
             .then(data => {
                 const container = document.getElementById('news-home-container');
-                const primeTre = data.slice(0, 3);
+                // Ho aumentato a 6 il limite, così carica tutte e 5 le tue notizie nel carosello!
+                const ultimeNews = data.slice(0, 6);
                 let htmlCode = '';
-                primeTre.forEach(item => {
+                
+                ultimeNews.forEach(item => {
                     htmlCode += `
-                        <div class="col-md-4">
+                        <div class="news-carousel-item">
                             <div class="news-card ${item.borderClass || ''}">
-                                <div class="news-img-box"><img src="${item.immagine}" alt="${item.titolo}" class="news-img"></div>
+                                <div class="news-img-box"><img src="${item.immagine}" alt="${item.titolo}" class="news-img" draggable="false"></div>
                                 <div class="news-body">
                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                         <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${item.categoria}</span>
@@ -339,6 +374,27 @@
                         </div>`;
                 });
                 container.innerHTML = htmlCode;
+
+                // SCRIPT AGGIUNTIVO: Permette di trascinare il carosello col mouse da PC!
+                const slider = document.querySelector('.news-carousel');
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+
+                slider.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    startX = e.pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                });
+                slider.addEventListener('mouseleave', () => { isDown = false; });
+                slider.addEventListener('mouseup', () => { isDown = false; });
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2; // Moltiplicatore per la velocità di scorrimento
+                    slider.scrollLeft = scrollLeft - walk;
+                });
             })
             .catch(err => {
                 document.getElementById('news-home-container').innerHTML = '<div class="text-center text-danger">Impossibile caricare le novità recenti.</div>';
