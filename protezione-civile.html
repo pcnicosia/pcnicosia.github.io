@@ -13,79 +13,74 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        /* 1. CORREZIONE OVERLAP: padding-top sposta il contenuto sotto la navbar */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
             color: #1d1d1f;
             overflow-x: hidden;
+            padding-top: 120px; 
         }
 
+        /* 2. NAVBAR ALTA E BILANCIATA */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
-        .navbar-brand span {
-            color: #1d1d1f !important;
-            font-size: 0.8rem;
-            line-height: 1.3;
-            max-width: 250px;
-            display: inline-block;
-        }
-
-        .nav-link {
-            color: #434344 !important;
-            font-weight: 500;
+        .nav-link { 
+            color: #434344 !important; 
+            font-weight: 600; 
+            font-size: 0.98rem; 
+            letter-spacing: -0.1px; 
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        .dropdown-menu {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        .dropdown-item {
-            color: #434344 !important;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-        .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.08);
-            color: #e65c00 !important;
-            transform: translateX(4px);
-        }
+        .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
         .btn-elite-outline {
             background-color: transparent;
             color: #1d1d1f;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 10px 22px;
             font-weight: 600;
+            font-size: 0.8rem;
             border: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
         }
-        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
+        /* REGOLA CENTRATURA ASSOLUTA A "3 ALI" */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
+            .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
+            .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
+        }
+
+        @media (min-width: 992px) and (max-width: 1200px) {
+            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
+            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
+        }
+
+        /* 3. HERO SECTION CON CANADAIR IN BACKGROUND */
         .page-hero {
-            height: 45vh;
+            height: 55vh;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
             position: relative;
-            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: url('canadair.JPG') center/cover no-repeat;
         }
-        .page-hero-pattern {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(230, 92, 0, 0.04) 1px, transparent 1px);
-            background-size: 30px 30px;
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.85) 60%, #ffffff 100%);
+            z-index: 1;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
@@ -115,29 +110,36 @@
         }
 
         footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
-        footer a { color: #515154; text-decoration: none; }
+        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-2">
-        <div class="container-fluid px-xl-5">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 75px; height: 75px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
-                <span class="text-wrap fw-bold text-uppercase text-dark d-none d-sm-block">
-                    P.A. Pubblica Assistenza<br>Gruppo Volontari<br>Protezione Civile Nicosia O.d.V.
+    <!-- NAVBAR PERFETTA -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
+        <div class="container-fluid px-4 px-xl-5">
+            
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
+                    P.A. PUBBLICA ASSISTENZA<br>
+                    GRUPPO VOLONTARI<br>
+                    PROTEZIONE CIVILE<br>
+                    NICOSIA O.D.V.
                 </span>
             </a>
-            <div class="d-flex align-items-center ms-auto order-lg-3">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4 me-4 d-none d-lg-block">Diventa Volontario</a>
-                <img src="Anpas.PNG" alt="Aderente ANPAS" class="me-3" style="height: 55px; object-fit: contain;">
+
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
                 <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse order-lg-2" id="menuNav">
-                <ul class="navbar-nav mx-auto text-center text-lg-start mt-3 mt-lg-0">
+
+            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
+                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
@@ -174,8 +176,9 @@
         </div>
     </nav>
 
+    <!-- HEADER CON SFONDO CANADAIR.JPG -->
     <header class="page-hero">
-        <div class="page-hero-pattern"></div>
+        <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">RISPOSTA IN EMERGENZA</span>
             <h1 class="display-5 fw-bold text-dark mb-2">Protezione Civile</h1>
@@ -185,7 +188,21 @@
 
     <section class="py-5">
         <div class="container py-4">
-            <div class="row g-4">
+            
+            <!-- NUOVA SEZIONE INTRODUTTIVA CON FOTO VOLONTARIO.WEBP -->
+            <div class="row align-items-center mb-5 pb-4" data-aos="fade-up">
+                <div class="col-lg-6 mb-4 mb-lg-0 pr-lg-5">
+                    <h3 class="fw-bold text-dark mb-3">Sempre in prima linea</h3>
+                    <p class="testo-leggero">Il cuore pulsante della nostra Associazione è rappresentato dall'impegno e dalla dedizione dei nostri operatori. Addestrati ad intervenire su scenari complessi, lavorano senza sosta a tutela del territorio, agendo in stretta sinergia con il Dipartimento Regionale della Protezione Civile.</p>
+                    <p class="testo-leggero">Dallo spegnimento degli incendi boschivi durante la stagione estiva, all'allestimento di campi base nelle maxi-emergenze, i nostri mezzi e le nostre squadre sono strutturati per fornire una risposta rapida e altamente qualificata.</p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="volontario .WEBP" alt="Operatore Protezione Civile" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-10" style="max-height: 450px; width: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- LE 5 CARD DELLE ATTIVITÀ -->
+            <div class="row g-4 mt-2">
                 
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="activity-card">
@@ -211,7 +228,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="activity-card">
                         <div class="activity-icon"><i class="fa-solid fa-radio"></i></div>
                         <h4 class="fw-bold text-dark mb-3">Telecomunicazioni</h4>
@@ -219,7 +236,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="activity-card">
                         <div class="activity-icon"><i class="fa-solid fa-mountain-sun"></i></div>
                         <h4 class="fw-bold text-dark mb-3">Rischio Idrogeologico</h4>
@@ -264,7 +281,7 @@
                 </div>
             </div>
             <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-underline">Privacy Policy</a></p>
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
