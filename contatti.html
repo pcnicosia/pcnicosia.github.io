@@ -13,53 +13,47 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        /* 1. CORREZIONE OVERLAP: padding-top sposta il contenuto sotto la navbar */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
-            background-image: 
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.02), transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(230, 92, 0, 0.03), transparent 40%);
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #1d1d1f;
             overflow-x: hidden;
+            padding-top: 120px;
         }
 
+        /* 2. NAVBAR ALTA E BILANCIATA */
         .glass-nav {
-            background: rgba(10, 10, 10, 0.75);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
-        .dropdown-menu {
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 10px;
+        .nav-link { 
+            color: #434344 !important; 
+            font-weight: 600; 
+            font-size: 0.98rem; 
+            letter-spacing: -0.1px; 
         }
-        .dropdown-item {
-            color: #a1a1a6 !important;
-            font-size: 0.9rem;
-            padding: 8px 16px;
-            transition: all 0.2s ease;
-        }
-        .dropdown-item:hover {
-            background: rgba(230, 92, 0, 0.1);
-            color: #ffffff !important;
-            transform: translateX(4px);
-        }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+
+        .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
+        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
 
         .btn-elite-outline {
             background-color: transparent;
-            color: white;
+            color: #1d1d1f;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 10px 22px;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
         }
-        .btn-elite-outline:hover { background-color: white; color: black; }
+        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
 
         .btn-elite-primary {
             background-color: #e65c00;
@@ -73,56 +67,75 @@
         }
         .btn-elite-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.4);
+            box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25);
             color: white;
         }
 
+        /* REGOLA CENTRATURA ASSOLUTA A "3 ALI" */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
+            .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
+            .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
+        }
+
+        @media (min-width: 992px) and (max-width: 1200px) {
+            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
+            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
+        }
+
+        /* 3. HERO SECTION CON FOTO DI NICOSIA */
         .page-hero {
-            height: 50vh;
+            height: 55vh;
             display: flex;
             align-items: flex-end;
             padding-bottom: 4rem;
             position: relative;
-            background: linear-gradient(135deg, #0a0a0a 0%, #140b02 100%);
+            background: url('Nicosia.JPG') center/cover no-repeat; /* <--- INSERISCI QUI IL NOME DELLA FOTO */
         }
-        .page-hero-pattern {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(rgba(230, 92, 0, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+        .page-hero-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.9) 65%, #ffffff 100%);
+            z-index: 1;
         }
         .page-hero-content { position: relative; z-index: 2; }
 
-        .testo-leggero { color: #a1a1a6; font-weight: 400; line-height: 1.8; }
+        .testo-leggero { color: #515154; font-weight: 400; line-height: 1.8; }
         
+        /* CARTE DI CONTATTO E FORM (TEMA CHIARO) */
         .contact-card {
-            background: rgba(20, 20, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 20px;
             padding: 30px;
             height: 100%;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
-        .contact-card:hover { transform: translateY(-5px); border-color: rgba(230, 92, 0, 0.3); }
+        .contact-card:hover { 
+            transform: translateY(-5px); 
+            border-color: rgba(230, 92, 0, 0.3); 
+            box-shadow: 0 15px 35px rgba(230, 92, 0, 0.08);
+        }
 
         .form-container-card {
-            background: rgba(20, 20, 20, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 24px;
             padding: 45px;
-            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
         }
 
         .form-control {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
             border-radius: 12px;
-            color: white !important;
+            color: #1d1d1f !important;
             padding: 14px 20px;
             transition: all 0.3s;
         }
         .form-control:focus {
-            background: rgba(255, 255, 255, 0.05);
+            background: #ffffff;
             border-color: rgba(230, 92, 0, 0.5);
             box-shadow: 0 0 0 4px rgba(230, 92, 0, 0.15);
         }
@@ -131,29 +144,30 @@
             width: 50px; height: 50px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem; margin-bottom: 20px;
-            background: rgba(255,255,255,0.05); color: #e65c00;
         }
 
+        /* TASTI SOCIAL */
         .social-btn {
             display: inline-flex; align-items: center; justify-content: center;
             width: 45px; height: 45px; border-radius: 50%;
-            background: rgba(255,255,255,0.05); color: white;
+            background: #ffffff; color: #1d1d1f;
             font-size: 1.2rem; text-decoration: none; transition: all 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
-        .social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: white; transform: scale(1.1); }
-        .social-btn.instagram:hover { background: #E4405F; border-color: #E4405F; color: white; transform: scale(1.1); }
+        .social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: white; transform: scale(1.1); box-shadow: 0 8px 20px rgba(24, 119, 242, 0.3);}
+        .social-btn.instagram:hover { background: #E4405F; border-color: #E4405F; color: white; transform: scale(1.1); box-shadow: 0 8px 20px rgba(228, 64, 95, 0.3);}
 
         .map-container {
             width: 100%; height: 100%; min-height: 450px;
             border-radius: 24px; overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
         }
 
         .form-check-input {
-            background-color: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
+            background-color: #ffffff;
+            border: 1px solid #adb5bd;
             width: 1.25rem;
             height: 1.25rem;
             margin-top: 0.2em;
@@ -164,26 +178,40 @@
             border-color: #e65c00;
         }
 
-        footer { background-color: #0a0a0a; border-top: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.9rem; }
-        footer a { color: #a1a1a6; text-decoration: none; }
+        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
+        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR PERFETTA -->
     <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 45px; height: 45px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(255,255,255,0.15); margin-right: 12px; background: white;">
-                <span>P.A. Nicosia O.d.V.</span>
+        <div class="container-fluid px-4 px-xl-5">
+            
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
+                    P.A. PUBBLICA ASSISTENZA<br>
+                    GRUPPO VOLONTARI<br>
+                    PROTEZIONE CIVILE<br>
+                    NICOSIA O.D.V.
+                </span>
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menuNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="index.html">Home</a></li>
+
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
+                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
+                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -192,7 +220,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
@@ -200,31 +228,34 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link text-white active fw-bold mx-1" href="#">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold mx-1" href="#">Contatti</a></li>
                 </ul>
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                <div class="text-center mt-3 d-lg-none pb-3">
+                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- HEADER CON FOTO NICOSIA.JPG E SFUMATURA -->
     <header class="page-hero">
-        <div class="page-hero-pattern"></div>
+        <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">RESTA IN CONTATTO</span>
-            <h1 class="display-4 fw-bold text-white mb-2">Contattaci</h1>
+            <h1 class="display-4 fw-bold text-dark mb-2">Contattaci</h1>
             <p class="lead testo-leggero col-lg-8 mb-0">Siamo a disposizione per informazioni, servizi e collaborazioni. Ecco tutti i canali per comunicare con noi.</p>
         </div>
     </header>
 
-    <section class="py-5">
+    <section class="py-5 bg-white">
         <div class="container py-4">
             <div class="row g-5 mb-5">
                 
@@ -232,33 +263,33 @@
                     <div class="row g-4">
                         <div class="col-12" data-aos="fade-up" data-aos-delay="100">
                             <div class="contact-card">
-                                <div class="icon-circle"><i class="fa-solid fa-location-dot"></i></div>
-                                <h5 class="fw-bold text-white mb-2">Sede Operativa e Legale</h5>
+                                <div class="icon-circle bg-warning bg-opacity-10 text-warning"><i class="fa-solid fa-location-dot"></i></div>
+                                <h5 class="fw-bold text-dark mb-2">Sede Operativa e Legale</h5>
                                 <p class="testo-leggero mb-0">Via Bernardo di falco, 82<br>94014 Nicosia (EN)</p>
                             </div>
                         </div>
 
                         <div class="col-12" data-aos="fade-up" data-aos-delay="200">
                             <div class="contact-card">
-                                <div class="icon-circle text-success"><i class="fa-solid fa-phone"></i></div>
-                                <h5 class="fw-bold text-white mb-2">Recapiti Telefonici</h5>
-                                <p class="testo-leggero mb-1"><strong>Mobile:</strong> <a href="tel:3296411659" class="text-white text-decoration-none">329-6411659</a></p>
+                                <div class="icon-circle bg-success bg-opacity-10 text-success"><i class="fa-solid fa-phone"></i></div>
+                                <h5 class="fw-bold text-dark mb-2">Recapiti Telefonici</h5>
+                                <p class="testo-leggero mb-1"><strong>Mobile:</strong> <a href="tel:3296411659" class="text-dark text-decoration-none">329-6411659</a></p>
                                 <p class="testo-leggero mb-0"><strong>WhatsApp:</strong> <a href="https://wa.me/3513633864" class="text-success text-decoration-none">351-3633864</a></p>
                             </div>
                         </div>
 
                         <div class="col-12" data-aos="fade-up" data-aos-delay="300">
                             <div class="contact-card">
-                                <div class="icon-circle text-info"><i class="fa-solid fa-envelope"></i></div>
-                                <h5 class="fw-bold text-white mb-2">Indirizzi Email</h5>
-                                <p class="testo-leggero mb-1"><strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-white text-decoration-none">pagvpcnicosia@gmail.com</a></p>
+                                <div class="icon-circle bg-info bg-opacity-10 text-info"><i class="fa-solid fa-envelope"></i></div>
+                                <h5 class="fw-bold text-dark mb-2">Indirizzi Email</h5>
+                                <p class="testo-leggero mb-1"><strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-dark text-decoration-none">pagvpcnicosia@gmail.com</a></p>
                                 <p class="testo-leggero mb-0"><strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it" class="text-info text-decoration-none">pagvpcnicosia@pec.it</a></p>
                             </div>
                         </div>
 
                         <div class="col-12" data-aos="fade-up" data-aos-delay="400">
                             <div class="contact-card">
-                                <h5 class="fw-bold text-white mb-3">Seguici sui Social</h5>
+                                <h5 class="fw-bold text-dark mb-3">Seguici sui Social</h5>
                                 <div class="d-flex gap-3">
                                     <a href="https://www.facebook.com/pagruppovolontariprotezionecivilenicosia" target="_blank" class="social-btn facebook"><i class="fa-brands fa-facebook-f"></i></a>
                                     <a href="https://www.instagram.com/pagvpcnicosia?igsh=MXc5dDU2a3RuYWFjOA==" target="_blank" class="social-btn instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -286,8 +317,8 @@
 
             <div class="row justify-content-center pt-4" data-aos="fade-up">
                 <div class="col-12">
-                    <div class="form-container-card shadow-lg">
-                        <h4 class="fw-bold text-white mb-2"><i class="fa-regular fa-paper-plane me-2 text-warning"></i>Invia un messaggio alla segreteria</h4>
+                    <div class="form-container-card">
+                        <h4 class="fw-bold text-dark mb-2"><i class="fa-regular fa-paper-plane me-2 text-warning"></i>Invia un messaggio alla segreteria</h4>
                         <p class="testo-leggero small mb-4">Hai dubbi, domande sulle attività o desideri richiedere una collaborazione? Compila i campi qui sotto per scriverci direttamente.</p>
                         
                         <form action="#" method="POST">
@@ -330,20 +361,21 @@
         </div>
     </section>
 
+    <!-- FOOTER STANDARD CHIARO -->
     <footer class="py-5 mt-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 <div class="col-lg-5">
-                    <h5 class="fw-bold text-white mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
+                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
                     <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm">
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
                         <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
                     </div>
-                    <p class="text-white small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-white small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
+                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
                 <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-white mb-3">Collegamenti istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
                         <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
@@ -352,9 +384,9 @@
                     </ul>
                 </div>
                 <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-white mb-3">Contatti Istituzionali</h6>
+                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
                     <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-white"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
                         <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
@@ -362,8 +394,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-white">Privacy Policy</a></p>
+            <div class="border-top pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
