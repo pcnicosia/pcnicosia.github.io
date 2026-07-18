@@ -436,10 +436,19 @@
         // SCRIPT AUTOMAZIONE BOLLETTINI (LEGGE I JSON DEL BOT TELEGRAM)
         document.addEventListener('DOMContentLoaded', function() {
             const sezioniBollettini = ['meteo', 'antincendio', 'alluvioni'];
+            // Creiamo un "timbro orario" univoco al millisecondo
+            const timeStamp = new Date().getTime(); 
             
             sezioniBollettini.forEach(sezione => {
-                // Aggiungiamo un parametro di tempo per evitare che il browser metta in cache il testo vecchio
-                fetch(`bollettini/${sezione}.json?t=${new Date().getTime()}`)
+                // 1. INGANNO DELLA CACHE SUI PDF
+                // Troviamo il pulsante del PDF e aggiungiamo il timbro al link
+                const btnPdf = document.querySelector(`a[href="bollettini/${sezione}.pdf"]`);
+                if (btnPdf) {
+                    btnPdf.href = `bollettini/${sezione}.pdf?t=${timeStamp}`;
+                }
+
+                // 2. LETTURA DEL TESTO DESCRITTIVO
+                fetch(`bollettini/${sezione}.json?t=${timeStamp}`)
                     .then(response => {
                         if (!response.ok) throw new Error("File non trovato");
                         return response.json();
@@ -454,7 +463,7 @@
                     })
                     .catch(error => {
                         const descElement = document.getElementById(`desc-${sezione}`);
-                        if (descElement) descElement.innerText = "In attesa di pubblicazione del primo bollettino.";
+                        if (descElement) descElement.innerText = "Nessun bollettino attivo al momento.";
                     });
             });
         });
