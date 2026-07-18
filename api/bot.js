@@ -1,7 +1,7 @@
-export default async function handler(req, res) {
-  // Risponde a chiunque visiti la pagina normalmente
+module.exports = async function (req, res) {
+  // Test di attività visibile dal browser
   if (req.method !== 'POST') {
-    return res.status(200).send('Il bot è attivo e in ascolto!');
+    return res.status(200).send('Il bot è attivo, aggiornato e in ascolto!');
   }
 
   // Prende i token dalle impostazioni segrete di Vercel
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     const message = body.message || body.channel_post;
     
     if (!message || !message.document) {
-      return res.status(200).send('Nessun documento');
+      return res.status(200).send('Nessun documento in arrivo');
     }
 
     const document = message.document;
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
     if (document.mime_type !== 'application/pdf') {
       await sendMessage(TELEGRAM_TOKEN, message.chat.id, "Per favore, invia solo file PDF.");
-      return res.status(200).send('Non è un PDF');
+      return res.status(200).send('File ignorato, non era un PDF');
     }
 
     let sezione_trovata = null;
@@ -41,13 +41,13 @@ export default async function handler(req, res) {
 
     if (!sezione_trovata) {
       await sendMessage(TELEGRAM_TOKEN, message.chat.id, "Non ho trovato l'hashtag. Includi uno tra: #meteo, #antincendio, #alluvioni");
-      return res.status(200).send('Nessun hashtag');
+      return res.status(200).send('Hashtag mancante');
     }
 
     const didascalia_pulita = caption.replace(/#\w+/g, '').trim();
-    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `Sto scaricando il PDF per la sezione '${sezione_trovata}'...`);
+    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `Sto elaborando il PDF per la sezione '${sezione_trovata}'...`);
 
-    // Scarica il file da Telegram
+    // Scarica il file
     const fileRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/getFile?file_id=${document.file_id}`);
     const fileData = await fileRes.json();
     const filePath = fileData.result.file_path;
@@ -55,8 +55,6 @@ export default async function handler(req, res) {
     const downloadRes = await fetch(`https://api.telegram.org/file/bot${TELEGRAM_TOKEN}/${filePath}`);
     const arrayBuffer = await downloadRes.arrayBuffer();
     const base64File = Buffer.from(arrayBuffer).toString('base64');
-
-    await sendMessage(TELEGRAM_TOKEN, message.chat.id, "Sto caricando su GitHub...");
 
     // Carica il PDF
     await uploadToGitHub(GITHUB_TOKEN, REPO_NAME, `bollettini/${sezione_trovata}.pdf`, base64File, `Aggiornato PDF ${sezione_trovata}`);
@@ -66,18 +64,17 @@ export default async function handler(req, res) {
     const base64Json = Buffer.from(jsonData).toString('base64');
     await uploadToGitHub(GITHUB_TOKEN, REPO_NAME, `bollettini/${sezione_trovata}.json`, base64Json, `Aggiornata descrizione ${sezione_trovata}`);
 
-    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `✅ Successo! Il file ${sezione_trovata}.pdf è in fase di pubblicazione.`);
+    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `✅ Perfetto! Il file ${sezione_trovata}.pdf è stato pubblicato.`);
     
-    res.status(200).send('OK');
+    res.status(200).send('Completato con successo');
   } catch (error) {
-    console.error(error);
-    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `❌ Errore durante il caricamento.`);
-    res.status(500).send('Errore');
+    console.error("Errore rilevato: ", error);
+    await sendMessage(TELEGRAM_TOKEN, message.chat.id, `❌ Si è verificato un errore durante l'operazione.`);
+    res.status(500).send('Errore interno');
   }
-}
+};
 
-// --- Funzioni di supporto ---
-
+// --- Funzioni secondarie per inviare e caricare dati ---
 async function sendMessage(token, chatId, text) {
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST',
@@ -87,7 +84,6 @@ async function sendMessage(token, chatId, text) {
 }
 
 async function uploadToGitHub(token, repo, path, base64Content, commitMessage) {
-  // Controlla se il file esiste già per poterlo sovrascrivere
   const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
     headers: { 'Authorization': `Bearer ${token}`, 'User-Agent': 'VercelBot' }
   });
@@ -111,5 +107,5 @@ async function uploadToGitHub(token, repo, path, base64Content, commitMessage) {
     body: JSON.stringify(body)
   });
 
-  if (!putRes.ok) throw new Error(`Errore GitHub`);
+  if (!putRes.ok) throw new Error(`Problema nell'invio a GitHub`);
 }
