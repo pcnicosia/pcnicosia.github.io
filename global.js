@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     // 1. INIEZIONE DEGLI STILI (Smooth Scroll e Grafica del Tasto WhatsApp)
-    // Questo script inserisce il CSS direttamente nell'head di ogni pagina in automatico
     const styles = `
         html { 
             scroll-behavior: smooth; 
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // 2. INIEZIONE AUTOMATICA DEL BOTTONE WHATSAPP
-    // Inserisce l'HTML del bottone in fondo al body di ogni pagina
     const whatsappHTML = `
         <a href="https://wa.me/3513633864" target="_blank" class="floating-btn">
             <i class="fa-brands fa-whatsapp"></i>
@@ -58,5 +56,35 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
+
+    // =================================================================
+    // 4. MODIFICHE DINAMICHE DEL PRESIDENTE (Applicate a tutte le pagine)
+    // =================================================================
+
+    // Modifica 1 e 2: Cambia nome nella Navbar e lo rende visibile su Mobile
+    const navBrandSpan = document.querySelector('.navbar-brand span');
+    if (navBrandSpan) {
+        navBrandSpan.innerHTML = "P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.";
+        navBrandSpan.classList.remove('d-none', 'd-sm-block'); // Toglie il blocco mobile
+        navBrandSpan.style.fontSize = "0.70rem";
+        navBrandSpan.style.lineHeight = "1.2";
+    }
+
+    // Modifica 3: Rimuove il tasto "Diventa Volontario" dalla Navbar (PC e Mobile)
+    const navBtnPC = document.querySelector('.nav-right-wing .btn-elite-outline');
+    if (navBtnPC) navBtnPC.remove();
+    
+    const navBtnMobile = document.querySelector('#menuNav .text-center.mt-3.d-lg-none');
+    if (navBtnMobile) navBtnMobile.remove();
+
+    // Modifica 4: Cambia il nome nel Footer
+    const footerTitle = document.querySelector('footer h5');
+    if (footerTitle) {
+        footerTitle.innerText = "P.A. Gruppo Volontari Protezione Civile Nicosia";
+    }
+
+    // Modifica 5: Rimuove il logo ANPAS piccolo dal Footer
+    const footerAnpasLogo = document.querySelector('footer .d-inline-block.bg-white');
+    if (footerAnpasLogo) footerAnpasLogo.remove();
 
 });
