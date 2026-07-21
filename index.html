@@ -52,7 +52,7 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 100px; 
+            padding-top: 180px; /* Aumentato per fare spazio ai nuovi loghi giganti */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -73,27 +73,33 @@
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* LOGHI GRANDI E PROPORZIONATI */
+        /* PROPORZIONI LOGHI RIGOROSE (Desktop) */
         .logo-main {
-            height: 80px; /* Ingrandito */
-            width: 80px;  /* Ingrandito */
+            height: 137px; 
+            width: 137px;  
             border-radius: 50%;
             object-fit: contain;
             background: white;
-            padding: 2px;
+            padding: 4px;
             border: 1px solid rgba(0,0,0,0.1);
         }
-        .logo-anpas {
-            height: 80px; /* Stessa altezza del logo principale */
-            max-width: 180px;
-            object-fit: contain;
-        }
-
+        
         .brand-title {
-            font-size: 0.70rem;
+            height: 60px; /* Altezza fissa richiesta */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra il testo verticalmente nei 60px */
+            font-size: 0.85rem;
             line-height: 1.2;
             letter-spacing: -0.2px;
             color: var(--text-color);
+            margin-left: 15px; /* Spazio dal logo */
+        }
+
+        .logo-anpas {
+            height: 95px; /* Altezza richiesta */
+            max-width: 200px;
+            object-fit: contain;
         }
 
         /* Voci Menu Desktop */
@@ -130,17 +136,51 @@
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
-        /* Pulsante Dark Mode */
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--text-color);
-            font-size: 1.4rem;
-            cursor: pointer;
-            padding: 5px 10px;
+        /* -------------------------------------------
+           PULSANTI FLUTTUANTI (WHATSAPP E TEMA)
+           ------------------------------------------- */
+        /* WhatsApp (Destra, più grande) */
+        .floating-btn {
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 60px; 
+            height: 60px; 
+            background-color: #25D366; 
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 2rem; 
+            z-index: 1000; 
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); 
+            text-decoration: none; 
             transition: transform 0.3s;
         }
-        .theme-toggle:hover { transform: scale(1.1); }
+        .floating-btn:hover { transform: scale(1.15) translateY(-5px); color: white; }
+
+        /* Tema Luna/Sole (Sinistra, più piccolo) */
+        .floating-theme-btn {
+            position: fixed; 
+            bottom: 30px; 
+            left: 30px; 
+            width: 45px; 
+            height: 45px; 
+            background-color: var(--text-color); 
+            color: var(--bg-color); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.2rem; 
+            z-index: 1000; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+            cursor: pointer; 
+            border: none; 
+            transition: transform 0.3s, background-color 0.3s, color 0.3s;
+        }
+        .floating-theme-btn:hover { transform: scale(1.15) translateY(-5px); }
 
         /* -------------------------------------------
            BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
@@ -178,24 +218,22 @@
             text-decoration: none;
         }
 
-        /* WHATSAPP BUTTON NORMALE SU PC */
-        .floating-btn {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none; transition: transform 0.3s;
-        }
-
-        /* FIX RESPONSIVE PER CELLULARI (WHATSAPP, LOGHI, BOTTOM NAV) */
+        /* FIX RESPONSIVE PER CELLULARI */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
             
-            /* Solleva WhatsApp sopra la barra inferiore! */
-            .floating-btn { bottom: 110px !important; z-index: 1060; }
+            /* Spaziature adeguate per evitare sovrapposizioni */
+            body { padding-top: 110px; padding-bottom: 90px; }
             
-            body { padding-bottom: 90px; }
+            /* Proporzioni Loghi ridimensionate per Mobile */
+            .logo-main { height: 65px; width: 65px; } 
+            .brand-title { height: auto; font-size: 0.65rem; margin-left: 10px; }
+            .logo-anpas { height: 45px; max-width: 100px; }
             
-            /* Rimpicciolisce i loghi per farli stare nella barra alta mobile */
-            .logo-main { height: 50px; width: 50px; }
-            .logo-anpas { height: 50px; max-width: 110px; }
+            /* Solleva i pulsanti fluttuanti sopra la barra inferiore */
+            .floating-btn { bottom: 100px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
+            .floating-theme-btn { bottom: 100px !important; left: 20px; width: 40px; height: 40px; }
         }
 
         /* -------------------------------------------
@@ -207,7 +245,7 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 100px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+        .hero-section { height: calc(100vh - 120px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
 
@@ -239,14 +277,12 @@
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
-            <!-- SINISTRA: Logo Tondo + Nome Associazione -->
+            <!-- SINISTRA: Logo 137px + Nome 60px -->
             <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main me-2">
-                <span class="fw-bold text-uppercase brand-title d-none d-md-block">
-                    P.A. GRUPPO VOLONTARI<br>
-                    PROTEZIONE CIVILE<br>
-                    NICOSIA O.D.V.
-                </span>
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
+                <div class="brand-title d-none d-md-flex">
+                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
+                </div>
             </a>
 
             <!-- CENTRO: Voci del menu (Nascoste su Mobile) -->
@@ -287,17 +323,9 @@
                 </ul>
             </div>
 
-            <!-- DESTRA: Logo ANPAS + Pulsante Tema (Ora visibili anche su Mobile!) -->
+            <!-- DESTRA: Solo Logo ANPAS 95px -->
             <div class="nav-right-wing d-flex align-items-center gap-2 gap-lg-3 ms-auto">
-                <!-- Rimosso il d-none per farlo vedere sui cellulari! -->
                 <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
-                
-                <button class="theme-toggle d-none d-lg-block" id="themeToggleDesktop" title="Cambia tema">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="theme-toggle d-lg-none" id="themeToggleMobile" title="Cambia tema">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
             </div>
             
         </div>
@@ -308,12 +336,10 @@
         <a href="index.html" class="bottom-nav-item active"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
         
-        <!-- Bottone centrale prominente (Menu Modal) -->
         <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
             <i class="fa-solid fa-bars"></i> Menu
         </a>
         
-        <!-- Icona Emergenze e Allerte sostituita a quella dei Documenti -->
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
@@ -331,7 +357,6 @@
                   <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
                   <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
                   <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
-                  <!-- Aggiunto "Sociale" mancante -->
                   <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
                   <a href="emergenze.html" class="btn btn-elite-outline text-start border-danger text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Emergenze e Allerte</a>
                   <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
@@ -460,14 +485,12 @@
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 
-                <!-- COLONNA 1: Info Base -->
                 <div class="col-lg-4 text-center text-lg-start">
                     <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
                     <p class="testo-leggero small mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
                     <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
                 </div>
                 
-                <!-- COLONNA 2: Box 5x1000 Perfettamente Centrato -->
                 <div class="col-lg-4 d-flex justify-content-center align-items-center">
                     <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
                         <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
@@ -475,7 +498,6 @@
                     </div>
                 </div>
 
-                <!-- COLONNA 3: Contatti Istituzionali -->
                 <div class="col-lg-4 text-center text-lg-end">
                     <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
                     <ul class="list-unstyled testo-leggero small">
@@ -495,6 +517,11 @@
         </div>
     </footer>
 
+    <!-- BOTTONI FLUTTUANTI IN BASSO -->
+    <button id="floatingThemeToggle" class="floating-theme-btn" title="Cambia tema">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+    
     <a href="https://wa.me/3513633864" target="_blank" class="floating-btn" data-aos="zoom-in" data-aos-delay="500">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -504,19 +531,16 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // LOGICA DARK/LIGHT MODE FORZATA SU LIGHT AL PRIMO AVVIO
-        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        // LOGICA DARK/LIGHT MODE CON IL NUOVO TASTO
+        const themeToggleBtn = document.getElementById('floatingThemeToggle');
         
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             const iconClass = theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
-            if (themeToggleDesktop) themeToggleDesktop.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
-            if (themeToggleMobile) themeToggleMobile.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
         }
 
-        // Se c'è una preferenza salvata la usa, altrimenti FORZA SEMPRE il Light Mode!
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
@@ -529,8 +553,7 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         }
 
-        if(themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
-        if(themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+        if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
 
 
         fetch('news.json')
