@@ -52,12 +52,12 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 100px; /* Ridotto un po' lo spazio in alto */
+            padding-top: 100px; 
             transition: background-color 0.3s, color 0.3s;
         }
 
         /* -------------------------------------------
-           NAVBAR DESKTOP (E TESTATA MOBILE)
+           NAVBAR DESKTOP
            ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
@@ -67,48 +67,48 @@
             transition: all 0.3s ease;
         }
 
-        /* Bilanciamento Loghi (Stessa altezza e padding) */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        /* Bilanciamento Ali Navbar */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
+            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
-        
-        .logo-main, .logo-anpas {
-            height: 65px; /* Entrambi i loghi alti uguali */
-            object-fit: contain;
-        }
-        
-        /* Specifico per il logo tondo per renderlo perfetto */
+
+        /* Loghi */
         .logo-main {
-            width: 65px;
+            height: 60px;
+            width: 60px;
             border-radius: 50%;
-            background: white; /* Sfondo bianco forzato per la dark mode */
+            object-fit: contain;
+            background: white;
             padding: 2px;
             border: 1px solid rgba(0,0,0,0.1);
         }
-
-        /* Titolo Associazione */
-        .brand-title {
-            font-size: 0.85rem; /* Più grande */
-            line-height: 1.2;
-            letter-spacing: -0.2px;
-            color: var(--text-color) !important;
+        .logo-anpas {
+            height: 45px; /* ANPAS più piccolo per bilanciare il peso visivo */
+            max-width: 90px;
+            object-fit: contain;
         }
 
-        /* Voci Menu Desktop */
+        .brand-title {
+            font-size: 0.70rem;
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+            color: var(--text-color);
+        }
+
+        /* Voci Menu */
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        /* Sottomenu con icone */
         .dropdown-menu { 
             background: var(--dropdown-bg); 
             border: 1px solid var(--nav-border); 
@@ -147,47 +147,31 @@
            BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
            ------------------------------------------- */
         .bottom-nav {
-            display: none; /* Nascosta su PC */
+            display: none;
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: 92%;
             max-width: 400px;
             background: var(--bottom-nav-bg);
             border-radius: 40px;
-            padding: 10px 20px;
+            padding: 8px 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             z-index: 1050;
             border: 1px solid var(--card-border);
-            /* Layout flessibile per le icone */
             align-items: center;
             justify-content: space-between;
         }
-
-        .bottom-nav-item {
-            color: var(--bottom-nav-icon);
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 1.5rem;
-            padding: 8px;
-            transition: all 0.2s;
-        }
+        .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
+        .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         
-        .bottom-nav-item.active {
-            color: var(--bottom-nav-active);
-            transform: translateY(-3px);
-        }
-        
-        /* Il pulsante "Add" centrale (Emergenze/Menu) */
         .bottom-nav-action {
             background: rgba(230, 92, 0, 0.1);
             color: #e65c00;
             border-radius: 20px;
             padding: 8px 16px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -196,17 +180,14 @@
         }
 
         @media (max-width: 991px) {
-            /* Su mobile nascondiamo il menu classico di Bootstrap e mostriamo la Bottom Nav */
             .navbar-collapse { display: none !important; }
-            .navbar-toggler { display: none; } /* Via l'hamburger */
             .bottom-nav { display: flex; }
-            /* Il pulsante whatsapp lo alziamo per non coprire la barra */
             .floating-btn { bottom: 90px; }
-            body { padding-bottom: 80px; } /* Spazio per la barra in fondo */
+            body { padding-bottom: 80px; }
         }
 
         /* -------------------------------------------
-           RESTO DEGLI STILI (Adattati al tema scuro)
+           RESTO DEGLI STILI
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
@@ -224,16 +205,11 @@
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
         .hero-section { height: calc(100vh - 100px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
-        .hero-overlay { 
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            /* Gradient dinamico in base al tema scuro/chiaro */
-            background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); 
-            z-index: 1; 
-        }
+        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
-        h2, h4, h5, h6 { color: var(--text-color) !important; }
+        h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; }
 
         .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
@@ -264,21 +240,18 @@
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-4 px-xl-5 d-flex justify-content-between align-items-center">
             
-            <!-- BLOCCO LOGHI E NOME BILANCIATI -->
-            <a class="navbar-brand text-decoration-none d-flex align-items-center m-0" href="index.html">
-                <div class="logo-container me-3">
-                    <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
-                    <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
-                </div>
-                <span class="fw-bold text-uppercase brand-title">
+            <!-- SINISTRA: Logo Tondo + Nome Associazione -->
+            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main me-2">
+                <span class="fw-bold text-uppercase brand-title d-none d-sm-block">
                     P.A. GRUPPO VOLONTARI<br>
                     PROTEZIONE CIVILE<br>
                     NICOSIA O.D.V.
                 </span>
             </a>
 
-            <!-- MENU DESKTOP CLASSICO -->
-            <div class="collapse navbar-collapse justify-content-end" id="menuNav">
+            <!-- CENTRO: Voci del menu -->
+            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
                     
@@ -312,21 +285,19 @@
                     
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
                     
-                    <!-- Pulsante Dark Mode per Desktop -->
-                    <li class="nav-item ms-3">
-                        <button class="theme-toggle" id="themeToggleDesktop" title="Cambia tema">
-                            <i class="fa-solid fa-moon"></i>
-                        </button>
-                    </li>
+                    <!-- Voce Contatti Ripristinata -->
+                    <li class="nav-item"><a class="nav-link mx-2" href="contatti.html"><i class="fa-solid fa-envelope"></i> Contatti</a></li>
                 </ul>
             </div>
-            
-            <!-- Pulsante Dark Mode visibile solo su Mobile nell'header -->
-            <div class="d-lg-none">
-                 <button class="theme-toggle" id="themeToggleMobile">
-                     <i class="fa-solid fa-moon"></i>
-                 </button>
+
+            <!-- DESTRA: Logo ANPAS + Pulsante Tema -->
+            <div class="nav-right-wing d-flex align-items-center gap-3 ms-auto">
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas d-none d-sm-block">
+                <button class="theme-toggle" id="themeToggleDesktop" title="Cambia tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
+            
         </div>
     </nav>
 
@@ -341,7 +312,7 @@
         </a>
         
         <a href="documenti.html" class="bottom-nav-item"><i class="fa-solid fa-file-pdf"></i></a>
-        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-user"></i></a>
+        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
     <!-- MODAL MENU MOBILE (Si apre cliccando il pulsante Menu nella Bottom Nav) -->
@@ -349,11 +320,10 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
           <div class="modal-header border-0">
-            <h5 class="modal-title fw-bold" style="color: var(--text-color);">Menu di Navigazione</h5>
+            <h5 class="modal-title fw-bold">Menu di Navigazione</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body py-4">
-              <!-- Lista link per mobile -->
               <div class="d-grid gap-3">
                   <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
                   <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
@@ -480,31 +450,41 @@
         </div>
     </section>
 
-    <!-- FOOTER RIVOLUZIONATO SECONDO RICHIESTA -->
+    <!-- FOOTER RIPRISTINATO CON CONTATTI ISTITUZIONALI -->
     <footer id="contatti" class="py-5">
-        <div class="container py-4 text-center">
+        <div class="container py-4">
+            <div class="row g-4 mb-5">
+                
+                <!-- COLONNA 1: Info Base -->
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
+                    <p class="testo-leggero small mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                </div>
+                
+                <!-- COLONNA 2: Box 5x1000 Centrale -->
+                <div class="col-lg-4 text-center">
+                    <div class="p-3 rounded-4 mx-auto" style="background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                        <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
+                        <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
+                    </div>
+                </div>
+
+                <!-- COLONNA 3: Contatti Istituzionali Ripristinati -->
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
+                    <ul class="list-unstyled testo-leggero small">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
+                    </ul>
+                </div>
+
+            </div>
             
-            <h3 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h3>
-            <p class="testo-leggero small mb-4">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-            
-            <div class="d-flex justify-content-center gap-4 flex-wrap mb-5">
-                <span class="text-dark"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>C.F:</strong> 91039150866</span>
-                <span class="text-dark"><i class="fa-solid fa-location-dot text-success me-2"></i> Via Bernardo di falco 82, Nicosia</span>
-            </div>
-
-            <!-- Box 5x1000 in super evidenza -->
-            <div class="p-4 rounded-4 mb-5 mx-auto" style="max-width: 600px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
-                <h4 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h4>
-                <p class="mb-0 text-dark">Inserisci il nostro Codice Fiscale <strong>91039150866</strong> nella tua dichiarazione dei redditi. A te non costa nulla, per noi fa la differenza.</p>
-            </div>
-
-            <div class="d-flex justify-content-center gap-4 fs-4 mb-4">
-                <a href="tel:3296411659" title="Chiama"><i class="fa-solid fa-phone"></i></a>
-                <a href="https://wa.me/3513633864" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:pagvpcnicosia@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-
-            <div class="border-top pt-4 text-secondary small" style="border-color: var(--card-border) !important;">
+            <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
                 <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline">Privacy Policy</a></p>
             </div>
         </div>
@@ -521,22 +501,20 @@
 
         // LOGICA DARK/LIGHT MODE
         const themeToggleDesktop = document.getElementById('themeToggleDesktop');
-        const themeToggleMobile = document.getElementById('themeToggleMobile');
         
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             const iconClass = theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
             themeToggleDesktop.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
-            themeToggleMobile.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
         }
 
-        // Legge preferenza salvata o di sistema
+        // Legge preferenza salvata (se non c'è, parte in automatico come "light")
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
-        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark');
+        } else {
+            setTheme('light'); 
         }
 
         function toggleTheme() {
@@ -545,7 +523,6 @@
         }
 
         themeToggleDesktop.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
 
 
         fetch('news.json')
