@@ -1,12 +1,15 @@
 module.exports = async function (req, res) {
   if (req.method !== 'POST') {
-    return res.status(200).send('Super Bot Operativo con Tastiera a Pulsanti!');
+    return res.status(200).send('Super Bot Operativo nel Topic Autorizzato!');
   }
 
   const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   const REPO_NAME = "pcnicosia/pcnicosia.github.io";
-  const CANALE_AUTORIZZATO = "-1003754572274";
+  
+  // LE CHIAVI DELLA TUA CASSAFORTE (GRUPPO + CARTELLA)
+  const GRUPPO_AUTORIZZATO = "-1004391848619";
+  const TOPIC_AUTORIZZATO = "6";
 
   try {
     const body = req.body;
@@ -17,9 +20,11 @@ module.exports = async function (req, res) {
     if (body.callback_query) {
       const callback = body.callback_query;
       const data = callback.data;
-      const chatId = callback.message.chat.id;
+      const chatId = callback.message.chat.id.toString();
+      const threadId = callback.message.message_thread_id ? callback.message.message_thread_id.toString() : "1";
 
-      if (chatId.toString() !== CANALE_AUTORIZZATO) {
+      // BUTTAFUORI PULSANTI: Solo se sei nel gruppo e topic giusti
+      if (chatId !== GRUPPO_AUTORIZZATO || threadId !== TOPIC_AUTORIZZATO) {
         return res.status(200).send('Non autorizzato');
       }
 
@@ -31,16 +36,16 @@ module.exports = async function (req, res) {
             [{ text: "🗑️ Elimina Ultima Notizia", callback_data: 'del_news' }],
             [{ text: "🔙 Torna al Menu Principale", callback_data: 'menu_main' }]
           ]
-        });
+        }, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       if (data === 'add_news') {
-        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia, **invia una foto** in questa chat e metti come didascalia:\n\n#news\n**Il tuo Titolo**\nQui metti la descrizione.", {parse_mode: 'Markdown'});
+        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia, **invia una foto** in questa chat e metti come didascalia:\n\n#news\n**Il tuo Titolo**\nQui metti la descrizione.", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       if (data === 'del_news') {
-        await sendMessage(TELEGRAM_TOKEN, chatId, "Sto rimuovendo l'ultima news...");
-        await eliminaUltimaNews(GITHUB_TOKEN, REPO_NAME, TELEGRAM_TOKEN, chatId);
+        await sendMessage(TELEGRAM_TOKEN, chatId, "Sto rimuovendo l'ultima news...", {}, TOPIC_AUTORIZZATO);
+        await eliminaUltimaNews(GITHUB_TOKEN, REPO_NAME, TELEGRAM_TOKEN, chatId, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
 
@@ -52,11 +57,11 @@ module.exports = async function (req, res) {
             [{ text: "🗑️ Elimina Scaduto", callback_data: 'del_boll_menu' }],
             [{ text: "🔙 Torna al Menu", callback_data: 'menu_main' }]
           ]
-        });
+        }, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       if (data === 'add_boll') {
-        await sendMessage(TELEGRAM_TOKEN, chatId, "Per pubblicare, **invia il PDF** e metti come didascalia uno di questi hashtag:\n`#meteo`\n`#antincendio`\n`#alluvioni`", {parse_mode: 'Markdown'});
+        await sendMessage(TELEGRAM_TOKEN, chatId, "Per pubblicare, **invia il PDF** e metti come didascalia uno di questi hashtag:\n`#meteo`\n`#antincendio`\n`#alluvioni`", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       if (data === 'del_boll_menu') {
@@ -65,22 +70,22 @@ module.exports = async function (req, res) {
             [{ text: "Meteo", callback_data: 'del_boll_meteo' }, { text: "Antincendio", callback_data: 'del_boll_antincendio' }, { text: "Alluvioni", callback_data: 'del_boll_alluvioni' }],
             [{ text: "🔙 Indietro", callback_data: 'menu_bollettini' }]
           ]
-        });
+        }, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
 
       // -- AZIONI ELIMINA BOLLETTINO --
       if (data.startsWith('del_boll_')) {
         const sezione = data.replace('del_boll_', '');
-        await sendMessage(TELEGRAM_TOKEN, chatId, `Sto resettando il bollettino '${sezione}'...`);
+        await sendMessage(TELEGRAM_TOKEN, chatId, `Sto resettando il bollettino '${sezione}'...`, {}, TOPIC_AUTORIZZATO);
         await eliminaBollettino(GITHUB_TOKEN, REPO_NAME, sezione);
-        await sendMessage(TELEGRAM_TOKEN, chatId, `✅ Bollettino ${sezione} chiuso con successo!`);
+        await sendMessage(TELEGRAM_TOKEN, chatId, `✅ Bollettino ${sezione} chiuso con successo!`, {}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
 
       // -- MENU PRINCIPALE --
       if (data === 'menu_main') {
-        await sendMainMenu(TELEGRAM_TOKEN, chatId, callback.message.message_id);
+        await sendMainMenu(TELEGRAM_TOKEN, chatId, callback.message.message_id, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
     }
@@ -88,11 +93,15 @@ module.exports = async function (req, res) {
     // ==========================================
     // B. GESTIONE DEI MESSAGGI NORMALI
     // ==========================================
-    const message = body.message || body.channel_post;
+    const message = body.message;
     if (!message) return res.status(200).send('Nessun messaggio');
 
-    if (message.chat.id.toString() !== CANALE_AUTORIZZATO) {
-      return res.status(200).send('Accesso negato');
+    const currentChatId = message.chat.id.toString();
+    const currentThreadId = message.message_thread_id ? message.message_thread_id.toString() : "1";
+
+    // BUTTAFUORI MESSAGGI: Ignora tutto ciò che non è nel gruppo e topic giusti
+    if (currentChatId !== GRUPPO_AUTORIZZATO || currentThreadId !== TOPIC_AUTORIZZATO) {
+      return res.status(200).send('Accesso negato: topic sbagliato');
     }
 
     const text = message.text || message.caption || "";
@@ -108,11 +117,11 @@ module.exports = async function (req, res) {
             [{ text: "⚠️ BOLLETTINI", callback_data: 'menu_bollettini' }]
           ]
         }
-      });
+      }, TOPIC_AUTORIZZATO);
       return res.status(200).send('Menu inviato');
     }
 
-    // ELIMINAZIONI TESTUALI (Mantenute per sicurezza)
+    // ELIMINAZIONI TESTUALI
     if (lowerText.includes("#elimina")) {
       let sez = null;
       if (lowerText.includes("meteo")) sez = "meteo";
@@ -121,11 +130,11 @@ module.exports = async function (req, res) {
 
       if (sez) {
         await eliminaBollettino(GITHUB_TOKEN, REPO_NAME, sez);
-        await sendMessage(TELEGRAM_TOKEN, message.chat.id, `✅ Bollettino ${sez} chiuso!`);
+        await sendMessage(TELEGRAM_TOKEN, message.chat.id, `✅ Bollettino ${sez} chiuso!`, {}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       if (lowerText.includes("ultima news") || lowerText.includes("news")) {
-         await eliminaUltimaNews(GITHUB_TOKEN, REPO_NAME, TELEGRAM_TOKEN, message.chat.id);
+         await eliminaUltimaNews(GITHUB_TOKEN, REPO_NAME, TELEGRAM_TOKEN, message.chat.id, TOPIC_AUTORIZZATO);
          return res.status(200).send('OK');
       }
     }
@@ -133,10 +142,10 @@ module.exports = async function (req, res) {
     // CARICAMENTO NEWS
     if (lowerText.includes("#news")) {
       if (!message.photo) {
-        await sendMessage(TELEGRAM_TOKEN, message.chat.id, "❌ Invia una FOTO con didascalia.");
+        await sendMessage(TELEGRAM_TOKEN, message.chat.id, "❌ Invia una FOTO con didascalia.", {}, TOPIC_AUTORIZZATO);
         return res.status(200).send('No foto');
       }
-      await elaboraEsalvaNews(message, text, TELEGRAM_TOKEN, GITHUB_TOKEN, REPO_NAME);
+      await elaboraEsalvaNews(message, text, TELEGRAM_TOKEN, GITHUB_TOKEN, REPO_NAME, TOPIC_AUTORIZZATO);
       return res.status(200).send('News OK');
     }
 
@@ -148,7 +157,7 @@ module.exports = async function (req, res) {
         if (lowerText.includes(hashtag)) { sez = name; break; }
       }
       if (sez) {
-        await elaboraEsalvaBollettino(message, text, sez, TELEGRAM_TOKEN, GITHUB_TOKEN, REPO_NAME);
+        await elaboraEsalvaBollettino(message, text, sez, TELEGRAM_TOKEN, GITHUB_TOKEN, REPO_NAME, TOPIC_AUTORIZZATO);
         return res.status(200).send('Boll OK');
       }
     }
@@ -161,17 +170,17 @@ module.exports = async function (req, res) {
 };
 
 // ==========================================
-// FUNZIONI MODULARI (Per tenere in ordine il codice)
+// FUNZIONI MODULARI CON SUPPORTO AI TOPIC
 // ==========================================
 
-async function sendMainMenu(token, chatId, messageId) {
+async function sendMainMenu(token, chatId, messageId, threadId) {
   await editMessageText(token, chatId, messageId, "🎛 **Pannello di Controllo P.A. Nicosia**\nSeleziona un'area da gestire:", {
         parse_mode: 'Markdown',
         inline_keyboard: [
           [{ text: "📰 NOTIZIE", callback_data: 'menu_notizie' }],
           [{ text: "⚠️ BOLLETTINI", callback_data: 'menu_bollettini' }]
         ]
-      });
+      }, threadId);
 }
 
 async function eliminaBollettino(gitToken, repo, sezione) {
@@ -180,16 +189,14 @@ async function eliminaBollettino(gitToken, repo, sezione) {
     await uploadToGitHub(gitToken, repo, `bollettini/${sezione}.json`, Buffer.from(jsonData).toString('base64'), `Reset descrizione`);
 }
 
-async function eliminaUltimaNews(gitToken, repo, teleToken, chatId) {
+async function eliminaUltimaNews(gitToken, repo, teleToken, chatId, threadId) {
      let storicoNews = [];
         try {
           const getJsonRes = await fetch(`https://api.github.com/repos/${repo}/contents/news.json`, {
             headers: { 'Authorization': `Bearer ${gitToken}` }
           });
           if (getJsonRes.ok) {
-            const data = await getJsonRes.json();
-            const decodedContent = Buffer.from(data.content, 'base64').toString('utf-8');
-            storicoNews = JSON.parse(decodedContent);
+            storicoNews = JSON.parse(Buffer.from((await getJsonRes.json()).content, 'base64').toString('utf-8'));
           }
         } catch (e) {}
 
@@ -197,14 +204,14 @@ async function eliminaUltimaNews(gitToken, repo, teleToken, chatId) {
           const newsEliminata = storicoNews.shift();
           const newJsonBase64 = Buffer.from(JSON.stringify(storicoNews, null, 2)).toString('base64');
           await uploadToGitHub(gitToken, repo, `news.json`, newJsonBase64, `Rimossa ultima news`);
-          await sendMessage(teleToken, chatId, `✅ L'ultima news intitolata "${newsEliminata.titolo}" è stata rimossa.`);
+          await sendMessage(teleToken, chatId, `✅ L'ultima news intitolata "${newsEliminata.titolo}" è stata rimossa.`, {}, threadId);
         } else {
-            await sendMessage(teleToken, chatId, `L'archivio delle news è vuoto.`);
+            await sendMessage(teleToken, chatId, `L'archivio delle news è vuoto.`, {}, threadId);
         }
 }
 
-async function elaboraEsalvaNews(message, text, teleToken, gitToken, repo) {
-    await sendMessage(teleToken, message.chat.id, "Creazione articolo in corso...");
+async function elaboraEsalvaNews(message, text, teleToken, gitToken, repo, threadId) {
+    await sendMessage(teleToken, message.chat.id, "Creazione articolo in corso...", {}, threadId);
     let cleanText = text.replace(/#news/gi, '').trim();
     let righe = cleanText.split('\n').filter(riga => riga.trim() !== '');
     let titolo = righe.length > 0 ? righe[0].trim() : "Nuova Comunicazione";
@@ -215,10 +222,9 @@ async function elaboraEsalvaNews(message, text, teleToken, gitToken, repo) {
     const fileRes = await fetch(`https://api.telegram.org/bot${teleToken}/getFile?file_id=${photo.file_id}`);
     const fileData = await fileRes.json();
     const downloadRes = await fetch(`https://api.telegram.org/file/bot${teleToken}/${fileData.result.file_path}`);
-    const arrayBuffer = await downloadRes.arrayBuffer();
     
     const nomeImmagine = `news_images/img_${Date.now()}.jpg`;
-    await uploadToGitHub(gitToken, repo, nomeImmagine, Buffer.from(arrayBuffer).toString('base64'), `Caricata immagine news`);
+    await uploadToGitHub(gitToken, repo, nomeImmagine, Buffer.from(await downloadRes.arrayBuffer()).toString('base64'), `Caricata immagine news`);
 
     let storicoNews = [];
     try {
@@ -230,12 +236,12 @@ async function elaboraEsalvaNews(message, text, teleToken, gitToken, repo) {
 
     storicoNews.unshift({ immagine: nomeImmagine, categoria: "Comunicazione", data: dataOggi, titolo: titolo, descrizione_breve: descrizione, badgeClass: "bg-success" });
     await uploadToGitHub(gitToken, repo, `news.json`, Buffer.from(JSON.stringify(storicoNews, null, 2)).toString('base64'), `Nuova news`);
-    await sendMessage(teleToken, message.chat.id, `✅ Notizia pubblicata!\n\n*Titolo:* ${titolo}`, {parse_mode: 'Markdown'});
+    await sendMessage(teleToken, message.chat.id, `✅ Notizia pubblicata!\n\n*Titolo:* ${titolo}`, {parse_mode: 'Markdown'}, threadId);
 }
 
-async function elaboraEsalvaBollettino(message, text, sezione, teleToken, gitToken, repo) {
+async function elaboraEsalvaBollettino(message, text, sezione, teleToken, gitToken, repo, threadId) {
     const didascalia_pulita = text.replace(/#\w+/g, '').trim();
-    await sendMessage(teleToken, message.chat.id, `Pubblicazione bollettino '${sezione}'...`);
+    await sendMessage(teleToken, message.chat.id, `Pubblicazione bollettino '${sezione}'...`, {}, threadId);
 
     const fileRes = await fetch(`https://api.telegram.org/bot${teleToken}/getFile?file_id=${message.document.file_id}`);
     const fileData = await fileRes.json();
@@ -243,21 +249,26 @@ async function elaboraEsalvaBollettino(message, text, sezione, teleToken, gitTok
     
     await uploadToGitHub(gitToken, repo, `bollettini/${sezione}.pdf`, Buffer.from(await downloadRes.arrayBuffer()).toString('base64'), `Aggiornato PDF ${sezione}`);
     await uploadToGitHub(gitToken, repo, `bollettini/${sezione}.json`, Buffer.from(JSON.stringify({ descrizione: didascalia_pulita })).toString('base64'), `Aggiornata descrizione`);
-    await sendMessage(teleToken, message.chat.id, `✅ Bollettino ${sezione} aggiornato!`);
+    await sendMessage(teleToken, message.chat.id, `✅ Bollettino ${sezione} aggiornato!`, {}, threadId);
 }
 
-// --- FUNZIONI DI BASE API ---
-async function sendMessage(token, chatId, text, options = {}) {
+// --- API TELEGRAM & GITHUB ---
+async function sendMessage(token, chatId, text, options = {}, threadId = null) {
+  const payload = { chat_id: chatId, text: text, ...options };
+  if (threadId) payload.message_thread_id = parseInt(threadId);
+
   await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text: text, ...options })
+    body: JSON.stringify(payload)
   });
 }
 
-async function editMessageText(token, chatId, messageId, text, replyMarkup) {
+async function editMessageText(token, chatId, messageId, text, replyMarkup, threadId = null) {
+    const payload = { chat_id: chatId, message_id: messageId, text: text, reply_markup: replyMarkup, parse_mode: 'Markdown' };
+    
     await fetch(`https://api.telegram.org/bot${token}/editMessageText`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, message_id: messageId, text: text, reply_markup: replyMarkup, parse_mode: 'Markdown' })
+        body: JSON.stringify(payload)
     });
 }
 
