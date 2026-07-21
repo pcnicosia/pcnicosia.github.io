@@ -67,17 +67,16 @@
             transition: all 0.3s ease;
         }
 
-        /* Bilanciamento Ali Navbar */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
             .nav-center-wing { flex: 0 1 auto; justify-content: center; }
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* Loghi */
+        /* LOGHI GRANDI E PROPORZIONATI */
         .logo-main {
-            height: 60px;
-            width: 60px;
+            height: 80px; /* Ingrandito */
+            width: 80px;  /* Ingrandito */
             border-radius: 50%;
             object-fit: contain;
             background: white;
@@ -85,8 +84,8 @@
             border: 1px solid rgba(0,0,0,0.1);
         }
         .logo-anpas {
-            height: 45px; /* ANPAS più piccolo per bilanciare il peso visivo */
-            max-width: 90px;
+            height: 80px; /* Stessa altezza del logo principale */
+            max-width: 180px;
             object-fit: contain;
         }
 
@@ -97,7 +96,7 @@
             color: var(--text-color);
         }
 
-        /* Voci Menu */
+        /* Voci Menu Desktop */
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
@@ -136,7 +135,7 @@
             background: transparent;
             border: none;
             color: var(--text-color);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 10px;
             transition: transform 0.3s;
@@ -179,11 +178,24 @@
             text-decoration: none;
         }
 
+        /* WHATSAPP BUTTON NORMALE SU PC */
+        .floating-btn {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none; transition: transform 0.3s;
+        }
+
+        /* FIX RESPONSIVE PER CELLULARI (WHATSAPP, LOGHI, BOTTOM NAV) */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
-            .floating-btn { bottom: 90px; }
-            body { padding-bottom: 80px; }
+            
+            /* Solleva WhatsApp sopra la barra inferiore! */
+            .floating-btn { bottom: 110px !important; z-index: 1060; }
+            
+            body { padding-bottom: 90px; }
+            
+            /* Rimpicciolisce i loghi per farli stare nella barra alta mobile */
+            .logo-main { height: 50px; width: 50px; }
+            .logo-anpas { height: 50px; max-width: 110px; }
         }
 
         /* -------------------------------------------
@@ -192,16 +204,7 @@
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .btn-elite-outline { 
-            background-color: transparent; 
-            color: var(--text-color); 
-            border-radius: 50px; 
-            padding: 10px 22px;
-            font-weight: 600; 
-            font-size: 0.8rem;
-            border: 1px solid var(--text-color); 
-            transition: all 0.2s; 
-        }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
         .hero-section { height: calc(100vh - 100px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
@@ -228,29 +231,25 @@
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
-
-        .floating-btn {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none;
-        }
     </style>
 </head>
 <body>
 
     <!-- NAVBAR DESKTOP & HEADER MOBILE -->
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
-        <div class="container-fluid px-4 px-xl-5 d-flex justify-content-between align-items-center">
+        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
             <!-- SINISTRA: Logo Tondo + Nome Associazione -->
             <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main me-2">
-                <span class="fw-bold text-uppercase brand-title d-none d-sm-block">
+                <span class="fw-bold text-uppercase brand-title d-none d-md-block">
                     P.A. GRUPPO VOLONTARI<br>
                     PROTEZIONE CIVILE<br>
                     NICOSIA O.D.V.
                 </span>
             </a>
 
-            <!-- CENTRO: Voci del menu -->
+            <!-- CENTRO: Voci del menu (Nascoste su Mobile) -->
             <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
@@ -284,16 +283,19 @@
                     </li>
                     
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
-                    
-                    <!-- Voce Contatti Ripristinata -->
                     <li class="nav-item"><a class="nav-link mx-2" href="contatti.html"><i class="fa-solid fa-envelope"></i> Contatti</a></li>
                 </ul>
             </div>
 
-            <!-- DESTRA: Logo ANPAS + Pulsante Tema -->
-            <div class="nav-right-wing d-flex align-items-center gap-3 ms-auto">
-                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas d-none d-sm-block">
-                <button class="theme-toggle" id="themeToggleDesktop" title="Cambia tema">
+            <!-- DESTRA: Logo ANPAS + Pulsante Tema (Ora visibili anche su Mobile!) -->
+            <div class="nav-right-wing d-flex align-items-center gap-2 gap-lg-3 ms-auto">
+                <!-- Rimosso il d-none per farlo vedere sui cellulari! -->
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
+                
+                <button class="theme-toggle d-none d-lg-block" id="themeToggleDesktop" title="Cambia tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="theme-toggle d-lg-none" id="themeToggleMobile" title="Cambia tema">
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
@@ -311,11 +313,12 @@
             <i class="fa-solid fa-bars"></i> Menu
         </a>
         
-        <a href="documenti.html" class="bottom-nav-item"><i class="fa-solid fa-file-pdf"></i></a>
+        <!-- Icona Emergenze e Allerte sostituita a quella dei Documenti -->
+        <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-    <!-- MODAL MENU MOBILE (Si apre cliccando il pulsante Menu nella Bottom Nav) -->
+    <!-- MODAL MENU MOBILE -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
@@ -328,7 +331,10 @@
                   <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
                   <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
                   <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
+                  <!-- Aggiunto "Sociale" mancante -->
+                  <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
                   <a href="emergenze.html" class="btn btn-elite-outline text-start border-danger text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Emergenze e Allerte</a>
+                  <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
               </div>
           </div>
@@ -450,7 +456,6 @@
         </div>
     </section>
 
-    <!-- FOOTER RIPRISTINATO CON CONTATTI ISTITUZIONALI -->
     <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
@@ -462,15 +467,15 @@
                     <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
                 </div>
                 
-                <!-- COLONNA 2: Box 5x1000 Centrale -->
-                <div class="col-lg-4 text-center">
-                    <div class="p-3 rounded-4 mx-auto" style="background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                <!-- COLONNA 2: Box 5x1000 Perfettamente Centrato -->
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
                         <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
                         <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
                     </div>
                 </div>
 
-                <!-- COLONNA 3: Contatti Istituzionali Ripristinati -->
+                <!-- COLONNA 3: Contatti Istituzionali -->
                 <div class="col-lg-4 text-center text-lg-end">
                     <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
                     <ul class="list-unstyled testo-leggero small">
@@ -499,17 +504,19 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // LOGICA DARK/LIGHT MODE
+        // LOGICA DARK/LIGHT MODE FORZATA SU LIGHT AL PRIMO AVVIO
         const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
         
         function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             const iconClass = theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
-            themeToggleDesktop.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            if (themeToggleDesktop) themeToggleDesktop.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            if (themeToggleMobile) themeToggleMobile.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
         }
 
-        // Legge preferenza salvata (se non c'è, parte in automatico come "light")
+        // Se c'è una preferenza salvata la usa, altrimenti FORZA SEMPRE il Light Mode!
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
@@ -522,7 +529,8 @@
             setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         }
 
-        themeToggleDesktop.addEventListener('click', toggleTheme);
+        if(themeToggleDesktop) themeToggleDesktop.addEventListener('click', toggleTheme);
+        if(themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
 
 
         fetch('news.json')
