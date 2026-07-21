@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,198 +12,360 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* 1. SCORRIMENTO FLUIDO (SMOOTH SCROLL) */
+        /* 1. VARIABILI DI TEMA (LIGHT/DARK) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1d1d1f;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --nav-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --secondary-bg: #f5f5f7;
+            --text-light: #515154;
+            --hover-bg: rgba(230, 92, 0, 0.08);
+            --dropdown-bg: #ffffff;
+            --bottom-nav-bg: #ffffff;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --nav-bg: rgba(18, 18, 18, 0.90);
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --card-bg: #1e1e1e;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --secondary-bg: #1a1a1a;
+            --text-light: #a0a0a0;
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --dropdown-bg: #2d2d2d;
+            --bottom-nav-bg: #2d2d2d;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
         html { scroll-behavior: smooth; }
 
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #1d1d1f; overflow-x: hidden; padding-top: 120px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+            padding-top: 100px; /* Ridotto un po' lo spazio in alto */
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-        /* NAVBAR ALTA E ISTITUZIONALE */
+        /* -------------------------------------------
+           NAVBAR DESKTOP (E TESTATA MOBILE)
+           ------------------------------------------- */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.90); 
+            background: var(--nav-bg); 
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
+            border-bottom: 1px solid var(--nav-border); 
             transition: all 0.3s ease;
         }
 
-        /* VOCI MENU PRINCIPALE INGRANDITE */
+        /* Bilanciamento Loghi (Stessa altezza e padding) */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-main, .logo-anpas {
+            height: 65px; /* Entrambi i loghi alti uguali */
+            object-fit: contain;
+        }
+        
+        /* Specifico per il logo tondo per renderlo perfetto */
+        .logo-main {
+            width: 65px;
+            border-radius: 50%;
+            background: white; /* Sfondo bianco forzato per la dark mode */
+            padding: 2px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Titolo Associazione */
+        .brand-title {
+            font-size: 0.85rem; /* Più grande */
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+            color: var(--text-color) !important;
+        }
+
+        /* Voci Menu Desktop */
         .nav-link { 
-            color: #434344 !important; 
+            color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 0.98rem;
+            font-size: 1rem;
             letter-spacing: -0.1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        .dropdown-menu { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        /* Sottomenu con icone */
+        .dropdown-menu { 
+            background: var(--dropdown-bg); 
+            border: 1px solid var(--nav-border); 
+            border-radius: 12px; 
+            padding: 10px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+        }
         
-        /* SOTTOMENU INGRANDITO */
-        .dropdown-item { color: #434344 !important; font-size: 0.98rem; padding: 8px 16px; border-radius: 6px; transition: all 0.2s ease; }
-        .dropdown-item:hover { background: rgba(230, 92, 0, 0.08); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item { 
+            color: var(--text-color) !important; 
+            font-size: 0.95rem; 
+            padding: 10px 16px; 
+            border-radius: 8px; 
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
+        .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
+        /* Pulsante Dark Mode */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: transform 0.3s;
+        }
+        .theme-toggle:hover { transform: scale(1.1); }
+
+        /* -------------------------------------------
+           BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
+           ------------------------------------------- */
+        .bottom-nav {
+            display: none; /* Nascosta su PC */
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: var(--bottom-nav-bg);
+            border-radius: 40px;
+            padding: 10px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 1050;
+            border: 1px solid var(--card-border);
+            /* Layout flessibile per le icone */
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .bottom-nav-item {
+            color: var(--bottom-nav-icon);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.5rem;
+            padding: 8px;
+            transition: all 0.2s;
+        }
+        
+        .bottom-nav-item.active {
+            color: var(--bottom-nav-active);
+            transform: translateY(-3px);
+        }
+        
+        /* Il pulsante "Add" centrale (Emergenze/Menu) */
+        .bottom-nav-action {
+            background: rgba(230, 92, 0, 0.1);
+            color: #e65c00;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 991px) {
+            /* Su mobile nascondiamo il menu classico di Bootstrap e mostriamo la Bottom Nav */
+            .navbar-collapse { display: none !important; }
+            .navbar-toggler { display: none; } /* Via l'hamburger */
+            .bottom-nav { display: flex; }
+            /* Il pulsante whatsapp lo alziamo per non coprire la barra */
+            .floating-btn { bottom: 90px; }
+            body { padding-bottom: 80px; } /* Spazio per la barra in fondo */
+        }
+
+        /* -------------------------------------------
+           RESTO DEGLI STILI (Adattati al tema scuro)
+           ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
         .btn-elite-outline { 
             background-color: transparent; 
-            color: #1d1d1f; 
+            color: var(--text-color); 
             border-radius: 50px; 
             padding: 10px 22px;
             font-weight: 600; 
             font-size: 0.8rem;
-            border: 1px solid rgba(0, 0, 0, 0.2); 
+            border: 1px solid var(--text-color); 
             transition: all 0.2s; 
         }
-        .btn-elite-outline:hover { background-color: #1d1d1f; color: #ffffff; border-color: #1d1d1f; }
+        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 120px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 60%, #ffffff 100%); z-index: 1; }
+        .hero-section { height: calc(100vh - 100px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+        .hero-overlay { 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            /* Gradient dinamico in base al tema scuro/chiaro */
+            background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); 
+            z-index: 1; 
+        }
         .hero-content { position: relative; z-index: 2; }
 
-        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: #1d1d1f; }
-        .testo-leggero { color: #515154; font-weight: 400; }
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
+        h2, h4, h5, h6 { color: var(--text-color) !important; }
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
 
-        .elite-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s, box-shadow 0.3s; }
-        .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); box-shadow: 0 15px 40px rgba(230, 92, 0, 0.08); }
-        
-        .custom-alert { background: rgba(230, 92, 0, 0.04); border: 1px solid rgba(230, 92, 0, 0.2); border-radius: 20px; }
+        .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
+        .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
 
-        /* CAROSELLO STILE VIDEOGIOCO PER LE NEWS */
-        .news-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 1.5rem;
-            padding: 1rem 0.5rem 2rem 0.5rem;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            cursor: grab;
-        }
+        .news-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 1rem 0.5rem 2rem 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
         .news-carousel::-webkit-scrollbar { display: none; }
-        .news-carousel:active { cursor: grabbing; }
-
-        .news-carousel-item {
-            flex: 0 0 85%;
-            scroll-snap-align: center;
-            max-width: 400px;
-            display: flex;
-        }
-        @media (min-width: 768px) {
-            .news-carousel-item {
-                flex: 0 0 calc(33.333% - 1rem);
-                scroll-snap-align: start;
-                max-width: none;
-            }
-        }
-
-        .news-card { width: 100%; background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.06); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform 0.4s, border-color 0.3s; pointer-events: none; }
-        .news-carousel-item:hover .news-card { transform: translateY(-6px); border-color: rgba(0, 0, 0, 0.15); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06); }
-        .news-card * { pointer-events: auto; }
+        .news-carousel-item { flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; display: flex; }
+        @media (min-width: 768px) { .news-carousel-item { flex: 0 0 calc(33.333% - 1rem); scroll-snap-align: start; max-width: none; } }
         
-        .news-img-box { height: 240px; width: 100%; overflow: hidden; position: relative; }
-        .news-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .news-carousel-item:hover .news-img { transform: scale(1.04); }
+        .news-card { width: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform 0.4s; }
+        .news-img-box { height: 240px; width: 100%; overflow: hidden; }
+        .news-img { width: 100%; height: 100%; object-fit: cover; }
         .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 
-        footer { background-color: #f5f5f7; border-top: 1px solid rgba(0, 0, 0, 0.06); font-size: 0.9rem; color: #515154; }
-        footer a { color: #515154; text-decoration: none; transition: color 0.2s; }
+        footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
+        footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
 
-        @media (min-width: 992px) {
-            .nav-left-wing { flex: 1 1 0%; min-width: 0; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; min-width: 0; }
-            .nav-center-wing { flex: 0 1 auto !important; justify-content: center; }
-            .navbar-nav { margin-left: 0 !important; margin-right: 0 !important; }
-        }
-
-        @media (min-width: 992px) and (max-width: 1200px) {
-            .nav-link { font-size: 0.88rem !important; margin-left: 3px !important; margin-right: 3px !important; }
-            .btn-elite-outline { padding: 8px 16px !important; font-size: 0.75rem !important; }
-        }
-
-        /* BOTTONE FLUTTUANTE WHATSAPP */
         .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            z-index: 1000;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-        }
-        .floating-btn:hover {
-            transform: scale(1.15) translateY(-5px);
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container-fluid px-4 px-xl-5">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
-                <!-- Modifica 1 e 2: Nome abbreviato e rimosso d-none d-sm-block per vederlo su mobile. Ridotto leggermente il font per non rompere il layout su smartphone -->
-                <span class="fw-bold text-uppercase text-dark" style="font-size: 0.70rem; line-height: 1.2; letter-spacing: -0.2px;">
+    <!-- NAVBAR DESKTOP & HEADER MOBILE -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
+        <div class="container-fluid px-4 px-xl-5 d-flex justify-content-between align-items-center">
+            
+            <!-- BLOCCO LOGHI E NOME BILANCIATI -->
+            <a class="navbar-brand text-decoration-none d-flex align-items-center m-0" href="index.html">
+                <div class="logo-container me-3">
+                    <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
+                    <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
+                </div>
+                <span class="fw-bold text-uppercase brand-title">
                     P.A. GRUPPO VOLONTARI<br>
                     PROTEZIONE CIVILE<br>
                     NICOSIA O.D.V.
                 </span>
             </a>
 
-            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
-                <!-- Modifica 3: Tasto Diventa Volontario rimosso da qui -->
-                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
-                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
-                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link active mx-1" href="#">Home</a></li>
+            <!-- MENU DESKTOP CLASSICO -->
+            <div class="collapse navbar-collapse justify-content-end" id="menuNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-network-wired text-info"></i> La Rete ANPAS</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    
+                    <!-- Pulsante Dark Mode per Desktop -->
+                    <li class="nav-item ms-3">
+                        <button class="theme-toggle" id="themeToggleDesktop" title="Cambia tema">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
-                <!-- Modifica 3: Tasto Diventa Volontario per mobile rimosso da qui -->
+            </div>
+            
+            <!-- Pulsante Dark Mode visibile solo su Mobile nell'header -->
+            <div class="d-lg-none">
+                 <button class="theme-toggle" id="themeToggleMobile">
+                     <i class="fa-solid fa-moon"></i>
+                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- BOTTOM NAVIGATION BAR (APP-STYLE) PER SMARTPHONE -->
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active"><i class="fa-solid fa-house"></i></a>
+        <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
+        
+        <!-- Bottone centrale prominente (Menu Modal) -->
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
+            <i class="fa-solid fa-bars"></i> Menu
+        </a>
+        
+        <a href="documenti.html" class="bottom-nav-item"><i class="fa-solid fa-file-pdf"></i></a>
+        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-user"></i></a>
+    </div>
+
+    <!-- MODAL MENU MOBILE (Si apre cliccando il pulsante Menu nella Bottom Nav) -->
+    <div class="modal fade" id="mobileMenuModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" style="color: var(--text-color);">Menu di Navigazione</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4">
+              <!-- Lista link per mobile -->
+              <div class="d-grid gap-3">
+                  <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
+                  <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
+                  <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
+                  <a href="emergenze.html" class="btn btn-elite-outline text-start border-danger text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Emergenze e Allerte</a>
+                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <header class="hero-section text-center">
         <div class="hero-overlay"></div>
@@ -211,16 +373,15 @@
             <h1 class="mb-4" data-aos="fade-up" data-aos-duration="1000">Pronti a intervenire.<br><span style="color: #e65c00;">Sempre al vostro fianco.</span></h1>
             <p class="lead mb-5 px-lg-5 testo-leggero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Dal 1990 la Pubblica Assistenza opera per la sicurezza, la salute e il supporto sociale del territorio di Nicosia e dintorni.</p>
             <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-                <!-- Modifica 3: Aggiunto pulsante unico "Diventa Volontario" nella Hero Section -->
                 <a href="diventa-volontario.html" class="btn btn-elite-primary shadow">Diventa Volontario</a>
             </div>
         </div>
     </header>
 
-    <section id="servizi" class="py-5" style="position: relative; z-index: 10; background-color: #ffffff;">
+    <section id="servizi" class="py-5" style="position: relative; z-index: 10;">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 text-dark mb-3 fw-bold">Le Nostre Aree d'Intervento</h2>
+                <h2 class="display-6 mb-3 fw-bold">Le Nostre Aree d'Intervento</h2>
                 <p class="testo-leggero max-w-xl mx-auto">Strutture operative specializzate pronte a rispondere a ogni esigenza della comunità.</p>
             </div>
 
@@ -229,7 +390,7 @@
                     <a href="sanitario.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-ambulance"></i></div>
-                            <h4 class="fw-bold mb-3 text-dark">Emergenza Sanitaria</h4>
+                            <h4 class="fw-bold mb-3">Emergenza Sanitaria</h4>
                             <p class="testo-leggero mb-0">Trasporto infermi, assistenza medica a eventi e squadre stabili di primo soccorso attivo sul territorio.</p>
                         </div>
                     </a>
@@ -238,7 +399,7 @@
                     <a href="protezione-civile.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-helmet-safety"></i></div>
-                            <h4 class="fw-bold mb-3 text-dark">Protezione Civile</h4>
+                            <h4 class="fw-bold mb-3">Protezione Civile</h4>
                             <p class="testo-leggero mb-0">Soccorso tecnico, campagna Antincendio Boschivo (AIB), logistica d'emergenza e ricerca dispersi.</p>
                         </div>
                     </a>
@@ -247,7 +408,7 @@
                     <a href="sociale.html" class="text-decoration-none h-100 d-block">
                         <div class="elite-card h-100 p-5">
                             <div class="mb-4 fs-1" style="color: #e65c00;"><i class="fa-solid fa-hands-holding-child"></i></div>
-                            <h4 class="fw-bold mb-3 text-dark">Supporto Sociale</h4>
+                            <h4 class="fw-bold mb-3">Supporto Sociale</h4>
                             <p class="testo-leggero mb-0">Distribuzione beni di prima necessità e progetti di inclusione comunitaria.</p>
                         </div>
                     </a>
@@ -256,11 +417,11 @@
         </div>
     </section>
 
-    <section id="interventi" class="py-5" style="position: relative; z-index: 10; background-color: #f5f5f7;">
+    <section id="interventi" class="py-5" style="position: relative; z-index: 10; background-color: var(--secondary-bg);">
         <div class="container py-5">
             <div class="d-flex justify-content-between align-items-end mb-5 flex-wrap gap-3" data-aos="fade-up">
                 <div>
-                    <h2 class="display-6 text-dark mb-2 fw-bold">Novità ed Attività Recenti</h2>
+                    <h2 class="display-6 mb-2 fw-bold">Novità ed Attività Recenti</h2>
                     <p class="testo-leggero mb-0">Rimani aggiornato sulle ultime operazioni sul campo, i comunicati e le attività gestite dalla nostra O.d.V.</p>
                 </div>
                 <a href="news.html" class="btn btn-elite-outline">Vedi Archivio Completo</a>
@@ -272,48 +433,45 @@
         </div>
     </section>
 
-    <section id="bollettini" class="py-5" style="position: relative; z-index: 10; background-color: #ffffff;">
+    <section id="bollettini" class="py-5" style="position: relative; z-index: 10;">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
-                <h2 class="display-6 text-dark mb-3 fw-bold">Bollettini e Allerte</h2>
+                <h2 class="display-6 mb-3 fw-bold">Bollettini e Allerte</h2>
                 <p class="testo-leggero max-w-xl mx-auto">Consulta gli ultimi avvisi diramati dalla Protezione Civile per il nostro territorio.</p>
             </div>
 
             <div class="row g-4">
-                <!-- Meteo -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="elite-card h-100 p-4 d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="fs-1 text-primary"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
                             <span class="badge bg-primary px-3 py-2 rounded-pill fw-bold text-white small">Meteo</span>
                         </div>
-                        <h4 class="fw-bold mb-2 text-dark">Rischio Meteorologico</h4>
+                        <h4 class="fw-bold mb-2">Rischio Meteorologico</h4>
                         <p class="testo-leggero small mb-4 flex-grow-1" id="desc-meteo">Ricerca ultimo aggiornamento in corso...</p>
                         <a href="bollettini/meteo.pdf" target="_blank" class="btn btn-elite-outline w-100">Apri Bollettino (PDF)</a>
                     </div>
                 </div>
 
-                <!-- Antincendio -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="elite-card h-100 p-4 d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="fs-1 text-danger"><i class="fa-solid fa-fire"></i></div>
                             <span class="badge bg-danger px-3 py-2 rounded-pill fw-bold text-white small">Antincendio</span>
                         </div>
-                        <h4 class="fw-bold mb-2 text-dark">Rischio Incendi Boschivi</h4>
+                        <h4 class="fw-bold mb-2">Rischio Incendi</h4>
                         <p class="testo-leggero small mb-4 flex-grow-1" id="desc-antincendio">Ricerca ultimo aggiornamento in corso...</p>
                         <a href="bollettini/antincendio.pdf" target="_blank" class="btn btn-elite-outline w-100">Apri Bollettino (PDF)</a>
                     </div>
                 </div>
 
-                <!-- Alluvioni -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="elite-card h-100 p-4 d-flex flex-column">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="fs-1 text-info"><i class="fa-solid fa-water"></i></div>
                             <span class="badge bg-info px-3 py-2 rounded-pill fw-bold text-white small">Idrogeologico</span>
                         </div>
-                        <h4 class="fw-bold mb-2 text-dark">Rischio Alluvioni</h4>
+                        <h4 class="fw-bold mb-2">Rischio Alluvioni</h4>
                         <p class="testo-leggero small mb-4 flex-grow-1" id="desc-alluvioni">Ricerca ultimo aggiornamento in corso...</p>
                         <a href="bollettini/alluvioni.pdf" target="_blank" class="btn btn-elite-outline w-100">Apri Bollettino (PDF)</a>
                     </div>
@@ -322,39 +480,32 @@
         </div>
     </section>
 
-    <!-- Modifica 4 e 5: Footer aggiornato con nome esatto e senza logo ANPAS -->
+    <!-- FOOTER RIVOLUZIONATO SECONDO RICHIESTA -->
     <footer id="contatti" class="py-5">
-        <div class="container py-4">
-            <div class="row g-4 mb-5">
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V</h5>
-                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <!-- Rimosso logo ANPAS -->
-                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
-                </div>
-                <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
-                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
-                        <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
-                    <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
-                    </ul>
-                </div>
+        <div class="container py-4 text-center">
+            
+            <h3 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h3>
+            <p class="testo-leggero small mb-4">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+            
+            <div class="d-flex justify-content-center gap-4 flex-wrap mb-5">
+                <span class="text-dark"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>C.F:</strong> 91039150866</span>
+                <span class="text-dark"><i class="fa-solid fa-location-dot text-success me-2"></i> Via Bernardo di falco 82, Nicosia</span>
             </div>
-            <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
+
+            <!-- Box 5x1000 in super evidenza -->
+            <div class="p-4 rounded-4 mb-5 mx-auto" style="max-width: 600px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                <h4 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h4>
+                <p class="mb-0 text-dark">Inserisci il nostro Codice Fiscale <strong>91039150866</strong> nella tua dichiarazione dei redditi. A te non costa nulla, per noi fa la differenza.</p>
+            </div>
+
+            <div class="d-flex justify-content-center gap-4 fs-4 mb-4">
+                <a href="tel:3296411659" title="Chiama"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/3513633864" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:pagvpcnicosia@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="border-top pt-4 text-secondary small" style="border-color: var(--card-border) !important;">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -368,16 +519,34 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.glass-nav');
-            if (window.scrollY > 50) {
-                navbar.classList.remove('py-3');
-                navbar.classList.add('py-1');
-            } else {
-                navbar.classList.remove('py-1');
-                navbar.classList.add('py-3');
-            }
-        });
+        // LOGICA DARK/LIGHT MODE
+        const themeToggleDesktop = document.getElementById('themeToggleDesktop');
+        const themeToggleMobile = document.getElementById('themeToggleMobile');
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            const iconClass = theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
+            themeToggleDesktop.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            themeToggleMobile.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+        }
+
+        // Legge preferenza salvata o di sistema
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setTheme('dark');
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        }
+
+        themeToggleDesktop.addEventListener('click', toggleTheme);
+        themeToggleMobile.addEventListener('click', toggleTheme);
+
 
         fetch('news.json')
             .then(response => response.json())
@@ -396,9 +565,9 @@
                                         <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${item.categoria}</span>
                                         <span class="small text-secondary fw-semibold">${item.data}</span>
                                     </div>
-                                    <h5 class="fw-bold text-dark mb-2">${item.titolo}</h5>
+                                    <h5 class="fw-bold mb-2">${item.titolo}</h5>
                                     <p class="testo-leggero small mb-3 flex-grow-1">${item.descrizione_breve}</p>
-                                    <a href="news.html?id=${data.indexOf(item)}" class="${item.linkClass || 'text-secondary'} small text-decoration-none fw-bold">Leggi l'articolo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                                    <a href="news.html?id=${data.indexOf(item)}" class="${item.linkClass || 'text-warning'} small text-decoration-none fw-bold">Leggi l'articolo <i class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>`;
@@ -429,7 +598,6 @@
                 document.getElementById('news-home-container').innerHTML = '<div class="text-center text-danger">Impossibile caricare le novità recenti.</div>';
             });
 
-        // SCRIPT AUTOMAZIONE BOLLETTINI
         document.addEventListener('DOMContentLoaded', function() {
             const sezioniBollettini = ['meteo', 'antincendio', 'alluvioni'];
             const timeStamp = new Date().getTime(); 
