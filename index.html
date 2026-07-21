@@ -153,19 +153,6 @@
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
         /* -------------------------------------------
-           PULSANTI FLUTTUANTI
-           ------------------------------------------- */
-        .floating-btn {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none; transition: transform 0.3s;
-        }
-        .floating-btn:hover { transform: scale(1.15) translateY(-5px); color: white; }
-
-        .floating-theme-btn {
-            position: fixed; bottom: 30px; left: 30px; width: 45px; height: 45px; background-color: var(--text-color); color: var(--bg-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 1000; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); cursor: pointer; border: none; transition: transform 0.3s, background-color 0.3s, color 0.3s;
-        }
-        .floating-theme-btn:hover { transform: scale(1.15) translateY(-5px); }
-
-        /* -------------------------------------------
            BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
            ------------------------------------------- */
         .bottom-nav {
@@ -177,22 +164,19 @@
         
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        /* FIX RESPONSIVE MOBILE (BLINDATO) */
+        /* FIX RESPONSIVE MOBILE */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
             
             body { 
-                padding-top: 85px; /* ALTEZZA ESATTA NAVBAR MOBILE: Il sito inizia da qui */
+                padding-top: 85px; /* ALTEZZA ESATTA NAVBAR MOBILE */
                 padding-bottom: 90px; 
             }
             
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { height: auto; font-size: 0.55rem; margin-left: 8px; line-height: 1.1; }
             .logo-anpas { height: 45px; max-width: 90px; }
-            
-            .floating-btn { bottom: 100px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
-            .floating-theme-btn { bottom: 100px !important; left: 20px; width: 40px; height: 40px; }
         }
 
         /* -------------------------------------------
@@ -206,11 +190,11 @@
 
         /* HERO SECTION */
         .hero-section { 
-            height: calc(100vh - 165px); /* Copre perfettamente lo schermo escludendo la navbar su PC */
+            height: calc(100vh - 165px); 
             display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; 
         }
         @media (max-width: 991px) {
-            .hero-section { height: calc(100vh - 85px); } /* Copre perfettamente lo schermo escludendo la navbar su Mobile */
+            .hero-section { height: calc(100vh - 85px); }
         }
 
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
@@ -308,7 +292,7 @@
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-    <!-- MODAL MENU MOBILE PULITO (Tolto Emergenze che è già in basso) -->
+    <!-- MODAL MENU MOBILE -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
@@ -480,44 +464,12 @@
         </div>
     </footer>
 
-    <!-- BOTTONI FLUTTUANTI IN BASSO -->
-    <button id="floatingThemeToggle" class="floating-theme-btn" title="Cambia tema">
-        <i class="fa-solid fa-moon"></i>
-    </button>
-    
-    <a href="https://wa.me/3513633864" target="_blank" class="floating-btn" data-aos="zoom-in" data-aos-delay="500">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- I bottoni fluttuanti ora sono tolti da qui perché li inietta global.js -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 50 });
-
-        // LOGICA DARK/LIGHT MODE BLINDATA (Carica SEMPRE Light al primo avvio)
-        const themeToggleBtn = document.getElementById('floatingThemeToggle');
-        
-        function setTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            const iconClass = theme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
-            if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
-        }
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else {
-            setTheme('light'); 
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-        }
-
-        if(themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-
 
         fetch('news.json')
             .then(response => response.json())
