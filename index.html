@@ -45,14 +45,17 @@
             --bottom-nav-active: #e65c00;
         }
 
-        html { scroll-behavior: smooth; }
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 170px; /* Evita che i link ancore finiscano sotto la navbar gigante */
+        }
 
         body { 
             font-family: 'Inter', sans-serif; 
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 180px; /* Aumentato per fare spazio ai nuovi loghi giganti */
+            padding-top: 0; /* FIX DOPPIA LINEA: Sfondo libero di salire fino in cima */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -85,28 +88,28 @@
         }
         
         .brand-title {
-            height: 60px; /* Altezza fissa richiesta */
+            height: 68.5px; /* Aumentato come richiesto */
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centra il testo verticalmente nei 60px */
-            font-size: 0.85rem;
+            justify-content: center; 
+            font-size: 1rem; /* Font più grande e imponente */
             line-height: 1.2;
             letter-spacing: -0.2px;
             color: var(--text-color);
-            margin-left: 15px; /* Spazio dal logo */
+            margin-left: 15px; 
         }
 
         .logo-anpas {
-            height: 95px; /* Altezza richiesta */
+            height: 95px; /* Invariato */
             max-width: 200px;
             object-fit: contain;
         }
 
-        /* Voci Menu Desktop */
+        /* Voci Menu Desktop (Più grandi) */
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 0.95rem;
+            font-size: 1.05rem; /* Menu allargato */
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
@@ -122,6 +125,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
         }
         
+        /* HOVER SUI MENU PER APERTURA AUTOMATICA (Solo Desktop) */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                animation: slideFade 0.3s ease forwards;
+            }
+        }
+
+        @keyframes slideFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .dropdown-item { 
             color: var(--text-color) !important; 
             font-size: 0.95rem; 
@@ -139,7 +155,6 @@
         /* -------------------------------------------
            PULSANTI FLUTTUANTI (WHATSAPP E TEMA)
            ------------------------------------------- */
-        /* WhatsApp (Destra, più grande) */
         .floating-btn {
             position: fixed; 
             bottom: 30px; 
@@ -160,7 +175,6 @@
         }
         .floating-btn:hover { transform: scale(1.15) translateY(-5px); color: white; }
 
-        /* Tema Luna/Sole (Sinistra, più piccolo) */
         .floating-theme-btn {
             position: fixed; 
             bottom: 30px; 
@@ -223,13 +237,12 @@
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
             
-            /* Spaziature adeguate per evitare sovrapposizioni */
-            body { padding-top: 110px; padding-bottom: 90px; }
+            body { padding-bottom: 90px; }
             
-            /* Proporzioni Loghi ridimensionate per Mobile */
-            .logo-main { height: 65px; width: 65px; } 
-            .brand-title { height: auto; font-size: 0.65rem; margin-left: 10px; }
-            .logo-anpas { height: 45px; max-width: 100px; }
+            /* Nome Associazione Visibile su Mobile e adattato! */
+            .logo-main { height: 60px; width: 60px; padding: 2px; } 
+            .brand-title { height: auto; font-size: 0.55rem; margin-left: 8px; line-height: 1.1; }
+            .logo-anpas { height: 45px; max-width: 90px; }
             
             /* Solleva i pulsanti fluttuanti sopra la barra inferiore */
             .floating-btn { bottom: 100px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
@@ -245,9 +258,19 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 120px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+        /* HERO SECTION AGGIORNATA PER RISOLVERE IL BUG "DOPPIA LINEA BIANCA" */
+        .hero-section { 
+            height: 100vh; /* Ora copre tutto lo schermo fin da cima */
+            display: flex; 
+            align-items: center; 
+            position: relative; 
+            background: url('Logo%20retro%20.JPG') center/cover no-repeat; 
+            overflow: hidden; 
+        }
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; }
+        
+        /* Abbassiamo leggermente solo il testo per bilanciarlo sotto la navbar gigante */
+        .hero-content { position: relative; z-index: 2; padding-top: 100px; }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
@@ -277,21 +300,21 @@
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
-            <!-- SINISTRA: Logo 137px + Nome 60px -->
+            <!-- SINISTRA: Logo 137px + Nome Associazione (ora visibile anche su mobile!) -->
             <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
-                <div class="brand-title d-none d-md-flex">
+                <div class="brand-title">
                     <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
                 </div>
             </a>
 
-            <!-- CENTRO: Voci del menu (Nascoste su Mobile) -->
+            <!-- CENTRO: Voci del menu Hover-attive (Nascoste su Mobile) -->
             <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i> Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
@@ -301,7 +324,7 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-truck-medical"></i> Attività</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
                             <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
@@ -310,7 +333,7 @@
                     </li>
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
                             <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
@@ -324,7 +347,7 @@
             </div>
 
             <!-- DESTRA: Solo Logo ANPAS 95px -->
-            <div class="nav-right-wing d-flex align-items-center gap-2 gap-lg-3 ms-auto">
+            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
                 <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
             </div>
             
@@ -344,7 +367,7 @@
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-    <!-- MODAL MENU MOBILE -->
+    <!-- MODAL MENU MOBILE PULITO (Tolto Emergenze che è già in basso) -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
@@ -358,7 +381,6 @@
                   <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
                   <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
                   <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
-                  <a href="emergenze.html" class="btn btn-elite-outline text-start border-danger text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i> Emergenze e Allerte</a>
                   <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
               </div>
@@ -531,7 +553,7 @@
     <script>
         AOS.init({ once: true, offset: 50 });
 
-        // LOGICA DARK/LIGHT MODE CON IL NUOVO TASTO
+        // LOGICA DARK/LIGHT MODE FORZATA SU LIGHT DI DEFAULT
         const themeToggleBtn = document.getElementById('floatingThemeToggle');
         
         function setTheme(theme) {
@@ -541,6 +563,7 @@
             if (themeToggleBtn) themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
         }
 
+        // Qui c'è la blindatura: carica sempre light se non hai premuto tu manualmente la luna in passato
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setTheme(savedTheme);
