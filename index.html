@@ -76,7 +76,7 @@
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* PROPORZIONI LOGHI (Desktop) */
+        /* PROPORZIONI LOGHI (Desktop) - NON TOCCATE */
         .logo-main {
             height: 137px; 
             width: 137px;  
@@ -164,7 +164,7 @@
         
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        /* FIX RESPONSIVE MOBILE */
+        /* FIX RESPONSIVE MOBILE (LAVORO DI PRECISIONE SOLO QUI) */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
@@ -175,7 +175,17 @@
             }
             
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
-            .brand-title { height: auto; font-size: 0.55rem; margin-left: 8px; line-height: 1.1; }
+            
+            /* QUI E' IL CAMBIAMENTO PER IL MOBILE: Testo più grande (0.85rem) e più spazio (flex: 1) */
+            .brand-title { 
+                height: auto; 
+                font-size: 0.85rem; 
+                margin-left: 10px; 
+                line-height: 1.1; 
+                flex: 1; 
+                text-align: left;
+            }
+            
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
@@ -292,7 +302,7 @@
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-    <!-- MODAL MENU MOBILE -->
+    <!-- MODAL MENU MOBILE PULITO (Tolto Emergenze che è già in basso) -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
@@ -306,6 +316,7 @@
                   <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
                   <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
                   <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
+                  <!-- Eliminato Emergenze come richiesto -->
                   <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
               </div>
