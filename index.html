@@ -135,7 +135,7 @@
 
         /* 2. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi al pixel */
         @media (min-width: 992px) and (max-width: 1366px) {
-            body { padding-top: 121px; } /* ALTEZZA ESATTA IPAD: 104px logo + 16px padding + 1px border */
+            body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
             .hero-section { height: calc(100vh - 121px); }
             
@@ -146,13 +146,13 @@
             .nav-link { font-size: 0.9rem !important; margin: 0 5px !important; padding: 0.5rem 0.2rem !important; }
             .nav-link i { font-size: 0.9rem; } 
             
-            /* Eliminazione rigidità flex per permettere lo scaling fluido */
-            .nav-left-wing { flex: 0 1 auto; justify-content: flex-start; }
-            .nav-right-wing { flex: 0 1 auto; justify-content: flex-end; }
-            .nav-center-wing { flex: 1 1 auto; justify-content: center; }
+            /* SIMMETRIA CENTRALE PERFETTA: ali esterne occupano stesso spazio */
+            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
+            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
+            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* 3. MOBILE E IPAD VERTICALI (<991px): Layout Bottom App */
+        /* 3. IMPOSTAZIONI STRUTTURALI MENU MOBILE (<991px) */
         .bottom-nav {
             display: none;
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
@@ -164,12 +164,28 @@
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
+            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
+        }
+
+        /* 3a. IPAD VERTICALE (768px - 991px) - Loghi ingranditi */
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } /* 90px logo + 16px padding + 1px border */
+            html { scroll-padding-top: 107px; }
+            .hero-section { height: calc(100vh - 107px); }
             
-            body { padding-top: 77px; padding-bottom: 90px; } /* ALTEZZA ESATTA MOBILE: 60px logo + 16px padding + 1px border */
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+
+        /* 3b. TELEFONO (<767px) - Nessuna modifica alle tue misure, intoccate */
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } /* 60px logo + 16px padding + 1px border */
+            html { scroll-padding-top: 77px; }
             .hero-section { height: calc(100vh - 77px); }
             
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
-            .brand-title { height: auto; font-size: 0.85rem; margin-left: 10px; line-height: 1.1; flex: 1; text-align: left; }
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
