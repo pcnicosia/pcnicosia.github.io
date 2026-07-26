@@ -98,11 +98,12 @@
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 1.05rem; 
+            font-size: 0.95rem; /* <-- MENU RIMPICCIOLITO (Prima era 1.05rem) */
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px; /* <-- SPAZIO ICONA RIDOTTO */
+            padding: 0.4rem 0.8rem !important; /* <-- PADDING RIDOTTO */
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
@@ -117,7 +118,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .dropdown-item { color: var(--text-color) !important; font-size: 0.95rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
@@ -126,14 +127,21 @@
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
 
-        /* 1. PC CON SCHERMI GRANDI (>1366px): Layout assoluto a 3 ali */
-        @media (min-width: 1367px) {
-            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
-            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
+        /* CENTRATURA ASSOLUTA MATEMATICA DEL MENU (PC & IPAD ORIZZONTALE) */
+        @media (min-width: 992px) {
+            .navbar .container-fluid { position: relative; }
+            .nav-center-wing {
+                position: absolute !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important; /* Centrato spaccato al pixel */
+                display: flex !important;
+                justify-content: center;
+                width: max-content;
+                z-index: 10;
+            }
         }
 
-        /* 2. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi al pixel */
+        /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi al pixel */
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
@@ -143,16 +151,12 @@
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
             
-            .nav-link { font-size: 0.9rem !important; margin: 0 5px !important; padding: 0.5rem 0.2rem !important; }
-            .nav-link i { font-size: 0.9rem; } 
-            
-            /* SIMMETRIA CENTRALE PERFETTA: ali esterne occupano stesso spazio */
-            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
-            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
+            /* Menu ancora più compatto per non sbattere con i loghi laterali */
+            .nav-link { font-size: 0.82rem !important; margin: 0 4px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
         }
 
-        /* 3. IMPOSTAZIONI STRUTTURALI MENU MOBILE (<991px) */
+        /* 2. IMPOSTAZIONI STRUTTURALI MENU MOBILE (<991px) */
         .bottom-nav {
             display: none;
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
@@ -167,9 +171,9 @@
             .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
         }
 
-        /* 3a. IPAD VERTICALE (768px - 991px) - Loghi ingranditi */
+        /* 2a. IPAD VERTICALE (768px - 991px) - Loghi ingranditi come richiesto */
         @media (min-width: 768px) and (max-width: 991px) {
-            body { padding-top: 107px; padding-bottom: 90px; } /* 90px logo + 16px padding + 1px border */
+            body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
             .hero-section { height: calc(100vh - 107px); }
             
@@ -178,9 +182,9 @@
             .logo-anpas { height: 60px; max-width: 130px; }
         }
 
-        /* 3b. TELEFONO (<767px) - Nessuna modifica alle tue misure, intoccate */
+        /* 2b. TELEFONO (<767px) - MISURE INTOCCATE */
         @media (max-width: 767px) {
-            body { padding-top: 77px; padding-bottom: 90px; } /* 60px logo + 16px padding + 1px border */
+            body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
             .hero-section { height: calc(100vh - 77px); }
             
