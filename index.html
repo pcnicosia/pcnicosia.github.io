@@ -47,7 +47,7 @@
 
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 170px;
+            scroll-padding-top: 154px;
         }
 
         body { 
@@ -55,7 +55,7 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 165px; 
+            padding-top: 154px; /* ALTEZZA ESATTA NAVBAR PC: 137px logo + 16px padding + 1px border */
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -133,11 +133,12 @@
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* 2. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi */
+        /* 2. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi al pixel */
         @media (min-width: 992px) and (max-width: 1366px) {
-            body { padding-top: 110px; }
-            html { scroll-padding-top: 115px; }
-
+            body { padding-top: 92px; } /* ALTEZZA ESATTA IPAD: 75px logo + 16px padding + 1px border */
+            html { scroll-padding-top: 92px; }
+            .hero-section { height: calc(100vh - 92px); }
+            
             .logo-main { height: 75px; width: 75px; } 
             .brand-title { font-size: 0.72rem; margin-left: 10px; line-height: 1.15; } 
             .logo-anpas { height: 50px; max-width: 120px; } 
@@ -164,7 +165,8 @@
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
             
-            body { padding-top: 85px; padding-bottom: 90px; }
+            body { padding-top: 77px; padding-bottom: 90px; } /* ALTEZZA ESATTA MOBILE: 60px logo + 16px padding + 1px border */
+            .hero-section { height: calc(100vh - 77px); }
             
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { height: auto; font-size: 0.85rem; margin-left: 10px; line-height: 1.1; flex: 1; text-align: left; }
@@ -180,8 +182,7 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 165px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
-        @media (max-width: 991px) { .hero-section { height: calc(100vh - 85px); } }
+        .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
 
         .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .hero-content { position: relative; z-index: 2; }
