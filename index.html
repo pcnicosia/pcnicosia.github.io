@@ -55,7 +55,7 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 154px; /* ALTEZZA ESATTA NAVBAR PC: 137px logo + 16px padding + 1px border */
+            padding-top: 154px; 
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -70,7 +70,6 @@
             transition: all 0.3s ease;
         }
 
-        /* PROPORZIONI LOGHI E TESTI (Standard per PC) */
         .logo-main {
             height: 137px; 
             width: 137px;  
@@ -98,12 +97,12 @@
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 0.95rem; /* <-- MENU RIMPICCIOLITO (Prima era 1.05rem) */
+            font-size: 0.95rem; 
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
-            gap: 5px; /* <-- SPAZIO ICONA RIDOTTO */
-            padding: 0.4rem 0.8rem !important; /* <-- PADDING RIDOTTO */
+            gap: 5px; 
+            padding: 0.4rem 0.8rem !important; 
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
@@ -127,18 +126,17 @@
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
 
-        /* CENTRATURA ASSOLUTA MATEMATICA DEL MENU (PC & IPAD ORIZZONTALE) */
+        /* LAYOUT FLUIDO E SIMMETRICO PC E IPAD */
         @media (min-width: 992px) {
-            .navbar .container-fluid { position: relative; }
-            .nav-center-wing {
-                position: absolute !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important; /* Centrato spaccato al pixel */
-                display: flex !important;
-                justify-content: center;
-                width: max-content;
-                z-index: 10;
+            /* Assicuriamo che l'ala centrale prenda tutto lo spazio vuoto e si centri all'interno */
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { 
+                flex: 1 1 auto; 
+                display: flex; 
+                justify-content: center; 
+                padding: 0 20px; /* Cuscinetto di sicurezza per non toccare i loghi */
             }
+            .nav-right-wing { flex: 0 0 auto; }
         }
 
         /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px): Ricalibrazione spazi al pixel */
@@ -151,8 +149,7 @@
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
             
-            /* Menu ancora più compatto per non sbattere con i loghi laterali */
-            .nav-link { font-size: 0.82rem !important; margin: 0 4px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
             .nav-link i { font-size: 0.82rem; } 
         }
 
