@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -157,101 +157,202 @@
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
 
         /* -------------------------------------------
-           SEZIONE STORIA - EMOZIONALE E IMMERSIVA
+           SEZIONE STORIA - DESIGN EDITORIALE D'ELITE
            ------------------------------------------- */
-        .museum-section { background-color: var(--museum-bg); position: relative; overflow: hidden; padding-top: 5rem; padding-bottom: 6rem; }
+        .history-editorial { 
+            background-color: var(--museum-bg); 
+            padding: 7rem 0 5rem 0; 
+            overflow: hidden;
+        }
         
+        .main-history-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--text-color);
+            text-align: center;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .title-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #e65c00;
+            margin: 0 auto 3rem auto;
+            border-radius: 2px;
+        }
+
         .emotion-quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #e65c00;
+            color: var(--text-color);
+            opacity: 0.85;
             text-align: center;
             max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.5;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.6;
             position: relative;
         }
         .emotion-quote::before, .emotion-quote::after {
             content: '"';
-            font-size: 2.5rem;
-            opacity: 0.3;
+            font-size: 3rem;
+            color: #e65c00;
+            opacity: 0.4;
             vertical-align: bottom;
-        }
-
-        .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 20px 0; }
-        
-        /* Linea Centrale */
-        .timeline::after {
-            content: ''; position: absolute; width: 2px; background: rgba(230, 92, 0, 0.2);
-            top: 0; bottom: 0; left: 50%; margin-left: -1px;
-        }
-
-        .timeline-box { padding: 10px 50px; position: relative; width: 50%; z-index: 2; margin-bottom: 30px; }
-        .timeline-box.left { left: 0; }
-        .timeline-box.right { left: 50%; }
-
-        /* Nodi sulla linea */
-        .timeline-box::after {
-            content: ''; position: absolute; width: 16px; height: 16px; background-color: var(--museum-bg);
-            border: 3px solid #e65c00; border-radius: 50%; top: 40px; z-index: 3;
-            transition: all 0.3s ease;
-        }
-        .timeline-box:hover::after { background-color: #e65c00; box-shadow: 0 0 15px rgba(230, 92, 0, 0.5); }
-        .timeline-box.left::after { right: -8px; }
-        .timeline-box.right::after { left: -8px; }
-
-        /* Contenuto Targa */
-        .museum-card {
-            background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px;
-            padding: 40px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); position: relative;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .museum-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(230, 92, 0, 0.08);
+            line-height: 0;
+            margin: 0 5px;
         }
         
-        /* Tipografia Museale per le Date */
-        .era-date { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 2rem; color: #e65c00; margin-bottom: 5px; display: block; }
-        .era-title { font-weight: 800; font-size: 1.3rem; margin-bottom: 20px; letter-spacing: -0.5px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 15px; }
-
-        /* Integrazione Immagini Emozionali */
-        .story-img-container {
-            margin-top: 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .editorial-block {
+            display: flex;
+            align-items: center;
+            margin-top: 8rem;
             position: relative;
-            border: 1px solid var(--card-border);
         }
-        .story-img-container img {
+        .editorial-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* Blocco Testo (Overlap) */
+        .editorial-content {
+            flex: 0 0 55%;
+            padding: 4rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 2;
+        }
+        .editorial-block:not(.reverse) .editorial-content { margin-right: -10%; }
+        .editorial-block.reverse .editorial-content { margin-left: -10%; }
+
+        /* Blocco Immagine */
+        .editorial-media {
+            flex: 0 0 55%;
+            position: relative;
+            z-index: 1;
+        }
+        .editorial-media img {
             width: 100%;
             height: auto;
-            display: block;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
             transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            object-fit: cover;
         }
-        .museum-card:hover .story-img-container img {
-            transform: scale(1.04);
-        }
-        .story-caption {
-            background: var(--secondary-bg);
-            padding: 12px 15px;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            text-align: center;
-            border-top: 1px solid var(--card-border);
+        .editorial-block:hover .editorial-media img {
+            transform: scale(1.03);
         }
 
-        /* Responsive Timeline Mobile */
+        /* Didascalie Foto */
+        .editorial-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+        }
+        .editorial-block:not(.reverse) .editorial-caption { text-align: right; padding-right: 12%; }
+        .editorial-block.reverse .editorial-caption { text-align: left; padding-left: 12%; }
+
+        /* Tipografia Testi */
+        .era-date-elegant {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #e65c00;
+            margin-bottom: 0.5rem;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        .era-title {
+            font-weight: 800;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+        }
+        .editorial-content p {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Filigrana Anno */
+        .watermark {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            opacity: 0.03;
+            z-index: 0;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+        .editorial-block.reverse .watermark {
+            left: auto;
+            right: 30px;
+        }
+
+        /* Blocco Finale (Oggi) */
+        .final-block {
+            max-width: 900px;
+            margin: 8rem auto 0 auto;
+            text-align: center;
+            padding: 4rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 2px solid rgba(230, 92, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(230, 92, 0, 0.05);
+        }
+
+        /* Responsive Mobile per Editoriale */
         @media screen and (max-width: 991px) {
-            .timeline::after { left: 31px; }
-            .timeline-box { width: 100%; padding-left: 70px; padding-right: 15px; }
-            .timeline-box.left::after, .timeline-box.right::after { left: 23px; right: auto; }
-            .timeline-box.right { left: 0%; }
-            .museum-card { padding: 25px; }
+            .editorial-block, .editorial-block.reverse {
+                flex-direction: column;
+                margin-top: 5rem;
+            }
+            .editorial-content {
+                width: 100%;
+                margin: 0 !important;
+                padding: 2.5rem 1.5rem;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-bottom: none;
+                box-shadow: none;
+                border-color: var(--card-border);
+            }
+            .editorial-media {
+                width: 100%;
+                margin: 0 !important;
+            }
+            .editorial-media img {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            }
+            .watermark, .editorial-block.reverse .watermark {
+                font-size: 5rem;
+                top: 10px;
+                left: 15px;
+                right: auto;
+            }
+            .editorial-block:not(.reverse) .editorial-caption, .editorial-block.reverse .editorial-caption {
+                text-align: center;
+                padding: 0 1rem;
+            }
+            .final-block {
+                padding: 2.5rem 1.5rem;
+                margin-top: 5rem;
+            }
         }
 
         /* -------------------------------------------
@@ -360,127 +461,121 @@
         </div>
     </header>
 
-    <!-- SEZIONE STORIA INTRECCIATA (TESTO + FOTO) -->
-    <section id="storia" class="museum-section">
+    <!-- SEZIONE STORIA (DESIGN EDITORIALE D'ELITE) -->
+    <section id="storia" class="history-editorial">
         <div class="container">
             
-            <div data-aos="fade-up" style="margin-bottom: 4rem;">
-                <p class="emotion-quote" style="margin-bottom: 1rem;">
+            <div data-aos="fade-up">
+                <h2 class="main-history-title">La Storia Di Anpas Nazionale</h2>
+                <div class="title-divider"></div>
+                <p class="emotion-quote">
                     Non c’è esercizio migliore per il cuore che stendere la mano e aiutare gli altri ad alzarsi.
                 </p>
-                <p class="text-center fw-bold" style="color: var(--text-color); opacity: 0.6; font-size: 1.05rem; letter-spacing: 1px;">
-                    — Henry Ford —
+                <p class="text-center fw-bold mb-5" style="color: #e65c00; font-size: 1.05rem; letter-spacing: 1px;">
+                    — Henry Ford
                 </p>
             </div>
 
-            <div class="timeline">
-                
-                <!-- EPOCA 1 -->
-                <div class="timeline-box left" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">1848 - 1904</span>
-                        <h3 class="era-title">Dalle origini al Congresso di Spoleto</h3>
-                        <p class="testo-leggero">Le Pubbliche Assistenze nascono ufficialmente nel 1860 come associazioni di volontariato libere e laiche. Conosciute sotto una grande molteplicità di nomi — Croce Verde, Croce Bianca, Croce D'Oro, Società di Salvamento, Fratellanza Popolare — queste realtà, dalla Sicilia al Piemonte, condividono un unico, grande scopo: servire chiunque esprima un bisogno, senza porre condizioni e accogliendo chiunque voglia dare una mano.</p>
-                        <p class="testo-leggero mb-0">L’associazionismo diventa sinonimo di democrazia e solidarietà: in un’epoca in cui il diritto di voto era legato al reddito, all'interno di queste associazioni la gestione è democratica, con elezioni a scrutinio segreto in cui tutti i soci hanno gli stessi diritti. Il soccorso sanitario, il sostegno ai poveri e l’educazione civile si diffondono rapidamente. Questo slancio solidale porta, nel 1892, al primo congresso nazionale a La Spezia e culmina nel 1904 al congresso di Spoleto, dove 85 Associazioni e 9 Società di Mutuo Soccorso fondano la Federazione Nazionale.</p>
-                        
-                        <!-- IMMAGINE 1 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 1.PNG" alt="Origini della Pubblica Assistenza">
-                            <div class="story-caption">Uniti da un unico grande scopo: esserci per gli altri.</div>
-                        </div>
-                    </div>
+            <!-- EPOCA 1 -->
+            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1848</span>
+                    <span class="era-date-elegant">1848 - 1904</span>
+                    <h3 class="era-title">Dalle origini al Congresso di Spoleto</h3>
+                    <p class="testo-leggero">Le Pubbliche Assistenze nascono ufficialmente nel 1860 come associazioni di volontariato libere e laiche. Conosciute sotto una grande molteplicità di nomi — Croce Verde, Croce Bianca, Croce D'Oro, Società di Salvamento, Fratellanza Popolare — queste realtà, dalla Sicilia al Piemonte, condividono un unico, grande scopo: servire chiunque esprima un bisogno, senza porre condizioni e accogliendo chiunque voglia dare una mano.</p>
+                    <p class="testo-leggero">Le loro radici profonde risalgono in realtà al 1848, all'interno delle "Società di Operaie Mutuo Soccorso" degli stati sabaudi, nate per tutelare i lavoratori dalle malattie e dagli infortuni. In un’Italia ancora elitaria e con forti differenze di classe, le categorie più deboli si organizzano dal basso per darsi risposte che né la carità dei singoli né lo Stato riuscivano a garantire.</p>
+                    <p class="testo-leggero mb-0">L’associazionismo diventa sinonimo di democrazia e solidarietà: in un’epoca in cui il diritto di voto era legato al reddito, all'interno di queste associazioni la gestione è democratica, con elezioni a scrutinio segreto in cui tutti i soci hanno gli stessi diritti. Il soccorso sanitario, il sostegno ai poveri e l’educazione civile si diffondono rapidamente. Questo slancio solidale porta, nel 1892, al primo congresso nazionale a La Spezia e culmina nel 1904 al congresso di Spoleto.</p>
                 </div>
-
-                <!-- EPOCA 2 -->
-                <div class="timeline-box right" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">1904 - 1915</span>
-                        <h3 class="era-title">Dalla fondazione alla Prima Guerra Mondiale</h3>
-                        <p class="testo-leggero">L'inizio del Novecento vede un forte radicamento delle Associazioni, specialmente nel centro e nord Italia. Al Congresso di Siena del 1905, si ribadisce la natura laica, civile e altruista delle Pubbliche Assistenze, totalmente slegate da influenze politiche o religiose.</p>
-                        <p class="testo-leggero mb-0">Non si tratta solo di ambulanze: le associazioni lottano contro la tubercolosi, tutelano la maternità e l'infanzia, aprono asili notturni e promuovono l'alfabetizzazione collaborando con le Università Popolari. Dopo aver dimostrato ancora una volta il loro valore nel tragico terremoto calabro-siculo del 1908, la Federazione Nazionale viene eretta in Ente Morale nel 1911. Purtroppo, lo scoppio della guerra frena questo grande processo di crescita.</p>
-                        
-                        <!-- IMMAGINE 2 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 2.PNG" alt="Impegno sul territorio">
-                            <div class="story-caption">Molto più di un soccorso: un presidio di umanità.</div>
-                        </div>
-                    </div>
+                <div class="editorial-media">
+                    <img src="Storia 1.PNG" alt="Origini della Pubblica Assistenza">
+                    <div class="editorial-caption">Uniti da un unico grande scopo: esserci per gli altri.</div>
                 </div>
-
-                <!-- EPOCA 3 -->
-                <div class="timeline-box left" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">1919 - 1930</span>
-                        <h3 class="era-title">Il primo dopoguerra e lo scioglimento fascista</h3>
-                        <p class="testo-leggero">Al congresso di Genova dell'11 maggio 1919 si celebra la pace e si ricordano i tanti volontari caduti. C'è bisogno di riorganizzarsi, ma il clima politico sta cambiando.</p>
-                        <p class="testo-leggero mb-0">Il Governo fascista inizia presto a osteggiare le Pubbliche Assistenze: la loro pratica costante di democrazia e la scelta di libertà sancita dai loro statuti sono incompatibili con il regime. Il colpo di grazia arriva il 12 febbraio 1930 con un Regio Decreto Legge che scioglie tutte le associazioni (compresa la Federazione) trasferendone beni e competenze alla Croce Rossa. Le pochissime che riescono a sopravvivere vengono sottoposte a uno stretto controllo prefettizio, privandole della loro libertà elettiva.</p>
-
-                        <!-- IMMAGINE 3 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 3.PNG" alt="Resilienza dei volontari">
-                            <div class="story-caption">La democrazia e la libertà come valori non negoziabili.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EPOCA 4 -->
-                <div class="timeline-box right" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">1930 - 1946</span>
-                        <h3 class="era-title">Il buio e il Congresso di Milano</h3>
-                        <p class="testo-leggero">Per quindici anni, la grande ricchezza umana e materiale del volontariato di Pubblica Assistenza viene smembrata o militarizzata. Durante la Seconda Guerra Mondiale, le poche sedi rimaste affrontano sfide immense tra mancanza di uomini, mezzi usurati e l'occupazione tedesca.</p>
-                        <p class="testo-leggero mb-0">Tuttavia, con la Liberazione, inizia una nuova storia. Il 14 e 15 dicembre 1946, a Milano, 64 associazioni si riuniscono per il primo, vero Congresso Nazionale del dopoguerra. Viene approvato il nuovo statuto e inizia la battaglia per riavere i beni confiscati nel 1930 e ottenere una legislazione che tuteli il volontariato.</p>
-
-                        <!-- IMMAGINE 4 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 4.JPG" alt="Rinascita post bellica">
-                            <div class="story-caption">Affrontare il buio per tornare a costruire speranza.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EPOCA 5 -->
-                <div class="timeline-box left" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">1946 - 1968</span>
-                        <h3 class="era-title">La Legge Ospedaliera e le grandi catastrofi</h3>
-                        <p class="testo-leggero">Il Dopoguerra è complesso: lo Stato repubblicano inizialmente conferma i decreti fascisti, lasciando il coordinamento dell'emergenza alla Croce Rossa e riducendo il ruolo delle Pubbliche Assistenze al solo "servizio" pratico, mettendo in ombra le loro grandi prospettive ideali.</p>
-                        <p class="testo-leggero mb-0">Nel 1958 nasce il Ministero della Sanità e le associazioni chiedono a gran voce un rinnovamento strutturale. La necessità di una forte rete di soccorso diventa drammaticamente evidente nelle grandi catastrofi nazionali in cui i volontari intervengono in massa: l’alluvione del Polesine (1951), la tragedia del Vajont (1963), l’alluvione di Firenze (1966) e il terremoto del Belice (1968).</p>
-
-                        <!-- IMMAGINE 5 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 5.JPG" alt="Intervento nelle emergenze">
-                            <div class="story-caption">Nelle ferite del Paese, sempre in prima linea.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EPOCA 6 -->
-                <div class="timeline-box right" data-aos="fade-up">
-                    <div class="museum-card">
-                        <span class="era-date">Gli anni '70 e '80</span>
-                        <h3 class="era-title">La nascita di A.N.P.AS.</h3>
-                        <p class="testo-leggero">Gli anni '70 portano grandi riforme: nascono le Regioni e, nel 1978, il Servizio Sanitario Nazionale, che finalmente riconosce per legge il ruolo attivo dei cittadini nella gestione della salute. Leggi fondamentali, come quella sull'obiezione di coscienza, portano nuove energie giovanili nelle associazioni. Dopo il terremoto dell'Irpinia del 1980, la spinta del volontariato porta alla creazione del Servizio Nazionale di Protezione Civile (1992).</p>
-                        <p class="testo-leggero mb-0">Questa crescita costante trova il suo momento storico nel Congresso straordinario di Lerici del 1987, dove la Federazione cambia ufficialmente nome in A.N.P.AS. - Associazione Nazionale Pubbliche Assistenze. Viene approvato un nuovo statuto e introdotta la tessera nazionale per tutti i soci. Al Congresso di Modena del 1993, l'ANPAS supera definitivamente la sola "logica del servizio", rivendicando il suo ruolo politico di cittadinanza partecipativa e difesa dei diritti dei più deboli.</p>
-
-                        <!-- IMMAGINE 6 INTRECCIATA -->
-                        <div class="story-img-container" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="Storia 6.JPG" alt="Crescita dell'Associazione">
-                            <div class="story-caption">Rivendicare il diritto universale di aiutarsi a vicenda.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EPOCA 7 (CHIUSURA SENZA FOTO, FORTE IMPATTO TESTUALE) -->
-                <div class="timeline-box left" data-aos="fade-up">
-                    <div class="museum-card" style="border-color: rgba(230, 92, 0, 0.5); border-width: 2px;">
-                        <span class="era-date" style="border-bottom: none;">L'ANPAS Oggi</span>
-                        <h3 class="era-title text-dark" style="border-bottom: none;">Il Presente e il Futuro</h3>
-                        <p class="testo-leggero mb-0 fs-6">Oggi le Pubbliche Assistenze aderenti all’A.N.P.AS. sono 820, presenti in 18 regioni, supportate da <strong>100.000 volontari e 700.000 soci</strong>. Con 2.700 ambulanze, 300 mezzi di protezione civile e 400 veicoli per i trasporti sanitari, l’A.N.P.AS. è una colonna portante della solidarietà italiana e uno dei più importanti enti di servizio civile nazionale. Un'eredità viva, che continua a camminare sulle nostre gambe.</p>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- EPOCA 2 (REVERSE) -->
+            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1904</span>
+                    <span class="era-date-elegant">1904 - 1915</span>
+                    <h3 class="era-title">Dalla fondazione alla Prima Guerra Mondiale</h3>
+                    <p class="testo-leggero">L'inizio del Novecento vede un forte radicamento delle Associazioni, specialmente nel centro e nord Italia. Al Congresso di Siena del 1905, si ribadisce la natura laica, civile e altruista delle Pubbliche Assistenze, totalmente slegate da influenze politiche o religiose.</p>
+                    <p class="testo-leggero mb-0">Non si tratta solo di ambulanze: le associazioni lottano contro la tubercolosi, tutelano la maternità e l'infanzia, aprono asili notturni e promuovono l'alfabetizzazione collaborando con le Università Popolari. Dopo aver dimostrato ancora una volta il loro valore nel tragico terremoto calabro-siculo del 1908, la Federazione Nazionale viene eretta in Ente Morale nel 1911. Purtroppo, lo scoppio della guerra frena questo grande processo di crescita.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="Storia 2.PNG" alt="Impegno sul territorio">
+                    <div class="editorial-caption">Molto più di un soccorso: un presidio di umanità.</div>
+                </div>
+            </div>
+
+            <!-- EPOCA 3 -->
+            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1919</span>
+                    <span class="era-date-elegant">1919 - 1930</span>
+                    <h3 class="era-title">Il primo dopoguerra e lo scioglimento fascista</h3>
+                    <p class="testo-leggero">Al congresso di Genova dell'11 maggio 1919 si celebra la pace e si ricordano i tanti volontari caduti. C'è bisogno di riorganizzarsi, ma il clima politico sta cambiando.</p>
+                    <p class="testo-leggero mb-0">Il Governo fascista inizia presto a osteggiare le Pubbliche Assistenze: la loro pratica costante di democrazia e la scelta di libertà sancita dai loro statuti sono incompatibili con il regime. Il colpo di grazia arriva il 12 febbraio 1930 con un Regio Decreto Legge che scioglie tutte le associazioni (compresa la Federazione) trasferendone beni e competenze alla Croce Rossa. Le pochissime che riescono a sopravvivere vengono sottoposte a uno stretto controllo prefettizio, privandole della loro libertà elettiva.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="Storia 3.PNG" alt="Resilienza dei volontari">
+                    <div class="editorial-caption">La democrazia e la libertà come valori non negoziabili.</div>
+                </div>
+            </div>
+
+            <!-- EPOCA 4 (REVERSE) -->
+            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1930</span>
+                    <span class="era-date-elegant">1930 - 1946</span>
+                    <h3 class="era-title">Il buio e il Congresso di Milano</h3>
+                    <p class="testo-leggero">Per quindici anni, la grande ricchezza umana e materiale del volontariato di Pubblica Assistenza viene smembrata o militarizzata. Durante la Seconda Guerra Mondiale, le poche sedi rimaste affrontano sfide immense tra mancanza di uomini, mezzi usurati e l'occupazione tedesca.</p>
+                    <p class="testo-leggero mb-0">Tuttavia, con la Liberazione, inizia una nuova storia. Il 14 e 15 dicembre 1946, a Milano, 64 associazioni si riuniscono per il primo, vero Congresso Nazionale del dopoguerra. Viene approvato il nuovo statuto e inizia la battaglia per riavere i beni confiscati nel 1930 e ottenere una legislazione che tuteli il volontariato.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="Storia 4.JPG" alt="Rinascita post bellica">
+                    <div class="editorial-caption">Affrontare il buio per tornare a costruire speranza.</div>
+                </div>
+            </div>
+
+            <!-- EPOCA 5 -->
+            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1946</span>
+                    <span class="era-date-elegant">1946 - 1968</span>
+                    <h3 class="era-title">La Legge Ospedaliera e le grandi catastrofi</h3>
+                    <p class="testo-leggero">Il Dopoguerra è complesso: lo Stato repubblicano inizialmente conferma i decreti fascisti, lasciando il coordinamento dell'emergenza alla Croce Rossa e riducendo il ruolo delle Pubbliche Assistenze al solo "servizio" pratico, mettendo in ombra le loro grandi prospettive ideali.</p>
+                    <p class="testo-leggero mb-0">Nel 1958 nasce il Ministero della Sanità e le associazioni chiedono a gran voce un rinnovamento strutturale. La necessità di una forte rete di soccorso diventa drammaticamente evidente nelle grandi catastrofi nazionali in cui i volontari intervengono in massa: l’alluvione del Polesine (1951), la tragedia del Vajont (1963), l’alluvione di Firenze (1966) e il terremoto del Belice (1968).</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="Storia 5.JPG" alt="Intervento nelle emergenze">
+                    <div class="editorial-caption">Nelle ferite del Paese, sempre in prima linea.</div>
+                </div>
+            </div>
+
+            <!-- EPOCA 6 (REVERSE) -->
+            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">1970</span>
+                    <span class="era-date-elegant">Gli anni '70 e '80</span>
+                    <h3 class="era-title">La nascita di A.N.P.AS.</h3>
+                    <p class="testo-leggero">Gli anni '70 portano grandi riforme: nascono le Regioni e, nel 1978, il Servizio Sanitario Nazionale, che finalmente riconosce per legge il ruolo attivo dei cittadini nella gestione della salute. Leggi fondamentali, come quella sull'obiezione di coscienza, portano nuove energie giovanili nelle associazioni. Dopo il terremoto dell'Irpinia del 1980, la spinta del volontariato porta alla creazione del Servizio Nazionale di Protezione Civile (1992).</p>
+                    <p class="testo-leggero mb-0">Questa crescita costante trova il suo momento storico nel Congresso straordinario di Lerici del 1987, dove la Federazione cambia ufficialmente nome in A.N.P.AS. - Associazione Nazionale Pubbliche Assistenze. Viene approvato un nuovo statuto e introdotta la tessera nazionale per tutti i soci. Al Congresso di Modena del 1993, l'ANPAS supera definitivamente la sola "logica del servizio", rivendicando il suo ruolo politico di cittadinanza partecipativa e difesa dei diritti dei più deboli.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="Storia 6.JPG" alt="Crescita dell'Associazione">
+                    <div class="editorial-caption">Rivendicare il diritto universale di aiutarsi a vicenda.</div>
+                </div>
+            </div>
+
+            <!-- EPOCA 7 (CHIUSURA) -->
+            <div class="final-block" data-aos="zoom-in" data-aos-duration="1000">
+                <span class="era-date-elegant" style="font-size: 2.5rem; border:none;">L'ANPAS Oggi</span>
+                <h3 class="era-title text-dark mb-4" style="font-size: 2rem;">Il Presente e il Futuro</h3>
+                <p class="testo-leggero mb-0" style="font-size: 1.15rem; line-height: 1.8;">
+                    Oggi le Pubbliche Assistenze aderenti all’A.N.P.AS. sono 820, presenti in 18 regioni, supportate da <strong style="color: #e65c00;">100.000 volontari e 700.000 soci</strong>. Con 2.700 ambulanze, 300 mezzi di protezione civile e 400 veicoli per i trasporti sanitari, l’A.N.P.AS. è una colonna portante della solidarietà italiana e uno dei più importanti enti di servizio civile nazionale. <br><br>Un'eredità viva, che continua a camminare sulle nostre gambe.
+                </p>
+            </div>
+
         </div>
     </section>
 
