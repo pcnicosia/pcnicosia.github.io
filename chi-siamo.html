@@ -184,7 +184,7 @@
             border-radius: 2px;
         }
 
-        /* Citazione pulita (senza ::before/after buggati in Safari) */
+        /* Citazione pulita */
         .emotion-quote {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -357,13 +357,13 @@
         }
 
         /* -------------------------------------------
-           ALTRE SEZIONI
+           ALTRE SEZIONI E VALORI
            ------------------------------------------- */
         .value-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; height: 100%; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
         .value-box:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
-        .org-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
+        .org-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2rem; text-align: center; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
         .org-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
-        .avatar-placeholder { width: 85px; height: 85px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.5rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
+        .avatar-placeholder { width: 80px; height: 80px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
 
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
@@ -490,7 +490,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 1.PNG" alt="Origini della Pubblica Assistenza">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Uniti da un unico grande scopo: esserci per gli altri.</div>
                 </div>
             </div>
 
@@ -505,7 +505,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 2.PNG" alt="Impegno sul territorio">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Molto più di un soccorso: un presidio di umanità.</div>
                 </div>
             </div>
 
@@ -520,7 +520,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 3.PNG" alt="Resilienza dei volontari">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">La democrazia e la libertà come valori non negoziabili.</div>
                 </div>
             </div>
 
@@ -535,7 +535,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 4.JPG" alt="Rinascita post bellica">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Affrontare il buio per tornare a costruire speranza.</div>
                 </div>
             </div>
 
@@ -550,7 +550,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 5.JPG" alt="Intervento nelle emergenze">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Nelle ferite del Paese, sempre in prima linea.</div>
                 </div>
             </div>
 
@@ -565,7 +565,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Storia 6.JPG" alt="Crescita dell'Associazione">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Rivendicare il diritto universale di aiutarsi a vicenda.</div>
                 </div>
             </div>
 
@@ -587,7 +587,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Anpas Sicilia .jpg" alt="Nascita Comitato Regionale">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Una rete unita per la Sicilia.</div>
                 </div>
             </div>
 
@@ -602,7 +602,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Anpas Sicilia 2.jpg" alt="Soccorso e Protezione Civile">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">In prima linea contro ogni calamità.</div>
                 </div>
             </div>
 
@@ -617,7 +617,7 @@
                 </div>
                 <div class="editorial-media">
                     <img src="Anpas Sicilia 3.jpg" alt="Accoglienza e Sociale">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">L'impegno umanitario e l'antimafia sociale.</div>
                 </div>
             </div>
 
@@ -634,32 +634,47 @@
         </div>
     </section>
 
-    <!-- VALORI -->
+    <!-- VALORI / I NOSTRI PILASTRI -->
     <section id="valori" class="py-5 bg-white border-top border-bottom">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-dark">I Nostri Pilastri</h2>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Uguaglianza -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="value-box">
-                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-hands-holding text-warning me-2"></i> Solidarietà</h4>
-                        <p class="testo-leggero mb-0">Agire disinteressatamente in favore di chi si trova in situazione di vulnerabilità, senza distinzioni.</p>
+                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-scale-balanced text-warning me-2"></i> Uguaglianza</h4>
+                        <p class="testo-leggero mb-0">Ogni individuo ha pari dignità. Offriamo il nostro aiuto a chiunque ne abbia bisogno, senza alcuna distinzione.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                
+                <!-- Libertà -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="value-box">
-                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-shield-halved text-warning me-2"></i> Prevenzione</h4>
-                        <p class="testo-leggero mb-0">Diffondere la cultura della sicurezza nella comunità prima ancora che si verifichi l'emergenza.</p>
+                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-dove text-warning me-2"></i> Libertà</h4>
+                        <p class="testo-leggero mb-0">Agiamo come cittadini liberi, slegati da condizionamenti politici o religiosi, guidati solo dal bene comune.</p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                
+                <!-- Democrazia -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="value-box">
-                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-graduation-cap text-warning me-2"></i> Formazione</h4>
-                        <p class="testo-leggero mb-0">Garantire un aggiornamento continuo dei nostri volontari per operare con massima professionalità.</p>
+                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-check-to-slot text-warning me-2"></i> Democrazia</h4>
+                        <p class="testo-leggero mb-0">La nostra associazione è governata dal basso: ogni socio ha voce in capitolo e partecipa alle decisioni.</p>
+                    </div>
+                </div>
+                
+                <!-- Fratellanza -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-box">
+                        <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-handshake-angle text-warning me-2"></i> Fratellanza</h4>
+                        <p class="testo-leggero mb-0">Crediamo profondamente nel mutuo soccorso e nel legame solidale che unisce e protegge le persone.</p>
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -670,18 +685,69 @@
                 <h2 class="display-6 fw-bold text-dark">Direttivo</h2>
                 <p class="testo-leggero">Le figure istituzionali alla guida dell'Associazione.</p>
             </div>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            
+            <!-- Presidente (in cima) -->
+            <div class="row justify-content-center g-4 mb-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="org-card h-100 bg-white">
                         <div class="avatar-placeholder">
                             <i class="fa-solid fa-user-tie"></i>
                         </div>
                         <h5 class="fw-bold text-dark mb-1">Luigi Cassata</h5>
                         <p class="text-warning small fw-bold mb-3">PRESIDENTE</p>
-                        <p class="testo-leggero small mb-0">Rappresentante legale dell'associazione e coordinatore generale delle attività operative, sanitarie e sociali sul territorio.</p>
+                        <p class="testo-leggero small mb-0">Rappresentante legale dell'associazione e coordinatore generale delle attività operative sul territorio.</p>
                     </div>
                 </div>
             </div>
+            
+            <!-- Vicepresidente e Segretario (riga centrale) -->
+            <div class="row justify-content-center g-4 mb-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="org-card h-100 bg-white">
+                        <div class="avatar-placeholder">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-1">Butti Orazio</h5>
+                        <p class="text-warning small fw-bold mb-3">VICEPRESIDENTE</p>
+                        <p class="testo-leggero small mb-0">Affianca la presidenza nella direzione strategica e ne fa le veci nel coordinamento delle emergenze.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="org-card h-100 bg-white">
+                        <div class="avatar-placeholder">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-1">Callozzo Peo Sebastiano</h5>
+                        <p class="text-warning small fw-bold mb-3">SEGRETARIO</p>
+                        <p class="testo-leggero small mb-0">Gestisce l'amministrazione, l'organizzazione dei soci e la supervisione degli atti formali dell'OdV.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consiglieri (riga in basso) -->
+            <div class="row justify-content-center g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="org-card h-100 bg-white">
+                        <div class="avatar-placeholder">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-1">Sutera Giuseppe</h5>
+                        <p class="text-warning small fw-bold mb-3">CONSIGLIERE</p>
+                        <p class="testo-leggero small mb-0">Supporta il consiglio nelle scelte decisionali e supervisiona progetti specifici a favore della comunità.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="org-card h-100 bg-white">
+                        <div class="avatar-placeholder">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-1">Di Stefano Francesco</h5>
+                        <p class="text-warning small fw-bold mb-3">CONSIGLIERE</p>
+                        <p class="testo-leggero small mb-0">Membro attivo della direzione, si occupa di coadiuvare la squadra nello sviluppo delle attività associative.</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 
