@@ -64,7 +64,7 @@
         }
 
         /* -------------------------------------------
-           NAVBAR DESKTOP (BLINDATA)
+           NAVBAR DESKTOP (BLINDATA E CONSOLIDATA)
            ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
@@ -94,7 +94,7 @@
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
 
-        /* LAYOUT FLUIDO E SIMMETRICO PC */
+        /* LAYOUT FLUIDO E SIMMETRICO PC E IPAD */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
@@ -156,8 +156,10 @@
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
+        .btn-elite-danger { background-color: #dc3545; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-danger:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(220, 53, 69, 0.25); color: white; }
 
-        /* HEADER CON SFONDO PIOGGIA.JPG */
+        /* HEADER SFONDO PIOGGIA */
         .page-hero { 
             display: flex; 
             align-items: center; 
@@ -169,7 +171,7 @@
         .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .page-hero-content { position: relative; z-index: 2; }
 
-        h1 { font-weight: 800; letter-spacing: -1.5px; color: var(--text-color); }
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.6; }
 
@@ -182,6 +184,7 @@
             border-radius: 24px;
             padding: 2.5rem 2rem;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+            transition: border-color 0.3s;
         }
         
         .form-container-card {
@@ -200,27 +203,12 @@
             padding: 2rem;
             height: 100%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            transition: transform 0.4s, box-shadow 0.3s;
+            transition: transform 0.4s, box-shadow 0.3s, border-color 0.3s;
         }
         .procedure-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            border-color: rgba(220, 53, 69, 0.3); /* Effetto hover rosso per emergenze */
-        }
-
-        .btn-elite-danger {
-            background-color: #dc3545;
-            color: white;
-            border-radius: 50px;
-            padding: 12px 30px;
-            font-weight: 600;
-            border: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-elite-danger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.25);
-            color: white;
+            border-color: rgba(220, 53, 69, 0.3); /* Rosso emergenza hover */
         }
 
         /* Footer links */
@@ -232,65 +220,58 @@
 <body>
 
     <!-- NAVBAR BLINDATA IDENTICA A INDEX -->
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container-fluid px-4 px-xl-5">
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
+        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
-                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
-                    P.A. PUBBLICA ASSISTENZA<br>
-                    GRUPPO VOLONTARI<br>
-                    PROTEZIONE CIVILE<br>
-                    NICOSIA O.D.V.
-                </span>
+            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
+                <div class="brand-title">
+                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
+                </div>
             </a>
 
-            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
-                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
-                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
-                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
+            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-network-wired text-info"></i> La Rete ANPAS</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
                     
                     <!-- MENU EMERGENZE ATTIVO -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active fw-bold mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
                         </ul>
                     </li>
                     
-                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="contatti.html"><i class="fa-solid fa-envelope"></i> Contatti</a></li>
                 </ul>
-                <div class="text-center mt-3 d-lg-none pb-3">
-                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
-                </div>
             </div>
+
+            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
+            </div>
+            
         </div>
     </nav>
 
@@ -329,7 +310,7 @@
       </div>
     </div>
 
-    <!-- HEADER CON FOTO PIOGGIA.JPG E SFUMATURA -->
+    <!-- HEADER CON FOTO PIOGGIA E SFUMATURA -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
@@ -369,11 +350,13 @@
                         <h4 class="fw-bold text-dark mb-4"><i class="fa-solid fa-phone-flip text-danger me-2"></i>Numeri di Emergenza</h4>
                         <p class="testo-leggero small mb-4">In caso di pericolo immediato, minaccia per l'incolumità fisica o emergenze estese, contatta subito i numeri di soccorso:</p>
                         
+                        <!-- 112 -->
                         <div class="p-3 rounded-3 mb-3 bg-danger bg-opacity-10 border border-danger border-opacity-25">
                             <h5 class="fw-bold text-danger mb-1">NUE: 112</h5>
                             <p class="mb-0 text-dark small">Numero Unico d'Emergenza Europeo</p>
                         </div>
                         
+                        <!-- SORIS -->
                         <div class="p-3 rounded-3 mb-4 border border-secondary border-opacity-25 bg-light">
                             <h5 class="fw-bold text-dark mb-1">SORIS: 800 40 40 40</h5>
                             <p class="mb-0 text-secondary small">Sala Operativa Regionale Integrata Siciliana</p>
@@ -381,12 +364,13 @@
 
                         <hr class="border-secondary border-opacity-25 my-4">
 
+                        <!-- NUMERI LOCALI -->
                         <h5 class="fw-bold text-dark mb-3"><i class="fa-solid fa-address-book text-warning me-2"></i>Numeri Utili Locali</h5>
                         <ul class="list-unstyled testo-leggero small">
-                            <li class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Polizia Municipale</span> <strong class="text-dark">0935 638880</strong></li>
-                            <li class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Comando Carabinieri</span> <strong class="text-dark">0935 641500</strong></li>
-                            <li class="mb-2 d-flex justify-content-between border-bottom pb-2"><span>Commissariato Polizia</span> <strong class="text-dark">0935 673011</strong></li>
-                            <li class="mb-2 d-flex justify-content-between"><span>Ospedale Carlo Basilotta</span> <strong class="text-dark">0935 67111</strong></li>
+                            <li class="mb-2 d-flex justify-content-between border-bottom border-secondary border-opacity-10 pb-2"><span>Polizia Municipale</span> <strong class="text-dark">0935 638880</strong></li>
+                            <li class="mb-2 d-flex justify-content-between border-bottom border-secondary border-opacity-10 pb-2"><span>Comando Carabinieri</span> <strong class="text-dark">0935 641500</strong></li>
+                            <li class="mb-2 d-flex justify-content-between border-bottom border-secondary border-opacity-10 pb-2"><span>Commissariato Polizia</span> <strong class="text-dark">0935 673011</strong></li>
+                            <li class="mb-2 d-flex justify-content-between pt-1"><span>Ospedale Carlo Basilotta</span> <strong class="text-dark">0935 67111</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -493,41 +477,39 @@
         </div>
     </section>
 
-    <!-- FOOTER BLINDATO -->
-    <footer class="py-5 mt-5">
+    <!-- FOOTER BLINDATO IDENTICO A INDEX -->
+    <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
-                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
-                        <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
+                
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
+                    <p class="testo-leggero small mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                </div>
+                
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                        <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
+                        <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
                     </div>
-                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
-                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
-                        <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
-                    <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
+                    <ul class="list-unstyled testo-leggero small">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
                         <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
                         <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
                 </div>
+
             </div>
-            <div class="border-top border-secondary pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary hover-white">Privacy Policy</a></p>
+            
+            <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
