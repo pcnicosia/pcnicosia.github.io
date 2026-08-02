@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Area Sanitaria - P.A. Nicosia O.d.V.</title>
-    
+    <title>Area Sociale - P.A. Nicosia O.d.V.</title>
     <link rel="icon" type="image/png" href="Logo.PNG">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -156,12 +156,12 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        /* HEADER SFONDO COLLARE */
+        /* HEADER SFONDO PASSAMANO */
         .page-hero { 
             display: flex; 
             align-items: center; 
             position: relative; 
-            background: url('Collare.JPG') center/cover no-repeat; 
+            background: url('Passamano.JPG') center/cover no-repeat; 
             overflow: hidden; 
         }
         
@@ -173,7 +173,7 @@
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.6; }
 
         /* -------------------------------------------
-           CARDS E ICONE (AREA SANITARIA)
+           CARDS E ICONE (AREA SOCIALE)
            ------------------------------------------- */
         .elite-card { 
             background: var(--card-bg); 
@@ -186,12 +186,12 @@
         }
         .elite-card:hover { 
             transform: translateY(-8px); 
-            border-color: rgba(230, 92, 0, 0.3); 
+            border-color: rgba(13, 202, 240, 0.3); /* Colore info/azzurro per l'hover */
         }
         .icon-box {
             font-size: 2.5rem;
             margin-bottom: 1.2rem;
-            color: #dc3545; /* Rosso Sanitario */
+            color: #0dcaf0; /* Colore info (Azzurro Sociale) */
         }
 
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
@@ -226,13 +226,13 @@
                         </ul>
                     </li>
                     
-                    <!-- MENU ATTIVITÀ ATTIVO -->
+                    <!-- MENU ATTIVITÀ ATTIVO (SOCIALE EVIDENZIATO) -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
+                        <a class="nav-link dropdown-toggle active fw-bold mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item fw-bold" style="color: #e65c00 !important;" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item fw-bold" style="color: #0dcaf0 !important;" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
                     
@@ -292,45 +292,32 @@
       </div>
     </div>
 
-    <!-- HEADER CON FOTO COLLARE.JPG -->
+    <!-- HEADER CON FOTO PASSAMANO.JPG -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider">SERVIZI SANITARI</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Area Sanitaria</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Soccorso sanitario di emergenza, trasporto infermi e presidio medico costante a tutela della salute pubblica nicosiana.</p>
+            <span class="badge bg-info text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider">SETTORE SOCIALE</span>
+            <h1 class="display-4 fw-bold text-dark mb-2">Supporto Sociale</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">Vicini alle fasce fragili della popolazione con progetti di assistenza mirata, inclusione e distribuzione solidale di beni primari.</p>
         </div>
     </header>
 
     <section class="py-5 bg-white">
         <div class="container py-5">
-            <div class="row g-4 mb-5">
+            <div class="row g-4">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="elite-card">
-                        <div class="icon-box text-danger"><i class="fa-solid fa-truck-medical"></i></div>
-                        <h4 class="fw-bold text-dark mb-3">Trasporti Sanitari e Convenzioni</h4>
-                        <p class="testo-leggero mb-0">Servizio dedicato al trasporto infermi, dializzati, dimissioni ospedaliere e trasferimenti a lungo raggio. Gestione logistica con ambulanze di tipo A allestite con apparecchiature elettromedicali avanzate.</p>
+                        <div class="icon-box"><i class="fa-solid fa-box-tissue"></i></div>
+                        <h4 class="fw-bold text-dark mb-3">Distribuzione Beni di Prima Necessità</h4>
+                        <p class="testo-leggero mb-0">Raccolta, stoccaggio e distribuzione periodica di generi alimentari a lunga conservazione, prodotti per l'infanzia e presidi igienico-sanitari. Un'azione concreta coordinata in rete con i centri di solidarietà e la Caritas locale per raggiungere capillarmente i nuclei familiari in condizioni di momentanea vulnerabilità.</p>
                     </div>
                 </div>
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="elite-card">
-                        <div class="icon-box text-danger"><i class="fa-solid fa-kit-medical"></i></div>
-                        <h4 class="fw-bold text-dark mb-3">Assistenza Eventi e Primo Soccorso</h4>
-                        <p class="testo-leggero mb-0">Copertura sanitaria per manifestazioni sportive, raduni, eventi culturali e religiosi a Nicosia. Configurazione di squadre a piedi abilitate e posizionamento strategico dei mezzi di soccorso.</p>
+                        <div class="icon-box"><i class="fa-solid fa-wheelchair"></i></div>
+                        <h4 class="fw-bold text-dark mb-3">Assistenza alla Popolazione Fragile</h4>
+                        <p class="testo-leggero mb-0">Servizi di prossimità dedicati agli anziani e alle persone con ridotta mobilità nel comune di Nicosia. Consegna della spesa a domicilio, ritiro farmaci salvavita e piccoli supporti logistici quotidiani, attivati specialmente in concomitanza di ondate di calore estive o rigide temperature invernali.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- SEZIONE FORMAZIONE CON FOTO CARDIACO.JPG -->
-            <div class="row align-items-center g-5 pt-4">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <span class="badge bg-warning text-dark mb-3 px-3 py-1 rounded-pill fw-bold">CENTRO FORMAZIONE</span>
-                    <h2 class="display-6 text-dark fw-bold mb-4">Formazione Continua BLSD e PTC</h2>
-                    <p class="testo-leggero">La professionalità sul campo si costruisce con l'addestramento. I nostri volontari affrontano percorsi di certificazione rigidi legati alle manovre di rianimazione cardio-polmonare con l'uso del defibrillatore (BLSD) e al trattamento del paziente traumatizzato nella fase pre-ospedaliera (PTC).</p>
-                    <p class="testo-leggero">Organizziamo inoltre sessioni di sensibilizzazione e corsi aperti alla cittadinanza, alle scuole e alle aziende per diffondere la cultura del primo soccorso tempestivo nel nostro territorio.</p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="Cardiaco.JPG" alt="Corso BLSD" class="img-fluid rounded-4 shadow-lg border border-secondary border-opacity-10" style="width: 100%; object-fit: cover; max-height: 450px;">
                 </div>
             </div>
         </div>
