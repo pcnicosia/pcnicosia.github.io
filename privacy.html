@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - P.A. Nicosia O.d.V.</title>
+    <title>Pagina Non Trovata - P.A. Nicosia O.d.V.</title>
     
     <link rel="icon" type="image/png" href="Logo.PNG">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,7 +47,7 @@
 
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 170px;
+            scroll-padding-top: 154px;
         }
 
         body { 
@@ -56,7 +55,7 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 165px; /* ALTEZZA ESATTA NAVBAR PC: Il sito inizia da qui */
+            padding-top: 154px; 
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -71,13 +70,6 @@
             transition: all 0.3s ease;
         }
 
-        @media (min-width: 992px) {
-            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
-            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
-        }
-
-        /* PROPORZIONI LOGHI (Desktop) - NON TOCCATE */
         .logo-main {
             height: 137px; 
             width: 137px;  
@@ -100,38 +92,24 @@
             margin-left: 15px; 
         }
 
-        .logo-anpas {
-            height: 95px; 
-            max-width: 200px;
-            object-fit: contain;
-        }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
 
-        /* Voci Menu Desktop */
         .nav-link { 
             color: var(--text-color) !important; 
             font-weight: 600; 
-            font-size: 1.05rem; 
+            font-size: 0.95rem; 
             letter-spacing: -0.1px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px; 
+            padding: 0.4rem 0.8rem !important; 
         }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        .dropdown-menu { 
-            background: var(--dropdown-bg); 
-            border: 1px solid var(--nav-border); 
-            border-radius: 12px; 
-            padding: 10px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        }
+        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
-        /* HOVER: SOTTOMENU AUTOMATICI SU PC */
         @media (min-width: 992px) {
-            .dropdown:hover .dropdown-menu {
-                display: block;
-                animation: slideFade 0.3s ease forwards;
-            }
+            .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; }
         }
 
         @keyframes slideFade {
@@ -139,88 +117,84 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .dropdown-item { 
-            color: var(--text-color) !important; 
-            font-size: 0.95rem; 
-            padding: 10px 16px; 
-            border-radius: 8px; 
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
         /* -------------------------------------------
-           BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
+           SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
+
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-right-wing { flex: 0 0 auto; }
+        }
+
+        @media (min-width: 992px) and (max-width: 1366px) {
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
+        }
+
         .bottom-nav {
             display: none;
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
         }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
-        
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        /* FIX RESPONSIVE MOBILE (LAVORO DI PRECISIONE SOLO QUI) */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
-            
-            body { 
-                padding-top: 85px; /* ALTEZZA ESATTA NAVBAR MOBILE */
-                padding-bottom: 90px; 
-            }
-            
+            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
-            
-            /* QUI E' IL CAMBIAMENTO PER IL MOBILE: Testo più grande (0.85rem) e più spazio (flex: 1) */
-            .brand-title { 
-                height: auto; 
-                font-size: 0.85rem; 
-                margin-left: 10px; 
-                line-height: 1.1; 
-                flex: 1; 
-                text-align: left;
-            }
-            
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           RESTO DEGLI STILI (PRIVACY POLICY)
+           BOTTONI E STILI DELLA PAGINA 404
            ------------------------------------------- */
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .page-hero { 
-            padding: 5rem 0; 
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
+
+        /* INCASTRO PERFETTO PER LA SEZIONE 404 */
+        .error-section { 
+            min-height: calc(100vh - 154px); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
             background-color: var(--secondary-bg); 
-            border-bottom: 1px solid var(--card-border); 
-            position: relative; 
+            border-bottom: 1px solid var(--card-border);
         }
-
-        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
-        h2, h3, h4, h5, h6 { color: var(--text-color); }
-        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
-
-        .privacy-container {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 3.5rem 3rem;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
-        }
-
-        @media (max-width: 767px) {
-            .privacy-container { padding: 2rem 1.5rem; }
-        }
+        @media (min-width: 992px) and (max-width: 1366px) { .error-section { min-height: calc(100vh - 121px); } }
+        @media (min-width: 768px) and (max-width: 991px) { .error-section { min-height: calc(100vh - 107px); padding: 4rem 0; } }
+        @media (max-width: 767px) { .error-section { min-height: calc(100vh - 77px); padding: 3rem 0; } }
 
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
@@ -229,68 +203,62 @@
 </head>
 <body>
 
-    <!-- NAVBAR PERFETTA MAESTRA (Con Toggle, Ali ed Esatta Formattazione) -->
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container-fluid px-4 px-xl-5">
+    <!-- NAVBAR IDENTICA AL TUO INDEX.HTML (Ho solo modificato l'href della Home per farlo funzionare) -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
+        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
-                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
-                    P.A. PUBBLICA ASSISTENZA<br>
-                    GRUPPO VOLONTARI<br>
-                    PROTEZIONE CIVILE<br>
-                    NICOSIA O.D.V.
-                </span>
+            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
+                <div class="brand-title">
+                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
+                </div>
             </a>
 
-            <!-- QUI È DOVE ERA SPARITO IL BOTTONE TOGGLER E L'ALLINEAMENTO. ORA È PERFETTO -->
-            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
-                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
-                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-network-wired text-info"></i> La Rete ANPAS</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="contatti.html"><i class="fa-solid fa-envelope"></i> Contatti</a></li>
+                </ul>
             </div>
 
-            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
-                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
-                </ul>
-                <div class="text-center mt-3 d-lg-none pb-3">
-                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
-                </div>
+            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
             </div>
+            
         </div>
     </nav>
 
-    <!-- BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE -->
+    <!-- BOTTOM NAVIGATION BAR -->
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
@@ -325,87 +293,25 @@
       </div>
     </div>
 
-    <!-- HEADER CHIARO E ISTITUZIONALE -->
-    <header class="page-hero">
-        <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider"><i class="fa-solid fa-shield-halved me-2"></i>TUTELA DEI DATI</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Privacy Policy</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Informativa sul trattamento dei dati personali ai sensi dell'art. 13 del Regolamento (UE) 2016/679 (GDPR).</p>
-        </div>
-    </header>
-
-    <section class="py-5">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-                    
-                    <div class="privacy-container">
-                        <p class="testo-leggero mb-4">
-                            La <strong>Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V.</strong> prende molto seriamente la tutela della privacy e la sicurezza dei dati personali dei cittadini e dei volontari. Questa pagina spiega in modo chiaro come raccogliamo, gestiamo e proteggiamo i tuoi dati quando utilizzi il nostro portale istituzionale.
-                        </p>
-                        <p class="text-secondary small fst-italic border-bottom border-secondary border-opacity-25 pb-4 mb-4">Ultimo aggiornamento: Luglio 2026</p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">1. Titolare del Trattamento</h4>
-                        <p class="testo-leggero">
-                            Il Titolare del trattamento dei dati è:<br>
-                            <strong>P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</strong><br>
-                            Codice Fiscale: 91039150866<br>
-                            Sede Legale: Via Bernardo di falco, 82 – 94014 Nicosia (En)<br>
-                            Email: <a href="mailto:pagvpcnicosia@gmail.com" class="text-primary text-decoration-none fw-semibold">pagvpcnicosia@gmail.com</a><br>
-                            PEC: <a href="mailto:pagvpcnicosia@pec.it" class="text-primary text-decoration-none fw-semibold">pagvpcnicosia@pec.it</a>
-                        </p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">2. Quali dati raccogliamo e perché</h4>
-                        <p class="testo-leggero">Raccogliamo esclusivamente i dati strettamente necessari per lo svolgimento delle nostre finalità istituzionali. Nello specifico, attraverso i moduli presenti sul sito, raccogliamo:</p>
-                        <ul class="testo-leggero">
-                            <li class="mb-2"><strong>Dati anagrafici e di contatto</strong> (Nome, Cognome, Telefono, Email) forniti volontariamente tramite il modulo "Diventa Volontario". Tali dati sono utilizzati unicamente per contattarti e valutare la tua candidatura.</li>
-                            <li class="mb-2"><strong>Dati legati alle segnalazioni</strong> sul territorio (Nome, Telefono, Indirizzo della criticità) forniti tramite il modulo "Emergenze e Segnalazioni". Questi dati vengono impiegati al solo scopo di coordinare e gestire la risoluzione della criticità inoltrata.</li>
-                        </ul>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">3. Base giuridica del trattamento</h4>
-                        <p class="testo-leggero">
-                            Il trattamento dei dati personali si fonda sul <strong>consenso esplicito</strong> dell'utente, manifestato attraverso la spunta obbligatoria dell'apposita casella di accettazione posta al termine di ogni modulo di contatto prima dell'invio.
-                        </p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">4. A chi vengono comunicati i dati? (Destinatari)</h4>
-                        <p class="testo-leggero">
-                            I tuoi dati personali sono trattati internamente dal personale e dai volontari autorizzati dell'Associazione. Non vendiamo né cediamo mai i tuoi dati a terze parti per scopi commerciali. 
-                            <br><br>
-                            Per necessità tecniche legate al funzionamento dei moduli di contatto, le informazioni inserite possono transitare attraverso piattaforme software sicure (come provider di gestione email o form) che agiscono nel rispetto degli standard crittografici (HTTPS) imposti dal GDPR. I dati potranno essere condivisi con le Autorità competenti solo se richiesto per obblighi di legge o pubblica sicurezza (es. durante la gestione di emergenze).
-                        </p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">5. Sicurezza e Conservazione</h4>
-                        <p class="testo-leggero">
-                            Il nostro portale utilizza il protocollo sicuro <strong>HTTPS</strong> per crittografare i dati durante la navigazione e l'invio dei moduli. I dati personali raccolti saranno conservati per il tempo strettamente necessario a completare la finalità per cui sono stati forniti (ad esempio, fino al completamento dell'iter di inserimento per i nuovi volontari, o fino alla chiusura della segnalazione logistica).
-                        </p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">6. Cookie e Tracciamento</h4>
-                        <p class="testo-leggero">
-                            Questo portale istituzionale ha finalità puramente informative e di pubblica utilità. <strong>Non utilizziamo cookie di profilazione</strong> o tecnologie di tracciamento per scopi pubblicitari.
-                        </p>
-
-                        <h4 class="fw-bold text-dark mt-5 mb-3">7. I tuoi Diritti</h4>
-                        <p class="testo-leggero">
-                            Ai sensi del GDPR, hai sempre il diritto di:
-                        </p>
-                        <ul class="testo-leggero">
-                            <li class="mb-2">Richiedere l'accesso ai tuoi dati personali in nostro possesso.</li>
-                            <li class="mb-2">Richiedere la rettifica di dati inesatti o incompleti.</li>
-                            <li class="mb-2">Richiedere la cancellazione dei dati (il cosiddetto "diritto all'oblio").</li>
-                            <li class="mb-2">Opporti al trattamento o richiederne la limitazione.</li>
-                        </ul>
-                        <p class="testo-leggero mt-4">
-                            Per esercitare questi diritti, ti invitiamo a contattare il Titolare del Trattamento inviando un'email a <strong>pagvpcnicosia@gmail.com</strong>. Risponderemo alla tua richiesta nel minor tempo possibile.
-                        </p>
-                    </div>
-
-                </div>
+    <!-- SEZIONE ERRORE 404 (PULITA, LINEARE, 100% CLICCABILE) -->
+    <section class="error-section">
+        <div class="container text-center py-5" data-aos="zoom-in">
+            <div class="mb-4" style="color: #e65c00; font-size: 5rem;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
             </div>
+            <h1 class="fw-bold text-dark mb-3" style="font-size: 6rem; line-height: 1;">404</h1>
+            <h2 class="h3 fw-bold text-dark mb-4">Pagina Non Trovata</h2>
+            <p class="testo-leggero lead mb-5 mx-auto" style="max-width: 600px;">
+                La pagina che stai cercando è stata rimossa, ha cambiato nome o è temporaneamente non disponibile.
+            </p>
+            <a href="index.html" class="btn btn-elite-primary shadow px-5 py-3">
+                <i class="fa-solid fa-house me-2"></i> Torna alla Home Page
+            </a>
         </div>
     </section>
 
-    <!-- FOOTER BLINDATO MAESTRO -->
-    <footer id="contatti" class="py-5 mt-4">
+    <!-- FOOTER IDENTICO AL TUO INDEX.HTML -->
+    <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
                 
@@ -426,17 +332,17 @@
                     <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
                     <ul class="list-unstyled testo-leggero small">
                         <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659" class="text-dark text-decoration-none">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864" class="text-success text-decoration-none">351-3633864</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-dark text-decoration-none">pagvpcnicosia@gmail.com</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it" class="text-info text-decoration-none">pagvpcnicosia@pec.it</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
                     </ul>
                 </div>
 
             </div>
             
             <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline text-secondary text-decoration-none">Privacy Policy</a></p>
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
