@@ -380,49 +380,70 @@
                         <h4 class="fw-bold text-dark mb-2">Segnalazione Non Urgente</h4>
                         <p class="testo-leggero small mb-4">Invia una nota alla nostra sala operativa per segnalare dissesti idrogeologici, alberi pericolanti o criticità logistiche sul territorio nicosiano.</p>
                         
-                        <form action="#" method="POST">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Nome e Cognome *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Mario Rossi" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Recapito Telefonico *</label>
-                                    <input type="tel" class="form-control" placeholder="333-1234567" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Località o Indirizzo preciso della criticità *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Contrada San GIACOMO, incrocio SS 120" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Tipologia di Problema *</label>
-                                    <select class="form-select" required>
-                                        <option value="" disabled selected>Seleziona una categoria...</option>
-                                        <option value="dissesto">Dissesto stradale o Frana</option>
-                                        <option value="albero">Albero pericolante / Ostacolo</option>
-                                        <option value="allagamento">Allagamento o Ostruzione canali</option>
-                                        <option value="altro">Altra segnalazione logistica</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Descrizione dettagliata dell'evento *</label>
-                                    <textarea class="form-control" rows="4" placeholder="Fornisci quanti più dettagli possibili per permettere alle nostre squadre di valutare lo stato dei luoghi..." required></textarea>
-                                </div>
+                        <form action="https://formsubmit.co/Segreteriapagvpcnicosia@gmail.com" method="POST">
+    
+    <!-- IMPOSTAZIONI NASCOSTE -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="NUOVA SEGNALAZIONE EMERGENZA - Dal Sito Web">
+    <!-- N.B. Il campo per reindirizzare l'utente ( _next ) è stato rimosso per permettere i test locali. Lo riaggiungeremo alla messa online! -->
 
-                                <div class="col-12 mt-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="privacyCheckEmergenze" required>
-                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckEmergenze">
-                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR per le sole finalità di verifica, gestione e coordinamento della segnalazione inoltrata sul territorio, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del sito. *
-                                        </label>
-                                    </div>
-                                </div>
+    <div class="row g-4">
+        
+        <!-- Campo Nome e Cognome -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Nome e Cognome *</label>
+            <input type="text" name="Nome_e_Cognome" class="form-control px-3 py-2" placeholder="Esempio: Mario Rossi" required>
+        </div>
+        
+        <!-- Campo Recapito Telefonico -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Recapito Telefonico *</label>
+            <input type="tel" name="Telefono" class="form-control px-3 py-2" placeholder="333-1234567" required>
+        </div>
+        
+        <!-- Campo Località o Indirizzo -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Località o Indirizzo preciso della criticità *</label>
+            <input type="text" name="Indirizzo_Criticità" class="form-control px-3 py-2" placeholder="Es: Via Roma 10, vicino incrocio..." required>
+        </div>
+        
+        <!-- Campo Tipologia Problema (Menu a tendina aggiornato) -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Tipologia di Problema *</label>
+            <select name="Tipologia_Problema" class="form-select px-3 py-2" required>
+                <option value="" disabled selected>Spunta un'opzione...</option>
+                <option value="Dissesto stradale o Frana">Dissesto stradale o Frana</option>
+                <option value="Albero pericolante / Ostacolo">Albero pericolante / Ostacolo</option>
+                <option value="Allagamento o Ostruzione canali">Allagamento o Ostruzione canali</option>
+                <option value="Altra segnalazione logistica">Altra segnalazione logistica</option>
+            </select>
+        </div>
+        
+        <!-- Campo Descrizione -->
+        <div class="col-12">
+            <label class="form-label small text-secondary fw-semibold">Descrizione dettagliata dell'evento *</label>
+            <textarea name="Descrizione_Evento" class="form-control px-3 py-2" rows="5" placeholder="Descrivi cosa sta succedendo, se ci sono persone in difficoltà o pericoli imminenti..." required></textarea>
+        </div>
 
-                                <div class="col-12 text-end mt-4">
-                                    <button type="submit" class="btn btn-elite-danger shadow">Invia Segnalazione</button>
-                                </div>
-                            </div>
-                        </form>
+        <!-- Spunta Privacy (Obbligatoria per legge) -->
+        <div class="col-12 mt-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Privacy_Accettata" value="SI" id="privacyCheckEmergenze" required>
+                <label class="form-check-label small text-secondary ms-2" for="privacyCheckEmergenze" style="line-height: 1.4;">
+                    Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per la gestione operativa della segnalazione, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del portale. *
+                </label>
+            </div>
+        </div>
+
+        <!-- Pulsante d'invio in risalto -->
+        <div class="col-12 text-end mt-4 pt-2">
+            <button type="submit" class="btn btn-elite-primary shadow w-100 w-sm-auto px-5 py-3">
+                <i class="fa-solid fa-triangle-exclamation me-2"></i>Invia Segnalazione
+            </button>
+        </div>
+    </div>
+</form>
+
                     </div>
                 </div>
 
