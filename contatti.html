@@ -407,39 +407,56 @@
                         <h4 class="fw-bold text-dark mb-2"><i class="fa-regular fa-paper-plane me-2 text-warning"></i>Invia un messaggio alla segreteria</h4>
                         <p class="testo-leggero small mb-4">Hai dubbi, domande sulle attività o desideri richiedere una collaborazione? Compila i campi qui sotto per scriverci direttamente.</p>
                         
-                        <form action="#" method="POST">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Nome e Cognome *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Mario Rossi" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
-                                    <input type="email" class="form-control" placeholder="mario.rossi@gmail.com" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Oggetto della richiesta *</label>
-                                    <input type="text" class="form-control" placeholder="Esempio: Richiesta informazioni su corsi di primo soccorso" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Messaggio *</label>
-                                    <textarea class="form-control" rows="5" placeholder="Scrivi qui il tuo messaggio in modo dettagliato..." required></textarea>
-                                </div>
+                        <form action="https://formsubmit.co/Segreteriapagvpcnicosia@gmail.com" method="POST">
+    
+    <!-- IMPOSTAZIONI NASCOSTE (Fondamentali per FormSubmit) -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="NUOVO MESSAGGIO - Pagina Contatti">
+    <!-- Quando il sito sarà online, sostituisci il link qui sotto con quello reale del tuo sito -->
+    <input type="hidden" name="_next" value="https://tuosito.it/index.html">
 
-                                <div class="col-12 mt-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="privacyCheckContatti" required>
-                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckContatti">
-                                            Acconsento al trattamento dei dati personali trasmessi esclusivamente per consentire alla segreteria di rispondere alla mia richiesta di informazioni, in piena conformità con il regolamento GDPR europeo e con la <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del sito. *
-                                        </label>
-                                    </div>
-                                </div>
+    <div class="row g-4">
+        <!-- Campo Nome e Cognome -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Nome e Cognome *</label>
+            <input type="text" name="Nome_e_Cognome" class="form-control" placeholder="Esempio: Mario Rossi" required>
+        </div>
+        
+        <!-- Campo Indirizzo Email -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
+            <input type="email" name="Email" class="form-control" placeholder="mario.rossi@gmail.com" required>
+        </div>
+        
+        <!-- Campo Oggetto -->
+        <div class="col-12">
+            <label class="form-label small text-secondary fw-semibold">Oggetto della richiesta *</label>
+            <input type="text" name="Oggetto" class="form-control" placeholder="Esempio: Richiesta informazioni su corsi di primo soccorso" required>
+        </div>
+        
+        <!-- Campo Messaggio -->
+        <div class="col-12">
+            <label class="form-label small text-secondary fw-semibold">Messaggio *</label>
+            <textarea name="Messaggio" class="form-control" rows="5" placeholder="Scrivi qui il tuo messaggio in modo dettagliato..." required></textarea>
+        </div>
 
-                                <div class="col-12 text-end mt-4">
-                                    <button type="submit" class="btn btn-elite-primary shadow">Invia Messaggio</button>
-                                </div>
-                            </div>
-                        </form>
+        <!-- Spunta Privacy (Obbligatoria per legge) -->
+        <div class="col-12 mt-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Privacy_Accettata" value="SI" id="privacyCheckContatti" required>
+                <label class="form-check-label small text-secondary ms-2" for="privacyCheckContatti">
+                    Acconsento al trattamento dei dati personali trasmessi esclusivamente per consentire alla segreteria di rispondere alla mia richiesta di informazioni, in piena conformità con il regolamento GDPR europeo e con la <a href="privacy.html" class="text-warning text-decoration-none fw-semibold">Privacy Policy</a> del sito. *
+                </label>
+            </div>
+        </div>
+
+        <!-- Pulsante di Invio -->
+        <div class="col-12 text-end mt-4">
+            <button type="submit" class="btn btn-elite-primary shadow">Invia Messaggio</button>
+        </div>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>
