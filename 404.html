@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <style>
+   <style>
         /* 1. VARIABILI DI TEMA (LIGHT/DARK) */
         :root {
             --bg-color: #ffffff;
@@ -56,12 +56,12 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 165px; /* ALTEZZA ESATTA NAVBAR PC: Il sito inizia da qui */
+            padding-top: 165px; 
             transition: background-color 0.3s, color 0.3s;
         }
 
         /* -------------------------------------------
-           NAVBAR DESKTOP E LOGHI
+           NAVBAR DESKTOP
            ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
@@ -77,7 +77,7 @@
             .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
         }
 
-        /* PROPORZIONI LOGHI (Desktop) - NON TOCCATE */
+        /* PROPORZIONI LOGHI (Desktop) */
         .logo-main {
             height: 137px; 
             width: 137px;  
@@ -153,7 +153,7 @@
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
         /* -------------------------------------------
-           BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
+           BOTTOM NAVIGATION BAR E MOBILE
            ------------------------------------------- */
         .bottom-nav {
             display: none;
@@ -161,55 +161,32 @@
         }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
-        
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        /* FIX RESPONSIVE MOBILE (LAVORO DI PRECISIONE SOLO QUI) */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
             
-            body { 
-                padding-top: 85px; 
-                padding-bottom: 90px; 
-            }
+            body { padding-top: 85px; padding-bottom: 90px; }
             
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             
-            .brand-title { 
-                height: auto; 
-                font-size: 0.85rem; 
-                margin-left: 10px; 
-                line-height: 1.1; 
-                flex: 1; 
-                text-align: left;
-            }
+            .brand-title { height: auto; font-size: 0.85rem; margin-left: 10px; line-height: 1.1; flex: 1; text-align: left; }
             
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           PULSANTI E STILE DELLA PAGINA 404
+           BOTTONI E STILI
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .error-section {
-            min-height: calc(100vh - 165px); /* Calcolato sull'altezza esatta della navbar PC */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--secondary-bg);
-            border-bottom: 1px solid var(--card-border);
-        }
-        @media (max-width: 991px) {
-            .error-section { min-height: calc(100vh - 85px); }
-        }
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
 
-        /* Footer links */
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
@@ -217,58 +194,63 @@
 </head>
 <body>
 
-    <!-- NAVBAR IMMACOLATA (UGUALE A INDEX.HTML) -->
-    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
-        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
+    <!-- NAVBAR PERFETTA (ESATTA COPIA DELL'INDEX UFFICIALE) -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
+        <div class="container-fluid px-4 px-xl-5">
             
-            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main">
-                <div class="brand-title">
-                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
-                </div>
+            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" style="width: 80px; height: 80px; border-radius: 50%; object-fit: contain; border: 2px solid rgba(0,0,0,0.05); margin-right: 14px; background: white;">
+                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
+                    P.A. PUBBLICA ASSISTENZA<br>
+                    GRUPPO VOLONTARI<br>
+                    PROTEZIONE CIVILE<br>
+                    NICOSIA O.D.V.
+                </span>
             </a>
 
-            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-network-wired text-info"></i> La Rete ANPAS</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
-                    <li class="nav-item"><a class="nav-link mx-2" href="contatti.html"><i class="fa-solid fa-envelope"></i> Contatti</a></li>
-                </ul>
+            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
+                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
+                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
+                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
 
-            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
-                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
+            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
+                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
+                    <li class="nav-item"><a class="nav-link mx-1" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html">La Rete ANPAS</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    <li class="nav-item"><a class="nav-link mx-1" href="contatti.html">Contatti</a></li>
+                </ul>
+                <div class="text-center mt-3 d-lg-none pb-3">
+                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
+                </div>
             </div>
-            
         </div>
     </nav>
 
@@ -276,11 +258,9 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        
         <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
             <i class="fa-solid fa-bars"></i> Menu
         </a>
-        
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
@@ -307,61 +287,62 @@
       </div>
     </div>
 
-    <!-- SEZIONE ERRORE 404 PULITA E FUNZIONANTE -->
-    <main class="error-section">
-        <div class="container text-center" data-aos="zoom-in" data-aos-duration="600">
-            <i class="fa-solid fa-circle-exclamation mb-4" style="font-size: 5rem; color: #e65c00;"></i>
-            <h1 class="fw-bold text-dark mb-2" style="font-size: clamp(4rem, 8vw, 6rem); line-height: 1;">404</h1>
-            <h2 class="h3 fw-bold text-dark mb-3">Pagina Non Trovata</h2>
-            <p class="text-secondary mx-auto mb-5" style="max-width: 550px; line-height: 1.6;">
+    <!-- SEZIONE ERRORE 404 (SEMPLICE, PULITA E FUNZIONANTE) -->
+    <section class="d-flex align-items-center justify-content-center" style="min-height: calc(100vh - 165px); padding: 4rem 0;">
+        <div class="container text-center" data-aos="zoom-in">
+            <h1 class="fw-bold text-danger mb-0" style="font-size: 8rem; line-height: 1;">404</h1>
+            <h2 class="h2 fw-bold text-dark mb-4 mt-2">Pagina Non Trovata</h2>
+            <p class="testo-leggero lead mb-5 mx-auto" style="max-width: 600px;">
                 Ci dispiace, ma la pagina che stai cercando potrebbe essere stata rimossa, aver cambiato nome, oppure non è temporaneamente disponibile.
             </p>
-            <a href="index.html" class="btn btn-elite-primary shadow px-5 py-3">
+            <a href="index.html" class="btn btn-elite-primary px-5 py-3 shadow-sm">
                 <i class="fa-solid fa-house me-2"></i> Torna alla Home Page
             </a>
         </div>
-    </main>
+    </section>
 
-    <!-- FOOTER IMMACOLATO (UGUALE A INDEX.HTML) -->
+    <!-- FOOTER PERFETTO (ESATTA COPIA DELL'INDEX UFFICIALE) -->
     <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
-                
-                <div class="col-lg-4 text-center text-lg-start">
-                    <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
-                    <p class="text-secondary small mb-3" style="font-weight: 400;">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                </div>
-                
-                <div class="col-lg-4 d-flex justify-content-center align-items-center">
-                    <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
-                        <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
-                        <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
+                <div class="col-lg-5">
+                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
+                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
+                        <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 35px; object-fit: contain;">
                     </div>
+                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
-
-                <div class="col-lg-4 text-center text-lg-end">
-                    <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
-                    <ul class="list-unstyled text-secondary small" style="font-weight: 400;">
-                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659" class="text-secondary text-decoration-none hover-underline">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864" class="text-secondary text-decoration-none hover-underline">351-3633864</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-secondary text-decoration-none hover-underline">pagvpcnicosia@gmail.com</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it" class="text-secondary text-decoration-none hover-underline">pagvpcnicosia@pec.it</a></li>
+                <div class="col-6 col-lg-3">
+                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
+                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
+                        <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
+                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
                     </ul>
                 </div>
-
+                <div class="col-6 col-lg-4">
+                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
+                    <ul class="list-unstyled text-secondary small">
+                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="text-secondary hover-underline text-decoration-none">Privacy Policy</a></p>
+            <div class="border-top pt-4 text-center text-secondary small">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true });</script>
+    <script>AOS.init({ once: true, offset: 50 });</script>
     <script src="global.js"></script>
 </body>
 </html>
