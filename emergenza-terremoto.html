@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergenza Terremoto - P.A. Nicosia O.d.V.</title>
+    
+    <link rel="icon" type="image/png" href="Logo.PNG">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* VARIABILI DI TEMA GLOBALI */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1d1d1f;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --nav-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --secondary-bg: #f5f5f7;
+            --text-light: #515154;
+            --hover-bg: rgba(230, 92, 0, 0.08);
+            --dropdown-bg: #ffffff;
+            --bottom-nav-bg: #ffffff;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+            --protocol-bg: #faf9f6;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --nav-bg: rgba(18, 18, 18, 0.90);
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --card-bg: #1e1e1e;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --secondary-bg: #1a1a1a;
+            --text-light: #a0a0a0;
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --dropdown-bg: #2d2d2d;
+            --bottom-nav-bg: #2d2d2d;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+            --protocol-bg: #181818;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 154px; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; padding-top: 154px; transition: background-color 0.3s, color 0.3s; }
+
+        /* NAVBAR DESKTOP */
+        .glass-nav { background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--nav-border); transition: all 0.3s ease; }
+        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
+        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
+
+        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+
+        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
+        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
+        .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
+        .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item:hover i { opacity: 1; color: #e65c00; }
+
+        /* RESPONSIVE IPAD/MOBILE */
+        @media (min-width: 992px) { .nav-left-wing { flex: 0 0 auto; } .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; } .nav-right-wing { flex: 0 0 auto; } }
+        @media (min-width: 992px) and (max-width: 1366px) { body { padding-top: 121px; } html { scroll-padding-top: 121px; } .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } }
+        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
+        .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
+        .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
+        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
+        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
+
+        /* HEADER SPECIFICO (TERREMOTO) */
+        .page-hero { display: flex; align-items: center; position: relative; background: url('Hero-Terremoto.JPG') center 40%/cover no-repeat; overflow: hidden; min-height: 50vh; padding: 4rem 0; }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%); z-index: 1; }
+        .page-hero-content { position: relative; z-index: 2; }
+        
+        /* STILI CONTENUTO */
+        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--card-border); transition: all 0.3s; text-decoration: none; }
+        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+
+        /* SEZIONI PROTOCOLLO (COLONNE 3 FASI) */
+        .protocol-section { background-color: var(--protocol-bg); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+        .phase-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 2.5rem; height: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.03); transition: transform 0.3s ease; position: relative; overflow: hidden;}
+        .phase-card:hover { transform: translateY(-5px); }
+        
+        .phase-indicator { position: absolute; top: 0; right: 0; padding: 15px 25px; border-bottom-left-radius: 20px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; color: white; }
+        .bg-phase-1 { background-color: #0dcaf0; } /* Prima - Info */
+        .bg-phase-2 { background-color: #dc3545; } /* Durante - Danger */
+        .bg-phase-3 { background-color: #198754; } /* Dopo - Success */
+
+        .structural-box { border-left: 4px solid #e65c00; padding-left: 1.5rem; margin: 2rem 0; background: var(--secondary-bg); padding: 1.5rem; border-radius: 0 12px 12px 0; }
+
+        /* Check list styling */
+        .action-list { list-style: none; padding-left: 0; }
+        .action-list li { position: relative; padding-left: 35px; margin-bottom: 1.2rem; color: var(--text-color); font-size: 0.95rem; line-height: 1.6; }
+        .action-list li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 2px; color: #e65c00; font-size: 1.2rem; }
+        .action-list.danger-list li::before { content: '\f071'; color: #dc3545; }
+        .action-list.success-list li::before { content: '\f058'; color: #198754; }
+
+        footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
+        footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+        footer a:hover { color: #e65c00; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR BLINDATA -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
+        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
+                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main" width="137" height="137">
+                <div class="brand-title">
+                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
+                </div>
+            </a>
+            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-users"></i> Chi Siamo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-truck-medical"></i> Attività</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- MENU EMERGENZE ATTIVO -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
+                            <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas" height="95">
+            </div>
+        </div>
+    </nav>
+
+    <!-- BOTTOM NAVIGATION BAR -->
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
+        <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
+        <a href="emergenze.html" class="bottom-nav-item active"><i class="fa-solid fa-triangle-exclamation"></i></a>
+        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+
+    <!-- MODAL MENU MOBILE -->
+    <div class="modal fade" id="mobileMenuModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
+          <div class="modal-header border-0"><h5 class="modal-title fw-bold">Menu di Navigazione</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+          <div class="modal-body py-4">
+              <div class="d-grid gap-3">
+                  <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
+                  <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
+                  <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
+                  <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
+                  <a href="contatti-istituzionali.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-landmark me-2 text-secondary"></i> Contatti Istituzionali</a>
+                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER EMOZIONALE -->
+    <header class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="container page-hero-content" data-aos="fade-right">
+            <a href="emergenze.html" class="btn btn-elite-primary px-4 py-2 mb-4" style="border-radius: 8px; font-size: 0.85rem;"><i class="fa-solid fa-arrow-left me-2"></i> Torna alle Emergenze</a>
+            <h1 class="display-4 fw-bold text-white mb-2">Rischio Sismico</h1>
+            <p class="lead text-white text-opacity-75 col-lg-7 mb-0">Comprendere la dinamica strutturale e applicare rigorosamente i protocolli di autoprotezione per minimizzare l'impatto di un evento tellurico.</p>
+        </div>
+    </header>
+
+    <!-- INTRODUZIONE E DINAMICA -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <h6 class="text-warning fw-bold tracking-wider mb-2">ANALISI DEL RISCHIO</h6>
+                    <h2 class="display-6 fw-bold text-dark mb-4">La Dinamica Strutturale e il Territorio</h2>
+                    <p class="testo-leggero">Il territorio italiano, in particolar modo la fascia appenninica e siciliana, è intrinsecamente esposto al rischio sismico. Sebbene la scienza non consenta ancora una previsione deterministica degli eventi (luogo esatto, data e magnitudo), la conoscenza delle frequenze di oscillazione e della vulnerabilità strutturale è la nostra prima arma di difesa.</p>
+                    
+                    <div class="structural-box">
+                        <h5 class="fw-bold text-dark mb-2"><i class="fa-solid fa-building-circle-exclamation text-danger me-2"></i> La Risposta degli Edifici</h5>
+                        <p class="testo-leggero small mb-0">Un sisma propaga onde meccaniche che inducono negli edifici oscillazioni e forze di taglio. A parità di distanza dall'epicentro, lo scuotimento è amplificato su terreni soffici e in prossimità di scarpate, mentre viene attenuato dai sostrati rocciosi rigidi. Gli edifici storici o privi di adeguamenti antisismici (come i tiranti tra pareti e solai) rischiano il collasso dei nodi strutturali.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0" data-aos="fade-left">
+                    <div class="p-4 bg-light border border-secondary border-opacity-10 rounded-4">
+                        <h5 class="fw-bold text-dark mb-3">L'Azione dello Stato</h5>
+                        <p class="testo-leggero small mb-3">Il Dipartimento di Protezione Civile lavora costantemente per mitigare la vulnerabilità del patrimonio edilizio attraverso:</p>
+                        <ul class="testo-leggero small ps-3 mb-0">
+                            <li class="mb-2"><strong>Mappatura:</strong> Classificazione sismica puntuale del territorio.</li>
+                            <li class="mb-2"><strong>Normativa:</strong> Criteri ingegneristici stringenti per le nuove costruzioni.</li>
+                            <li class="mb-0"><strong>Agevolazioni:</strong> Incentivi fiscali (SismaBonus) per l'adeguamento strutturale degli edifici privati esistenti.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROTOCOLLO OPERATIVO (LE 3 FASI) -->
+    <section class="py-5 protocol-section">
+        <div class="container py-4">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="display-6 fw-bold text-dark mb-3">Protocollo di Autoprotezione</h2>
+                <p class="testo-leggero mx-auto" style="max-width: 700px;">Tre fasi operative distinte. Assimilare e interiorizzare queste direttive riduce drasticamente l'esposizione al rischio per te e la tua famiglia.</p>
+            </div>
+
+            <div class="row g-4">
+                
+                <!-- FASE 1: PRIMA -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="phase-card">
+                        <div class="phase-indicator bg-phase-1">FASE 1</div>
+                        <h4 class="fw-bold text-dark mt-3 mb-4">Prevenzione Attiva (Il "Prima")</h4>
+                        <p class="testo-leggero small mb-4">La sicurezza si costruisce in tempo di pace, intervenendo sulla logistica domestica e, se necessario, sull'ingegneria dell'edificio.</p>
+                        
+                        <h6 class="fw-bold text-dark mb-3">Interventi Logistici</h6>
+                        <ul class="action-list">
+                            <li>Ancora saldamente alle pareti librerie, armadi alti e scaffalature pesanti.</li>
+                            <li>Posiziona gli oggetti di maggior massa sui ripiani inferiori dei mobili.</li>
+                            <li>Appendi quadri e specchi utilizzando esclusivamente ganci chiusi.</li>
+                            <li>Installa fermi di sicurezza sugli sportelli della cucina per bloccare la caduta di vetri e stoviglie.</li>
+                        </ul>
+                        
+                        <h6 class="fw-bold text-dark mt-4 mb-3">Preparazione Tattica</h6>
+                        <ul class="action-list">
+                            <li>Individua con esattezza le valvole di intercettazione di gas, acqua e il quadro elettrico generale.</li>
+                            <li>Identifica i "nodi sicuri" in casa (muri portanti spessi, travi in cemento armato).</li>
+                            <li>Prepara un Kit d'Emergenza (torcia, radio a batterie, kit medico base, documenti).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FASE 2: DURANTE -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="phase-card" style="border-color: rgba(220, 53, 69, 0.3);">
+                        <div class="phase-indicator bg-phase-2">FASE 2</div>
+                        <h4 class="fw-bold text-dark mt-3 mb-4">Fase di Impatto (Il "Durante")</h4>
+                        <p class="testo-leggero small mb-4">Durante lo scuotimento sismico, l'istinto di fuga è il pericolo maggiore. Il protocollo impone immobilità tattica e riparo immediato.</p>
+                        
+                        <h6 class="fw-bold text-danger mb-3">Se ti trovi all'interno:</h6>
+                        <ul class="action-list danger-list">
+                            <li><strong>Non precipitarti all'esterno.</strong> Le scale sono l'elemento strutturalmente più debole e vulnerabile dell'edificio.</li>
+                            <li>Cerca riparo sotto un tavolo massiccio, nel vano di una porta inserita in un muro portante o sotto una trave strutturale.</li>
+                            <li>Allontanati dal centro della stanza per evitare il collasso di controsoffitti, intonaci o lampadari.</li>
+                        </ul>
+                        
+                        <h6 class="fw-bold text-danger mt-4 mb-3">Se ti trovi all'esterno:</h6>
+                        <ul class="action-list danger-list">
+                            <li>Allontanati immediatamente dal raggio di caduta di edifici, balconi, cornicioni e linee elettriche ad alta tensione.</li>
+                            <li>Fai attenzione al potenziale collasso di ponti o all'innesco di frane indotte dal sisma.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FASE 3: DOPO -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="phase-card">
+                        <div class="phase-indicator bg-phase-3">FASE 3</div>
+                        <h4 class="fw-bold text-dark mt-3 mb-4">Gestione Post-Evento (Il "Dopo")</h4>
+                        <p class="testo-leggero small mb-4">Terminata l'oscillazione, è fondamentale evacuare la struttura con ordine e mettere in sicurezza gli impianti per prevenire disastri secondari (incendi o esplosioni).</p>
+                        
+                        <h6 class="fw-bold text-success mb-3">Evacuazione e Sicurezza:</h6>
+                        <ul class="action-list success-list">
+                            <li>Verifica lo stato di salute di chi ti circonda ed effettua un primo triage (soccorso base) se le condizioni lo permettono.</li>
+                            <li><strong>Chiudi immediatamente</strong> gli interruttori generali di gas, acqua ed elettricità.</li>
+                            <li>Indossa scarpe robuste (per evitare lesioni da vetri o detriti) prima di muoverti.</li>
+                            <li>Evacua l'edificio utilizzando <strong>esclusivamente le scale</strong>. Non utilizzare mai l'ascensore.</li>
+                        </ul>
+                        
+                        <h6 class="fw-bold text-success mt-4 mb-3">Comportamento in esterna:</h6>
+                        <ul class="action-list success-list">
+                            <li>Limita l'uso del cellulare per non sovraccaricare le linee necessarie ai soccorritori.</li>
+                            <li>Non utilizzare l'automobile: le strade devono restare sgombre per i mezzi di Protezione Civile e 118.</li>
+                            <li>Dirigiti verso le "Aree di Attesa" previste dal Piano di Protezione Civile del tuo Comune.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER BLINDATO -->
+    <footer id="contatti" class="py-5">
+        <div class="container py-4">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
+                    <p class="testo-leggero small mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                        <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
+                        <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
+                    <ul class="list-unstyled testo-leggero small">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659" class="text-dark text-decoration-none">329-6411659</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864" class="text-success text-decoration-none">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-dark text-decoration-none">pagvpcnicosia@gmail.com</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it" class="text-info text-decoration-none">pagvpcnicosia@pec.it</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline text-secondary text-decoration-none">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50 });</script>
+    <script src="global.js"></script>
+</body>
+</html>
