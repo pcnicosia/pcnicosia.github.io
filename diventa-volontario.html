@@ -436,56 +436,79 @@
                         <h3 class="fw-bold text-dark mb-2">Invia la tua Candidatura</h3>
                         <p class="testo-leggero small mb-5 border-bottom pb-4">Compila il modulo inserendo i tuoi dati personali. Verrai ricontattato dalla segreteria per fissare il colloquio conoscitivo.</p>
                         
-                        <form action="#" method="POST">
-                            <div class="row g-4">
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Nome *</label>
-                                    <input type="text" class="form-control px-3 py-2" placeholder="Esempio: Mario" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Cognome *</label>
-                                    <input type="text" class="form-control px-3 py-2" placeholder="Esempio: Rossi" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
-                                    <input type="email" class="form-control px-3 py-2" placeholder="mario.rossi@gmail.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Numero di Telefono *</label>
-                                    <input type="tel" class="form-control px-3 py-2" placeholder="333-1234567" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Data di Nascita *</label>
-                                    <input type="date" class="form-control px-3 py-2" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-secondary fw-semibold">Area di Interesse Principale *</label>
-                                    <select class="form-select px-3 py-2" required>
-                                        <option value="" disabled selected>Seleziona un'area...</option>
-                                        <option value="protezione-civile">Protezione Civile & Logistica</option>
-                                        <option value="sanitario">Emergenza Sanitaria & Soccorso</option>
-                                        <option value="sociale">Supporto Sociale & Popolazione</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small text-secondary fw-semibold">Presentazione o note aggiuntive (Opzionale)</label>
-                                    <textarea class="form-control px-3 py-2" rows="4" placeholder="Raccontaci qualcosa di te, se hai già patenti, qualifiche o esperienze di volontariato pregresse..."></textarea>
-                                </div>
+                        <form action="https://formsubmit.co/Segreteriapagvpcnicosia@gmail.com" method="POST">
+    
+    <!-- IMPOSTAZIONI NASCOSTE -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="NUOVA CANDIDATURA VOLONTARIO - Dal Sito Web">
+    <!-- N.B. Il campo _next è stato rimosso per permettere i test locali. -->
 
-                                <div class="col-12 mt-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="privacyCheckVolontari" required>
-                                        <label class="form-check-label small text-secondary ms-2" for="privacyCheckVolontari" style="line-height: 1.4;">
-                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per le finalità istituzionali legate alla valutazione della mia candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold hover-underline">Privacy Policy</a> del portale. *
-                                        </label>
-                                    </div>
-                                </div>
+    <div class="row g-4">
+        
+        <!-- Campo Nome -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Nome *</label>
+            <input type="text" name="Nome" class="form-control px-3 py-2" placeholder="Esempio: Mario" required>
+        </div>
+        
+        <!-- Campo Cognome -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Cognome *</label>
+            <input type="text" name="Cognome" class="form-control px-3 py-2" placeholder="Esempio: Rossi" required>
+        </div>
+        
+        <!-- Campo Indirizzo Email -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Indirizzo Email *</label>
+            <input type="email" name="Email" class="form-control px-3 py-2" placeholder="mario.rossi@gmail.com" required>
+        </div>
+        
+        <!-- Campo Numero di Telefono -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Numero di Telefono *</label>
+            <input type="tel" name="Telefono" class="form-control px-3 py-2" placeholder="333-1234567" required>
+        </div>
+        
+        <!-- Campo Data di Nascita -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Data di Nascita *</label>
+            <input type="date" name="Data_di_Nascita" class="form-control px-3 py-2" required>
+        </div>
+        
+        <!-- Campo Area di Interesse -->
+        <div class="col-md-6">
+            <label class="form-label small text-secondary fw-semibold">Area di Interesse Principale *</label>
+            <select name="Area_Interesse" class="form-select px-3 py-2" required>
+                <option value="" disabled selected>Seleziona un'opzione...</option>
+                <option value="Protezione Civile & Logistica">Protezione Civile & Logistica</option>
+                <option value="Emergenza Sanitaria & Soccorso">Emergenza Sanitaria & Soccorso</option>
+                <option value="Supporto Sociale & Popolazione">Supporto Sociale & Popolazione</option>
+            </select>
+        </div>
+        
+        <!-- Campo Presentazione (Opzionale) -->
+        <div class="col-12">
+            <label class="form-label small text-secondary fw-semibold">Presentazione o note aggiuntive (Opzionale)</label>
+            <textarea name="Note_Aggiuntive" class="form-control px-3 py-2" rows="4" placeholder="Raccontaci qualcosa di te, se hai già patenti, qualifiche o esperienze di volontariato pregresse..."></textarea>
+        </div>
 
-                                <div class="col-12 text-end mt-4 pt-2">
-                                    <button type="submit" class="btn btn-elite-primary shadow w-100 w-sm-auto px-5 py-3">Invia Candidatura</button>
-                                </div>
-                            </div>
-                        </form>
+        <!-- Spunta Privacy (Obbligatoria) -->
+        <div class="col-12 mt-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Privacy_Accettata" value="SI" id="privacyCheckVolontari" required>
+                <label class="form-check-label small text-secondary ms-2" for="privacyCheckVolontari" style="line-height: 1.4;">
+                    Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per le finalità istituzionali legate alla valutazione della mia candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none fw-semibold hover-underline">Privacy Policy</a> del portale. *
+                </label>
+            </div>
+        </div>
+
+        <!-- Pulsante di Invio -->
+        <div class="col-12 text-end mt-4 pt-2">
+            <button type="submit" class="btn btn-elite-primary shadow w-100 w-sm-auto px-5 py-3">Invia Candidatura</button>
+        </div>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>
