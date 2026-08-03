@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Non Trovata - P.A. Nicosia O.d.V.</title>
+    <title>Privacy Policy - P.A. Nicosia O.d.V.</title>
     
     <link rel="icon" type="image/png" href="Logo.PNG">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -173,28 +174,30 @@
         }
 
         /* -------------------------------------------
-           BOTTONI E STILI DELLA PAGINA 404
+           STILI SPECIFICI PRIVACY POLICY
            ------------------------------------------- */
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
-        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
-        
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
-        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
-
-        .testo-leggero { color: var(--text-light); font-weight: 400; }
-
-        /* INCASTRO PERFETTO PER LA SEZIONE 404 */
-        .error-section { 
-            min-height: calc(100vh - 154px); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        .page-hero { 
+            padding: 5rem 0; 
             background-color: var(--secondary-bg); 
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border); 
+            position: relative; 
         }
-        @media (min-width: 992px) and (max-width: 1366px) { .error-section { min-height: calc(100vh - 121px); } }
-        @media (min-width: 768px) and (max-width: 991px) { .error-section { min-height: calc(100vh - 107px); padding: 4rem 0; } }
-        @media (max-width: 767px) { .error-section { min-height: calc(100vh - 77px); padding: 3rem 0; } }
+
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
+        h2, h3, h4, h5, h6 { color: var(--text-color); }
+        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
+
+        .privacy-container {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+        }
+
+        @media (max-width: 767px) {
+            .privacy-container { padding: 2rem 1.5rem; }
+        }
 
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
@@ -203,7 +206,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR IDENTICA AL TUO INDEX.HTML (Ho solo modificato l'href della Home per farlo funzionare) -->
+    <!-- NAVBAR BLINDATA E IMMACOLATA (Senza il tasto diventa volontario in alto a destra) -->
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
@@ -251,6 +254,7 @@
                 </ul>
             </div>
 
+            <!-- NIENTE BOTTONE DIVENTA VOLONTARIO QUI, SOLO LOGO ANPAS -->
             <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
                 <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas">
             </div>
@@ -293,24 +297,87 @@
       </div>
     </div>
 
-    <!-- SEZIONE ERRORE 404 (PULITA, LINEARE, 100% CLICCABILE) -->
-    <section class="error-section">
-        <div class="container text-center py-5" data-aos="zoom-in">
-            <div class="mb-4" style="color: #e65c00; font-size: 5rem;">
-                <i class="fa-solid fa-triangle-exclamation"></i>
+    <!-- HEADER PRIVACY -->
+    <header class="page-hero">
+        <div class="container page-hero-content" data-aos="fade-up">
+            <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider"><i class="fa-solid fa-shield-halved me-2"></i>TUTELA DEI DATI</span>
+            <h1 class="display-4 fw-bold text-dark mb-2">Privacy Policy</h1>
+            <p class="lead testo-leggero col-lg-8 mb-0">Informativa sul trattamento dei dati personali ai sensi dell'art. 13 del Regolamento (UE) 2016/679 (GDPR).</p>
+        </div>
+    </header>
+
+    <!-- CONTENUTO PRIVACY POLICY IN STILE D'ELITE -->
+    <section class="py-5">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <div class="privacy-container">
+                        <p class="testo-leggero mb-4">
+                            La <strong>Pubblica Assistenza Gruppo Volontari Protezione Civile Nicosia O.d.V.</strong> prende molto seriamente la tutela della privacy e la sicurezza dei dati personali dei cittadini e dei volontari. Questa pagina spiega in modo chiaro come raccogliamo, gestiamo e proteggiamo i tuoi dati quando utilizzi il nostro portale istituzionale.
+                        </p>
+                        <p class="text-secondary small fst-italic border-bottom border-secondary border-opacity-25 pb-4 mb-4">Ultimo aggiornamento: Luglio 2026</p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">1. Titolare del Trattamento</h4>
+                        <p class="testo-leggero">
+                            Il Titolare del trattamento dei dati è:<br>
+                            <strong>P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</strong><br>
+                            Codice Fiscale: 91039150866<br>
+                            Sede Legale: Via Bernardo di falco, 82 – 94014 Nicosia (En)<br>
+                            Email: <a href="mailto:pagvpcnicosia@gmail.com" class="text-primary text-decoration-none fw-semibold">pagvpcnicosia@gmail.com</a><br>
+                            PEC: <a href="mailto:pagvpcnicosia@pec.it" class="text-primary text-decoration-none fw-semibold">pagvpcnicosia@pec.it</a>
+                        </p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">2. Quali dati raccogliamo e perché</h4>
+                        <p class="testo-leggero">Raccogliamo esclusivamente i dati strettamente necessari per lo svolgimento delle nostre finalità istituzionali. Nello specifico, attraverso i moduli presenti sul sito, raccogliamo:</p>
+                        <ul class="testo-leggero">
+                            <li class="mb-2"><strong>Dati anagrafici e di contatto</strong> (Nome, Cognome, Telefono, Email) forniti volontariamente tramite il modulo "Diventa Volontario". Tali dati sono utilizzati unicamente per contattarti e valutare la tua candidatura.</li>
+                            <li class="mb-2"><strong>Dati legati alle segnalazioni</strong> sul territorio (Nome, Telefono, Indirizzo della criticità) forniti tramite il modulo "Emergenze e Segnalazioni". Questi dati vengono impiegati al solo scopo di coordinare e gestire la risoluzione della criticità inoltrata.</li>
+                        </ul>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">3. Base giuridica del trattamento</h4>
+                        <p class="testo-leggero">
+                            Il trattamento dei dati personali si fonda sul <strong>consenso esplicito</strong> dell'utente, manifestato attraverso la spunta obbligatoria dell'apposita casella di accettazione posta al termine di ogni modulo di contatto prima dell'invio.
+                        </p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">4. A chi vengono comunicati i dati? (Destinatari)</h4>
+                        <p class="testo-leggero">
+                            I tuoi dati personali sono trattati internamente dal personale e dai volontari autorizzati dell'Associazione. Non vendiamo né cediamo mai i tuoi dati a terze parti per scopi commerciali. 
+                            <br><br>
+                            Per necessità tecniche legate al funzionamento dei moduli di contatto, le informazioni inserite possono transitare attraverso piattaforme software sicure (come provider di gestione email o form) che agiscono nel rispetto degli standard crittografici (HTTPS) imposti dal GDPR. I dati potranno essere condivisi con le Autorità competenti solo se richiesto per obblighi di legge o pubblica sicurezza (es. durante la gestione di emergenze).
+                        </p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">5. Sicurezza e Conservazione</h4>
+                        <p class="testo-leggero">
+                            Il nostro portale utilizza il protocollo sicuro <strong>HTTPS</strong> per crittografare i dati durante la navigazione e l'invio dei moduli. I dati personali raccolti saranno conservati per il tempo strettamente necessario a completare la finalità per cui sono stati forniti (ad esempio, fino al completamento dell'iter di inserimento per i nuovi volontari, o fino alla chiusura della segnalazione logistica).
+                        </p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">6. Cookie e Tracciamento</h4>
+                        <p class="testo-leggero">
+                            Questo portale istituzionale ha finalità puramente informative e di pubblica utilità. <strong>Non utilizziamo cookie di profilazione</strong> o tecnologie di tracciamento per scopi pubblicitari.
+                        </p>
+
+                        <h4 class="fw-bold text-dark mt-5 mb-3">7. I tuoi Diritti</h4>
+                        <p class="testo-leggero">
+                            Ai sensi del GDPR, hai sempre il diritto di:
+                        </p>
+                        <ul class="testo-leggero">
+                            <li class="mb-2">Richiedere l'accesso ai tuoi dati personali in nostro possesso.</li>
+                            <li class="mb-2">Richiedere la rettifica di dati inesatti o incompleti.</li>
+                            <li class="mb-2">Richiedere la cancellazione dei dati (il cosiddetto "diritto all'oblio").</li>
+                            <li class="mb-2">Opporti al trattamento o richiederne la limitazione.</li>
+                        </ul>
+                        <p class="testo-leggero mt-4">
+                            Per esercitare questi diritti, ti invitiamo a contattare il Titolare del Trattamento inviando un'email a <strong>pagvpcnicosia@gmail.com</strong>. Risponderemo alla tua richiesta nel minor tempo possibile.
+                        </p>
+                    </div>
+
+                </div>
             </div>
-            <h1 class="fw-bold text-dark mb-3" style="font-size: 6rem; line-height: 1;">404</h1>
-            <h2 class="h3 fw-bold text-dark mb-4">Pagina Non Trovata</h2>
-            <p class="testo-leggero lead mb-5 mx-auto" style="max-width: 600px;">
-                La pagina che stai cercando è stata rimossa, ha cambiato nome o è temporaneamente non disponibile.
-            </p>
-            <a href="index.html" class="btn btn-elite-primary shadow px-5 py-3">
-                <i class="fa-solid fa-house me-2"></i> Torna alla Home Page
-            </a>
         </div>
     </section>
 
-    <!-- FOOTER IDENTICO AL TUO INDEX.HTML -->
+    <!-- FOOTER IDENTICO ALL'INDEX -->
     <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
@@ -342,7 +409,7 @@
             </div>
             
             <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline">Privacy Policy</a></p>
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline text-secondary text-decoration-none">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
