@@ -552,9 +552,10 @@
                             <div class="news-card ${item.borderClass || ''}">
                                 <div class="news-img-box"><img src="${item.immagine}" alt="${item.titolo}" class="news-img" draggable="false"></div>
                                 <div class="news-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <!-- FIX DATE MOBILE: flex-wrap e text-nowrap -->
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
                                         <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${item.categoria}</span>
-                                        <span class="small text-secondary fw-semibold">${item.data}</span>
+                                        <span class="small text-secondary fw-semibold text-nowrap mt-1">${item.data}</span>
                                     </div>
                                     <h5 class="fw-bold mb-2">${item.titolo}</h5>
                                     <p class="testo-leggero small mb-3 flex-grow-1">${item.descrizione_breve}</p>
