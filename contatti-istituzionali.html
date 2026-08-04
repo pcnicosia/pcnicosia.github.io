@@ -97,7 +97,7 @@
         .page-hero { padding: 5rem 0; background-color: var(--secondary-bg); border-bottom: 1px solid var(--card-border); position: relative; }
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.6; }
 
-        /* CARD ISTITUZIONALI D'ÉLITE */
+        /* CARD ISTITUZIONALI D'ÉLITE - AGGIORNATE PER I LOGHI */
         .inst-card { 
             background: var(--card-bg); 
             border: 1px solid var(--card-border); 
@@ -112,8 +112,19 @@
             height: 100%;
         }
         .inst-card:hover { transform: translateY(-8px); box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08); border-color: rgba(0,0,0,0.1); }
-        .icon-circle { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; transition: transform 0.3s; }
-        .inst-card:hover .icon-circle { transform: scale(1.1); }
+        
+        /* Contenitore per i loghi ufficiali */
+        .logo-partner-container { 
+            width: 100px; 
+            height: 100px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 1.5rem; 
+            transition: transform 0.3s; 
+        }
+        .inst-card:hover .logo-partner-container { transform: scale(1.05); }
+        .logo-partner { max-width: 100%; max-height: 100%; object-fit: contain; }
 
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
@@ -122,7 +133,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR PERFETTA AGGIORNATA CON MENU A TENDINA "CONTATTI" -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
@@ -159,7 +170,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
                     
-                    <!-- IL NUOVO MENU A TENDINA CONTATTI -->
+                    <!-- MENU CONTATTI ATTIVO -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2 active" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
                         <ul class="dropdown-menu">
@@ -182,7 +193,7 @@
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
         <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
-        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
+        <a href="contatti.html" class="bottom-nav-item active"><i class="fa-solid fa-envelope"></i></a>
     </div>
 
     <!-- MODAL MENU MOBILE -->
@@ -276,8 +287,7 @@
         </div>
     </header>
 
-    <!-- GRIGLIA ENTI -->
-<!-- GRIGLIA ENTI -->
+    <!-- GRIGLIA ENTI CON LOGHI -->
     <section class="py-5">
         <div class="container py-4">
             <div class="row g-4">
@@ -285,8 +295,8 @@
                 <!-- 1. ANPAS Nazionale -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(13, 110, 253, 0.1);">
-                            <i class="fa-solid fa-star-of-life fa-2x text-primary"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-anpas-nazionale.png" alt="Logo ANPAS Nazionale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=ANPAS';">
                         </div>
                         <h5 class="fw-bold mb-2">ANPAS Nazionale</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Associazione Nazionale Pubbliche Assistenze. Sede centrale e direttiva.</p>
@@ -297,8 +307,8 @@
                 <!-- 2. ANPAS Sicilia -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(255, 193, 7, 0.1);">
-                            <i class="fa-solid fa-map-location-dot fa-2x text-warning"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-anpas-sicilia.png" alt="Logo ANPAS Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=SICILIA';">
                         </div>
                         <h5 class="fw-bold mb-2">ANPAS Sicilia</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Comitato Regionale. Coordinamento di tutte le P.A. presenti sul territorio siciliano.</p>
@@ -309,8 +319,8 @@
                 <!-- 3. DRPC -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(230, 92, 0, 0.1);">
-                            <i class="fa-solid fa-helmet-safety fa-2x" style="color: #e65c00;"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-drpc.png" alt="Logo Protezione Civile Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=DRPC';">
                         </div>
                         <h5 class="fw-bold mb-2">DRPC Sicilia</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Dipartimento Regionale Protezione Civile. Gestione allerte ed emergenze macroscopiche.</p>
@@ -321,20 +331,20 @@
                 <!-- 4. Corpo Forestale -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(25, 135, 84, 0.1);">
-                            <i class="fa-solid fa-tree fa-2x text-success"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-forestale.png" alt="Logo Corpo Forestale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=FORESTALE';">
                         </div>
                         <h5 class="fw-bold mb-2">Corpo Forestale</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Regione Siciliana. Tutela ambientale e coordinamento Antincendio Boschivo (AIB).</p>
-                        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-territorio-ambiente/comando-corpo-forestale" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-territorio-ambiente/comando-corpo-forestale-regione-siciliana" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
                     </div>
                 </div>
 
                 <!-- 5. Vigili del Fuoco -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(220, 53, 69, 0.1);">
-                            <i class="fa-solid fa-fire-extinguisher fa-2x text-danger"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-vvf.png" alt="Logo Vigili del Fuoco" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=VVF';">
                         </div>
                         <h5 class="fw-bold mb-2">Vigili del Fuoco</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Corpo Nazionale. Soccorso tecnico urgente e salvaguardia di persone e beni.</p>
@@ -345,20 +355,20 @@
                 <!-- 6. SEUS 118 -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(220, 53, 69, 0.1);">
-                            <i class="fa-solid fa-truck-medical fa-2x text-danger"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-seus.png" alt="Logo SEUS 118" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=118';">
                         </div>
                         <h5 class="fw-bold mb-2">SEUS 118</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Sistema di Emergenza Urgenza Sanitaria. Coordinamento mezzi e soccorso medico.</p>
-                        <a href="https://www.seus118.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        <a href="https://www.118sicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
                     </div>
                 </div>
 
                 <!-- 7. CSVE -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(13, 202, 240, 0.1);">
-                            <i class="fa-solid fa-hands-holding-circle fa-2x text-info"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-csve.png" alt="Logo CSVE" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=CSVE';">
                         </div>
                         <h5 class="fw-bold mb-2">CSVE</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Centro Servizi Volontariato Etneo. Promozione, consulenza e supporto al Terzo Settore.</p>
@@ -369,8 +379,8 @@
                 <!-- 8. Comune di Nicosia -->
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="450">
                     <div class="inst-card">
-                        <div class="icon-circle" style="background: rgba(108, 117, 125, 0.1);">
-                            <i class="fa-solid fa-building-columns fa-2x text-secondary"></i>
+                        <div class="logo-partner-container">
+                            <img src="logo-nicosia.png" alt="Logo Comune di Nicosia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=NICOSIA';">
                         </div>
                         <h5 class="fw-bold mb-2">Comune di Nicosia</h5>
                         <p class="testo-leggero small mb-4 flex-grow-1">Amministrazione Locale e Centro Operativo Comunale (C.O.C.) per le emergenze.</p>
