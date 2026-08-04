@@ -149,14 +149,14 @@
 
         /* QUI LA MODIFICA PER IL PC: Aggiunta altezza minima e spostato il focus in alto */
         .page-hero { 
-    display: flex; 
-    align-items: center; 
-    position: relative; 
-    background: url('Foto.gruppo.JPG') center 65% / cover no-repeat; /* L'80% punta la telecamera verso il basso! */
-    overflow: hidden; 
-    min-height: 85vh; 
-    padding: 5rem 0; 
-}
+            display: flex; 
+            align-items: center; 
+            position: relative; 
+            background: url('Foto.gruppo.JPG') center 65% / cover no-repeat;
+            overflow: hidden; 
+            min-height: 85vh; 
+            padding: 5rem 0; 
+        }
         
         .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .page-hero-content { position: relative; z-index: 2; }
@@ -312,22 +312,23 @@
         }
         .watermark.long-text { font-size: 5.5rem; top: 10px; }
 
-        /* Blocco Finale (Oggi) */
-        .final-block {
-            max-width: 900px;
-            margin: 8rem auto 0 auto;
-            text-align: center;
+        /* Blocco Finale (Oggi) - AGGIORNATO A COLONNA */
+        .final-text-box {
             padding: 4rem;
             background: var(--card-bg);
             border-radius: 20px;
             border: 2px solid rgba(230, 92, 0, 0.2);
             box-shadow: 0 20px 50px rgba(230, 92, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* --- RESPONSIVE PER TABLET E MOBILE --- */
         @media screen and (max-width: 991px) {
             .editorial-block, .editorial-block.reverse {
-                display: flex; /* Torna a flex in colonna sui telefoni */
+                display: flex; 
                 flex-direction: column;
                 margin-top: 4rem;
             }
@@ -358,9 +359,8 @@
                 text-align: center;
                 padding: 0 1rem;
             }
-            .final-block {
+            .final-text-box {
                 padding: 2.5rem 1.5rem;
-                margin-top: 5rem;
             }
         }
 
@@ -418,13 +418,12 @@
                     </li>
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
                     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
-        <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
-    </ul>
-</li>
-
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
+                            <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
@@ -695,14 +694,27 @@
                 </div>
             </div>
 
-            <!-- CHIUSURA FINALE -->
-            <div class="final-block" data-aos="zoom-in" data-aos-duration="1000">
-                <span class="era-date-elegant" style="font-size: 2.5rem; border:none;">Il Futuro</span>
-                <h3 class="era-title text-dark mb-4" style="font-size: 2rem;">I Giovani e il Volontariato
-                <p class="testo-leggero mb-0" style="font-size: 1.15rem; line-height: 1.8;">
-                    Oggi, ANPAS Sicilia guarda al futuro investendo sulle nuove generazioni. Ogni anno centinaia di giovani siciliani entrano a far parte della nostra famiglia. Un'esperienza di cittadinanza attiva che non solo garantisce il fondamentale ricambio generazionale per le nostre associazioni, ma forma cittadini consapevoli, pronti a spendersi per il bene comune.<br><br>
-                    <strong style="color: #e65c00;">La storia di ANPAS Sicilia, dal 1992 a oggi, è la storia di donne e uomini liberi.</strong> Una rete laica e democratica in cui l'assistenza non è mai intesa come carità, ma come diritto del cittadino e dovere di solidarietà.
-                </p>
+            <!-- CHIUSURA FINALE - AGGIORNATA CON FOTO E LAYOUT -->
+            <div class="row align-items-center g-5" style="margin-top: 8rem;" data-aos="fade-up" data-aos-duration="1000">
+                <div class="col-lg-6">
+                    <div class="final-text-box">
+                        <span class="era-date-elegant" style="font-size: 2.5rem; border:none; text-align: left;">Il Futuro</span>
+                        <h3 class="era-title text-dark mb-4" style="font-size: 2rem; text-align: left;">I Giovani e il Volontariato</h3>
+                        <p class="testo-leggero mb-0" style="font-size: 1.15rem; line-height: 1.8; text-align: left;">
+                            Oggi, ANPAS Sicilia guarda al futuro investendo sulle nuove generazioni. Ogni anno centinaia di giovani siciliani entrano a far parte della nostra famiglia. Un'esperienza di cittadinanza attiva che non solo garantisce il fondamentale ricambio generazionale per le nostre associazioni, ma forma cittadini consapevoli, pronti a spendersi per il bene comune.<br><br>
+                            <strong style="color: #e65c00;">La storia di ANPAS Sicilia, dal 1992 a oggi, è la storia di donne e uomini liberi.</strong> Una rete laica e democratica in cui l'assistenza non è mai intesa come carità, ma come diritto del cittadino e dovere di solidarietà.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative text-center h-100 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
+                        <!-- Effetto luce dietro la foto -->
+                        <div class="position-absolute rounded-circle" style="width: 280px; height: 280px; background: rgba(230, 92, 0, 0.15); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; filter: blur(50px);"></div>
+                        
+                        <!-- Immagine (Carica il file rinominato come futuro.JPG) -->
+                        <img src="futuro.JPG" alt="I Giovani e il Futuro" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; max-height: 500px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
+                    </div>
+                </div>
             </div>
 
         </div>
