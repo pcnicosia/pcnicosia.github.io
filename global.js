@@ -30,9 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .floating-theme-global { position: fixed; bottom: 30px; left: 30px; width: 45px; height: 45px; background-color: var(--text-color); color: var(--bg-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 9999 !important; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); cursor: pointer; border: none; transition: transform 0.3s, background-color 0.3s, color 0.3s; }
             .floating-theme-global:hover { transform: scale(1.15) translateY(-5px); }
 
+            /* MODIFICA PER IL MOBILE: TASTI ABBASSATI A 90px (QUASI ATTACCATI ALLA BARRA) */
             @media (max-width: 991px) {
-                .floating-btn-global { bottom: 110px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
-                .floating-theme-global { display: flex !important; bottom: 110px !important; left: 20px; width: 40px; height: 40px; }
+                .floating-btn-global { bottom: 90px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
+                .floating-theme-global { display: flex !important; bottom: 90px !important; left: 20px; width: 40px; height: 40px; }
             }
 
             /* =========================================
