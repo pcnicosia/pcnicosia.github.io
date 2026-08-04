@@ -444,22 +444,82 @@
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-    <!-- MODAL MENU MOBILE -->
+   <!-- MODAL MENU MOBILE -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
-          <div class="modal-header border-0">
+          <div class="modal-header border-0 pb-0">
             <h5 class="modal-title fw-bold">Menu di Navigazione</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
-                  <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
-                  <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
-                  <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
-                  <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
-                  <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
-                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
+                  
+                  <!-- CHI SIAMO (Menu a tendina) -->
+                  <div>
+                      <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                          <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
+                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
+                      </a>
+                      <div class="collapse mt-2" id="collapseChiSiamoMobile">
+                          <div class="d-grid gap-2 ps-4 border-start border-2 border-primary border-opacity-25 ms-3">
+                              <a href="chi-siamo.html#storia" class="text-decoration-none text-dark small fw-medium py-1">La Nostra Storia</a>
+                              <a href="chi-siamo.html#valori" class="text-decoration-none text-dark small fw-medium py-1">Missione e Valori</a>
+                              <a href="chi-siamo.html#organigramma" class="text-decoration-none text-dark small fw-medium py-1">Organigramma</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- ATTIVITÀ (Menu a tendina) -->
+                  <div>
+                      <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                          <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
+                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
+                      </a>
+                      <div class="collapse mt-2" id="collapseAttivitaMobile">
+                          <div class="d-grid gap-2 ps-4 border-start border-2 border-danger border-opacity-25 ms-3">
+                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Protezione Civile</a>
+                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-ambulance text-danger me-2"></i>Sanitario</a>
+                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-hands-holding-child text-info me-2"></i>Sociale</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- EMERGENZE (Menu a tendina) -->
+                  <div>
+                      <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                          <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
+                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
+                      </a>
+                      <div class="collapse mt-2" id="collapseEmergenzeMobile">
+                          <div class="d-grid gap-2 ps-4 border-start border-2 border-warning border-opacity-25 ms-3">
+                              <a href="emergenze.html#allerte" class="text-decoration-none text-danger small fw-bold py-1">Allerte Meteo</a>
+                              <a href="emergenze.html#procedure" class="text-decoration-none text-dark small fw-medium py-1">Procedure di Sicurezza</a>
+                              <a href="emergenze.html#numeri" class="text-decoration-none text-dark small fw-medium py-1">Numeri Utili</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- DOCUMENTI (Link Diretto) -->
+                  <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
+
+                  <!-- CONTATTI (Menu a tendina) -->
+                  <div>
+                      <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                          <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
+                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
+                      </a>
+                      <div class="collapse mt-2" id="collapseContattiMobile">
+                          <div class="d-grid gap-2 ps-4 border-start border-2 border-success border-opacity-25 ms-3">
+                              <a href="contatti.html" class="text-decoration-none text-dark small fw-medium py-1">Scrivici (Segreteria)</a>
+                              <a href="contatti-istituzionali.html" class="text-decoration-none text-dark small fw-medium py-1">Contatti Istituzionali</a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- DIVENTA VOLONTARIO -->
+                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center w-100 mt-2">Diventa Volontario</a>
+                  
               </div>
           </div>
         </div>
