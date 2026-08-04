@@ -19,10 +19,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // 3. INIEZIONE RITARDATA (Risolve il lag)
-    // Ritardiamo di 150 millisecondi l'iniezione pesante per lasciare il menu fluido al tocco
     setTimeout(function() {
         
-        // INIEZIONE STILI GLOBALI
+        // INIEZIONE STILI GLOBALI E FIX DEFINITIVO DARK MODE
         const styles = `
             html { scroll-behavior: smooth; }
             .floating-btn-global { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 9999; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none; transition: transform 0.3s; }
@@ -35,6 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 .floating-btn-global { bottom: 110px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
                 .floating-theme-global { display: flex !important; bottom: 110px !important; left: 20px; width: 40px; height: 40px; }
             }
+
+            /* =========================================
+               ANTI-BUG DARK MODE (DOMA BOOTSTRAP)
+               ========================================= */
+            [data-theme="dark"] .text-dark { color: var(--text-color) !important; }
+            [data-theme="dark"] .text-secondary { color: var(--text-light) !important; }
+            [data-theme="dark"] .bg-white { background-color: var(--card-bg) !important; }
+            [data-theme="dark"] .bg-light { background-color: var(--secondary-bg) !important; }
+            [data-theme="dark"] .border-secondary { border-color: var(--card-border) !important; }
         `;
         const styleSheet = document.createElement("style");
         styleSheet.innerText = styles;
