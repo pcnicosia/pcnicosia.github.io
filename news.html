@@ -46,9 +46,12 @@
             --bottom-nav-active: #e65c00;
         }
 
+        /* -------------------------------------------
+           IMPOSTAZIONI BASE E INCASTRO PERFETTO
+           ------------------------------------------- */
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 170px;
+            scroll-padding-top: 154px;
         }
 
         body { 
@@ -56,12 +59,12 @@
             background-color: var(--bg-color); 
             color: var(--text-color); 
             overflow-x: hidden; 
-            padding-top: 165px; /* ALTEZZA ESATTA NAVBAR PC: Il sito inizia da qui */
+            padding-top: 154px; /* Default PC */
             transition: background-color 0.3s, color 0.3s;
         }
 
         /* -------------------------------------------
-           NAVBAR DESKTOP
+           NAVBAR DESKTOP (BLINDATA E CONSOLIDATA)
            ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
@@ -71,163 +74,110 @@
             transition: all 0.3s ease;
         }
 
-        @media (min-width: 992px) {
-            .nav-left-wing { flex: 1 1 0%; justify-content: flex-start; }
-            .nav-center-wing { flex: 0 1 auto; justify-content: center; }
-            .nav-right-wing { flex: 1 1 0%; justify-content: flex-end; }
-        }
+        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
+        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
 
-        /* PROPORZIONI LOGHI (Desktop) - NON TOCCATE */
-        .logo-main {
-            height: 137px; 
-            width: 137px;  
-            border-radius: 50%;
-            object-fit: contain;
-            background: white;
-            padding: 4px;
-            border: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .brand-title {
-            height: 68.5px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            font-size: 1rem;
-            line-height: 1.2;
-            letter-spacing: -0.2px;
-            color: var(--text-color);
-            margin-left: 15px; 
-        }
-
-        .logo-anpas {
-            height: 95px; 
-            max-width: 200px;
-            object-fit: contain;
-        }
-
-        /* Voci Menu Desktop */
-        .nav-link { 
-            color: var(--text-color) !important; 
-            font-weight: 600; 
-            font-size: 1.05rem; 
-            letter-spacing: -0.1px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
-        .dropdown-menu { 
-            background: var(--dropdown-bg); 
-            border: 1px solid var(--nav-border); 
-            border-radius: 12px; 
-            padding: 10px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        }
-        
-        /* HOVER: SOTTOMENU AUTOMATICI SU PC */
-        @media (min-width: 992px) {
-            .dropdown:hover .dropdown-menu {
-                display: block;
-                animation: slideFade 0.3s ease forwards;
-            }
-        }
+        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
+        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes slideFade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .dropdown-item { 
-            color: var(--text-color) !important; 
-            font-size: 0.95rem; 
-            padding: 10px 16px; 
-            border-radius: 8px; 
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
         /* -------------------------------------------
-           BOTTOM NAVIGATION BAR (APP-LIKE) SOLO MOBILE
+           SISTEMA DI IMPAGINAZIONE RESPONSIVE
            ------------------------------------------- */
-        .bottom-nav {
-            display: none;
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-right-wing { flex: 0 0 auto; }
         }
+
+        @media (min-width: 992px) and (max-width: 1366px) {
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
+        }
+
+        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
-        
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        /* FIX RESPONSIVE MOBILE (LAVORO DI PRECISIONE SOLO QUI) */
         @media (max-width: 991px) {
             .navbar-collapse { display: none !important; }
             .bottom-nav { display: flex; }
-            
-            body { 
-                padding-top: 85px; /* ALTEZZA ESATTA NAVBAR MOBILE */
-                padding-bottom: 90px; 
-            }
-            
+            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
-            
-            /* QUI E' IL CAMBIAMENTO PER IL MOBILE: Testo più grande (0.85rem) e più spazio (flex: 1) */
-            .brand-title { 
-                height: auto; 
-                font-size: 0.85rem; 
-                margin-left: 10px; 
-                line-height: 1.1; 
-                flex: 1; 
-                text-align: left;
-            }
-            
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           RESTO DEGLI STILI
+           PULSANTI, HEADER E NEWS
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
-        
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        /* HERO SECTION */
-        .hero-section { 
-            height: calc(100vh - 165px); 
-            display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; 
+        .page-hero { 
+            padding: 4rem 0; 
+            background-color: var(--secondary-bg); 
+            border-bottom: 1px solid var(--card-border); 
+            position: relative; 
         }
-        @media (max-width: 991px) {
-            .hero-section { height: calc(100vh - 85px); }
-        }
-
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
-        .testo-leggero { color: var(--text-light); font-weight: 400; }
+        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.6; }
 
-        .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
-        .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
-
-        .news-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 1rem 0.5rem 2rem 0.5rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; cursor: grab; }
-        .news-carousel::-webkit-scrollbar { display: none; }
-        .news-carousel-item { flex: 0 0 85%; scroll-snap-align: center; max-width: 400px; display: flex; }
-        @media (min-width: 768px) { .news-carousel-item { flex: 0 0 calc(33.333% - 1rem); scroll-snap-align: start; max-width: none; } }
+        /* Stili per le Card delle Notizie */
+        .archive-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.03);
+            transition: border-color 0.3s;
+        }
         
-        .news-card { width: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform 0.4s; }
-        .news-img-box { height: 240px; width: 100%; overflow: hidden; }
-        .news-img { width: 100%; height: 100%; object-fit: cover; }
-        .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
+        .clickable-news {
+            display: block;
+            text-decoration: none;
+            transition: transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .clickable-news:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            border-color: rgba(230, 92, 0, 0.3);
+        }
 
+        /* Footer links */
         footer { background-color: var(--secondary-bg); border-top: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text-light); }
         footer a { color: var(--text-light); text-decoration: none; transition: color 0.2s; }
         footer a:hover { color: #e65c00; }
@@ -235,73 +185,106 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav fixed-top py-3">
-        <div class="container-fluid px-4 px-xl-5">
-            <a class="navbar-brand fw-bold tracking-tight d-flex align-items-center nav-left-wing m-0" href="index.html">
+    <!-- NAVBAR BLINDATA IDENTICA A INDEX -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
+        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
+            
+            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main" width="137" height="137">
-                <span class="fw-bold text-uppercase text-dark d-none d-sm-block" style="font-size: 0.78rem; line-height: 1.35; min-width: 220px; letter-spacing: -0.2px;">
-                    P.A. PUBBLICA ASSISTENZA<br>
-                    GRUPPO VOLONTARI<br>
-                    PROTEZIONE CIVILE<br>
-                    NICOSIA O.D.V.
-                </span>
+                <div class="brand-title">
+                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
+                </div>
             </a>
 
-            <div class="d-flex align-items-center gap-3 ms-auto order-lg-3 nav-right-wing">
-                <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm d-none d-lg-block">Diventa Volontario</a>
-                <img src="Anpas.PNG" alt="Aderente ANPAS" style="height: 60px; object-fit: contain; max-width: 95px; margin-right: 5px;">
-                <button class="navbar-toggler border-0 bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-
-            <div class="collapse navbar-collapse nav-center-wing order-lg-2" id="menuNav">
-                <ul class="navbar-nav text-center text-lg-start mt-3 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link mx-1" href="index.html">Home</a></li>
+            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia">La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori">Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma">Organigramma</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Attività</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a></li>
+                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
+                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
+                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-1" href="#" role="button" data-bs-toggle="dropdown">Emergenze</a>
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte">⚠️ Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure">Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri">Numeri Utili</a></li>
+                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
+                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link mx-1" href="documenti.html">Documenti</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    
                     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
-        <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
-    </ul>
-</li>
-
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
+                            <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                <div class="text-center mt-3 d-lg-none pb-3">
-                    <a href="diventa-volontario.html" class="btn btn-elite-outline btn-sm px-4">Diventa Volontario</a>
-                </div>
             </div>
+
+            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
+                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas" height="95">
+            </div>
+            
         </div>
     </nav>
 
+    <!-- BOTTOM NAVIGATION BAR -->
+    <div class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
+        <!-- LA NEWS è ATTIVA NEL MENU IN BASSO -->
+        <a href="news.html" class="bottom-nav-item active"><i class="fa-regular fa-newspaper"></i></a>
+        
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
+            <i class="fa-solid fa-bars"></i> Menu
+        </a>
+        
+        <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
+        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+
+    <!-- MODAL MENU MOBILE -->
+    <div class="modal fade" id="mobileMenuModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold">Menu di Navigazione</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body py-4">
+              <div class="d-grid gap-3">
+                  <a href="chi-siamo.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-users me-2"></i> Chi Siamo</a>
+                  <a href="protezione-civile.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-helmet-safety me-2 text-warning"></i> Protezione Civile</a>
+                  <a href="sanitario.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-ambulance me-2 text-danger"></i> Sanitario</a>
+                  <a href="sociale.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-hands-holding-child me-2 text-info"></i> Sociale</a>
+                  <a href="documenti.html" class="btn btn-elite-outline text-start"><i class="fa-solid fa-file-pdf me-2"></i> Documenti</a>
+                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center mt-2">Diventa Volontario</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER PAGINA NEWS -->
     <header class="page-hero">
-        <div class="page-hero-pattern"></div>
-        <div class="container page-hero-content pt-5" data-aos="fade-up">
+        <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider text-white">CRONOLOGIA ATTIVITÀ</span>
             <h1 class="display-4 fw-bold text-dark mb-2">Archivio News</h1>
             <p class="lead testo-leggero col-lg-8 mb-0">La raccolta storica di tutti gli interventi, i comunicati ufficiali e i progetti sociali portati a termine dall'Associazione.</p>
@@ -311,6 +294,7 @@
     <section class="py-5 bg-white">
         <div class="container py-4">
             <div class="row g-4 justify-content-center">
+                <!-- CONTENITORE DOVE IL JS INIETTERA' LE NOTIZIE -->
                 <div id="dynamic-news-page" class="col-lg-10">
                     <div class="text-center py-5 text-secondary"><i class="fa-solid fa-circle-notch fa-spin me-2"></i>Caricamento articoli...</div>
                 </div>
@@ -318,40 +302,39 @@
         </div>
     </section>
 
-    <footer class="py-5 mt-5">
+    <!-- FOOTER BLINDATO IDENTICO A INDEX -->
+    <footer id="contatti" class="py-5">
         <div class="container py-4">
             <div class="row g-4 mb-5">
-                <div class="col-lg-5">
-                    <h5 class="fw-bold text-dark mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia</h5>
-                    <p class="testo-leggero small pe-lg-4 mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
-                    <div class="d-inline-block bg-white px-3 py-2 rounded-3 mb-4 shadow-sm border">
-                        <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas" height="95">
+                
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h5 class="fw-bold mb-3">P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V.</h5>
+                    <p class="testo-leggero small mb-3">Organizzazione di Volontariato iscritta al Registro Unico Nazionale del Terzo Settore (RUNTS).</p>
+                    <p class="small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
+                </div>
+                
+                <div class="col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="p-4 rounded-4 w-100" style="max-width: 380px; background: rgba(230, 92, 0, 0.1); border: 1px solid rgba(230, 92, 0, 0.3);">
+                        <h5 class="fw-bold text-danger mb-2"><i class="fa-solid fa-heart me-2"></i> Dona il tuo 5x1000</h5>
+                        <p class="mb-0 small" style="color: var(--text-color);">Inserisci il nostro C.F. <strong>91039150866</strong> nella tua dichiarazione. A te non costa nulla, per noi fa la differenza.</p>
                     </div>
-                    <p class="text-dark small mb-1"><i class="fa-solid fa-shield-halved text-warning me-2"></i><strong>Codice Fiscale:</strong> 91039150866</p>
-                    <p class="text-dark small"><i class="fa-solid fa-heart text-danger me-2"></i>Sostienici con il <strong>5x1000</strong></p>
                 </div>
-                <div class="col-6 col-lg-3">
-                    <h6 class="fw-bold text-dark mb-3">Collegamenti istituzionali</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="chi-siamo.html">La Nostra Storia</a></li>
-                        <li class="mb-2"><a href="chi-siamo.html#valori">Missione e Valori</a></li>
-                        <li class="mb-2"><a href="#">Bandi Servizio Civile</a></li>
-                        <li class="mb-2"><a href="diventa-volontario.html">Diventa Volontario</a></li>
+
+                <div class="col-lg-4 text-center text-lg-end">
+                    <h5 class="fw-bold mb-3">Contatti Istituzionali</h5>
+                    <ul class="list-unstyled testo-leggero small">
+                        <li class="mb-2"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede:</strong> Via Bernardo di falco 82, Nicosia</li>
+                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659" class="text-dark text-decoration-none">329-6411659</a></li>
+                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>Whatsapp:</strong> <a href="https://wa.me/3513633864" class="text-success text-decoration-none">351-3633864</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com" class="text-dark text-decoration-none">pagvpcnicosia@gmail.com</a></li>
+                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it" class="text-info text-decoration-none">pagvpcnicosia@pec.it</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-lg-4">
-                    <h6 class="fw-bold text-dark mb-3">Contatti Istituzionali</h6>
-                    <ul class="list-unstyled text-secondary small">
-                        <li class="mb-2 text-dark"><i class="fa-solid fa-location-dot me-2 text-warning"></i> <strong>Sede Legale:</strong> Via Bernardo di falco, 82 – 94014 Nicosia (En)</li>
-                        <li class="mb-2"><i class="fa-solid fa-phone me-2 text-success"></i> <strong>Mobile:</strong> <a href="tel:3296411659">329-6411659</a></li>
-                        <li class="mb-2"><i class="fa-brands fa-whatsapp me-2 text-success"></i> <strong>WhatsApp:</strong> <a href="https://wa.me/3513633864">351-3633864</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i> <strong>Mail:</strong> <a href="mailto:pagvpcnicosia@gmail.com">pagvpcnicosia@gmail.com</a></li>
-                        <li class="mb-2"><i class="fa-solid fa-envelope-open-text me-2"></i> <strong>PEC:</strong> <a href="mailto:pagvpcnicosia@pec.it">pagvpcnicosia@pec.it</a></li>
-                    </ul>
-                </div>
+
             </div>
-            <div class="border-top pt-4 text-center text-secondary small">
-                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html" class="text-secondary text-decoration-none hover-underline">Privacy Policy</a></p>
+            
+            <div class="border-top pt-4 text-center text-secondary small" style="border-color: var(--card-border) !important;">
+                <p class="mb-0">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia | <a href="privacy.html" class="hover-underline text-secondary text-decoration-none">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -373,7 +356,7 @@
                     return;
                 }
 
-                // Leggiamo l'URL per vedere se l'utente ha cliccato una notizia specifica (es: news.html?id=2)
+                // Leggiamo l'URL per vedere se l'utente ha cliccato una notizia specifica
                 const urlParams = new URLSearchParams(window.location.search);
                 let notiziaID = urlParams.get('id');
                 
@@ -384,7 +367,7 @@
                     notiziaID = parseInt(notiziaID);
                 }
 
-                // 1. GESTIONE DELLA NOTIZIA "IN PRIMO PIANO" (Quella selezionata)
+                // 1. GESTIONE DELLA NOTIZIA "IN PRIMO PIANO"
                 const primo = data[notiziaID];
                 
                 let blockquote1 = primo.citazione_1 ? `
@@ -411,7 +394,7 @@
                                 <span class="text-secondary small fw-semibold"><i class="fa-regular fa-clock me-2"></i>${primo.lettura}</span>
                             </div>
                             <h2 class="fw-bold text-dark mb-4 display-6" style="letter-spacing: -1px;">${primo.titolo}</h2>
-                            <p class="article-lead mb-4">${primo.lead}</p>
+                            <p class="article-lead mb-4 fw-medium text-dark">${primo.lead}</p>
                             ${primo.paragrafo_1 ? `<p class="testo-leggero mb-4">${primo.paragrafo_1}</p>` : ''}
                             ${primo.paragrafo_2 ? `<p class="testo-leggero mb-4">${primo.paragrafo_2}</p>` : ''}
                             ${blockquote1}
@@ -421,17 +404,15 @@
                     </div>
                 `;
 
-                // 2. GESTIONE DELLE "ALTRE NOTIZIE" (Tutte tranne quella aperta al momento)
+                // 2. GESTIONE DELLE "ALTRE NOTIZIE"
                 if(data.length > 1) {
                     fullHtml += `<h4 class="fw-bold text-dark mb-4 mt-5 border-bottom border-secondary border-opacity-10 pb-3">Altre Notizie</h4>`;
                     
                     for(let i = 0; i < data.length; i++) {
-                        // Saltiamo la notizia che stiamo già leggendo
                         if(i === notiziaID) continue; 
                         
                         const item = data[i];
                         
-                        // Creiamo il link che rimanderà alla pagina news con l'ID corretto
                         fullHtml += `
                             <a href="news.html?id=${i}" class="archive-item clickable-news mb-4 p-4" data-aos="fade-up">
                                 <div class="row align-items-center">
@@ -462,7 +443,7 @@
             });
     </script>
 
-    <!-- INIEZIONE DELLE FUNZIONI D'ELITE -->
+    <!-- INIEZIONE DELLE FUNZIONI D'ELITE E DARK MODE -->
     <script src="global.js"></script>
     
 </body>
