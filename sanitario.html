@@ -143,9 +143,9 @@
         /* -------------------------------------------
            PULSANTI E HEADER 
            ------------------------------------------- */
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
         /* HEADER SFONDO COLLARE */
@@ -155,6 +155,7 @@
             position: relative; 
             background: url('Collare.JPG') center/cover no-repeat; 
             overflow: hidden; 
+            padding: 5rem 0;
         }
         
         .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
@@ -291,7 +292,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR BLINDATA IDENTICA A INDEX -->
+    <!-- NAVBAR BLINDATA -->
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
             
@@ -357,11 +358,9 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        
         <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
             <i class="fa-solid fa-bars"></i> Menu
         </a>
-        
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
