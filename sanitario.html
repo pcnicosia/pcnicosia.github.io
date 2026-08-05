@@ -93,20 +93,16 @@
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
 
-        /* LAYOUT FLUIDO E SIMMETRICO PC E IPAD */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
             .nav-right-wing { flex: 0 0 auto; }
-            .page-hero { height: calc(100vh - 154px); } /* Incastro perfetto PC */
         }
 
         /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px) */
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
-            .page-hero { height: calc(100vh - 121px) !important; } /* Incastro perfetto iPad orizzontale */
-            
             .logo-main { height: 104px; width: 104px; } 
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
@@ -130,8 +126,6 @@
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
-            .page-hero { height: calc(100vh - 107px) !important; } /* Incastro perfetto iPad Verticale */
-            
             .logo-main { height: 90px; width: 90px; padding: 3px; } 
             .brand-title { font-size: 0.85rem; margin-left: 12px; }
             .logo-anpas { height: 60px; max-width: 130px; }
@@ -141,8 +135,6 @@
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
-            .page-hero { height: calc(100vh - 77px) !important; } /* Incastro perfetto Telefono */
-            
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
@@ -343,14 +335,14 @@
                     </li>
                     
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
+                    
                     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
-        <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
-    </ul>
-</li>
-
+                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
+                            <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 
@@ -453,6 +445,7 @@
               </div>
           </div>
         </div>
+      </div>
     </div>
 
     <!-- HEADER CON FOTO COLLARE.JPG -->
