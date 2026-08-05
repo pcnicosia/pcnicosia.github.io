@@ -276,19 +276,26 @@
 
         .cf-box {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid #e65c00;
-            border-radius: 20px;
-            display: inline-block;
-            padding: 1.5rem 2.5rem;
-            box-shadow: 0 20px 40px rgba(230, 92, 0, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 4px solid #e65c00;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            max-width: 750px;
+            margin: 0 auto;
             transform: translateY(0);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
         
         .cf-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(230, 92, 0, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 767px) {
+            .cf-box { padding: 2rem 1.5rem; }
         }
 
         .footer-links a { 
@@ -461,7 +468,6 @@
       </div>
     </div>
 
-
     <header class="hero-section text-center">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
@@ -575,7 +581,7 @@
         </div>
     </section>
 
-    <!-- NUOVO FOOTER BANNER 5x1000 D'ELITE -->
+    <!-- NUOVO FOOTER BANNER 5x1000 D'ELITE CON SPIEGAZIONE -->
     <footer id="contatti" class="footer-5x1000">
         <!-- Sfondo dinamico -->
         <div class="footer-slideshow">
@@ -592,12 +598,23 @@
             <div data-aos="fade-up">
                 <span class="badge bg-warning text-dark mb-4 px-3 py-2 rounded-pill fw-bold tracking-wider shadow-lg">SOSTIENI I NOSTRI PROGETTI</span>
                 <h2 class="display-3 fw-bold text-white mb-3" style="letter-spacing: -1.5px;">Dona il tuo <span style="color: #e65c00;">5x1000</span></h2>
-                <p class="lead text-white-50 mb-5 max-w-xl mx-auto px-3">La tua firma si trasforma in ambulanze, attrezzature di soccorso e aiuti concreti per le famiglie in difficoltà. A te non costa nulla, per noi fa la differenza.</p>
+                <p class="lead text-white-50 mb-5 max-w-xl mx-auto px-3">La tua firma si trasforma in ambulanze, attrezzature di soccorso e aiuti concreti per le famiglie in difficoltà.</p>
                 
-                <!-- Il Codice Fiscale Protagonista -->
+                <!-- Il Codice Fiscale Protagonista (Ridisegnato e Rimpicciolito) -->
                 <div class="cf-box mb-5">
-                    <p class="text-dark mb-1 fw-bold small text-uppercase opacity-75" style="letter-spacing: 2px;">Codice Fiscale Associazione</p>
-                    <h3 class="fw-bold mb-0 text-dark display-5" style="letter-spacing: 4px;">91039150866</h3>
+                    <h4 class="fw-bold text-dark mb-3"><i class="fa-solid fa-circle-question text-warning me-2"></i>Cos'è il 5x1000?</h4>
+                    <p class="text-dark opacity-75 mb-4" style="line-height: 1.7; font-size: 0.95rem;">Non è una tassa aggiuntiva e non ti costa nulla. È una quota dell'IRPEF che lo Stato italiano ripartisce in base alle scelte dei cittadini per sostenere gli Enti del Terzo Settore. Destinandolo alla nostra associazione, decidi di investire le tue tasse direttamente nella sicurezza, nel soccorso e nel supporto sociale del tuo territorio.</p>
+                    
+                    <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-3 bg-light p-4 rounded-4 border border-secondary border-opacity-10">
+                        <div>
+                            <span class="text-secondary small fw-bold text-uppercase d-block mb-1" style="letter-spacing: 1px;">Il nostro Codice Fiscale</span>
+                            <span class="fw-bold text-dark fs-3" style="letter-spacing: 2px;">91039150866</span>
+                        </div>
+                        <div>
+                            <!-- Pulsante per copiare il CF -->
+                            <button class="btn btn-elite-primary shadow-sm" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');"><i class="fa-regular fa-copy me-2"></i>Copia Codice</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -627,7 +644,6 @@
                             <div class="news-card ${item.borderClass || ''}">
                                 <div class="news-img-box"><img src="${item.immagine}" alt="${item.titolo}" class="news-img" draggable="false"></div>
                                 <div class="news-body">
-                                    <!-- FIX DATE MOBILE: flex-wrap e text-nowrap -->
                                     <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
                                         <span class="badge ${item.badgeClass || 'bg-secondary'} px-3 py-2 rounded-pill fw-bold text-white small">${item.categoria}</span>
                                         <span class="small text-secondary fw-semibold text-nowrap mt-1">${item.data}</span>
