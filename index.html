@@ -221,7 +221,7 @@
         .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 
         /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (ADATTATO PER FOTO CON TESTO)
+           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
            ------------------------------------------- */
         .footer-5x1000 {
             position: relative;
@@ -245,7 +245,7 @@
             background-size: cover;
             background-position: center top;
             opacity: 0;
-            animation: crossFade 27s infinite; /* 9 secondi a foto */
+            animation: crossFade 27s infinite; 
         }
 
         .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
@@ -255,44 +255,71 @@
         /* Transizione fulminea, permanenza lunga */
         @keyframes crossFade {
             0% { opacity: 0; transform: scale(1); }
-            3% { opacity: 1; } /* Entra velocemente */
-            30% { opacity: 1; } /* Resta fisso a lungo */
-            33.33% { opacity: 0; transform: scale(1.03); } /* Esce velocemente */
+            3% { opacity: 1; } 
+            30% { opacity: 1; } 
+            33.33% { opacity: 0; transform: scale(1.03); } 
             100% { opacity: 0; transform: scale(1); }
         }
 
-        /* Gradiente: trasparente in alto, nero in basso */
+        /* Gradiente spinto molto in basso, la parte alta è quasi limpida */
         .footer-overlay {
             position: absolute;
             top: 0; left: 0; 
             width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%);
             z-index: 2;
         }
 
         .footer-content {
             position: relative;
             z-index: 3;
-            /* Padding ridotto: abbassa l'altezza totale del footer */
-            padding: 9rem 0 1.5rem 0; 
+            padding: 12rem 0 1.5rem 0; /* Padding gigante sopra per abbassare il testo */
         }
 
-        .cf-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 4px solid #e65c00;
-            border-radius: 16px;
-            padding: 1.2rem 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            max-width: 550px;
-            margin: 0 auto;
-            transform: translateY(0);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        /* Il nuovo look "naked" del Codice Fiscale */
+        .cf-naked-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cf-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            line-height: 1;
+            margin: 0;
+        }
+
+        .cf-copy-btn {
+            background: rgba(230, 92, 0, 0.2);
+            color: #e65c00;
+            border: 1px solid rgba(230, 92, 0, 0.4);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         
-        .cf-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        .cf-copy-btn:hover {
+            background: #e65c00;
+            color: #ffffff;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
         }
 
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
@@ -572,7 +599,7 @@
         </div>
     </section>
 
-    <!-- NUOVO FOOTER BANNER 5x1000 D'ELITE (COMPATTO, VELOCE, SENZA TITOLI CHE SI SOVRAPPONGONO) -->
+    <!-- NUOVO FOOTER BANNER 5x1000 (D'ELITE, TOTALMENTE LIBERO E TIPOGRAFICO) -->
     <footer id="contatti" class="footer-5x1000">
         <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
         <div class="footer-slideshow">
@@ -581,27 +608,27 @@
             <div class="footer-slide"></div>
         </div>
         
-        <!-- Pellicola di oscuramento: sfumatura bassa e scura per risaltare il CF -->
+        <!-- Pellicola di oscuramento: quasi invisibile sopra, scura sotto -->
         <div class="footer-overlay"></div>
         
-        <!-- Contenuto in primo piano -->
+        <!-- Contenuto testuale spostato in basso -->
         <div class="container footer-content text-center">
             <div data-aos="fade-up">
                 
-                <p class="text-white-50 mb-4 max-w-xl mx-auto px-3" style="font-size: 1.1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                    Non è una tassa, ma una quota dell'IRPEF che puoi destinare a noi. La tua firma si trasforma in ambulanze, soccorso e supporto per il territorio Nicosiano.
+                <p class="text-white-50 mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                    Non è una tassa, ma una quota dell'IRPEF che puoi destinare a noi. La tua firma si trasforma in soccorso, mezzi e supporto per il territorio Nicosiano.
                 </p>
                 
-                <!-- Il Codice Fiscale Protagonista (Barra Orizzontale Compatta) -->
-                <div class="cf-box mb-4 mx-auto d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
-                    <div class="text-center text-sm-start">
-                        <span class="text-secondary small fw-bold text-uppercase d-block mb-1" style="letter-spacing: 1px;">Codice Fiscale</span>
-                        <span class="fw-bold text-dark fs-3" style="letter-spacing: 2px;">91039150866</span>
-                    </div>
-                    <button class="btn btn-elite-primary shadow-sm m-0" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');">
-                        <i class="fa-regular fa-copy me-2"></i>Copia
+                <p class="text-white-50 text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px;">Il nostro Codice Fiscale</p>
+                
+                <!-- Il Codice Fiscale Nudo e Crudo (Stile Vetro) -->
+                <div class="cf-naked-container">
+                    <p class="cf-number">91039150866</p>
+                    <button class="cf-copy-btn" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');" title="Copia Codice">
+                        <i class="fa-regular fa-copy"></i>
                     </button>
                 </div>
+
             </div>
 
             <!-- Area Legale Minimale -->
