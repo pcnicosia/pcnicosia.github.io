@@ -221,7 +221,7 @@
         .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 
         /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
+           NUOVO FOOTER 5X1000 (CORTO E INFORMATIVO)
            ------------------------------------------- */
         .footer-5x1000 {
             position: relative;
@@ -261,19 +261,20 @@
             100% { opacity: 0; transform: scale(1); }
         }
 
-        /* Gradiente spinto molto in basso, la parte alta è quasi limpida */
+        /* Gradiente: lascia limpida la parte alta, scurisce bene in basso */
         .footer-overlay {
             position: absolute;
             top: 0; left: 0; 
             width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.95) 100%);
             z-index: 2;
         }
 
+        /* ALTEZZA FOOTER: Notevolmente ridotta, come un vero banner a fondo pagina */
         .footer-content {
             position: relative;
             z-index: 3;
-            padding: 12rem 0 1.5rem 0; /* Padding gigante sopra per abbassare il testo */
+            padding: 8rem 0 1.5rem 0; 
         }
 
         /* Il nuovo look "naked" del Codice Fiscale */
@@ -283,7 +284,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1.5rem;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             margin-bottom: 2.5rem;
         }
 
@@ -599,7 +600,7 @@
         </div>
     </section>
 
-    <!-- NUOVO FOOTER BANNER 5x1000 (D'ELITE, TOTALMENTE LIBERO E TIPOGRAFICO) -->
+    <!-- NUOVO FOOTER BANNER 5x1000 -->
     <footer id="contatti" class="footer-5x1000">
         <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
         <div class="footer-slideshow">
@@ -608,15 +609,15 @@
             <div class="footer-slide"></div>
         </div>
         
-        <!-- Pellicola di oscuramento: quasi invisibile sopra, scura sotto -->
+        <!-- Pellicola di oscuramento sfumata -->
         <div class="footer-overlay"></div>
         
-        <!-- Contenuto testuale spostato in basso -->
+        <!-- Contenuto testuale -->
         <div class="container footer-content text-center">
             <div data-aos="fade-up">
                 
                 <p class="text-white-50 mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                    Non è una tassa, ma una quota dell'IRPEF che puoi destinare a noi. La tua firma si trasforma in soccorso, mezzi e supporto per il territorio Nicosiano.
+                    Il 5x1000 non è una donazione in denaro e non comporta alcun costo aggiuntivo. È una quota dell'IRPEF che lo Stato ti permette di destinare agli Enti del Terzo Settore. Con la tua firma e il nostro Codice Fiscale, sostieni attivamente le attività di protezione civile sul territorio.
                 </p>
                 
                 <p class="text-white-50 text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px;">Il nostro Codice Fiscale</p>
