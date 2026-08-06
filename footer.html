@@ -1,5 +1,12 @@
     <!-- NUOVO FOOTER BANNER 5x1000 -->
     <footer id="contatti" class="footer-5x1000">
+        <!-- Stili interni al footer per gestire le immagini con percorso assoluto -->
+        <style>
+            .footer-slide:nth-child(1) { background-image: url('/COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
+            .footer-slide:nth-child(2) { background-image: url('/COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
+            .footer-slide:nth-child(3) { background-image: url('/COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
+        </style>
+
         <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
         <div class="footer-slideshow">
             <div class="footer-slide"></div>
@@ -32,7 +39,7 @@
 
             <!-- Area Legale Minimale -->
             <div class="border-top border-white border-opacity-10 pt-3 mt-4 footer-links">
-                <p class="small text-white-50 mb-1">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html">Privacy Policy</a></p>
+                <p class="small text-white-50 mb-1">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="/privacy.html">Privacy Policy</a></p>
                 <p class="mb-0 text-white-50 opacity-50" style="font-size: 0.70rem; letter-spacing: 0.5px;">*Le immagini scorrevoli sono a scopo puramente illustrativo (Courtesy of Fondazione CESVI).</p>
             </div>
         </div>
