@@ -21,11 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
             // 1. Spegne TUTTI i link per azzerare la situazione
             document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(el => el.classList.remove('active'));
 
-            // 2. Accende solo il menu giusto
+                        // 2. Accende solo il menu giusto
             if (currentPage === "index.html") {
-                // Accendi la Home
-                document.querySelectorAll('a.nav-link[href="index.html"], a.nav-link[href="#"]:not(.dropdown-toggle), a.bottom-nav-item[href="index.html"]').forEach(el => el.classList.add('active'));
+                // Accendi la Home sia nel menu desktop che in quello mobile
+                document.querySelectorAll('a.nav-link[href="index.html"], a.bottom-nav-item[href="index.html"]').forEach(el => el.classList.add('active'));
             } else {
+
                 // Accendi i link normali (es. Documenti, Contatti)
                 document.querySelectorAll('.nav-link:not(.dropdown-toggle), .bottom-nav-item').forEach(link => {
                     const href = link.getAttribute('href');
