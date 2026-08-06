@@ -126,7 +126,6 @@
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
 
-        /* LAYOUT FLUIDO E SIMMETRICO PC E IPAD */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { 
@@ -138,7 +137,6 @@
             .nav-right-wing { flex: 0 0 auto; }
         }
 
-        /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px) */
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
@@ -152,7 +150,7 @@
             .nav-link i { font-size: 0.82rem; } 
         }
 
-        /* 2. IMPOSTAZIONI STRUTTURALI MENU MOBILE (<991px) */
+        /* 2. MENU MOBILE (<991px) */
         .bottom-nav {
             display: none;
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
@@ -167,7 +165,6 @@
             .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
         }
 
-        /* 2a. IPAD VERTICALE (768px - 991px) */
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
@@ -178,7 +175,6 @@
             .logo-anpas { height: 60px; max-width: 130px; }
         }
 
-        /* 2b. TELEFONO (<767px) */
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
@@ -190,7 +186,7 @@
         }
 
         /* -------------------------------------------
-           RESTO DEGLI STILI 
+           BOTTONI 
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
@@ -198,31 +194,49 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+        /* -------------------------------------------
+           HEADER HOME - REVISIONATO SENZA RETTANGOLO
+           ------------------------------------------- */
+        .hero-section { 
+            height: calc(100vh - 154px); 
+            display: flex; 
+            align-items: center; 
+            position: relative; 
+            background: url('Logo%20retro%20.JPG') center/cover no-repeat; 
+            overflow: hidden; 
+        }
 
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        /* NUOVA PELLICOLA: Scura in alto per risaltare il testo, poi sfuma nel colore di sfondo in basso */
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0; 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.70) 0%, rgba(0, 0, 0, 0.40) 65%, var(--bg-color) 100%); 
+            z-index: 1; 
+        }
+        
         .hero-content { position: relative; z-index: 2; }
 
-        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
+        /* Ombra massiccia per staccare il testo dallo sfondo */
+        .hero-text-shadow {
+            text-shadow: 0px 4px 18px rgba(0, 0, 0, 0.95);
+        }
+
+        /* Nuovo stile sottotitolo: Bianco, ExtraBold (800) come un Arial Black elegante, con ombra */
+        .hero-subtitle-strong {
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            line-height: 1.6;
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.95);
+        }
+
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; }
 
-        /* EFFETTO VETRO SOTTOTITOLO HOME */
-        .hero-subtitle-glass {
-            background: var(--nav-bg); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--nav-border);
-            border-radius: 16px;
-            padding: 1.2rem 2rem;
-            display: inline-block;
-            font-weight: 800; /* Spessore massiccio in stile Arial Black ma elegante */
-            color: var(--text-color);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            letter-spacing: -0.3px;
-            line-height: 1.6;
-        }
-
+        /* -------------------------------------------
+           RESTO DEGLI STILI
+           ------------------------------------------- */
         .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
         .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
 
@@ -237,7 +251,7 @@
         .news-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
 
         /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (CORTO E INFORMATIVO)
+           NUOVO FOOTER 5X1000 
            ------------------------------------------- */
         .footer-5x1000 {
             position: relative;
@@ -357,7 +371,7 @@
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
                     
-                    <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
+                    <!-- MENU CHI SIAMO -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
@@ -429,7 +443,7 @@
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
                   
-                  <!-- CHI SIAMO (Menu a tendina aggiornato) -->
+                  <!-- CHI SIAMO MOBILE -->
                   <div>
                       <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
@@ -445,7 +459,7 @@
                       </div>
                   </div>
 
-                  <!-- ATTIVITÀ (Menu a tendina) -->
+                  <!-- ATTIVITÀ MOBILE -->
                   <div>
                       <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
@@ -460,7 +474,7 @@
                       </div>
                   </div>
 
-                  <!-- EMERGENZE (Menu a tendina) -->
+                  <!-- EMERGENZE MOBILE -->
                   <div>
                       <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
@@ -475,10 +489,9 @@
                       </div>
                   </div>
 
-                  <!-- DOCUMENTI (Link Diretto) -->
                   <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
 
-                  <!-- CONTATTI (Menu a tendina) -->
+                  <!-- CONTATTI MOBILE -->
                   <div>
                       <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
@@ -492,7 +505,6 @@
                       </div>
                   </div>
 
-                  <!-- DIVENTA VOLONTARIO -->
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center w-100 mt-2">Diventa Volontario</a>
                   
               </div>
@@ -502,14 +514,16 @@
     </div>
 
 
+    <!-- HEADER EMOZIONALE SENZA RETTANGOLO -->
     <header class="hero-section text-center">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <h1 class="mb-4" data-aos="fade-up" data-aos-duration="1000">Pronti a intervenire.<br><span style="color: #e65c00;">Sempre al vostro fianco.</span></h1>
+            <!-- H1 reso bianco con ombra massiccia -->
+            <h1 class="mb-4 text-white hero-text-shadow" data-aos="fade-up" data-aos-duration="1000">Pronti a intervenire.<br><span style="color: #e65c00;">Sempre al vostro fianco.</span></h1>
             
-            <!-- TESTO IN EVIDENZA CON EFFETTO VETRO E GRASSETTO (SOLUZIONE AL CONTRASTO) -->
+            <!-- Sottotitolo massiccio e bianco (nessun box vetro) -->
             <div class="mb-5 px-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <p class="lead hero-subtitle-glass mb-0">
+                <p class="lead hero-subtitle-strong mb-0 mx-auto" style="max-width: 800px;">
                     Dal 2009 la nostra Pubblica Assistenza opera per la sicurezza, la salute e il supporto sociale del territorio Nicosiano.
                 </p>
             </div>
