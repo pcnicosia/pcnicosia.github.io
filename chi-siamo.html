@@ -62,7 +62,9 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* NAVBAR DESKTOP */
+        /* -------------------------------------------
+           NAVBAR DESKTOP
+           ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
             backdrop-filter: blur(20px); 
@@ -71,76 +73,157 @@
             transition: all 0.3s ease;
         }
 
-        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
-        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-main {
+            height: 137px; 
+            width: 137px;  
+            border-radius: 50%;
+            object-fit: contain;
+            background: white;
+            padding: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .brand-title {
+            height: 68.5px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            font-size: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+            color: var(--text-color);
+            margin-left: 15px; 
+        }
+
         .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
 
-        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link { 
+            color: var(--text-color) !important; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            letter-spacing: -0.1px;
+            display: flex;
+            align-items: center;
+            gap: 5px; 
+            padding: 0.4rem 0.8rem !important; 
+        }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
-        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; }
+        }
+
+        @keyframes slideFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
+        /* -------------------------------------------
+           SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
+           ------------------------------------------- */
+
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
-            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-center-wing { 
+                flex: 1 1 auto; 
+                display: flex; 
+                justify-content: center; 
+                padding: 0 20px; 
+            }
             .nav-right-wing { flex: 0 0 auto; }
         }
 
         @media (min-width: 992px) and (max-width: 1366px) {
-            body { padding-top: 121px; } html { scroll-padding-top: 121px; }
-            .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } 
-            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } 
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .hero-section { height: calc(100vh - 121px); }
+            
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
         }
 
-        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        /* 2. MENU MOBILE (<991px) */
+        .bottom-nav {
+            display: none;
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
+        }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
-        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .page-hero { height: calc(100vh - 107px); } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
-        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .page-hero { height: calc(100vh - 77px); } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
+        @media (max-width: 991px) {
+            .navbar-collapse { display: none !important; }
+            .bottom-nav { display: flex; }
+            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
+        }
 
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
-        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none; }
-        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .hero-section { height: calc(100vh - 107px); }
+            
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
+            .hero-section { height: calc(100vh - 77px); }
+            
+            .logo-main { height: 60px; width: 60px; padding: 2px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
+            .logo-anpas { height: 45px; max-width: 90px; }
+        }
 
         /* -------------------------------------------
-            HEADER EMOZIONALE CON OVERLAY E OMBRA
-            ------------------------------------------- */
-        .page-hero { 
-            display: flex; 
-            align-items: center; 
-            position: relative; 
-            background: url('Foto.gruppo.JPG') center 65% / cover no-repeat;
-            overflow: hidden; 
-            min-height: 85vh; 
-            padding: 5rem 0; 
-        }
+           RESTO DEGLI STILI 
+           ------------------------------------------- */
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .page-hero-overlay { 
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
-            z-index: 1; 
-        }
-        
-        .page-hero-content { position: relative; z-index: 2; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
+        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-text-shadow {
-            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-        }
+        .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+
+        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
-        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
+
+        /* EFFETTO VETRO SOTTOTITOLO HOME */
+        .hero-subtitle-glass {
+            background: var(--nav-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--nav-border);
+            border-radius: 16px;
+            padding: 1.2rem 2rem;
+            display: inline-block;
+            font-weight: 800; 
+            color: var(--text-color);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            letter-spacing: -0.3px;
+            line-height: 1.6;
+        }
+
+        .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
+        .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
 
         /* -------------------------------------------
             SEZIONE STORIA - DESIGN EDITORIALE
@@ -304,7 +387,7 @@
         .avatar-placeholder { width: 80px; height: 80px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
 
         /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
+           NUOVO FOOTER 5X1000
            ------------------------------------------- */
         .footer-5x1000 {
             position: relative;
@@ -404,19 +487,22 @@
 
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: #e65c00; }
+
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR BLINDATA -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
         <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
+            
             <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
                 <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main" width="137" height="137">
                 <div class="brand-title">
                     <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
                 </div>
             </a>
+
             <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
@@ -431,7 +517,7 @@
                             <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-people-group text-info"></i> La Rete Anpas</a></li>
                         </ul>
                     </li>
-
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
@@ -440,6 +526,7 @@
                             <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
                         <ul class="dropdown-menu">
@@ -448,6 +535,7 @@
                             <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
@@ -456,11 +544,14 @@
                             <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </div>
+
             <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
                 <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas" height="95">
             </div>
+            
         </div>
     </nav>
 
@@ -468,12 +559,16 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
+        
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
+            <i class="fa-solid fa-bars"></i> Menu
+        </a>
+        
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
 
-   <!-- MODAL MENU MOBILE -->
+    <!-- MODAL MENU MOBILE -->
     <div class="modal fade" id="mobileMenuModal" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
@@ -484,7 +579,7 @@
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
                   
-                  <!-- CHI SIAMO (Menu a tendina aggiornato) -->
+                  <!-- CHI SIAMO MOBILE -->
                   <div>
                       <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
@@ -500,6 +595,7 @@
                       </div>
                   </div>
 
+                  <!-- ATTIVITÀ MOBILE -->
                   <div>
                       <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
@@ -514,6 +610,7 @@
                       </div>
                   </div>
 
+                  <!-- EMERGENZE MOBILE -->
                   <div>
                       <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
@@ -530,6 +627,7 @@
 
                   <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
 
+                  <!-- CONTATTI MOBILE -->
                   <div>
                       <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
@@ -664,6 +762,49 @@
                 <div class="editorial-media">
                     <img src="emergenze-recenti.jpg" alt="Interventi complessi: Pandemia e Frana di Niscemi">
                     <div class="editorial-caption"></div>
+                </div>
+            </div>
+            
+            <!-- FASE 7: Formazione -->
+            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark long-text">Corsi</span>
+                    <span class="era-date-elegant">Aggiornamento Continuo</span>
+                    <h3 class="era-title">Formazione: Il Nostro Impegno Quotidiano</h3>
+                    <p class="testo-leggero">Per garantire un intervento tempestivo ed efficace nelle situazioni di emergenza, la nostra preparazione non si ferma mai. Partecipiamo periodicamente ad attività esercitative organizzate dal DRPC (Dipartimento Regionale della Protezione Civile) e da altre importanti istituzioni.</p>
+                    <p class="testo-leggero">Crediamo fermamente nel valore dell'aggiornamento continuo: ogni giorno continuiamo a formarci e a perfezionare le nostre competenze, affidandoci esclusivamente a istruttori altamente qualificati. Oltre alla formazione interna, la nostra struttura è un punto di riferimento per l'erogazione di corsi specialistici in ambito sanitario e di Protezione Civile.</p>
+                    
+                    <h4 class="fw-bold mt-4 mb-3" style="font-size: 1.2rem;">I Nostri Corsi Formativi</h4>
+                    <p class="testo-leggero small mb-2">Offriamo percorsi formativi teorico-pratici per preparare operatori pronti a intervenire in ogni scenario, suddivisi in due macro-aree:</p>
+                    
+                    <div class="drpc-box mb-4">
+                        <h5 class="fw-bold text-dark mb-2" style="font-size: 1rem;"><i class="fa-solid fa-briefcase-medical text-danger me-2"></i>Area Sanitaria e Primo Soccorso</h5>
+                        <p class="testo-leggero small mb-2">I nostri corsi in ambito sanitario rispettano i più alti standard normativi e sono rilasciati ai sensi del D.A. Regione Siciliana n. 1961 del 29 Ottobre 2018:</p>
+                        <ul class="testo-leggero small mb-4 ps-3">
+                            <li class="mb-1"><strong>Corsi O.T.S.S.A. e O.T.S.E.A.:</strong> Formazione per Operatore Tecnico Soccorso.</li>
+                            <li><strong>Abilitazione BLS-D:</strong> Formazione specifica per il primo soccorso e l'uso del Defibrillatore.</li>
+                        </ul>
+        
+                        <h5 class="fw-bold text-dark mb-2" style="font-size: 1rem;"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Area Protezione Civile e Operatività Tecnologica</h5>
+                        <p class="testo-leggero small mb-2">Prepariamo i nostri volontari e operatori ad affrontare le sfide sul campo con competenze tecniche specifiche:</p>
+                        <ul class="testo-leggero small mb-0 ps-3">
+                            <li class="mb-1"><strong>Corso Operatore A.I.B. (Antincendio Boschivo):</strong> Tecniche di prevenzione e spegnimento degli incendi boschivi.</li>
+                            <li class="mb-1"><strong>Logistica di Colonna Mobile:</strong> Gestione delle risorse, montaggio campi e supporto logistico nelle grandi emergenze.</li>
+                            <li><strong>Corso Operatori Droni (Progetto PRODIGI):</strong> Utilizzo di sistemi aeromobili a pilotaggio remoto per la ricerca, il monitoraggio del territorio e la mappatura degli scenari di rischio.</li>
+                        </ul>
+                    </div>
+        
+                    <h4 class="fw-bold mt-4 mb-2" style="font-size: 1.2rem;">Sinergie Istituzionali</h4>
+                    <p class="testo-leggero small mb-2">La qualità e la validità della nostra formazione sono garantite dal continuo lavoro di squadra con le istituzioni del territorio. Tutti i nostri corsi e le relative certificazioni sono sviluppati e rilasciati in stretta sinergia con:</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-secondary px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-building-shield me-1"></i> DRPC Sicilia</span>
+                        <span class="badge bg-danger px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-fire-extinguisher me-1"></i> Corpo Nazionale dei Vigili del Fuoco</span>
+                        <span class="badge bg-success px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-tree me-1"></i> Corpo Forestale</span>
+                    </div>
+                </div>
+                <div class="editorial-media">
+                    <img src="formazione-addestramento.jpg" alt="Formazione e Addestramento dei Volontari">
+                    <div class="editorial-caption">Istruttori e volontari durante le attività formative</div>
                 </div>
             </div>
 
