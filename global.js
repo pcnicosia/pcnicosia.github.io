@@ -1,10 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
     
+    // 0. CARICAMENTO DINAMICO DI NAVBAR E FOOTER (I "Mattoncini")
+    // Li carichiamo subito per evitare sfarfallii del layout
+    fetch('navbar.html')
+        .then(response => {
+            if (!response.ok) throw new Error("File navbar.html non trovato");
+            return response.text();
+        })
+        .then(data => {
+            // Inserisce la navbar all'inizio del body (o nel container dedicato)
+            const navbarContainer = document.getElementById('navbar-container');
+            if (navbarContainer) {
+                navbarContainer.innerHTML = data;
+            } else {
+                document.body.insertAdjacentHTML('afterbegin', data);
+            }
+        })
+        .catch(error => console.error('Errore nel caricamento della navbar:', error));
+
+    fetch('footer.html')
+        .then(response => {
+            if (!response.ok) throw new Error("File footer.html non trovato");
+            return response.text();
+        })
+        .then(data => {
+            // Inserisce il footer alla fine della pagina (o nel container dedicato)
+            const footerContainer = document.getElementById('footer-container');
+            if (footerContainer) {
+                footerContainer.innerHTML = data;
+            } else {
+                document.body.insertAdjacentHTML('beforeend', data);
+            }
+        })
+        .catch(error => console.error('Errore nel caricamento del footer:', error));
+
+
     // 1. LOGICA TEMA IMMEDIATA (Non blocca, evita sfarfallii)
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // 2. NAVBAR DINAMICA (Leggera, va caricata subito)
+    // 2. NAVBAR DINAMICA (Leggera, gestisce lo scroll della navbar quando viene caricata)
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.glass-nav');
         if (navbar) {
