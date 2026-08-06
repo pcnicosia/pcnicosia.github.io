@@ -14,30 +14,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.body.insertAdjacentHTML('afterbegin', data);
             }
 
-            // --- NUOVA LOGICA: ILLUMINA LA VOCE DI MENU CORRETTA ---
+            // --- LOGICA NAVBAR SISTEMATA (ANTI-BLU BOOTSTRAP) ---
             let currentPage = window.location.pathname.split("/").pop();
-            if (currentPage === "") currentPage = "index.html"; // Se sei nella root principale
+            if (currentPage === "") currentPage = "index.html"; // Se siamo nella root
             
-            // Rimuove 'active' da tutti i link per resettarli
-            document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(el => el.classList.remove('active'));
+            // 1. Spegne tutti i link per resettare lo stato
+            document.querySelectorAll('.nav-link, .bottom-nav-item').forEach(el => el.classList.remove('active'));
 
-            // Aggiunge 'active' al link che corrisponde alla pagina attuale
-            document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.includes(currentPage)) {
-                    link.classList.add('active');
-                    
-                    // Se il link si trova dentro una tendina (es. sottomenu di "Chi Siamo"), illumina anche il bottone principale
-                    const dropdown = link.closest('.dropdown-menu');
-                    if (dropdown) {
-                        const toggle = dropdown.previousElementSibling;
-                        if (toggle && toggle.classList.contains('dropdown-toggle')) {
-                            toggle.classList.add('active');
+            // 2. Accende il menu giusto in base alla pagina
+            if (currentPage === "index.html") {
+                // Caso Home: accende i link diretti a index.html o #
+                document.querySelectorAll('a.nav-link[href="index.html"], a.nav-link[href="#"], a.bottom-nav-item[href="index.html"]').forEach(el => el.classList.add('active'));
+            } else {
+                // Caso altre pagine: accende i link diretti normali
+                document.querySelectorAll('.nav-link:not(.dropdown-toggle), .bottom-nav-item').forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href && href.includes(currentPage)) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Controllo per i menu a tendina: guarda nei sottomenu, se c'è la pagina, accende solo il Genitore
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    const href = item.getAttribute('href');
+                    if (href && href.includes(currentPage)) {
+                        const dropdownParent = item.closest('.dropdown');
+                        if (dropdownParent) {
+                            const toggle = dropdownParent.querySelector('.nav-link.dropdown-toggle');
+                            if (toggle) toggle.classList.add('active');
                         }
                     }
-                }
-            });
-            // --- FINE NUOVA LOGICA ---
+                });
+            }
+            // --- FINE LOGICA NAVBAR ---
         })
         .catch(error => console.error('Errore nel caricamento della navbar:', error));
 
