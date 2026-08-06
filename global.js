@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     // 0. CARICAMENTO DINAMICO DI NAVBAR E FOOTER (I "Mattoncini")
-    const p1 = fetch('navbar.html')
+    const p1 = fetch('/navbar.html')
         .then(response => {
             if (!response.ok) throw new Error("File navbar.html non trovato");
             return response.text();
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Errore nel caricamento della navbar:', error));
 
-    const p2 = fetch('footer.html')
+    const p2 = fetch('/footer.html')
         .then(response => {
             if (!response.ok) throw new Error("File footer.html non trovato");
             return response.text();
