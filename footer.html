@@ -6,12 +6,17 @@
             .footer-slide:nth-child(2) { background-image: url('/COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
             .footer-slide:nth-child(3) { background-image: url('/COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
             
-            /* Via di mezzo perfetta: scurisce il giusto per far leggere il testo senza nascondere la foto */
+            /* Inquadratura personalizzata: 85% significa "quasi tutto in basso, ma alzato di un pochino" */
+            .footer-slide {
+                background-position: center 85% !important; 
+            }
+
+            /* Pellicola con partenza a 0.4 come richiesto, che sfuma fino al nero scuro alla base */
             .footer-overlay {
                 position: absolute;
                 top: 0; left: 0; 
                 width: 100%; height: 100%;
-                background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.95) 100%);
+                background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.95) 100%);
                 z-index: 2;
             }
 
