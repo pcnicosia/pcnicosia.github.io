@@ -13,6 +13,31 @@ document.addEventListener("DOMContentLoaded", function() {
             } else {
                 document.body.insertAdjacentHTML('afterbegin', data);
             }
+
+            // --- NUOVA LOGICA: ILLUMINA LA VOCE DI MENU CORRETTA ---
+            let currentPage = window.location.pathname.split("/").pop();
+            if (currentPage === "") currentPage = "index.html"; // Se sei nella root principale
+            
+            // Rimuove 'active' da tutti i link per resettarli
+            document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(el => el.classList.remove('active'));
+
+            // Aggiunge 'active' al link che corrisponde alla pagina attuale
+            document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes(currentPage)) {
+                    link.classList.add('active');
+                    
+                    // Se il link si trova dentro una tendina (es. sottomenu di "Chi Siamo"), illumina anche il bottone principale
+                    const dropdown = link.closest('.dropdown-menu');
+                    if (dropdown) {
+                        const toggle = dropdown.previousElementSibling;
+                        if (toggle && toggle.classList.contains('dropdown-toggle')) {
+                            toggle.classList.add('active');
+                        }
+                    }
+                }
+            });
+            // --- FINE NUOVA LOGICA ---
         })
         .catch(error => console.error('Errore nel caricamento della navbar:', error));
 
