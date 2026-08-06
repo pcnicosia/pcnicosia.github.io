@@ -52,33 +52,7 @@
 
         /* NAVBAR DESKTOP */
         .glass-nav { background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--nav-border); transition: all 0.3s ease; }
-        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
-        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
-        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
-
-        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
-        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
-
-        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
-        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
-        .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
-        .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
-        .dropdown-item:hover i { opacity: 1; color: #e65c00; }
-
-        /* RESPONSIVE IPAD/MOBILE */
-        @media (min-width: 992px) { .nav-left-wing { flex: 0 0 auto; } .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; } .nav-right-wing { flex: 0 0 auto; } }
-        @media (min-width: 992px) and (max-width: 1366px) { body { padding-top: 121px; } html { scroll-padding-top: 121px; } .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } }
-        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
-        .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
-        .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
-        .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
-        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
-        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
-        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
-
+        
         /* HEADER SPECIFICO (INCENDIO) */
         .page-hero { display: flex; align-items: center; position: relative; background: url('Hero-Incendio.JPG') center 60% / cover no-repeat; overflow: hidden; min-height: 50vh; padding: 4rem 0; }
         .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(60, 15, 0, 0.9) 0%, rgba(60, 15, 0, 0.6) 100%); z-index: 1; }
@@ -97,276 +71,24 @@
         .phase-card:hover { transform: translateY(-5px); }
         
         .phase-indicator { position: absolute; top: 0; right: 0; padding: 15px 25px; border-bottom-left-radius: 20px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; color: white; }
-        .bg-phase-1 { background-color: #ffc107; color: #000; } /* Prima - Warning/Yellow */
-        .bg-phase-2 { background-color: #fd7e14; } /* Durante - Orange */
-        .bg-phase-3 { background-color: #dc3545; } /* Imminente - Red */
+        .bg-phase-1 { background-color: #ffc107; color: #000; }
+        .bg-phase-2 { background-color: #fd7e14; }
+        .bg-phase-3 { background-color: #dc3545; }
 
         .structural-box { border-left: 4px solid #dc3545; padding-left: 1.5rem; margin: 2rem 0; background: var(--secondary-bg); padding: 1.5rem; border-radius: 0 12px 12px 0; }
 
-        /* Check list styling dinamico per i colori */
         .action-list { list-style: none; padding-left: 0; }
         .action-list li { position: relative; padding-left: 35px; margin-bottom: 1.2rem; color: var(--text-color); font-size: 0.95rem; line-height: 1.6; }
         .action-list li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; top: 2px; font-size: 1.2rem; }
         .action-list.yellow-list li::before { color: #ffc107; }
         .action-list.orange-list li::before { color: #fd7e14; }
         .action-list.red-list li::before { content: '\f071'; color: #dc3545; }
-
-        /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
-           ------------------------------------------- */
-        .footer-5x1000 {
-            position: relative;
-            background-color: #000;
-            color: #fff;
-            overflow: hidden;
-            margin-top: 0rem; 
-        }
-
-        .footer-slideshow {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            z-index: 1;
-        }
-
-        .footer-slide {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center top;
-            opacity: 0;
-            animation: crossFade 27s infinite; 
-        }
-
-        .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
-        .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
-        .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
-
-        @keyframes crossFade {
-            0% { opacity: 0; transform: scale(1); }
-            3% { opacity: 1; } 
-            30% { opacity: 1; } 
-            33.33% { opacity: 0; transform: scale(1.03); } 
-            100% { opacity: 0; transform: scale(1); }
-        }
-
-        .footer-overlay {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%);
-            z-index: 2;
-        }
-
-        .footer-content {
-            position: relative;
-            z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
-        }
-
-        .cf-naked-container {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cf-number {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            line-height: 1;
-            margin: 0;
-        }
-
-        .cf-copy-btn {
-            background: rgba(230, 92, 0, 0.2);
-            color: #e65c00;
-            border: 1px solid rgba(230, 92, 0, 0.4);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .cf-copy-btn:hover {
-            background: #e65c00;
-            color: #ffffff;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
-        }
-
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: #e65c00; }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR BLINDATA -->
-    <nav class="navbar navbar-expand-lg glass-nav fixed-top py-2">
-        <div class="container-fluid px-3 px-xl-5 d-flex justify-content-between align-items-center">
-            <a class="navbar-brand text-decoration-none d-flex align-items-center nav-left-wing m-0" href="index.html">
-                <img src="Logo.PNG" alt="Logo P.A. Nicosia" class="logo-main" width="137" height="137">
-                <div class="brand-title">
-                    <span class="fw-bold text-uppercase">P.A. GRUPPO VOLONTARI<br>PROTEZIONE CIVILE<br>NICOSIA O.D.V.</span>
-                </div>
-            </a>
-            <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
-                <ul class="navbar-nav align-items-center">
-                    <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                    
-                                            <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#la-nostra-storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Direttivo</a></li>
-                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-people-group text-info"></i> La Rete Anpas</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-truck-medical"></i> Attività</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="protezione-civile.html"><i class="fa-solid fa-helmet-safety text-warning"></i> Protezione Civile</a></li>
-                            <li><a class="dropdown-item" href="sanitario.html"><i class="fa-solid fa-ambulance text-danger"></i> Sanitario</a></li>
-                            <li><a class="dropdown-item" href="sociale.html"><i class="fa-solid fa-hands-holding-child text-info"></i> Sociale</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- MENU EMERGENZE ATTIVO -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-triangle-exclamation text-warning"></i> Emergenze</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item fw-bold text-danger" href="emergenze.html#allerte"><i class="fa-solid fa-bell text-danger"></i> Allerte Meteo</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#procedure"><i class="fa-solid fa-clipboard-list text-success"></i> Procedure di Sicurezza</a></li>
-                            <li><a class="dropdown-item" href="emergenze.html#numeri"><i class="fa-solid fa-phone-volume text-primary"></i> Numeri Utili</a></li>
-                        </ul>
-                    </li>
-                    
-                    <li class="nav-item"><a class="nav-link mx-2" href="documenti.html"><i class="fa-solid fa-file-pdf"></i> Documenti</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown"><i class="fa-solid fa-envelope"></i> Contatti</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="contatti.html"><i class="fa-solid fa-paper-plane text-primary"></i> Scrivici (Segreteria)</a></li>
-                            <li><a class="dropdown-item" href="contatti-istituzionali.html"><i class="fa-solid fa-landmark text-secondary"></i> Contatti Istituzionali</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-right-wing d-flex align-items-center justify-content-end gap-2 gap-lg-3 ms-auto">
-                <img src="Anpas.PNG" alt="Aderente ANPAS" class="logo-anpas" height="95">
-            </div>
-        </div>
-    </nav>
-
-    <!-- BOTTOM NAVIGATION BAR -->
-    <div class="bottom-nav">
-        <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
-        <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
-        <a href="emergenze.html" class="bottom-nav-item active"><i class="fa-solid fa-triangle-exclamation"></i></a>
-        <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
-    </div>
-
-   <!-- MODAL MENU MOBILE -->
-    <div class="modal fade" id="mobileMenuModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content" style="background: var(--card-bg); border-radius: 20px; border: 1px solid var(--card-border);">
-          <div class="modal-header border-0 pb-0">
-            <h5 class="modal-title fw-bold">Menu di Navigazione</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body py-4">
-              <div class="d-grid gap-3">
-                  
-                                    <!-- CHI SIAMO (Menu a tendina aggiornato) -->
-                  <div>
-                      <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                          <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
-                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
-                      </a>
-                      <div class="collapse mt-2" id="collapseChiSiamoMobile">
-                          <div class="d-grid gap-2 ps-4 border-start border-2 border-primary border-opacity-25 ms-3">
-                              <a href="chi-siamo.html#la-nostra-storia" class="text-decoration-none text-dark small fw-medium py-1">La Nostra Storia</a>
-                              <a href="chi-siamo.html#valori" class="text-decoration-none text-dark small fw-medium py-1">Missione e Valori</a>
-                              <a href="chi-siamo.html#organigramma" class="text-decoration-none text-dark small fw-medium py-1">Direttivo</a>
-                              <a href="rete-anpas.html" class="text-decoration-none text-dark small fw-medium py-1">La Rete Anpas</a>
-                          </div>
-                      </div>
-                  </div>
-
-
-                  <!-- ATTIVITÀ (Menu a tendina) -->
-                  <div>
-                      <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                          <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
-                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
-                      </a>
-                      <div class="collapse mt-2" id="collapseAttivitaMobile">
-                          <div class="d-grid gap-2 ps-4 border-start border-2 border-danger border-opacity-25 ms-3">
-                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Protezione Civile</a>
-                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-ambulance text-danger me-2"></i>Sanitario</a>
-                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-hands-holding-child text-info me-2"></i>Sociale</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- EMERGENZE (Menu a tendina) -->
-                  <div>
-                      <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                          <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
-                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
-                      </a>
-                      <div class="collapse mt-2" id="collapseEmergenzeMobile">
-                          <div class="d-grid gap-2 ps-4 border-start border-2 border-warning border-opacity-25 ms-3">
-                              <a href="emergenze.html#allerte" class="text-decoration-none text-danger small fw-bold py-1">Allerte Meteo</a>
-                              <a href="emergenze.html#procedure" class="text-decoration-none text-dark small fw-medium py-1">Procedure di Sicurezza</a>
-                              <a href="emergenze.html#numeri" class="text-decoration-none text-dark small fw-medium py-1">Numeri Utili</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- DOCUMENTI (Link Diretto) -->
-                  <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
-
-                  <!-- CONTATTI (Menu a tendina) -->
-                  <div>
-                      <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
-                          <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
-                          <i class="fa-solid fa-chevron-down small opacity-50"></i>
-                      </a>
-                      <div class="collapse mt-2" id="collapseContattiMobile">
-                          <div class="d-grid gap-2 ps-4 border-start border-2 border-success border-opacity-25 ms-3">
-                              <a href="contatti.html" class="text-decoration-none text-dark small fw-medium py-1">Scrivici (Segreteria)</a>
-                              <a href="contatti-istituzionali.html" class="text-decoration-none text-dark small fw-medium py-1">Contatti Istituzionali</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- DIVENTA VOLONTARIO -->
-                  <a href="diventa-volontario.html" class="btn btn-elite-primary text-center w-100 mt-2">Diventa Volontario</a>
-                  
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- QUI VERRÀ CARICATA AUTOMATICAMENTE LA NAVBAR DA GLOBAL.JS -->
+    <div id="navbar-container"></div>
 
     <!-- HEADER EMOZIONALE -->
     <header class="page-hero">
@@ -470,45 +192,8 @@
         </div>
     </section>
 
-    <!-- NUOVO FOOTER BANNER 5x1000 -->
-    <footer id="contatti" class="footer-5x1000">
-        <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
-        <div class="footer-slideshow">
-            <div class="footer-slide"></div>
-            <div class="footer-slide"></div>
-            <div class="footer-slide"></div>
-        </div>
-        
-        <!-- Pellicola di oscuramento: quasi invisibile sopra, scura sotto -->
-        <div class="footer-overlay"></div>
-        
-        <!-- Contenuto testuale spostato in basso -->
-        <div class="container footer-content text-center">
-            <div data-aos="fade-up">
-                
-                <p class="text-white-50 mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-                    Il 5x1000 non è una donazione in denaro e non comporta alcun costo aggiuntivo. È una quota dell'IRPEF che lo Stato ti permette di destinare agli Enti del Terzo Settore. Con la tua firma e il nostro Codice Fiscale, sostieni attivamente le attività di protezione civile sul territorio.
-                </p>
-                
-                <p class="text-white-50 text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px;">Il nostro Codice Fiscale</p>
-                
-                <!-- Il Codice Fiscale Nudo e Crudo (Stile Vetro) -->
-                <div class="cf-naked-container">
-                    <p class="cf-number">91039150866</p>
-                    <button class="cf-copy-btn" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');" title="Copia Codice">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- Area Legale Minimale -->
-            <div class="border-top border-white border-opacity-10 pt-3 mt-4 footer-links">
-                <p class="small text-white-50 mb-1">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html">Privacy Policy</a></p>
-                <p class="mb-0 text-white-50 opacity-50" style="font-size: 0.70rem; letter-spacing: 0.5px;">*Le immagini scorrevoli sono a scopo puramente illustrativo (Courtesy of Fondazione CESVI).</p>
-            </div>
-        </div>
-    </footer>
+    <!-- QUI VERRÀ CARICATO AUTOMATICAMENTE IL FOOTER DA GLOBAL.JS -->
+    <div id="footer-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
