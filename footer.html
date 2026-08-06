@@ -1,10 +1,19 @@
     <!-- NUOVO FOOTER BANNER 5x1000 -->
     <footer id="contatti" class="footer-5x1000">
-        <!-- Stili interni al footer per gestire le immagini con percorso assoluto -->
+        <!-- Stili interni al footer per gestire le immagini e l'oscuramento globale -->
         <style>
             .footer-slide:nth-child(1) { background-image: url('/COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
             .footer-slide:nth-child(2) { background-image: url('/COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
             .footer-slide:nth-child(3) { background-image: url('/COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
+            
+            /* Scuriamo notevolmente la pellicola per far risaltare il testo */
+            .footer-overlay {
+                position: absolute;
+                top: 0; left: 0; 
+                width: 100%; height: 100%;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.98) 100%);
+                z-index: 2;
+            }
         </style>
 
         <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
@@ -21,11 +30,12 @@
         <div class="container footer-content text-center">
             <div data-aos="fade-up">
                 
-                <p class="text-white-50 mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                <!-- Testo più luminoso (text-white con opacità leggera invece di 50%) -->
+                <p class="text-white mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; opacity: 0.9; text-shadow: 0 2px 8px rgba(0,0,0,1);">
                     Il 5x1000 non è una donazione in denaro e non comporta alcun costo aggiuntivo. È una quota dell'IRPEF che lo Stato ti permette di destinare agli Enti del Terzo Settore. Con la tua firma e il nostro Codice Fiscale, sostieni attivamente le attività di protezione civile sul territorio.
                 </p>
                 
-                <p class="text-white-50 text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px;">Il nostro Codice Fiscale</p>
+                <p class="text-white text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px; opacity: 0.8;">Il nostro Codice Fiscale</p>
                 
                 <!-- Il Codice Fiscale Nudo e Crudo (Stile Vetro) -->
                 <div class="cf-naked-container">
