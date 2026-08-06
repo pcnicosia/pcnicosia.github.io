@@ -143,12 +143,9 @@
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
-            .hero-section { height: calc(100vh - 121px); }
-            
             .logo-main { height: 104px; width: 104px; } 
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
-            
             .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
             .nav-link i { font-size: 0.82rem; } 
         }
@@ -171,8 +168,6 @@
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
-            .hero-section { height: calc(100vh - 107px); }
-            
             .logo-main { height: 90px; width: 90px; padding: 3px; } 
             .brand-title { font-size: 0.85rem; margin-left: 12px; }
             .logo-anpas { height: 60px; max-width: 130px; }
@@ -181,15 +176,13 @@
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
-            .hero-section { height: calc(100vh - 77px); }
-            
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           RESTO DEGLI STILI 
+           BOTTONI E STILI
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
@@ -197,33 +190,34 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
+        /* -------------------------------------------
+            HEADER EMOZIONALE CHI SIAMO
+            ------------------------------------------- */
+        .page-hero { 
+            display: flex; 
+            align-items: center; 
+            position: relative; 
+            background: url('Foto.gruppo.JPG') center 65% / cover no-repeat;
+            overflow: hidden; 
+            min-height: 85vh; 
+            padding: 5rem 0; 
+        }
+        
+        .page-hero-overlay { 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
+            z-index: 1; 
+        }
+        
+        .page-hero-content { position: relative; z-index: 2; }
 
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
-        .hero-content { position: relative; z-index: 2; }
+        .hero-text-shadow {
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+        }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
-        .testo-leggero { color: var(--text-light); font-weight: 400; }
-
-        /* EFFETTO VETRO SOTTOTITOLO HOME */
-        .hero-subtitle-glass {
-            background: var(--nav-bg); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--nav-border);
-            border-radius: 16px;
-            padding: 1.2rem 2rem;
-            display: inline-block;
-            font-weight: 800; 
-            color: var(--text-color);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            letter-spacing: -0.3px;
-            line-height: 1.6;
-        }
-
-        .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
-        .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
+        .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
 
         /* -------------------------------------------
             SEZIONE STORIA - DESIGN EDITORIALE
@@ -507,7 +501,7 @@
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
                     
-                    <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
+                    <!-- MENU CHI SIAMO -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
@@ -559,11 +553,7 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        
-        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
-            <i class="fa-solid fa-bars"></i> Menu
-        </a>
-        
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
