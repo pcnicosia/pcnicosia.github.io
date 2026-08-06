@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght=0,500;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
@@ -62,9 +62,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* -------------------------------------------
-           NAVBAR DESKTOP (BLINDATA E CONSOLIDATA)
-           ------------------------------------------- */
+        /* NAVBAR DESKTOP */
         .glass-nav {
             background: var(--nav-bg); 
             backdrop-filter: blur(20px); 
@@ -89,65 +87,33 @@
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
-        /* LAYOUT FLUIDO E SIMMETRICO PC E IPAD */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
             .nav-right-wing { flex: 0 0 auto; }
         }
 
-        /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px) */
         @media (min-width: 992px) and (max-width: 1366px) {
-            body { padding-top: 121px; } 
-            html { scroll-padding-top: 121px; }
-            .logo-main { height: 104px; width: 104px; } 
-            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
-            .logo-anpas { height: 72px; max-width: 150px; } 
-            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
-            .nav-link i { font-size: 0.82rem; } 
+            body { padding-top: 121px; } html { scroll-padding-top: 121px; }
+            .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } 
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } 
         }
 
-        /* 2. MENU MOBILE (<991px) */
         .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        @media (max-width: 991px) {
-            .navbar-collapse { display: none !important; }
-            .bottom-nav { display: flex; }
-            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
-        }
+        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
+        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .page-hero { height: calc(100vh - 107px); } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
+        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .page-hero { height: calc(100vh - 77px); } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
 
-        /* 2a. IPAD VERTICALE (768px - 991px) */
-        @media (min-width: 768px) and (max-width: 991px) {
-            body { padding-top: 107px; padding-bottom: 90px; } 
-            html { scroll-padding-top: 107px; }
-            .page-hero { height: calc(100vh - 107px); }
-            .logo-main { height: 90px; width: 90px; padding: 3px; } 
-            .brand-title { font-size: 0.85rem; margin-left: 12px; }
-            .logo-anpas { height: 60px; max-width: 130px; }
-        }
-
-        /* 2b. TELEFONO (<767px) */
-        @media (max-width: 767px) {
-            body { padding-top: 77px; padding-bottom: 90px; } 
-            html { scroll-padding-top: 77px; }
-            .page-hero { height: calc(100vh - 77px); }
-            .logo-main { height: 60px; width: 60px; padding: 2px; } 
-            .brand-title { font-size: 0.85rem; margin-left: 10px; }
-            .logo-anpas { height: 45px; max-width: 90px; }
-        }
-
-        /* -------------------------------------------
-            PULSANTI E HEADER 
-            ------------------------------------------- */
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        /* QUI LA MODIFICA PER IL PC: Aggiunta altezza minima e spostato il focus in alto */
+        /* HEADER */
         .page-hero { 
             display: flex; 
             align-items: center; 
@@ -157,7 +123,6 @@
             min-height: 85vh; 
             padding: 5rem 0; 
         }
-        
         .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
         .page-hero-content { position: relative; z-index: 2; }
 
@@ -166,11 +131,11 @@
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
 
         /* -------------------------------------------
-            SEZIONE STORIA - DESIGN EDITORIALE CON CSS GRID
+            SEZIONE STORIA - DESIGN EDITORIALE
             ------------------------------------------- */
         .history-editorial { 
             background-color: var(--museum-bg); 
-            padding: 7rem 0 5rem 0; 
+            padding: 5rem 0; 
             overflow: hidden;
         }
         
@@ -192,20 +157,6 @@
             border-radius: 2px;
         }
 
-        /* Citazione pulita */
-        .emotion-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: var(--text-color);
-            opacity: 0.85;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 1.5rem auto;
-            line-height: 1.6;
-        }
-        
-        /* IMPAGINAZIONE A GRIGLIA INFALLIBILE */
         .editorial-block {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -233,7 +184,6 @@
             position: relative;
         }
 
-        /* Gestione blocco invertito (Foto a sinistra, Testo a destra) */
         .editorial-block.reverse .editorial-content {
             grid-column: 6 / 13;
             grid-row: 1;
@@ -244,7 +194,6 @@
             grid-row: 1;
         }
 
-        /* Stile Immagini */
         .editorial-media img {
             width: 100%;
             height: auto;
@@ -256,11 +205,8 @@
             display: block;
         }
 
-        .editorial-block:hover .editorial-media img {
-            transform: scale(1.02);
-        }
+        .editorial-block:hover .editorial-media img { transform: scale(1.02); }
 
-        /* Didascalie Foto */
         .editorial-caption {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -271,7 +217,6 @@
         .editorial-block:not(.reverse) .editorial-caption { text-align: right; padding-right: 15px; }
         .editorial-block.reverse .editorial-caption { text-align: left; padding-left: 15px; }
 
-        /* Tipografia Testi Interni */
         .era-date-elegant {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -291,7 +236,6 @@
             z-index: 2;
         }
 
-        /* Filigrana Anno / Parola Chiave */
         .watermark {
             position: absolute;
             top: -25px;
@@ -306,13 +250,17 @@
             pointer-events: none;
             user-select: none;
         }
-        .editorial-block.reverse .watermark {
-            left: auto;
-            right: 30px;
-        }
+        .editorial-block.reverse .watermark { left: auto; right: 30px; }
         .watermark.long-text { font-size: 5.5rem; top: 10px; }
 
-        /* Blocco Finale (Oggi) - AGGIORNATO A COLONNA */
+        .drpc-box {
+            background: rgba(230, 92, 0, 0.05);
+            border-left: 4px solid #e65c00;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
         .final-text-box {
             padding: 4rem;
             background: var(--card-bg);
@@ -325,47 +273,17 @@
             justify-content: center;
         }
 
-        /* --- RESPONSIVE PER TABLET E MOBILE --- */
         @media screen and (max-width: 991px) {
-            .editorial-block, .editorial-block.reverse {
-                display: flex; 
-                flex-direction: column;
-                margin-top: 4rem;
-            }
-            .editorial-content {
-                width: 100%;
-                padding: 2.5rem 1.5rem;
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-                border-bottom: none;
-                box-shadow: none;
-                border-color: var(--card-border);
-            }
-            .editorial-media {
-                width: 100%;
-            }
-            .editorial-media img {
-                border-top-left-radius: 0;
-                border-top-right-radius: 0;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            }
-            .watermark, .editorial-block.reverse .watermark, .watermark.long-text {
-                font-size: 4rem;
-                top: 10px;
-                left: 15px;
-                right: auto;
-            }
-            .editorial-block:not(.reverse) .editorial-caption, .editorial-block.reverse .editorial-caption {
-                text-align: center;
-                padding: 0 1rem;
-            }
-            .final-text-box {
-                padding: 2.5rem 1.5rem;
-            }
+            .editorial-block, .editorial-block.reverse { display: flex; flex-direction: column; margin-top: 4rem; }
+            .editorial-content { width: 100%; padding: 2.5rem 1.5rem; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; box-shadow: none; border-color: var(--card-border); }
+            .editorial-media { width: 100%; }
+            .editorial-media img { border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+            .watermark, .editorial-block.reverse .watermark, .watermark.long-text { font-size: 4rem; top: 10px; left: 15px; right: auto; }
+            .final-text-box { padding: 2.5rem 1.5rem; }
         }
 
         /* -------------------------------------------
-            ALTRE SEZIONI E VALORI
+            ALTRE SEZIONI (Pilastri e Organigramma)
             ------------------------------------------- */
         .value-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; height: 100%; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
         .value-box:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
@@ -373,109 +291,20 @@
         .org-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
         .avatar-placeholder { width: 80px; height: 80px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
 
-        /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
-           ------------------------------------------- */
-        .footer-5x1000 {
-            position: relative;
-            background-color: #000;
-            color: #fff;
-            overflow: hidden;
-            margin-top: 0rem; 
-        }
-
-        .footer-slideshow {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            z-index: 1;
-        }
-
-        .footer-slide {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center top;
-            opacity: 0;
-            animation: crossFade 27s infinite; 
-        }
-
+        /* FOOTER 5X1000 */
+        .footer-5x1000 { position: relative; background-color: #000; color: #fff; overflow: hidden; margin-top: 0rem; }
+        .footer-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .footer-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center top; opacity: 0; animation: crossFade 27s infinite; }
         .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
         .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
         .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
-
-        /* Transizione fulminea, permanenza lunga */
-        @keyframes crossFade {
-            0% { opacity: 0; transform: scale(1); }
-            3% { opacity: 1; } 
-            30% { opacity: 1; } 
-            33.33% { opacity: 0; transform: scale(1.03); } 
-            100% { opacity: 0; transform: scale(1); }
-        }
-
-        /* Gradiente: lascia limpida la parte alta, scurisce bene in basso */
-        .footer-overlay {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.95) 100%);
-            z-index: 2;
-        }
-
-        /* ALTEZZA FOOTER: Notevolmente ridotta, come un vero banner a fondo pagina */
-        .footer-content {
-            position: relative;
-            z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
-        }
-
-        /* Il nuovo look "naked" del Codice Fiscale */
-        .cf-naked-container {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 0.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cf-number {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            line-height: 1;
-            margin: 0;
-        }
-
-        .cf-copy-btn {
-            background: rgba(230, 92, 0, 0.2);
-            color: #e65c00;
-            border: 1px solid rgba(230, 92, 0, 0.4);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .cf-copy-btn:hover {
-            background: #e65c00;
-            color: #ffffff;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
-        }
-
+        @keyframes crossFade { 0% { opacity: 0; transform: scale(1); } 3% { opacity: 1; } 30% { opacity: 1; } 33.33% { opacity: 0; transform: scale(1.03); } 100% { opacity: 0; transform: scale(1); } }
+        .footer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.95) 100%); z-index: 2; }
+        .footer-content { position: relative; z-index: 3; padding: 7rem 0 1.5rem 0; }
+        .cf-naked-container { display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 0.5rem; margin-bottom: 2.5rem; }
+        .cf-number { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: #ffffff; letter-spacing: 4px; text-shadow: 0 4px 20px rgba(0,0,0,0.6); line-height: 1; margin: 0; }
+        .cf-copy-btn { background: rgba(230, 92, 0, 0.2); color: #e65c00; border: 1px solid rgba(230, 92, 0, 0.4); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .cf-copy-btn:hover { background: #e65c00; color: #ffffff; transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5); }
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: #e65c00; }
     </style>
@@ -494,14 +323,17 @@
             <div class="collapse navbar-collapse nav-center-wing" id="menuNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link mx-2" href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    
+                    <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="chi-siamo.html#storia"><i class="fa-solid fa-book-open text-secondary"></i> La Nostra Storia</a></li>
-                            <li><a class="dropdown-item" href="chi-siamo.html#valori"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
+                            <li><a class="dropdown-item fw-bold" style="color: #e65c00 !important;" href="chi-siamo.html"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
+                            <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-network-wired text-info"></i> La Rete Anpas</a></li>
                         </ul>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
                         <ul class="dropdown-menu">
@@ -538,9 +370,7 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
-            <i class="fa-solid fa-bars"></i> Menu
-        </a>
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
@@ -556,7 +386,7 @@
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
                   
-                  <!-- CHI SIAMO (Menu a tendina) -->
+                  <!-- CHI SIAMO -->
                   <div>
                       <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
@@ -564,14 +394,14 @@
                       </a>
                       <div class="collapse mt-2" id="collapseChiSiamoMobile">
                           <div class="d-grid gap-2 ps-4 border-start border-2 border-primary border-opacity-25 ms-3">
-                              <a href="chi-siamo.html#storia" class="text-decoration-none text-dark small fw-medium py-1">La Nostra Storia</a>
-                              <a href="chi-siamo.html#valori" class="text-decoration-none text-dark small fw-medium py-1">Missione e Valori</a>
+                              <a href="chi-siamo.html" class="text-decoration-none text-dark small fw-bold py-1" style="color: #e65c00;">Missione e Valori</a>
                               <a href="chi-siamo.html#organigramma" class="text-decoration-none text-dark small fw-medium py-1">Organigramma</a>
+                              <a href="rete-anpas.html" class="text-decoration-none text-dark small fw-medium py-1">La Rete Anpas</a>
                           </div>
                       </div>
                   </div>
 
-                  <!-- ATTIVITÀ (Menu a tendina) -->
+                  <!-- ATTIVITÀ -->
                   <div>
                       <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
@@ -579,14 +409,14 @@
                       </a>
                       <div class="collapse mt-2" id="collapseAttivitaMobile">
                           <div class="d-grid gap-2 ps-4 border-start border-2 border-danger border-opacity-25 ms-3">
-                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Protezione Civile</a>
-                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-ambulance text-danger me-2"></i>Sanitario</a>
-                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-hands-holding-child text-info me-2"></i>Sociale</a>
+                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1">Protezione Civile</a>
+                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1">Sanitario</a>
+                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1">Sociale</a>
                           </div>
                       </div>
                   </div>
 
-                  <!-- EMERGENZE (Menu a tendina) -->
+                  <!-- EMERGENZE -->
                   <div>
                       <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
@@ -601,10 +431,9 @@
                       </div>
                   </div>
 
-                  <!-- DOCUMENTI (Link Diretto) -->
                   <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
 
-                  <!-- CONTATTI (Menu a tendina) -->
+                  <!-- CONTATTI -->
                   <div>
                       <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
@@ -618,7 +447,6 @@
                       </div>
                   </div>
 
-                  <!-- DIVENTA VOLONTARIO -->
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center w-100 mt-2">Diventa Volontario</a>
                   
               </div>
@@ -627,194 +455,138 @@
       </div>
     </div>
 
-    <!-- HEADER EMOZIONALE -->
+    <!-- HEADER LOCALE PER CHI SIAMO -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">DAL 1848 AD OGGI</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Cos’è Anpas</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Non è solo la cronaca di un'associazione, ma il racconto di donne e uomini che hanno scelto di non voltarsi mai dall'altra parte.</p>
+            <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">CHI SIAMO</span>
+            <h1 class="display-4 fw-bold text-white mb-2">La Nostra Associazione</h1>
+            <p class="lead text-white text-opacity-75 col-lg-8 mb-0">Radicati nel territorio di Nicosia, ci dedichiamo quotidianamente al soccorso, alla protezione civile e al supporto della comunità con spirito di servizio e solidarietà.</p>
         </div>
     </header>
 
-    <!-- SEZIONE STORIA NAZIONALE E REGIONALE (DESIGN EDITORIALE D'ELITE) -->
-    <section id="storia" class="history-editorial">
+    <!-- LA NOSTRA STORIA (Testo Integrale del Presidente) -->
+    <section id="la-nostra-storia" class="history-editorial">
         <div class="container">
-            
-            <!-- TITOLO NAZIONALE -->
             <div data-aos="fade-up">
-                <h2 class="main-history-title">La Storia Di Anpas Nazionale</h2>
-                <div class="title-divider"></div>
-                <p class="emotion-quote">
-                    "Non c’è esercizio migliore per il cuore che stendere la mano e aiutare gli altri ad alzarsi."
-                </p>
-                <p class="text-center fw-bold mb-5" style="color: #e65c00; font-size: 1.05rem; letter-spacing: 1px;">
-                    — Henry Ford —
-                </p>
-            </div>
-
-            <!-- EPOCA 1 -->
-            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1848</span>
-                    <span class="era-date-elegant">1848 - 1904</span>
-                    <h3 class="era-title">Dalle origini al Congresso di Spoleto</h3>
-                    <p class="testo-leggero">Le Pubbliche Assistenze nascono ufficialmente nel 1860 come associazioni di volontariato libere e laiche. Conosciute sotto una grande molteplicità di nomi — Croce Verde, Croce Bianca, Croce D'Oro, Società di Salvamento, Fratellanza Popolare — queste realtà, dalla Sicilia al Piemonte, condividono un unico, grande scopo: servire chiunque esprima un bisogno, senza porre condizioni e accogliendo chiunque voglia dare una mano.</p>
-                    <p class="testo-leggero">Le loro radici profonde risalgono in realtà al 1848, all'interno delle "Società di Operaie Mutuo Soccorso" degli stati sabaudi, nate per tutelare i lavoratori dalle malattie e dagli infortuni. In un’Italia ancora elitaria e con forti differenze di classe, le categorie più deboli si organizzano dal basso per darsi risposte che né la carità dei singoli né lo Stato riuscivano a garantire.</p>
-                    <p class="testo-leggero mb-0">L’associazionismo diventa sinonimo di democrazia e solidarietà: in un’epoca in cui il diritto di voto era legato al reddito, all'interno di queste associazioni la gestione è democratica, con elezioni a scrutinio segreto in cui tutti i soci hanno gli stessi diritti. Il soccorso sanitario, il sostegno ai poveri e l’educazione civile si diffondono rapidamente. Questo slancio solidale porta, nel 1892, al primo congresso nazionale a La Spezia e culmina nel 1904 al congresso di Spoleto.</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 1.PNG" alt="Origini della Pubblica Assistenza">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- EPOCA 2 (REVERSE) -->
-            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1904</span>
-                    <span class="era-date-elegant">1904 - 1915</span>
-                    <h3 class="era-title">Dalla fondazione alla Prima Guerra Mondiale</h3>
-                    <p class="testo-leggero">L'inizio del Novecento vede un forte radicamento delle Associazioni, specialmente nel centro e nord Italia. Al Congresso di Siena del 1905, si ribadisce la natura laica, civile e altruista delle Pubbliche Assistenze, totalmente slegate da influenze politiche o religiose.</p>
-                    <p class="testo-leggero mb-0">Non si tratta solo di ambulanze: le associazioni lottano contro la tubercolosi, tutelano la maternità e l'infanzia, aprono asili notturni e promuovono l'alfabetizzazione collaborando con le Università Popolari. Dopo aver dimostrato ancora una volta il loro valore nel tragico terremoto calabro-siculo del 1908, la Federazione Nazionale viene eretta in Ente Morale nel 1911. Purtroppo, lo scoppio della guerra frena questo grande processo di crescita.</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 2.PNG" alt="Impegno sul territorio">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- EPOCA 3 -->
-            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1919</span>
-                    <span class="era-date-elegant">1919 - 1930</span>
-                    <h3 class="era-title">Il primo dopoguerra e lo scioglimento fascista</h3>
-                    <p class="testo-leggero">Al congresso di Genova dell'11 maggio 1919 si celebra la pace e si ricordano i tanti volontari caduti. C'è bisogno di riorganizzarsi, ma il clima politico sta cambiando.</p>
-                    <p class="testo-leggero mb-0">Il Governo fascista inizia presto a osteggiare le Pubbliche Assistenze: la loro pratica costante di democrazia e la scelta di libertà sancita dai loro statuti sono incompatibili con il regime. Il colpo di grazia arriva il 12 febbraio 1930 con un Regio Decreto Legge che scioglie tutte le associazioni (compresa la Federazione) trasferendone beni e competenze alla Croce Rossa. Le pochissime che riescono a sopravvivere vengono sottoposte a uno stretto controllo prefettizio, privandole della loro libertà elettiva.</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 3.PNG" alt="Resilienza dei volontari">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- EPOCA 4 (REVERSE) -->
-            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1930</span>
-                    <span class="era-date-elegant">1930 - 1946</span>
-                    <h3 class="era-title">Il buio e il Congresso di Milano</h3>
-                    <p class="testo-leggero">Per quindici anni, la grande ricchezza umana e materiale del volontariato di Pubblica Assistenza viene smembrata o militarizzata. Durante la Seconda Guerra Mondiale, le poche sedi rimaste affrontano sfide immense tra mancanza di uomini, mezzi usurati e l'occupazione tedesca.</p>
-                    <p class="testo-leggero mb-0">Tuttavia, con la Liberazione, inizia una nuova storia. Il 14 e 15 dicembre 1946, a Milano, 64 associazioni si riuniscono per il primo, vero Congresso Nazionale del dopoguerra. Viene approvato il nuovo statuto e inizia la battaglia per riavere i beni confiscati nel 1930 e ottenere una legislazione che tuteli il volontariato.</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 4.JPG" alt="Rinascita post bellica">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- EPOCA 5 -->
-            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1946</span>
-                    <span class="era-date-elegant">1946 - 1968</span>
-                    <h3 class="era-title">La Legge Ospedaliera e le grandi catastrofi</h3>
-                    <p class="testo-leggero">Il Dopoguerra è complesso: lo Stato repubblicano inizialmente conferma i decreti fascisti, lasciando il coordinamento dell'emergenza alla Croce Rossa e riducendo il ruolo delle Pubbliche Assistenze al solo "servizio" pratico, mettendo in ombra le loro grandi prospettive ideali.</p>
-                    <p class="testo-leggero mb-0">Nel 1958 nasce il Ministero della Sanità e le associazioni chiedono a gran voce un rinnovamento strutturale. La necessità di una forte rete di soccorso diventa drammaticamente evidente nelle grandi catastrofi nazionali in cui i volontari intervengono in massa: l’alluvione del Polesine (1951), la tragedia del Vajont (1963), l’alluvione di Firenze (1966) e il terremoto del Belice (1968).</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 5.JPG" alt="Intervento nelle emergenze">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- EPOCA 6 (REVERSE) -->
-            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
-                <div class="editorial-content">
-                    <span class="watermark">1970</span>
-                    <span class="era-date-elegant">Gli anni '70 e '80</span>
-                    <h3 class="era-title">La nascita di A.N.P.AS.</h3>
-                    <p class="testo-leggero">Gli anni '70 portano grandi riforme: nascono le Regioni e, nel 1978, il Servizio Sanitario Nazionale, che finalmente riconosce per legge il ruolo attivo dei cittadini nella gestione della salute. Leggi fondamentali, come quella sull'obiezione di coscienza, portano nuove energie giovanili nelle associazioni. Dopo il terremoto dell'Irpinia del 1980, la spinta del volontariato porta alla creazione del Servizio Nazionale di Protezione Civile (1992).</p>
-                    <p class="testo-leggero mb-0">Questa crescita costante trova il suo momento storico nel Congresso straordinario di Lerici del 1987, dove la Federazione cambia ufficialmente nome in A.N.P.AS. - Associazione Nazionale Pubbliche Assistenze. Viene approvato un nuovo statuto e introdotta la tessera nazionale per tutti i soci. Al Congresso di Modena del 1993, l'ANPAS supera definitivamente la sola "logica del servizio", rivendicando il suo ruolo politico di cittadinanza partecipativa e difesa dei diritti dei più deboli.</p>
-                </div>
-                <div class="editorial-media">
-                    <img src="Storia 6.JPG" alt="Crescita dell'Associazione">
-                    <div class="editorial-caption"></div>
-                </div>
-            </div>
-
-            <!-- SEZIONE ANPAS SICILIA -->
-            <div data-aos="fade-up" style="margin-top: 10rem; margin-bottom: 2rem;">
-                <h2 class="main-history-title">Le Radici in Sicilia</h2>
+                <h2 class="main-history-title">Come Nasce un'Identità di Soccorso</h2>
                 <div class="title-divider"></div>
             </div>
 
-            <!-- EPOCA 7 SICILIA 1 -->
+            <!-- FASE 1: Le Radici -->
             <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
                 <div class="editorial-content">
-                    <span class="watermark">1992</span>
-                    <span class="era-date-elegant">1992</span>
-                    <h3 class="era-title">La nascita del Comitato Regionale</h3>
-                    <p class="testo-leggero">Sulla scia della secolare tradizione nazionale delle Pubbliche Assistenze, la presenza di ANPAS in Sicilia trova il suo coordinamento unitario in un anno cruciale per la storia del Paese: il 1992.</p>
-                    <p class="testo-leggero">Non si tratta di una data casuale. Il 1992 è l'anno in cui in Italia vengono istituiti il sistema di emergenza-urgenza "118" e il moderno Servizio Nazionale della Protezione Civile (Legge 225/1992). In questo contesto di profonda trasformazione, le singole Pubbliche Assistenze siciliane, già attive e radicate nei propri comuni, avvertono la necessità di fare rete.</p>
-                    <p class="testo-leggero mb-0">Nasce così il Comitato Regionale ANPAS Sicilia, con l'obiettivo di creare un interlocutore forte, unito e strutturato, capace di dialogare con le istituzioni regionali e di coordinare gli sforzi dei volontari su tutta l'isola. Da quel momento, la storia di ANPAS Sicilia diventa un viaggio in continua evoluzione, espandendo la propria mission per rispondere alle complesse esigenze di un territorio tanto meraviglioso quanto fragile.</p>
+                    <span class="watermark">2009</span>
+                    <span class="era-date-elegant">L'Anno Zero</span>
+                    <h3 class="era-title">Dalle aule alla rete nazionale</h3>
+                    <p class="testo-leggero">La storia della nostra associazione trova la sua prima e più autentica matrice nell'anno 2009, all'interno delle aule formative del Comune di Nicosia. A seguito di un corso dedicato alla protezione civile, prendeva forma non un semplice gruppo di interesse, ma un vero progetto proiettato verso il futuro: una nuova associazione pensata sin dal principio per rispondere alle esigenze sociali, sanitarie e di tutela del nostro territorio.</p>
+                    <p class="testo-leggero mb-0">Animati da una forte spinta ideale e dalla voglia di crescere secondo i più alti standard di operatività e trasparenza, abbiamo scelto subito di varcare i confini locali. Così, durante il 10° Meeting della Solidarietà svoltosi a Enna dal 20 al 24 maggio 2009, siamo entrati a far parte del movimento nazionale ANPAS, tramite il comitato regionale siciliano.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="Anpas Sicilia .jpg" alt="Nascita Comitato Regionale">
+                    <img src="fondazione.jpg" alt="La Fondazione dell'Associazione nel 2009">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
 
-            <!-- EPOCA 8 SICILIA 2 (REVERSE) -->
+            <!-- FASE 2: Il Battesimo del fuoco -->
             <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
                 <div class="editorial-content">
-                    <span class="watermark long-text">Soccorso</span>
-                    <span class="era-date-elegant">Anni '90 e 2000</span>
-                    <h3 class="era-title">Dal soccorso sanitario alle maxi-emergenze</h3>
-                    <p class="testo-leggero">Nei primi anni Novanta, l'impegno principale del Comitato Regionale è rivolto al soccorso sanitario. I volontari ANPAS, con le loro ambulanze, rappresentano una risposta vitale per le comunità locali, diventando un pilastro fondamentale nel supporto alla nascita e allo sviluppo del sistema 118 regionale.</p>
-                    <p class="testo-leggero mb-0">Tuttavia, la particolare conformazione geografica della Sicilia richiede un rapido ampliamento delle competenze. ANPAS Sicilia diventa in breve tempo una realtà di eccellenza nel campo della Protezione Civile. Nel corso dei decenni, i nostri volontari sono intervenuti in tutte le principali emergenze territoriali e nazionali: la lotta agli incendi boschivi (AIB), formando squadre specializzate, e il rischio sismico, vulcanico e idrogeologico, garantendo assistenza durante le crisi eruttive di Etna e Stromboli, soccorrendo le popolazioni colpite da alluvioni e inviando colonne mobili nei grandi terremoti italiani.</p>
+                    <span class="watermark long-text">Pronti</span>
+                    <span class="era-date-elegant">Ottobre 2009</span>
+                    <h3 class="era-title">Il battesimo del fuoco a Giampilieri</h3>
+                    <p class="testo-leggero">Il 2009 non è stato soltanto l'anno della nostra fondazione, ma ha rappresentato anche il nostro drammatico "battesimo del fuoco". Il 1° ottobre una violenta ondata di maltempo scatenò colate di fango devastanti che travolsero Giampilieri Superiore, Scaletta Zanclea e altre frazioni a sud di Messina, causando 37 vittime.</p>
+                    <p class="testo-leggero">Per i nostri volontari, all'epoca giovanissimi e alle prime armi, fu un impatto estremamente forte. Tutto quello che fino ad allora avevamo visto solo sulle slide di un monitor, divenne materia viva e cruda. Siamo stati catapultati nella vera essenza della protezione civile, imparando per la prima volta a canalizzare le nostre emozioni per tendere la mano a gente che aveva perso tutto e che doveva, necessariamente, rialzarsi.</p>
+                    <p class="testo-leggero mb-0">Da quell'esperienza indelebile si è piantato dentro ciascuno di noi il seme indissolubile del nostro motto: <strong>essere pronti!</strong> Perché avevamo scelto di fare questo e, soprattutto, di essere questo.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="Anpas Sicilia 2.jpg" alt="Soccorso e Protezione Civile">
+                    <img src="emergenza-fango.jpg" alt="Intervento durante le emergenze idrogeologiche">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
 
-            <!-- EPOCA 9 SICILIA 3 -->
+            <!-- FASE 3: L'Inquadramento DRPC -->
             <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
                 <div class="editorial-content">
-                    <span class="watermark long-text">Diritti</span>
-                    <span class="era-date-elegant">I nostri giorni</span>
-                    <h3 class="era-title">La frontiera del sociale: l'accoglienza e la cittadinanza attiva</h3>
-                    <p class="testo-leggero">Essere una Pubblica Assistenza in Sicilia significa non girare mai lo sguardo di fronte alle emergenze umanitarie. Negli ultimi quindici anni, con l'intensificarsi dei flussi migratori nel Mediterraneo, la Sicilia è diventata la frontiera d'Europa. ANPAS Sicilia ha scritto una pagina straordinaria di solidarietà, presidiando le banchine dei porti (da Lampedusa a Pozzallo, da Augusta a Catania) per offrire prima assistenza sanitaria, supporto psicologico e un sorriso a chi sbarca in cerca di un futuro.</p>
-                    <p class="testo-leggero mb-0">A questo si unisce un forte impegno nell'educazione alla legalità e nei servizi sociali. Operando in un contesto che richiede una continua affermazione dei diritti civili, ANPAS Sicilia collabora attivamente con altre realtà del Terzo Settore (come la rete di Libera) promuovendo il riutilizzo dei beni confiscati e diffondendo la cultura dell'antimafia sociale.</p>
+                    <span class="watermark">1004</span>
+                    <span class="era-date-elegant">L'Istituzionalizzazione</span>
+                    <h3 class="era-title">Al fianco della Protezione Civile Siciliana</h3>
+                    <p class="testo-leggero">Contemporaneamente all'ingresso in ANPAS, per istituzionalizzare ulteriormente il nostro impegno, ci siamo iscritti al Dipartimento Regionale della Protezione Civile Siciliana (DRPC) con il numero di registro 1004.</p>
+                    <p class="testo-leggero">Il DRPC ha competenza esclusiva in Sicilia, la struttura pubblica incaricata di proteggere la popolazione in un territorio ad altissimo rischio idrogeologico, sismico e vulcanico. Attraverso questa sinergia, ci siamo inseriti organicamente nella catena regionale che opera su tre fronti vitali:</p>
+                    <div class="drpc-box">
+                        <ul class="testo-leggero small mb-0 ps-3">
+                            <li class="mb-2"><strong>Previsione e Prevenzione:</strong> Monitoraggio dei rischi (meteo, incendi, eruzioni dell'Etna, frane) e mappatura dei territori fragili.</li>
+                            <li class="mb-2"><strong>Gestione delle Emergenze:</strong> Coordinamento dei soccorsi sul campo con Vigili del Fuoco, Forze dell'Ordine e Volontariato durante i disastri.</li>
+                            <li><strong>Superamento dell'Emergenza:</strong> Gestione dei primi fondi per la ricostruzione, valutazione agibilità e opere di messa in sicurezza.</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="editorial-media">
-                    <img src="Anpas Sicilia 3.jpg" alt="Accoglienza e Sociale">
+                    <img src="drpc-intervento.jpg" alt="Coordinamento con il DRPC Sicilia">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
 
-            <!-- CHIUSURA FINALE - AGGIORNATA CON FOTO E LAYOUT -->
+            <!-- FASE 4: Saponara e la nuova emergenza -->
+            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">2011</span>
+                    <span class="era-date-elegant">Novembre 2011</span>
+                    <h3 class="era-title">Saponara: un aiuto a 360 gradi</h3>
+                    <p class="testo-leggero">Quella stessa prontezza ci è stata richiesta il 22 novembre 2011, venendo rimessi alla prova da un evento analogo che colpì Saponara, sul versante tirrenico. Una frana di fango travolse il centro abitato provocando ingenti danni materiali e 3 morti, tra cui due fratelli.</p>
+                    <p class="testo-leggero mb-0">Lì riuscimmo a essere utili nell'immediatezza dell'emergenza (scavando, montando tende e supportando le istituzioni locali), ma anche nel post-emergenza. Abbiamo allestito presso la nostra sede un centro di raccolta straordinario per abiti, viveri, prodotti per l'igiene e giochi per bambini, consegnandoli direttamente nelle loro mani per cercare di restituire quella parvenza di normalità perduta. Negli anni a seguire, la partecipazione a diverse emergenze regionali e nazionali ci ha fatto comprendere che metterci a disposizione degli altri era un qualcosa di cui non potevamo più fare a meno, ripagati sempre e solo dai sorrisi della gente.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="saponara.jpg" alt="Supporto logistico e aiuti umanitari">
+                    <div class="editorial-caption"></div>
+                </div>
+            </div>
+
+            <!-- FASE 5: Ambulanza e Sanitario -->
+            <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark">2012</span>
+                    <span class="era-date-elegant">2012</span>
+                    <h3 class="era-title">L'evoluzione nel soccorso sanitario</h3>
+                    <p class="testo-leggero">Nel 2012 la nostra associazione ha compiuto un ulteriore passo vitale con l'acquisto della nostra prima ambulanza, avviandoci al mondo dell'assistenza sanitaria.</p>
+                    <p class="testo-leggero mb-0">Grazie ai rigidi percorsi formativi di ANPAS Sicilia, ci siamo messi nelle condizioni di operare con il massimo della professionalità e sicurezza. Anche in questo settore avremmo innumerevoli storie da raccontare: i servizi infiniti, le notti insonni, le manifestazioni coperte. Tutto ciò ci ha permesso di comprendere le mille sfaccettature dell'assistenza al prossimo: trovare il modo giusto di gestire le ansie e le paure dei pazienti, senza mai sminuire il loro momento di sconforto, diventando la spalla solida che li sorreggeva e accompagnava.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="ambulanza.jpg" alt="Acquisto della prima ambulanza">
+                    <div class="editorial-caption"></div>
+                </div>
+            </div>
+
+            <!-- FASE 6: Pandemia e Niscemi -->
+            <div class="editorial-block reverse" data-aos="fade-up" data-aos-duration="1000">
+                <div class="editorial-content">
+                    <span class="watermark long-text">Covid</span>
+                    <span class="era-date-elegant">Dal Covid-19 a Niscemi</span>
+                    <h3 class="era-title">Le grandi sfide sociali e idrogeologiche</h3>
+                    <p class="testo-leggero">Come tutti, abbiamo vissuto il periodo più spaventoso della storia moderna: la pandemia da Covid-19. Con il Comune e altre associazioni del territorio, abbiamo gestito un centro logistico di stoccaggio e consegna viveri destinato alle famiglie che, a causa del lockdown, non potevano lavorare e sostenere la spesa. Abbiamo toccato con mano la generosità delle persone, capaci di donare beni ed economia a sconosciuti. Di quel periodo potremmo raccontare mille storie: di ognuna di loro ricordiamo ancora oggi gli occhi che avevano mille sfaccettature, sguardi che ci hanno toccato profondamente e a cui abbiamo dato voce, anche alla più piccola.</p>
+                    <p class="testo-leggero mb-0">Infine, in ordine cronologico, spicca l'emergenza per la frana di Niscemi del 25 gennaio 2026: un devastante disastro idrogeologico (un fronte di oltre 4 km con crollo di costoni di terra, strade e abitazioni finite nel vuoto) che ha provocato l'evacuazione di circa 1.300 persone (500 famiglie) e lo stato di emergenza nazionale. Accorsi tempestivamente, ci siamo messi a disposizione dei Vigili del Fuoco per evacuazioni e recupero beni. Parallelamente, abbiamo supportato il Comune, la PROCIV Niscemi e la rete ANPAS nell'allestimento del campo sfollati. Lì abbiamo accolto chi aveva perso la casa, affiancando figure professionali per aiutare le persone a 360 gradi, curando ogni aspetto fisico e mentale della tragedia.</p>
+                </div>
+                <div class="editorial-media">
+                    <img src="emergenze-recenti.jpg" alt="Interventi complessi: Pandemia e Frana di Niscemi">
+                    <div class="editorial-caption"></div>
+                </div>
+            </div>
+
+            <!-- CHIUSURA FINALE SULL'UNIONE -->
             <div class="row align-items-center g-5" style="margin-top: 8rem;" data-aos="fade-up" data-aos-duration="1000">
                 <div class="col-lg-6">
                     <div class="final-text-box">
-                        <span class="era-date-elegant" style="font-size: 2.5rem; border:none; text-align: left;">Il Futuro</span>
-                        <h3 class="era-title text-dark mb-4" style="font-size: 2rem; text-align: left;">I Giovani e il Volontariato</h3>
+                        <span class="era-date-elegant" style="font-size: 2.5rem; border:none; text-align: left;">Il Nostro Valore</span>
+                        <h3 class="era-title text-dark mb-4" style="font-size: 2rem; text-align: left;">L'Unione e la Fratellanza</h3>
                         <p class="testo-leggero mb-0" style="font-size: 1.15rem; line-height: 1.8; text-align: left;">
-                            Oggi, ANPAS Sicilia guarda al futuro investendo sulle nuove generazioni. Ogni anno centinaia di giovani siciliani entrano a far parte della nostra famiglia. Un'esperienza di cittadinanza attiva che non solo garantisce il fondamentale ricambio generazionale per le nostre associazioni, ma forma cittadini consapevoli, pronti a spendersi per il bene comune.<br><br>
-                            <strong style="color: #e65c00;">La storia di ANPAS Sicilia, dal 1992 a oggi, è la storia di donne e uomini liberi.</strong> Una rete laica e democratica in cui l'assistenza non è mai intesa come carità, ma come diritto del cittadino e dovere di solidarietà.
+                            Oltre alle emergenze affrontate e all'operatività sul campo, c’è un filo invisibile ma indissolubile che tiene insieme la nostra associazione: il valore dell'unione. Indossare la stessa divisa significa molto di più che condividere un turno. Negli anni, si è creato un vero e proprio rapporto di fratellanza. Nei momenti di pausa, nel silenzio surreale che segue la tempesta di un’emergenza o durante i lunghi viaggi, abbiamo imparato a metterci a nudo come persone, condividendo paure, fragilità e gioie quotidiane.<br><br>
+                            È proprio questa profonda empatia reciproca a renderci forti: <strong style="color: #e65c00;">la consapevolezza che, quando siamo là fuori a tendere la mano a chi soffre, possiamo contare ad occhi chiusi sulla persona che abbiamo al nostro fianco.</strong> Per noi il volontariato non è solo un servizio reso agli altri, ma un percorso umano che ci ha insegnato il valore della fiducia, dell'ascolto e dell'amicizia vera.
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="position-relative text-center h-100 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
-                        <!-- Effetto luce dietro la foto -->
                         <div class="position-absolute rounded-circle" style="width: 280px; height: 280px; background: rgba(230, 92, 0, 0.15); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; filter: blur(50px);"></div>
-                        
-                        <!-- Immagine (Carica il file rinominato come futuro.JPG) -->
-                        <img src="futuro.JPG" alt="I Giovani e il Futuro" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; max-height: 500px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
+                        <img src="gruppo-unito.jpg" alt="I volontari dell'Associazione" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; max-height: 500px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
                     </div>
                 </div>
             </div>
@@ -827,6 +599,7 @@
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-dark">I Nostri Pilastri</h2>
+                <div class="mx-auto mt-2" style="width: 60px; height: 3px; background-color: #e65c00; border-radius: 2px;"></div>
             </div>
             
             <div class="row g-4 justify-content-center">
@@ -866,12 +639,13 @@
         </div>
     </section>
 
-    <!-- ORGANIGRAMMA -->
+    <!-- ORGANIGRAMMA / DIRETTIVO -->
     <section id="organigramma" class="py-5 bg-light">
         <div class="container py-5">
             <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="display-6 fw-bold text-dark">Direttivo</h2>
-                <p class="testo-leggero">Le figure istituzionali alla guida dell'Associazione.</p>
+                <p class="testo-leggero">Le figure istituzionali alla guida della nostra Associazione.</p>
+                <div class="mx-auto mt-2" style="width: 60px; height: 3px; background-color: #e65c00; border-radius: 2px;"></div>
             </div>
             
             <!-- Presidente (in cima) -->
@@ -888,7 +662,7 @@
                 </div>
             </div>
             
-            <!-- Vicepresidente e Segretario (riga centrale) -->
+            <!-- Vicepresidente e Segretario -->
             <div class="row justify-content-center g-4 mb-4">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="org-card h-100 bg-white">
@@ -912,7 +686,7 @@
                 </div>
             </div>
 
-            <!-- Consiglieri (riga in basso) -->
+            <!-- Consiglieri -->
             <div class="row justify-content-center g-4">
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="org-card h-100 bg-white">
@@ -939,39 +713,27 @@
         </div>
     </section>
 
-    <!-- NUOVO FOOTER BANNER 5x1000 -->
+    <!-- FOOTER 5X1000 -->
     <footer id="contatti" class="footer-5x1000">
-        <!-- Sfondo dinamico: transizione rapida, permanenza lunga -->
         <div class="footer-slideshow">
             <div class="footer-slide"></div>
             <div class="footer-slide"></div>
             <div class="footer-slide"></div>
         </div>
-        
-        <!-- Pellicola di oscuramento sfumata -->
         <div class="footer-overlay"></div>
-        
-        <!-- Contenuto testuale -->
         <div class="container footer-content text-center">
             <div data-aos="fade-up">
-                
                 <p class="text-white-50 mb-3 max-w-xl mx-auto px-3" style="font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
                     Il 5x1000 non è una donazione in denaro e non comporta alcun costo aggiuntivo. È una quota dell'IRPEF che lo Stato ti permette di destinare agli Enti del Terzo Settore. Con la tua firma e il nostro Codice Fiscale, sostieni attivamente le attività di protezione civile sul territorio.
                 </p>
-                
                 <p class="text-white-50 text-uppercase small fw-bold tracking-wider mb-2 mt-4" style="letter-spacing: 2px;">Il nostro Codice Fiscale</p>
-                
-                <!-- Il Codice Fiscale Nudo e Crudo (Stile Vetro) -->
                 <div class="cf-naked-container">
                     <p class="cf-number">91039150866</p>
                     <button class="cf-copy-btn" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');" title="Copia Codice">
                         <i class="fa-regular fa-copy"></i>
                     </button>
                 </div>
-
             </div>
-
-            <!-- Area Legale Minimale -->
             <div class="border-top border-white border-opacity-10 pt-3 mt-4 footer-links">
                 <p class="small text-white-50 mb-1">&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="privacy.html">Privacy Policy</a></p>
                 <p class="mb-0 text-white-50 opacity-50" style="font-size: 0.70rem; letter-spacing: 0.5px;">*Le immagini scorrevoli sono a scopo puramente illustrativo (Courtesy of Fondazione CESVI).</p>
