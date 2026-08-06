@@ -14,29 +14,35 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.body.insertAdjacentHTML('afterbegin', data);
             }
 
-            // --- LOGICA NAVBAR DEFINITIVA ---
+            // --- LOGICA NAVBAR DEFINITIVA (ANTI-BLU BOOTSTRAP) ---
             let currentPage = window.location.pathname.split("/").pop();
             if (currentPage === "") currentPage = "index.html"; 
             
-            // 1. Spegne TUTTI i link 
+            // 1. Spegne TUTTI i link per azzerare la situazione
             document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(el => el.classList.remove('active'));
 
             // 2. Accende solo il menu giusto
             if (currentPage === "index.html") {
-                // Caso Home: accende index.html oppure il "#" (ESCLUDENDO però i menu a tendina!)
+                // Accendi la Home
                 document.querySelectorAll('a.nav-link[href="index.html"], a.nav-link[href="#"]:not(.dropdown-toggle), a.bottom-nav-item[href="index.html"]').forEach(el => el.classList.add('active'));
             } else {
-                // Caso altre pagine
-                document.querySelectorAll('.nav-link:not(.dropdown-toggle), .bottom-nav-item, .dropdown-item').forEach(link => {
+                // Accendi i link normali (es. Documenti, Contatti)
+                document.querySelectorAll('.nav-link:not(.dropdown-toggle), .bottom-nav-item').forEach(link => {
                     const href = link.getAttribute('href');
                     if (href && href.includes(currentPage)) {
                         link.classList.add('active');
-                        
-                        // Se la pagina è dentro un sottomenu, illumina il genitore
-                        const dropdownParent = link.closest('.dropdown');
+                    }
+                });
+
+                // IL FIX È QUI: Cerchiamo nei sottomenu, ma NON aggiungiamo .active a loro!
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    const href = item.getAttribute('href');
+                    if (href && href.includes(currentPage)) {
+                        // Trovata la pagina! Ora cerchiamo il "Genitore" (es. Chi Siamo) e accendiamo SOLO LUI
+                        const dropdownParent = item.closest('.dropdown');
                         if (dropdownParent) {
                             const toggle = dropdownParent.querySelector('.nav-link.dropdown-toggle');
-                            if (toggle) toggle.classList.add('active');
+                            if (toggle) toggle.classList.add('active'); // Questo diventa arancione!
                         }
                     }
                 });
