@@ -135,6 +135,9 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
+        /* -------------------------------------------
+            HEADER EMOZIONALE CON OVERLAY E OMBRA
+            ------------------------------------------- */
         .page-hero { 
             display: flex; 
             align-items: center; 
@@ -145,8 +148,17 @@
             padding: 5rem 0; 
         }
         
-        .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        .page-hero-overlay { 
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
+            z-index: 1; 
+        }
+        
         .page-hero-content { position: relative; z-index: 2; }
+
+        .hero-text-shadow {
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+        }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
@@ -389,7 +401,7 @@
         .footer-content {
             position: relative;
             z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
+            padding: 7rem 0 1.5rem 0; 
         }
 
         .cf-naked-container {
@@ -458,7 +470,7 @@
                     
                     <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
+                        <a class="nav-link dropdown-toggle active mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="chi-siamo.html"><i class="fa-solid fa-hand-holding-heart text-danger"></i> Missione e Valori</a></li>
                             <li><a class="dropdown-item" href="chi-siamo.html#organigramma"><i class="fa-solid fa-sitemap text-primary"></i> Organigramma</a></li>
@@ -502,9 +514,7 @@
     <div class="bottom-nav">
         <a href="index.html" class="bottom-nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="news.html" class="bottom-nav-item"><i class="fa-regular fa-newspaper"></i></a>
-        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal">
-            <i class="fa-solid fa-bars"></i> Menu
-        </a>
+        <a href="#" class="bottom-nav-action" data-bs-toggle="modal" data-bs-target="#mobileMenuModal"><i class="fa-solid fa-bars"></i> Menu</a>
         <a href="emergenze.html" class="bottom-nav-item"><i class="fa-solid fa-triangle-exclamation"></i></a>
         <a href="contatti.html" class="bottom-nav-item"><i class="fa-regular fa-envelope"></i></a>
     </div>
@@ -520,6 +530,7 @@
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
                   
+                  <!-- CHI SIAMO (Menu a tendina) -->
                   <div>
                       <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
@@ -534,6 +545,7 @@
                       </div>
                   </div>
 
+                  <!-- ATTIVITÀ (Menu a tendina) -->
                   <div>
                       <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-truck-medical me-2 text-danger"></i> Attività</span>
@@ -548,6 +560,7 @@
                       </div>
                   </div>
 
+                  <!-- EMERGENZE (Menu a tendina) -->
                   <div>
                       <a href="#collapseEmergenzeMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-triangle-exclamation me-2 text-warning"></i> Emergenze</span>
@@ -562,8 +575,10 @@
                       </div>
                   </div>
 
+                  <!-- DOCUMENTI (Link Diretto) -->
                   <a href="documenti.html" class="btn btn-elite-outline text-start w-100"><i class="fa-solid fa-file-pdf me-2" style="color: #6c757d;"></i> Documenti</a>
 
+                  <!-- CONTATTI (Menu a tendina) -->
                   <div>
                       <a href="#collapseContattiMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-envelope me-2 text-success"></i> Contatti</span>
@@ -577,6 +592,7 @@
                       </div>
                   </div>
 
+                  <!-- DIVENTA VOLONTARIO -->
                   <a href="diventa-volontario.html" class="btn btn-elite-primary text-center w-100 mt-2">Diventa Volontario</a>
                   
               </div>
@@ -585,13 +601,13 @@
       </div>
     </div>
 
-    <!-- HEADER EMOZIONALE -->
+    <!-- HEADER EMOZIONALE CON TESTO BIANCO E OMBRA -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">DAL 1848 AD OGGI</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">La Rete Anpas</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">Non è solo la cronaca di un'associazione, ma il racconto di donne e uomini che hanno scelto di non voltarsi mai dall'altra parte.</p>
+            <h1 class="display-4 fw-bold text-white mb-2 hero-text-shadow">La Rete Anpas</h1>
+            <p class="lead text-white col-lg-8 mb-0 hero-text-shadow" style="opacity: 0.9;">Non è solo la cronaca di un'associazione, ma il racconto di donne e uomini che hanno scelto di non voltarsi mai dall'altra parte.</p>
         </div>
     </header>
 
