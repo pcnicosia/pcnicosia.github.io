@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     // 0. CARICAMENTO DINAMICO DI NAVBAR E FOOTER (I "Mattoncini")
-    // Li carichiamo subito per evitare sfarfallii del layout
-    fetch('navbar.html')
+    const p1 = fetch('navbar.html')
         .then(response => {
             if (!response.ok) throw new Error("File navbar.html non trovato");
             return response.text();
         })
         .then(data => {
-            // Inserisce la navbar all'inizio del body (o nel container dedicato)
             const navbarContainer = document.getElementById('navbar-container');
             if (navbarContainer) {
                 navbarContainer.innerHTML = data;
@@ -18,13 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Errore nel caricamento della navbar:', error));
 
-    fetch('footer.html')
+    const p2 = fetch('footer.html')
         .then(response => {
             if (!response.ok) throw new Error("File footer.html non trovato");
             return response.text();
         })
         .then(data => {
-            // Inserisce il footer alla fine della pagina (o nel container dedicato)
             const footerContainer = document.getElementById('footer-container');
             if (footerContainer) {
                 footerContainer.innerHTML = data;
@@ -34,6 +31,15 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Errore nel caricamento del footer:', error));
 
+    // FIX ANIMAZIONI AOS: Quando navbar e footer sono caricati, ricalcola le animazioni
+    Promise.all([p1, p2]).then(() => {
+        setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ once: true, offset: 50 });
+                AOS.refresh();
+            }
+        }, 100);
+    });
 
     // 1. LOGICA TEMA IMMEDIATA (Non blocca, evita sfarfallii)
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -110,6 +116,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
         
-    }, 150); // Fine del ritardo di 150ms
+    }, 150); 
 
 });
