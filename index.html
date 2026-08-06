@@ -192,10 +192,10 @@
         /* -------------------------------------------
            RESTO DEGLI STILI 
            ------------------------------------------- */
-        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         
-        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
         .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
@@ -206,6 +206,22 @@
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; }
+
+        /* EFFETTO VETRO SOTTOTITOLO HOME */
+        .hero-subtitle-glass {
+            background: var(--nav-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--nav-border);
+            border-radius: 16px;
+            padding: 1.2rem 2rem;
+            display: inline-block;
+            font-weight: 800; /* Spessore massiccio in stile Arial Black ma elegante */
+            color: var(--text-color);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            letter-spacing: -0.3px;
+            line-height: 1.6;
+        }
 
         .elite-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); transition: transform 0.4s, border-color 0.3s; }
         .elite-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
@@ -252,7 +268,6 @@
         .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
         .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
 
-        /* Transizione fulminea, permanenza lunga */
         @keyframes crossFade {
             0% { opacity: 0; transform: scale(1); }
             3% { opacity: 1; } 
@@ -261,7 +276,6 @@
             100% { opacity: 0; transform: scale(1); }
         }
 
-        /* Gradiente: lascia limpida la parte alta, scurisce bene in basso */
         .footer-overlay {
             position: absolute;
             top: 0; left: 0; 
@@ -270,14 +284,12 @@
             z-index: 2;
         }
 
-        /* ALTEZZA FOOTER: Notevolmente ridotta, come un vero banner a fondo pagina */
         .footer-content {
             position: relative;
             z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
+            padding: 7rem 0 1.5rem 0; 
         }
 
-        /* Il nuovo look "naked" del Codice Fiscale */
         .cf-naked-container {
             display: inline-flex;
             align-items: center;
@@ -345,7 +357,7 @@
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link active mx-2" href="#"><i class="fa-solid fa-house"></i> Home</a></li>
                     
-                                            <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
+                    <!-- MENU CHI SIAMO CON SOTTOMENU AGGIORNATO -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users"></i> Chi Siamo</a>
                         <ul class="dropdown-menu">
@@ -355,7 +367,6 @@
                             <li><a class="dropdown-item" href="rete-anpas.html"><i class="fa-solid fa-people-group text-info"></i> La Rete Anpas</a></li>
                         </ul>
                     </li>
-
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-truck-medical"></i> Attività</a>
@@ -418,7 +429,7 @@
           <div class="modal-body py-4">
               <div class="d-grid gap-3">
                   
-                                    <!-- CHI SIAMO (Menu a tendina aggiornato) -->
+                  <!-- CHI SIAMO (Menu a tendina aggiornato) -->
                   <div>
                       <a href="#collapseChiSiamoMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
                           <span><i class="fa-solid fa-users me-2 text-primary"></i> Chi Siamo</span>
@@ -434,7 +445,6 @@
                       </div>
                   </div>
 
-
                   <!-- ATTIVITÀ (Menu a tendina) -->
                   <div>
                       <a href="#collapseAttivitaMobile" class="btn btn-elite-outline text-start w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
@@ -443,9 +453,9 @@
                       </a>
                       <div class="collapse mt-2" id="collapseAttivitaMobile">
                           <div class="d-grid gap-2 ps-4 border-start border-2 border-danger border-opacity-25 ms-3">
-                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Protezione Civile</a>
-                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-ambulance text-danger me-2"></i>Sanitario</a>
-                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1"><i class="fa-solid fa-hands-holding-child text-info me-2"></i>Sociale</a>
+                              <a href="protezione-civile.html" class="text-decoration-none text-dark small fw-medium py-1">Protezione Civile</a>
+                              <a href="sanitario.html" class="text-decoration-none text-dark small fw-medium py-1">Sanitario</a>
+                              <a href="sociale.html" class="text-decoration-none text-dark small fw-medium py-1">Sociale</a>
                           </div>
                       </div>
                   </div>
@@ -496,7 +506,14 @@
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h1 class="mb-4" data-aos="fade-up" data-aos-duration="1000">Pronti a intervenire.<br><span style="color: #e65c00;">Sempre al vostro fianco.</span></h1>
-            <p class="lead mb-5 px-lg-5 testo-leggero" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Dal 2009 la nostra Pubblica Assistenza opera per la sicurezza, la salute e il supporto sociale del territorio Nicosiano.</p>
+            
+            <!-- TESTO IN EVIDENZA CON EFFETTO VETRO E GRASSETTO (SOLUZIONE AL CONTRASTO) -->
+            <div class="mb-5 px-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <p class="lead hero-subtitle-glass mb-0">
+                    Dal 2009 la nostra Pubblica Assistenza opera per la sicurezza, la salute e il supporto sociale del territorio Nicosiano.
+                </p>
+            </div>
+
             <div class="d-flex justify-content-center gap-4 flex-wrap" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                 <a href="diventa-volontario.html" class="btn btn-elite-primary shadow">Diventa Volontario</a>
             </div>
