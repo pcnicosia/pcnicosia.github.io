@@ -1,3 +1,21 @@
+// ==========================================
+// INIEZIONE GOOGLE ANALYTICS (GA4)
+// ==========================================
+const gaScript1 = document.createElement('script');
+gaScript1.async = true;
+gaScript1.src = 'https://www.googletagmanager.com/gtag/js?id=G-WW9ZW8M252';
+document.head.appendChild(gaScript1);
+
+const gaScript2 = document.createElement('script');
+gaScript2.innerHTML = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WW9ZW8M252');
+`;
+document.head.appendChild(gaScript2);
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", function() {
     
     // 0. CARICAMENTO DINAMICO DI NAVBAR E FOOTER (I "Mattoncini")
@@ -21,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // 1. Spegne TUTTI i link per azzerare la situazione
             document.querySelectorAll('.nav-link, .bottom-nav-item, .dropdown-item').forEach(el => el.classList.remove('active'));
 
-                        // 2. Accende solo il menu giusto
+            // 2. Accende solo il menu giusto
             if (currentPage === "index.html") {
                 // Accendi la Home sia nel menu desktop che in quello mobile
                 document.querySelectorAll('a.nav-link[href="index.html"], a.bottom-nav-item[href="index.html"]').forEach(el => el.classList.add('active'));
