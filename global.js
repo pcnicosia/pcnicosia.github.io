@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 });
 
-                // IL FIX È QUI: Cerchiamo nei sottomenu, ma NON aggiungiamo .active a loro!
+                // Cerchiamo nei sottomenu, ma NON aggiungiamo .active a loro!
                 document.querySelectorAll('.dropdown-item').forEach(item => {
                     const href = item.getAttribute('href');
                     if (href && href.includes(currentPage)) {
@@ -95,9 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 100);
     });
 
-    // 1. LOGICA TEMA IMMEDIATA (Non blocca, evita sfarfallii)
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    // 1. FORZATURA TEMA CHIARO (Rimosso il Dark Mode)
+    document.documentElement.setAttribute('data-theme', 'light');
 
     // 2. NAVBAR DINAMICA (Leggera, gestisce lo scroll della navbar quando viene caricata)
     window.addEventListener('scroll', function() {
@@ -116,59 +115,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // 3. INIEZIONE RITARDATA (Risolve il lag)
     setTimeout(function() {
         
-        // INIEZIONE STILI GLOBALI E FIX DEFINITIVO DARK MODE
+        // STILI GLOBALI (Solo bottone WhatsApp e impaginazione generale)
         const styles = `
             html { scroll-behavior: smooth; }
             .floating-btn-global { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; z-index: 9999; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); text-decoration: none; transition: transform 0.3s; }
             .floating-btn-global:hover { transform: scale(1.15) translateY(-5px); color: white; }
             
-            .floating-theme-global { position: fixed; bottom: 30px; left: 30px; width: 45px; height: 45px; background-color: var(--text-color); color: var(--bg-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; z-index: 9999 !important; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); cursor: pointer; border: none; transition: transform 0.3s, background-color 0.3s, color 0.3s; }
-            .floating-theme-global:hover { transform: scale(1.15) translateY(-5px); }
-
             /* MODIFICA PER IL MOBILE: TASTI ABBASSATI A 90px (QUASI ATTACCATI ALLA BARRA) */
             @media (max-width: 991px) {
                 .floating-btn-global { bottom: 90px !important; right: 20px; width: 50px; height: 50px; font-size: 1.5rem; }
-                .floating-theme-global { display: flex !important; bottom: 90px !important; left: 20px; width: 40px; height: 40px; }
             }
-
-            /* =========================================
-               ANTI-BUG DARK MODE (DOMA BOOTSTRAP)
-               ========================================= */
-            [data-theme="dark"] .text-dark { color: var(--text-color) !important; }
-            [data-theme="dark"] .text-secondary { color: var(--text-light) !important; }
-            [data-theme="dark"] .bg-white { background-color: var(--card-bg) !important; }
-            [data-theme="dark"] .bg-light { background-color: var(--secondary-bg) !important; }
-            [data-theme="dark"] .border-secondary { border-color: var(--card-border) !important; }
         `;
         const styleSheet = document.createElement("style");
         styleSheet.innerText = styles;
         document.head.appendChild(styleSheet);
 
-        // INIEZIONE ELEMENTI HTML
+        // INIEZIONE ELEMENTI HTML (Solo WhatsApp)
         const floatingElements = `
-            <button id="globalThemeToggle" class="floating-theme-global" title="Cambia tema">
-                <i class="fa-solid ${savedTheme === 'dark' ? 'fa-sun text-warning' : 'fa-moon'}"></i>
-            </button>
             <a href="https://wa.me/3513633864" target="_blank" class="floating-btn-global">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
         `;
         document.body.insertAdjacentHTML('beforeend', floatingElements);
-
-        // ATTIVAZIONE BOTTONE TEMA DOPO L'INIEZIONE
-        const themeToggleBtn = document.getElementById('globalThemeToggle');
-        if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                
-                const iconClass = newTheme === 'dark' ? 'fa-sun text-warning' : 'fa-moon';
-                this.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
-            });
-        }
         
     }, 150); 
 
