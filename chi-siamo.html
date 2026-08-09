@@ -63,7 +63,7 @@
         }
 
         /* -------------------------------------------
-           NAVBAR DESKTOP E BOTTONI
+           NAVBAR DESKTOP
            ------------------------------------------- */
         .glass-nav {
             background: var(--nav-bg); 
@@ -73,53 +73,129 @@
             transition: all 0.3s ease;
         }
 
-        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
-        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-main {
+            height: 137px; 
+            width: 137px;  
+            border-radius: 50%;
+            object-fit: contain;
+            background: white;
+            padding: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .brand-title {
+            height: 68.5px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            font-size: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+            color: var(--text-color);
+            margin-left: 15px; 
+        }
+
         .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
 
-        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link { 
+            color: var(--text-color) !important; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            letter-spacing: -0.1px;
+            display: flex;
+            align-items: center;
+            gap: 5px; 
+            padding: 0.4rem 0.8rem !important; 
+        }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
-        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; }
+        }
+
+        @keyframes slideFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
+        /* -------------------------------------------
+           SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
+           ------------------------------------------- */
+
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
-            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-center-wing { 
+                flex: 1 1 auto; 
+                display: flex; 
+                justify-content: center; 
+                padding: 0 20px; 
+            }
             .nav-right-wing { flex: 0 0 auto; }
         }
 
         @media (min-width: 992px) and (max-width: 1366px) {
-            body { padding-top: 121px; } html { scroll-padding-top: 121px; }
-            .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } 
-            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } 
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .hero-section { height: calc(100vh - 121px); }
+            
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
         }
 
-        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        /* 2. MENU MOBILE (<991px) */
+        .bottom-nav {
+            display: none;
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
+        }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
-        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
-        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
-        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
+        @media (max-width: 991px) {
+            .navbar-collapse { display: none !important; }
+            .bottom-nav { display: flex; }
+            .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; }
+        }
 
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .page-hero { height: calc(100vh - 107px); }
+            
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
+            .page-hero { height: calc(100vh - 77px); }
+            
+            .logo-main { height: 60px; width: 60px; padding: 2px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
+            .logo-anpas { height: 45px; max-width: 90px; }
+        }
+
+        /* -------------------------------------------
+           RESTO DEGLI STILI 
+           ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+        
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
-
-        .btn-course-link { display: flex; align-items: center; justify-content: space-between; background: var(--bg-color); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; color: var(--text-color); text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; }
-        .btn-course-link:hover { transform: translateY(-3px); border-color: rgba(230, 92, 0, 0.4); box-shadow: 0 10px 25px rgba(230, 92, 0, 0.08); color: #e65c00; }
-        .btn-course-link .icon-left { font-size: 1.4rem; width: 40px; text-align: left; }
-        .btn-course-link .arrow-right { transition: transform 0.3s ease; opacity: 0.5; }
-        .btn-course-link:hover .arrow-right { transform: translateX(5px); opacity: 1; color: #e65c00; }
 
         /* -------------------------------------------
             HEADER EMOZIONALE CHI SIAMO
@@ -134,9 +210,10 @@
             padding: 5rem 0; 
         }
         
+        /* PELLICOLA SCHIARITA: dal 45% all'inizio al 10% al centro */
         .page-hero-overlay { 
             position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.10) 65%, var(--bg-color) 100%); 
             z-index: 1; 
         }
         
@@ -149,6 +226,49 @@
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
+
+        /* -------------------------------------------
+            PULSANTI AREE FORMATIVE D'ELITE
+            ------------------------------------------- */
+        .btn-course-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-course-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(230, 92, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.08);
+            color: #e65c00;
+        }
+
+        .btn-course-link .icon-left {
+            font-size: 1.4rem;
+            width: 40px;
+            text-align: left;
+        }
+
+        .btn-course-link .arrow-right {
+            transition: transform 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .btn-course-link:hover .arrow-right {
+            transform: translateX(5px);
+            opacity: 1;
+            color: #e65c00;
+        }
 
         /* -------------------------------------------
             SEZIONE STORIA E RISOLUZIONE FOTO SCHIACCIATE
@@ -214,10 +334,6 @@
             grid-row: 1;
         }
 
-        /* 
-           IL FIX DEFINITIVO PER LE FOTO:
-           Altezza fissa e object-fit impediscono lo schiacciamento
-        */
         .editorial-media img {
             width: 100%;
             height: 450px; 
@@ -330,7 +446,7 @@
     <!-- QUI VERRÀ CARICATA AUTOMATICAMENTE LA NAVBAR DA GLOBAL.JS -->
     <div id="navbar-container"></div>
 
-    <!-- HEADER LOCALE PER CHI SIAMO -->
+    <!-- HEADER LOCALE PER CHI SIAMO (CON TESTO BIANCO E OMBRA) -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
@@ -358,7 +474,6 @@
                     <p class="testo-leggero mb-0">Animati da una forte spinta ideale e dalla voglia di crescere secondo i più alti standard di operatività e trasparenza, abbiamo scelto subito di varcare i confini locali. Così, durante il 10° Meeting della Solidarietà svoltosi a Enna dal 20 al 24 maggio 2009, siamo entrati a far parte del movimento nazionale ANPAS, tramite il comitato regionale siciliano.</p>
                 </div>
                 <div class="editorial-media">
-                    <!-- FOTO FIX: Risolto spazio nel nome file -->
                     <img src="Logo%20chiesa.JPG" alt="La Fondazione dell'Associazione nel 2009">
                     <div class="editorial-caption"></div>
                 </div>
@@ -375,7 +490,7 @@
                     <p class="testo-leggero mb-0">Da quell'esperienza indelebile si è piantato dentro ciascuno di noi il seme indissolubile del nostro motto: <strong>essere pronti!</strong> Perché avevamo scelto di fare questo e, soprattutto, di essere questo.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="emergenza-fango.jpg" alt="Intervento durante le emergenze idrogeologiche">
+                    <img src="Passamano.JPG" alt="Intervento durante le emergenze idrogeologiche">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -387,7 +502,7 @@
                     <span class="era-date-elegant">L'Istituzionalizzazione</span>
                     <h3 class="era-title">Al fianco della Protezione Civile Siciliana</h3>
                     <p class="testo-leggero">Contemporaneamente all'ingresso in ANPAS, per istituzionalizzare ulteriormente il nostro impegno, ci siamo iscritti al Dipartimento Regionale della Protezione Civile Siciliana (DRPC) con il numero di registro 1004.</p>
-                    <p class="testo-leggero">Il DRPC ha competenza esclusiva in Sicilia, la struttura pubblica incaricata di proteggere la popolazione in un territorio ad altissimo rischio idrogeologico, sismico e vulcanico. Attraverso questa sinergia, ci siamo inseriti organicamente nella catena regionale che opera su tre fronti vitali:</p>
+                    <p class="testo-leggero">Il DRPC ha competenza esclusiva in Sicilia ed è struttura pubblica incaricata di proteggere la popolazione in un territorio ad altissimo rischio idrogeologico, sismico e vulcanico. Attraverso questa sinergia, ci siamo inseriti organicamente nella catena regionale che opera su tre fronti vitali:</p>
                     <div class="drpc-box">
                         <ul class="testo-leggero small mb-0 ps-3">
                             <li class="mb-2"><strong>Previsione e Prevenzione:</strong> Monitoraggio dei rischi (meteo, incendi, eruzioni dell'Etna, frane) e mappatura dei territori fragili.</li>
@@ -397,7 +512,7 @@
                     </div>
                 </div>
                 <div class="editorial-media">
-                    <img src="Passamano.JPG" alt="Coordinamento con il DRPC Sicilia">
+                    <img src="emergenza-fango.jpg" alt="Coordinamento con il DRPC Sicilia">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -427,8 +542,7 @@
                     <p class="testo-leggero mb-0">Grazie ai rigidi percorsi formativi di ANPAS Sicilia, ci siamo messi nelle condizioni di operare con il massimo della professionalità e sicurezza. Anche in questo settore avremmo innumerevoli storie da raccontare: i servizi infiniti, le notti insonni, le manifestazioni coperte. Tutto ciò ci ha permesso di comprendere le mille sfaccettature dell'assistenza al prossimo: trovare il modo giusto di gestire le ansie e le paure dei pazienti, senza mai sminuire il loro momento di sconforto, diventando la spalla solida che li sorreggeva e accompagnava.</p>
                 </div>
                 <div class="editorial-media">
-                    <!-- FOTO FIX: Risolto spazio nel nome file -->
-                    <img src="Sanitario%20baby.jpg" alt="Acquisto della prima ambulanza">
+                    <img src="Ambulanza.JPG" alt="Acquisto della prima ambulanza">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -507,8 +621,6 @@
                 <div class="col-lg-6">
                     <div class="position-relative text-center h-100 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
                         <div class="position-absolute rounded-circle" style="width: 280px; height: 280px; background: rgba(230, 92, 0, 0.15); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; filter: blur(50px);"></div>
-                        
-                        <!-- FIX FINALE: Impostato height: 450px fisso qui al posto di max-height 500 per evitare schiacciamenti -->
                         <img src="gruppo-unito.jpg" alt="I volontari dell'Associazione" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; height: 450px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
                     </div>
                 </div>
