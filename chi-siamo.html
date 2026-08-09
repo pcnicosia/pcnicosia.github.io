@@ -73,16 +73,52 @@
             transition: all 0.3s ease;
         }
 
-        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
-        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-main {
+            height: 137px; 
+            width: 137px;  
+            border-radius: 50%;
+            object-fit: contain;
+            background: white;
+            padding: 4px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .brand-title {
+            height: 68.5px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            font-size: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.2px;
+            color: var(--text-color);
+            margin-left: 15px; 
+        }
+
         .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
 
-        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link { 
+            color: var(--text-color) !important; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            letter-spacing: -0.1px;
+            display: flex;
+            align-items: center;
+            gap: 5px; 
+            padding: 0.4rem 0.8rem !important; 
+        }
         .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
 
         .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
-        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; }
+        }
+
+        @keyframes slideFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
         .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
@@ -92,18 +128,21 @@
         /* -------------------------------------------
            SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
            ------------------------------------------- */
+
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
-            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-center-wing { 
+                flex: 1 1 auto; 
+                display: flex; 
+                justify-content: center; 
+                padding: 0 20px; 
+            }
             .nav-right-wing { flex: 0 0 auto; }
-            .page-hero { height: calc(100vh - 154px); } /* Incastro perfetto PC */
         }
 
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
-            .page-hero { height: calc(100vh - 121px) !important; } /* Incastro perfetto iPad Orizzontale */
-            
             .logo-main { height: 104px; width: 104px; } 
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
@@ -112,7 +151,10 @@
         }
 
         /* 2. MENU MOBILE (<991px) */
-        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        .bottom-nav {
+            display: none;
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between;
+        }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
@@ -126,8 +168,6 @@
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
-            .page-hero { height: calc(100vh - 107px) !important; } /* Incastro perfetto iPad Verticale */
-            
             .logo-main { height: 90px; width: 90px; padding: 3px; } 
             .brand-title { font-size: 0.85rem; margin-left: 12px; }
             .logo-anpas { height: 60px; max-width: 130px; }
@@ -136,23 +176,129 @@
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
-            .page-hero { height: calc(100vh - 77px) !important; } /* Incastro perfetto Telefono */
-            
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           BOTTONI E STILI 
+           BOTTONI E STILI
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+        
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
         /* -------------------------------------------
-            HEADER EMOZIONALE CHI SIAMO (FIXATO)
+           TASTI D'ELITE CORSI FORMATIVI (NUOVO DESIGN)
+           ------------------------------------------- */
+        .elite-course-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .elite-course-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; 
+            width: 0%; height: 100%;
+            background: linear-gradient(90deg, rgba(230,92,0,0.06) 0%, rgba(230,92,0,0) 100%);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .elite-course-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(230, 92, 0, 0.12);
+            border-color: rgba(230, 92, 0, 0.3);
+            color: var(--text-color);
+        }
+        
+        .elite-course-btn:hover::before {
+            width: 100%;
+        }
+
+        .elite-course-content {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .elite-course-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(230, 92, 0, 0.15) 0%, rgba(230, 92, 0, 0.05) 100%);
+            color: #e65c00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(230, 92, 0, 0.1);
+        }
+
+        .elite-course-btn:hover .elite-course-icon {
+            background: #e65c00;
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(230, 92, 0, 0.3);
+        }
+
+        .elite-course-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .elite-course-title {
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin: 0 0 3px 0;
+            letter-spacing: -0.3px;
+            color: var(--text-color);
+        }
+
+        .elite-course-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .elite-course-arrow {
+            color: #e65c00;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(230, 92, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .elite-course-btn:hover .elite-course-arrow {
+            transform: translateX(5px);
+            background: rgba(230, 92, 0, 0.15);
+        }
+
+        /* -------------------------------------------
+            HEADER EMOZIONALE CHI SIAMO
             ------------------------------------------- */
         .page-hero { 
             display: flex; 
@@ -160,20 +306,20 @@
             position: relative; 
             background: url('Foto.gruppo.JPG') center 65% / cover no-repeat;
             overflow: hidden; 
-            width: 100%;
+            min-height: 85vh; 
+            padding: 5rem 0; 
         }
         
-        /* PELLICOLA SCHIARITA E PIÙ LUMINOSA */
         .page-hero-overlay { 
             position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.10) 65%, var(--bg-color) 100%); 
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
             z-index: 1; 
         }
         
         .page-hero-content { position: relative; z-index: 2; }
 
         .hero-text-shadow {
-            text-shadow: 0px 4px 18px rgba(0, 0, 0, 0.95);
+            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
         }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
@@ -181,51 +327,153 @@
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
 
         /* -------------------------------------------
-            PULSANTI AREE FORMATIVE D'ELITE
+            SEZIONE STORIA - DESIGN EDITORIALE
             ------------------------------------------- */
-        .btn-course-link { display: flex; align-items: center; justify-content: space-between; background: var(--bg-color); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; color: var(--text-color); text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: all 0.3s ease; }
-        .btn-course-link:hover { transform: translateY(-3px); border-color: rgba(230, 92, 0, 0.4); box-shadow: 0 10px 25px rgba(230, 92, 0, 0.08); color: #e65c00; }
-        .btn-course-link .icon-left { font-size: 1.4rem; width: 40px; text-align: left; }
-        .btn-course-link .arrow-right { transition: transform 0.3s ease; opacity: 0.5; }
-        .btn-course-link:hover .arrow-right { transform: translateX(5px); opacity: 1; color: #e65c00; }
+        .history-editorial { 
+            background-color: var(--museum-bg); 
+            padding: 5rem 0; 
+            overflow: hidden;
+        }
+        
+        .main-history-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--text-color);
+            text-align: center;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+        }
 
-        /* -------------------------------------------
-            SEZIONE STORIA E RISOLUZIONE FOTO SCHIACCIATE
-            ------------------------------------------- */
-        .history-editorial { background-color: var(--museum-bg); padding: 5rem 0; overflow: hidden; }
-        .main-history-title { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; color: var(--text-color); text-align: center; letter-spacing: -1px; margin-bottom: 1.5rem; }
-        .title-divider { width: 80px; height: 3px; background-color: #e65c00; margin: 0 auto 3rem auto; border-radius: 2px; }
+        .title-divider {
+            width: 80px;
+            height: 3px;
+            background-color: #e65c00;
+            margin: 0 auto 3rem auto;
+            border-radius: 2px;
+        }
 
-        .editorial-block { display: grid; grid-template-columns: repeat(12, 1fr); align-items: center; margin-top: 7rem; position: relative; }
-        .editorial-content { grid-column: 1 / 8; grid-row: 1; padding: 3.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; box-shadow: 0 25px 60px rgba(0,0,0,0.06); z-index: 2; position: relative; }
-        .editorial-media { grid-column: 7 / 13; grid-row: 1; z-index: 1; position: relative; }
+        .editorial-block {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: center;
+            margin-top: 7rem;
+            position: relative;
+        }
 
-        .editorial-block.reverse .editorial-content { grid-column: 6 / 13; grid-row: 1; }
-        .editorial-block.reverse .editorial-media { grid-column: 1 / 7; grid-row: 1; }
+        .editorial-content {
+            grid-column: 1 / 8;
+            grid-row: 1;
+            padding: 3.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+            z-index: 2;
+            position: relative;
+        }
 
-        .editorial-media img { width: 100%; height: 450px; border-radius: 12px; box-shadow: 0 15px 45px rgba(0,0,0,0.1); transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); object-fit: cover; object-position: center; display: block; }
+        .editorial-media {
+            grid-column: 7 / 13;
+            grid-row: 1;
+            z-index: 1;
+            position: relative;
+        }
+
+        .editorial-block.reverse .editorial-content {
+            grid-column: 6 / 13;
+            grid-row: 1;
+        }
+
+        .editorial-block.reverse .editorial-media {
+            grid-column: 1 / 7;
+            grid-row: 1;
+        }
+
+        .editorial-media img {
+            width: 100%;
+            height: auto;
+            max-height: 550px;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            object-fit: cover;
+            display: block;
+        }
+
         .editorial-block:hover .editorial-media img { transform: scale(1.02); }
 
-        .editorial-caption { font-family: 'Playfair Display', serif; font-style: italic; color: var(--text-light); margin-top: 1.2rem; font-size: 0.95rem; }
+        .editorial-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+        }
         .editorial-block:not(.reverse) .editorial-caption { text-align: right; padding-right: 15px; }
         .editorial-block.reverse .editorial-caption { text-align: left; padding-left: 15px; }
 
-        .era-date-elegant { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.8rem; color: #e65c00; margin-bottom: 0.5rem; display: block; position: relative; z-index: 2; }
-        .era-title { font-weight: 800; font-size: 1.6rem; margin-bottom: 1.5rem; letter-spacing: -0.5px; position: relative; z-index: 2; }
+        .era-date-elegant {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #e65c00;
+            margin-bottom: 0.5rem;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+        .era-title {
+            font-weight: 800;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+        }
 
-        .watermark { position: absolute; top: -25px; left: 30px; font-family: 'Playfair Display', serif; font-size: 8rem; font-weight: 800; color: var(--text-color); opacity: 0.03; z-index: 0; line-height: 1; pointer-events: none; user-select: none; }
+        .watermark {
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            opacity: 0.03;
+            z-index: 0;
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
         .editorial-block.reverse .watermark { left: auto; right: 30px; }
         .watermark.long-text { font-size: 5.5rem; top: 10px; }
 
-        .drpc-box { background: rgba(230, 92, 0, 0.05); border-left: 4px solid #e65c00; padding: 1.5rem; margin-top: 1.5rem; border-radius: 0 8px 8px 0; }
+        .drpc-box {
+            background: rgba(230, 92, 0, 0.05);
+            border-left: 4px solid #e65c00;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
 
-        .final-text-box { padding: 4rem; background: var(--card-bg); border-radius: 20px; border: 2px solid rgba(230, 92, 0, 0.2); box-shadow: 0 20px 50px rgba(230, 92, 0, 0.05); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .final-text-box {
+            padding: 4rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 2px solid rgba(230, 92, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(230, 92, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
         @media screen and (max-width: 991px) {
             .editorial-block, .editorial-block.reverse { display: flex; flex-direction: column; margin-top: 4rem; }
             .editorial-content { width: 100%; padding: 2.5rem 1.5rem; border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; box-shadow: none; border-color: var(--card-border); }
             .editorial-media { width: 100%; }
-            .editorial-media img { height: 350px; border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+            .editorial-media img { border-top-left-radius: 0; border-top-right-radius: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
             .watermark, .editorial-block.reverse .watermark, .watermark.long-text { font-size: 4rem; top: 10px; left: 15px; right: auto; }
             .final-text-box { padding: 2.5rem 1.5rem; }
         }
@@ -239,6 +487,108 @@
         .org-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
         .avatar-placeholder { width: 80px; height: 80px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
 
+        /* -------------------------------------------
+           NUOVO FOOTER 5X1000
+           ------------------------------------------- */
+        .footer-5x1000 {
+            position: relative;
+            background-color: #000;
+            color: #fff;
+            overflow: hidden;
+            margin-top: 0rem; 
+        }
+
+        .footer-slideshow {
+            position: absolute;
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        .footer-slide {
+            position: absolute;
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center top;
+            opacity: 0;
+            animation: crossFade 27s infinite; 
+        }
+
+        .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
+        .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
+        .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
+
+        @keyframes crossFade {
+            0% { opacity: 0; transform: scale(1); }
+            3% { opacity: 1; } 
+            30% { opacity: 1; } 
+            33.33% { opacity: 0; transform: scale(1.03); } 
+            100% { opacity: 0; transform: scale(1); }
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.95) 100%);
+            z-index: 2;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 0 1.5rem 0; 
+        }
+
+        .cf-naked-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cf-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 4px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            line-height: 1;
+            margin: 0;
+        }
+
+        .cf-copy-btn {
+            background: rgba(230, 92, 0, 0.2);
+            color: #e65c00;
+            border: 1px solid rgba(230, 92, 0, 0.4);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .cf-copy-btn:hover {
+            background: #e65c00;
+            color: #ffffff;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
+        }
+
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #e65c00; }
+
     </style>
 </head>
 <body>
@@ -246,17 +596,17 @@
     <!-- QUI VERRÀ CARICATA AUTOMATICAMENTE LA NAVBAR DA GLOBAL.JS -->
     <div id="navbar-container"></div>
 
-    <!-- HEADER LOCALE PER CHI SIAMO (TESTO BIANCO, OMBRA MASSICCIA) -->
+    <!-- HEADER LOCALE PER CHI SIAMO (CON TESTO BIANCO E OMBRA) -->
     <header class="page-hero">
         <div class="page-hero-overlay"></div>
         <div class="container page-hero-content" data-aos="fade-up">
             <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold">CHI SIAMO</span>
             <h1 class="display-4 fw-bold text-white mb-2 hero-text-shadow">La Nostra Associazione</h1>
-            <p class="lead text-white col-lg-8 mb-0 hero-text-shadow" style="opacity: 0.95; font-weight: 500;">Radicati nel territorio di Nicosia, ci dedichiamo quotidianamente al soccorso, alla protezione civile e al supporto della comunità con spirito di servizio e solidarietà.</p>
+            <p class="lead text-white col-lg-8 mb-0 hero-text-shadow" style="opacity: 0.9;">Radicati nel territorio di Nicosia, ci dedichiamo quotidianamente al soccorso, alla protezione civile e al supporto della comunità con spirito di servizio e solidarietà.</p>
         </div>
     </header>
 
-    <!-- LA NOSTRA STORIA -->
+    <!-- LA NOSTRA STORIA (Testo Integrale del Presidente) -->
     <section id="la-nostra-storia" class="history-editorial">
         <div class="container">
             <div data-aos="fade-up">
@@ -274,7 +624,7 @@
                     <p class="testo-leggero mb-0">Animati da una forte spinta ideale e dalla voglia di crescere secondo i più alti standard di operatività e trasparenza, abbiamo scelto subito di varcare i confini locali. Così, durante il 10° Meeting della Solidarietà svoltosi a Enna dal 20 al 24 maggio 2009, siamo entrati a far parte del movimento nazionale ANPAS, tramite il comitato regionale siciliano.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="Logo%20chiesa.JPG" alt="La Fondazione dell'Associazione nel 2009">
+                    <img src="Logo chiesa.JPG" alt="La Fondazione dell'Associazione nel 2009">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -290,7 +640,7 @@
                     <p class="testo-leggero mb-0">Da quell'esperienza indelebile si è piantato dentro ciascuno di noi il seme indissolubile del nostro motto: <strong>essere pronti!</strong> Perché avevamo scelto di fare questo e, soprattutto, di essere questo.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="emergenza-fango.jpg" alt="Intervento durante le emergenze idrogeologiche">
+                    <img src="Passamano.JPG" alt="Intervento durante le emergenze idrogeologiche">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -312,7 +662,7 @@
                     </div>
                 </div>
                 <div class="editorial-media">
-                    <img src="Passamano.JPG" alt="Coordinamento con il DRPC Sicilia">
+                    <img src="emergenza-fango.jpg" alt="Coordinamento con il DRPC Sicilia">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -342,7 +692,7 @@
                     <p class="testo-leggero mb-0">Grazie ai rigidi percorsi formativi di ANPAS Sicilia, ci siamo messi nelle condizioni di operare con il massimo della professionalità e sicurezza. Anche in questo settore avremmo innumerevoli storie da raccontare: i servizi infiniti, le notti insonni, le manifestazioni coperte. Tutto ciò ci ha permesso di comprendere le mille sfaccettature dell'assistenza al prossimo: trovare il modo giusto di gestire le ansie e le paure dei pazienti, senza mai sminuire il loro momento di sconforto, diventando la spalla solida che li sorreggeva e accompagnava.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="Sanitario%20baby.jpg" alt="Acquisto della prima ambulanza">
+                    <img src="Ambulanza.JPG" alt="Acquisto della prima ambulanza">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -362,7 +712,7 @@
                 </div>
             </div>
             
-            <!-- FASE 7: Formazione e Addestramento -->
+            <!-- FASE 7: Formazione -->
             <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
                 <div class="editorial-content">
                     <span class="watermark long-text">Corsi</span>
@@ -372,37 +722,53 @@
                     <p class="testo-leggero">Crediamo fermamente nel valore dell'aggiornamento continuo: ogni giorno continuiamo a formarci e a perfezionare le nostre competenze, affidandoci esclusivamente a istruttori altamente qualificati. Oltre alla formazione interna, la nostra struttura è un punto di riferimento per l'erogazione di corsi specialistici in ambito sanitario e di Protezione Civile.</p>
                     
                     <h4 class="fw-bold mt-4 mb-3" style="font-size: 1.2rem;">I Nostri Corsi Formativi</h4>
-                    <p class="testo-leggero small mb-3">Offriamo percorsi formativi teorico-pratici per preparare operatori pronti a intervenire in ogni scenario. Scopri i dettagli nelle nostre sezioni operative:</p>
+                    <p class="testo-leggero small mb-4">Offriamo percorsi formativi teorico-pratici per preparare operatori pronti a intervenire in ogni scenario. Tutti i dettagli e i moduli completi sono disponibili nella sezione dedicata del nostro sito:</p>
                     
-                    <!-- PULSANTI D'ELITE -->
-                    <a href="sanitario.html" class="btn-course-link">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-briefcase-medical text-danger icon-left"></i>
-                            <span>Area Sanitaria e Primo Soccorso</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right arrow-right"></i>
-                    </a>
-                    
-                    <a href="protezione-civile.html" class="btn-course-link">
-                        <div class="d-flex align-items-center">
-                            <i class="fa-solid fa-helmet-safety text-warning icon-left"></i>
-                            <span>Area Protezione Civile e Operatività Tecnologica</span>
-                        </div>
-                        <i class="fa-solid fa-arrow-right arrow-right"></i>
-                    </a>
+                    <!-- TASTI D'ELITE PER LE DUE MACRO AREE -->
+                    <div class="mb-5">
+                        <a href="attivita.html#sanitario" class="elite-course-btn">
+                            <div class="elite-course-content">
+                                <div class="elite-course-icon">
+                                    <i class="fa-solid fa-briefcase-medical"></i>
+                                </div>
+                                <div class="elite-course-text">
+                                    <span class="elite-course-title">Area Sanitaria e Primo Soccorso</span>
+                                    <span class="elite-course-subtitle">Scopri i corsi O.T.S. e le abilitazioni BLS-D</span>
+                                </div>
+                            </div>
+                            <div class="elite-course-arrow">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </a>
+
+                        <a href="attivita.html#protezionecivile" class="elite-course-btn">
+                            <div class="elite-course-content">
+                                <div class="elite-course-icon">
+                                    <i class="fa-solid fa-helmet-safety"></i>
+                                </div>
+                                <div class="elite-course-text">
+                                    <span class="elite-course-title">Area Protezione Civile e Operatività</span>
+                                    <span class="elite-course-subtitle">Moduli A.I.B., logistica da campo e droni</span>
+                                </div>
+                            </div>
+                            <div class="elite-course-arrow">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
         
                     <h4 class="fw-bold mt-4 mb-2" style="font-size: 1.2rem;">Sinergie Istituzionali</h4>
                     <p class="testo-leggero small mb-2">La qualità e la validità della nostra formazione sono garantite dal continuo lavoro di squadra con le istituzioni del territorio. Tutti i nostri corsi e le relative certificazioni sono sviluppati e rilasciati in stretta sinergia con:</p>
-                    <div class="d-flex flex-wrap gap-2 mt-3">
-                        <span class="badge bg-primary px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-plus me-1"></i> A.N.P.A.S.</span>
+                    <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                        <strong class="text-dark fw-bold me-2" style="font-size: 0.95rem;">ANPAS</strong>
                         <span class="badge bg-secondary px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-building-shield me-1"></i> DRPC Sicilia</span>
-                        <span class="badge bg-danger px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-fire-extinguisher me-1"></i> Vigili del Fuoco</span>
+                        <span class="badge bg-danger px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-fire-extinguisher me-1"></i> Corpo Nazionale dei Vigili del Fuoco</span>
                         <span class="badge bg-success px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-tree me-1"></i> Corpo Forestale</span>
                     </div>
                 </div>
                 <div class="editorial-media">
                     <img src="formazione-addestramento.jpg" alt="Formazione e Addestramento dei Volontari">
-                    <div class="editorial-caption">Istruttori e volontari durante le attività formative</div>
+                    <div class="editorial-caption"></div>
                 </div>
             </div>
 
@@ -421,7 +787,7 @@
                 <div class="col-lg-6">
                     <div class="position-relative text-center h-100 d-flex align-items-center justify-content-center mt-5 mt-lg-0">
                         <div class="position-absolute rounded-circle" style="width: 280px; height: 280px; background: rgba(230, 92, 0, 0.15); top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; filter: blur(50px);"></div>
-                        <img src="gruppo-unito.jpg" alt="I volontari dell'Associazione" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; height: 450px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
+                        <img src="gruppo-unito.jpg" alt="I volontari dell'Associazione" class="img-fluid rounded-4 position-relative" style="z-index: 1; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform: rotate(2deg); transition: all 0.4s ease; max-height: 500px; width: 100%; object-fit: cover;" onmouseover="this.style.transform='rotate(0deg) scale(1.02)'; this.style.boxShadow='0 25px 50px rgba(230,92,0,0.15)';" onmouseout="this.style.transform='rotate(2deg)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)';">
                     </div>
                 </div>
             </div>
@@ -553,7 +919,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true, offset: 50 });</script>
     <script src="global.js"></script>
 </body>
 </html>
