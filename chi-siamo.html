@@ -143,9 +143,12 @@
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
+            .hero-section { height: calc(100vh - 121px); }
+            
             .logo-main { height: 104px; width: 104px; } 
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
+            
             .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
             .nav-link i { font-size: 0.82rem; } 
         }
@@ -168,6 +171,8 @@
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
+            .hero-section { height: calc(100vh - 107px); }
+            
             .logo-main { height: 90px; width: 90px; padding: 3px; } 
             .brand-title { font-size: 0.85rem; margin-left: 12px; }
             .logo-anpas { height: 60px; max-width: 130px; }
@@ -176,13 +181,15 @@
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
+            .hero-section { height: calc(100vh - 77px); }
+            
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           BOTTONI E STILI
+           RESTO DEGLI STILI 
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
@@ -190,34 +197,57 @@
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        /* -------------------------------------------
-            HEADER EMOZIONALE CHI SIAMO
-            ------------------------------------------- */
-        .page-hero { 
-            display: flex; 
-            align-items: center; 
-            position: relative; 
-            background: url('Foto.gruppo.JPG') center 65% / cover no-repeat;
-            overflow: hidden; 
-            min-height: 85vh; 
-            padding: 5rem 0; 
-        }
-        
-        .page-hero-overlay { 
-            position: absolute; top: 0; left: 0; right: 0; bottom: 0; 
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.3) 60%, var(--bg-color) 100%); 
-            z-index: 1; 
-        }
-        
-        .page-hero-content { position: relative; z-index: 2; }
+        .hero-section { height: calc(100vh - 154px); display: flex; align-items: center; position: relative; background: url('Logo%20retro%20.JPG') center/cover no-repeat; overflow: hidden; }
 
-        .hero-text-shadow {
-            text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
-        }
+        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; }
 
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.7; }
+
+        /* -------------------------------------------
+            PULSANTI AREE FORMATIVE D'ELITE
+            ------------------------------------------- */
+        .btn-course-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-course-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(230, 92, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.08);
+            color: #e65c00;
+        }
+
+        .btn-course-link .icon-left {
+            font-size: 1.4rem;
+            width: 40px;
+            text-align: left;
+        }
+
+        .btn-course-link .arrow-right {
+            transition: transform 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .btn-course-link:hover .arrow-right {
+            transform: translateX(5px);
+            opacity: 1;
+            color: #e65c00;
+        }
 
         /* -------------------------------------------
             SEZIONE STORIA - DESIGN EDITORIALE
@@ -380,108 +410,6 @@
         .org-card:hover { transform: translateY(-8px); border-color: rgba(230, 92, 0, 0.3); }
         .avatar-placeholder { width: 80px; height: 80px; background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem auto; border: 1px solid rgba(230, 92, 0, 0.2); }
 
-        /* -------------------------------------------
-           NUOVO FOOTER 5X1000
-           ------------------------------------------- */
-        .footer-5x1000 {
-            position: relative;
-            background-color: #000;
-            color: #fff;
-            overflow: hidden;
-            margin-top: 0rem; 
-        }
-
-        .footer-slideshow {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            z-index: 1;
-        }
-
-        .footer-slide {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center top;
-            opacity: 0;
-            animation: crossFade 27s infinite; 
-        }
-
-        .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
-        .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
-        .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
-
-        @keyframes crossFade {
-            0% { opacity: 0; transform: scale(1); }
-            3% { opacity: 1; } 
-            30% { opacity: 1; } 
-            33.33% { opacity: 0; transform: scale(1.03); } 
-            100% { opacity: 0; transform: scale(1); }
-        }
-
-        .footer-overlay {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.95) 100%);
-            z-index: 2;
-        }
-
-        .footer-content {
-            position: relative;
-            z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
-        }
-
-        .cf-naked-container {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 0.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cf-number {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            line-height: 1;
-            margin: 0;
-        }
-
-        .cf-copy-btn {
-            background: rgba(230, 92, 0, 0.2);
-            color: #e65c00;
-            border: 1px solid rgba(230, 92, 0, 0.4);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .cf-copy-btn:hover {
-            background: #e65c00;
-            color: #ffffff;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
-        }
-
-        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: #e65c00; }
-
     </style>
 </head>
 <body>
@@ -585,7 +513,7 @@
                     <p class="testo-leggero mb-0">Grazie ai rigidi percorsi formativi di ANPAS Sicilia, ci siamo messi nelle condizioni di operare con il massimo della professionalità e sicurezza. Anche in questo settore avremmo innumerevoli storie da raccontare: i servizi infiniti, le notti insonni, le manifestazioni coperte. Tutto ciò ci ha permesso di comprendere le mille sfaccettature dell'assistenza al prossimo: trovare il modo giusto di gestire le ansie e le paure dei pazienti, senza mai sminuire il loro momento di sconforto, diventando la spalla solida che li sorreggeva e accompagnava.</p>
                 </div>
                 <div class="editorial-media">
-                    <img src="Ambulanza.JPG" alt="Acquisto della prima ambulanza">
+                    <img src="Sanitario baby.jpg" alt="Acquisto della prima ambulanza">
                     <div class="editorial-caption"></div>
                 </div>
             </div>
@@ -605,7 +533,7 @@
                 </div>
             </div>
             
-            <!-- FASE 7: Formazione -->
+            <!-- FASE 7: Formazione e Addestramento (CON BOTTONI D'ELITE E ANPAS) -->
             <div class="editorial-block" data-aos="fade-up" data-aos-duration="1000">
                 <div class="editorial-content">
                     <span class="watermark long-text">Corsi</span>
@@ -615,36 +543,37 @@
                     <p class="testo-leggero">Crediamo fermamente nel valore dell'aggiornamento continuo: ogni giorno continuiamo a formarci e a perfezionare le nostre competenze, affidandoci esclusivamente a istruttori altamente qualificati. Oltre alla formazione interna, la nostra struttura è un punto di riferimento per l'erogazione di corsi specialistici in ambito sanitario e di Protezione Civile.</p>
                     
                     <h4 class="fw-bold mt-4 mb-3" style="font-size: 1.2rem;">I Nostri Corsi Formativi</h4>
-                    <p class="testo-leggero small mb-2">Offriamo percorsi formativi teorico-pratici per preparare operatori pronti a intervenire in ogni scenario, suddivisi in due macro-aree:</p>
+                    <p class="testo-leggero small mb-3">Offriamo percorsi formativi teorico-pratici per preparare operatori pronti a intervenire in ogni scenario. Scopri i dettagli nelle nostre sezioni operative:</p>
                     
-                    <div class="drpc-box mb-4">
-                        <h5 class="fw-bold text-dark mb-2" style="font-size: 1rem;"><i class="fa-solid fa-briefcase-medical text-danger me-2"></i>Area Sanitaria e Primo Soccorso</h5>
-                        <p class="testo-leggero small mb-2">I nostri corsi in ambito sanitario rispettano i più alti standard normativi e sono rilasciati ai sensi del D.A. Regione Siciliana n. 1961 del 29 Ottobre 2018:</p>
-                        <ul class="testo-leggero small mb-4 ps-3">
-                            <li class="mb-1"><strong>Corsi O.T.S.S.A. e O.T.S.E.A.:</strong> Formazione per Operatore Tecnico Soccorso.</li>
-                            <li><strong>Abilitazione BLS-D:</strong> Formazione specifica per il primo soccorso e l'uso del Defibrillatore.</li>
-                        </ul>
-        
-                        <h5 class="fw-bold text-dark mb-2" style="font-size: 1rem;"><i class="fa-solid fa-helmet-safety text-warning me-2"></i>Area Protezione Civile e Operatività Tecnologica</h5>
-                        <p class="testo-leggero small mb-2">Prepariamo i nostri volontari e operatori ad affrontare le sfide sul campo con competenze tecniche specifiche:</p>
-                        <ul class="testo-leggero small mb-0 ps-3">
-                            <li class="mb-1"><strong>Corso Operatore A.I.B. (Antincendio Boschivo):</strong> Tecniche di prevenzione e spegnimento degli incendi boschivi.</li>
-                            <li class="mb-1"><strong>Logistica di Colonna Mobile:</strong> Gestione delle risorse, montaggio campi e supporto logistico nelle grandi emergenze.</li>
-                            <li><strong>Corso Operatori Droni (Progetto PRODIGI):</strong> Utilizzo di sistemi aeromobili a pilotaggio remoto per la ricerca, il monitoraggio del territorio e la mappatura degli scenari di rischio.</li>
-                        </ul>
-                    </div>
+                    <!-- PULSANTI D'ELITE (Link alle pagine) -->
+                    <a href="sanitario.html" class="btn-course-link">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-briefcase-medical text-danger icon-left"></i>
+                            <span>Area Sanitaria e Primo Soccorso</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right arrow-right"></i>
+                    </a>
+                    
+                    <a href="protezione-civile.html" class="btn-course-link">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-helmet-safety text-warning icon-left"></i>
+                            <span>Area Protezione Civile e Operatività Tecnologica</span>
+                        </div>
+                        <i class="fa-solid fa-arrow-right arrow-right"></i>
+                    </a>
         
                     <h4 class="fw-bold mt-4 mb-2" style="font-size: 1.2rem;">Sinergie Istituzionali</h4>
                     <p class="testo-leggero small mb-2">La qualità e la validità della nostra formazione sono garantite dal continuo lavoro di squadra con le istituzioni del territorio. Tutti i nostri corsi e le relative certificazioni sono sviluppati e rilasciati in stretta sinergia con:</p>
                     <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-primary px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-plus me-1"></i> A.N.P.A.S.</span>
                         <span class="badge bg-secondary px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-building-shield me-1"></i> DRPC Sicilia</span>
-                        <span class="badge bg-danger px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-fire-extinguisher me-1"></i> Corpo Nazionale dei Vigili del Fuoco</span>
+                        <span class="badge bg-danger px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-fire-extinguisher me-1"></i> Vigili del Fuoco</span>
                         <span class="badge bg-success px-3 py-2 rounded-pill fw-medium"><i class="fa-solid fa-tree me-1"></i> Corpo Forestale</span>
                     </div>
                 </div>
                 <div class="editorial-media">
                     <img src="formazione-addestramento.jpg" alt="Formazione e Addestramento dei Volontari">
-                    <div class="editorial-caption"></div>
+                    <div class="editorial-caption">Istruttori e volontari durante le attività formative</div>
                 </div>
             </div>
 
@@ -795,6 +724,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, offset: 50 });</script>
     <script src="global.js"></script>
 </body>
 </html>
