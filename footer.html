@@ -1,4 +1,4 @@
-    <!-- NUOVO FOOTER BANNER 5x1000 STRUTTURATO (STILE DOPPIA FASCIA) -->
+    <!-- NUOVO FOOTER BANNER 5x1000 STRUTTURATO (TUTTO SU FOTO + COPYRIGHT BIANCO) -->
     <footer id="contatti" class="footer-5x1000-split">
         <!-- CSS INLINE PER IL FOOTER SPLIT -->
         <style>
@@ -11,12 +11,11 @@
                 margin-top: 3rem;
             }
 
-            /* --- ZONA SUPERIORE (FOTO, TITOLO GIGANTE E CODICE FISCALE) --- */
+            /* --- ZONA SUPERIORE (FOTO, TITOLO, CODICE FISCALE E TESTO DESCRITTIVO) --- */
             .footer-top-zone {
                 position: relative;
                 width: 100%;
-                /* Altezza regolabile per dare spazio al titolo e al codice */
-                min-height: 380px; 
+                min-height: 450px; /* Aumentata per far respirare il testo descrittivo */
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -59,7 +58,7 @@
                 position: absolute;
                 top: 0; left: 0; 
                 width: 100%; height: 100%;
-                background: rgba(0, 0, 0, 0.6); /* Leggermente più scuro per far risaltare il codice */
+                background: rgba(0, 0, 0, 0.65); /* Oscuramento adeguato per il testo piccolo */
                 z-index: 2;
             }
 
@@ -68,17 +67,20 @@
                 position: relative;
                 z-index: 3;
                 text-align: center;
-                padding: 2rem;
+                padding: 3rem 1.5rem;
                 width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
             /* Il Grande Titolo (come nell'immagine) */
             .footer-text-huge {
                 font-family: 'Inter', sans-serif;
                 color: #ffffff;
-                font-size: clamp(3.5rem, 8vw, 6.5rem); /* Molto grande, stile manifesto */
+                font-size: clamp(3.5rem, 8vw, 6.5rem);
                 font-weight: 800;
-                font-style: italic; /* Stile simile all'immagine */
+                font-style: italic;
                 line-height: 1;
                 margin-bottom: 1.5rem;
                 text-shadow: 0 4px 15px rgba(0,0,0,0.8);
@@ -96,11 +98,12 @@
                 align-items: center;
                 justify-content: center;
                 gap: 1.5rem;
-                background: rgba(0, 0, 0, 0.3); /* Leggero sfondo scuro per staccare dal titolo */
+                background: rgba(0, 0, 0, 0.3);
                 padding: 1rem 2rem;
                 border-radius: 50px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 backdrop-filter: blur(5px);
+                margin-bottom: 2rem; /* Spazio prima del testo descrittivo */
             }
 
             .cf-number-top {
@@ -113,7 +116,7 @@
             }
 
             .cf-copy-btn-top {
-                background: rgba(230, 92, 0, 0.8); /* Arancione per attirare l'attenzione */
+                background: rgba(230, 92, 0, 0.8);
                 color: #ffffff;
                 border: 1px solid rgba(230, 92, 0, 1);
                 width: 50px;
@@ -134,30 +137,29 @@
                 box-shadow: 0 10px 25px rgba(230, 92, 0, 0.6);
             }
 
-            /* --- ZONA INFERIORE (BIANCA CON TESTO ESPLICATIVO) --- */
+            /* Testo descrittivo inserito SULLE FOTO, sotto il codice fiscale */
+            .footer-text-desc-overlay {
+                color: #ffffff;
+                font-size: clamp(0.9rem, 2vw, 1.05rem); /* Testo un po' più piccolo */
+                font-weight: 400;
+                line-height: 1.6;
+                max-width: 800px;
+                opacity: 0.9;
+                text-shadow: 0 2px 10px rgba(0,0,0,1); /* Ombra forte per renderlo leggibile */
+                margin-bottom: 0;
+            }
+
+            /* --- ZONA INFERIORE (BIANCA, SOLO COPYRIGHT) --- */
             .footer-bottom-zone {
-                background-color: #ffffff; /* Fascia bianca netta */
+                background-color: #ffffff;
                 width: 100%;
-                padding: 3rem 1.5rem 1.5rem 1.5rem;
+                padding: 1.5rem;
                 position: relative;
                 z-index: 4;
-                box-shadow: 0 -10px 20px rgba(0,0,0,0.1); 
                 text-align: center;
             }
 
-            /* Il testo che prende il posto del logo CRI */
-            .footer-text-desc-bottom {
-                color: #1d1d1f; /* Testo scuro per leggibilità sul bianco */
-                font-size: clamp(1rem, 2vw, 1.15rem);
-                font-weight: 500;
-                line-height: 1.6;
-                max-width: 900px;
-                margin: 0 auto 2rem auto;
-            }
-
             .footer-links-bottom {
-                border-top: 1px solid rgba(0,0,0,0.08);
-                padding-top: 1rem;
                 max-width: 900px;
                 margin: 0 auto;
             }
@@ -180,7 +182,7 @@
             }
         </style>
 
-        <!-- PARTE ALTA: IMMAGINI SCORREVOLI, TITOLO GIGANTE E CODICE FISCALE -->
+        <!-- PARTE ALTA: IMMAGINI, TITOLO, CODICE E TESTO DESCRITTIVO -->
         <div class="footer-top-zone">
             <!-- Immagini che sfumano -->
             <div class="footer-slideshow">
@@ -194,36 +196,35 @@
             
             <!-- Contenuto in sovraimpressione -->
             <div class="footer-top-content" data-aos="fade-up">
+                
                 <div class="footer-text-huge">
                     <span>Dona il tuo</span>
                     5x1000
                 </div>
                 
-                <!-- Il Codice Fiscale da copiare, proprio sotto il grande titolo -->
+                <!-- Codice Fiscale -->
                 <div class="cf-naked-container-top">
                     <p class="cf-number-top">91039150866</p>
                     <button class="cf-copy-btn-top" onclick="navigator.clipboard.writeText('91039150866'); alert('Codice Fiscale copiato negli appunti!');" title="Copia Codice">
                         <i class="fa-regular fa-copy"></i>
                     </button>
                 </div>
-            </div>
-        </div>
 
-        <!-- PARTE BASSA: FASCIA BIANCA CON TESTO ESPLICATIVO (Al posto del logo CRI) -->
-        <div class="footer-bottom-zone">
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-                
-                <!-- Testo descrittivo inserito nella fascia bianca -->
-                <p class="footer-text-desc-bottom">
+                <!-- Testo descrittivo abbassato e reso leggibile sulle foto -->
+                <p class="footer-text-desc-overlay">
                     Il 5x1000 non è una donazione in denaro e non comporta alcun costo aggiuntivo. È una quota dell'IRPEF che lo Stato ti permette di destinare agli Enti del Terzo Settore. Con la tua firma sostieni attivamente le attività di protezione civile sul nostro territorio.
                 </p>
 
-                <!-- Copyright e link Privacy -->
+            </div>
+        </div>
+
+        <!-- PARTE BASSA: FASCIA BIANCA SOTTILE (Solo Copyright) -->
+        <div class="footer-bottom-zone">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="footer-links-bottom">
                     <p>&copy; 2026 P.A. Gruppo Volontari Protezione Civile Nicosia O.d.V. | <a href="/privacy.html">Privacy Policy</a></p>
                     <p style="font-size: 0.70rem; opacity: 0.7;">*Le immagini scorrevoli sono a scopo puramente illustrativo (Fonte Anpas Nazionale).</p>
                 </div>
-
             </div>
         </div>
     </footer>
