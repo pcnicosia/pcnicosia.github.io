@@ -46,10 +46,26 @@
             --bottom-nav-active: #e65c00;
         }
 
-        html { scroll-behavior: smooth; scroll-padding-top: 154px; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); overflow-x: hidden; padding-top: 154px; transition: background-color 0.3s, color 0.3s; }
+        /* -------------------------------------------
+           IMPOSTAZIONI BASE E INCASTRO PERFETTO
+           ------------------------------------------- */
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 154px; 
+        }
 
-        /* NAVBAR DESKTOP */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+            padding-top: 154px; /* Default PC */
+            transition: background-color 0.3s, color 0.3s; 
+        }
+
+        /* -------------------------------------------
+           NAVBAR DESKTOP
+           ------------------------------------------- */
         .glass-nav { background: var(--nav-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--nav-border); transition: all 0.3s ease; }
         .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
         .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
@@ -67,37 +83,73 @@
         .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
         .dropdown-item:hover i { opacity: 1; color: #e65c00; }
 
+        /* -------------------------------------------
+           SISTEMA DI IMPAGINAZIONE RESPONSIVE D'ELITE
+           ------------------------------------------- */
         @media (min-width: 992px) {
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
             .nav-right-wing { flex: 0 0 auto; }
+            .page-hero { height: calc(100vh - 154px); } /* Incastro perfetto PC */
         }
 
+        /* 1. TABLET E IPAD ORIZZONTALI */
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } html { scroll-padding-top: 121px; }
+            .page-hero { height: calc(100vh - 121px) !important; }
             .logo-main { height: 104px; width: 104px; } .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } .logo-anpas { height: 72px; max-width: 150px; } 
             .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; } .nav-link i { font-size: 0.82rem; } 
         }
 
+        /* 2. MENU MOBILE (<991px) */
         .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
         .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
         .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
         .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 
         @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
-        @media (min-width: 768px) and (max-width: 991px) { body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } }
-        @media (max-width: 767px) { body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } }
+        
+        /* 2a. IPAD VERTICALE */
+        @media (min-width: 768px) and (max-width: 991px) { 
+            body { padding-top: 107px; padding-bottom: 90px; } html { scroll-padding-top: 107px; } 
+            .page-hero { height: calc(100vh - 107px) !important; }
+            .logo-main { height: 90px; width: 90px; padding: 3px; } .brand-title { font-size: 0.85rem; margin-left: 12px; } .logo-anpas { height: 60px; max-width: 130px; } 
+        }
+        
+        /* 2b. TELEFONO */
+        @media (max-width: 767px) { 
+            body { padding-top: 77px; padding-bottom: 90px; } html { scroll-padding-top: 77px; } 
+            .page-hero { height: calc(100vh - 77px) !important; }
+            .logo-main { height: 60px; width: 60px; padding: 2px; } .brand-title { font-size: 0.85rem; margin-left: 10px; } .logo-anpas { height: 45px; max-width: 90px; } 
+        }
 
-        /* STILI SPECIFICI DELLA PAGINA */
+        /* -------------------------------------------
+           PULSANTI E HEADER COPERTINA
+           ------------------------------------------- */
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--card-border); transition: all 0.3s; text-decoration: none; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
 
-        .page-hero { padding: 5rem 0; background-color: var(--secondary-bg); border-bottom: 1px solid var(--card-border); position: relative; }
+        /* HEADER SFONDO IMMAGINE */
+        .page-hero { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            position: relative; 
+            /* Sostituisci "Sfondo-Contatti.jpg" con la tua immagine reale */
+            background: url('Sfondo-Contatti.jpg') center/cover no-repeat; 
+            overflow: hidden; 
+        }
+        .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        .page-hero-content { position: relative; z-index: 2; }
+        
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         .testo-leggero { color: var(--text-light); font-weight: 400; line-height: 1.6; }
 
-        /* CARD ISTITUZIONALI D'ÉLITE - AGGIORNATE PER I LOGHI */
+        /* -------------------------------------------
+           CARD ISTITUZIONALI D'ÉLITE
+           ------------------------------------------- */
         .inst-card { 
             background: var(--card-bg); 
             border: 1px solid var(--card-border); 
@@ -113,7 +165,6 @@
         }
         .inst-card:hover { transform: translateY(-8px); box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08); border-color: rgba(0,0,0,0.1); }
         
-        /* Contenitore per i loghi ufficiali */
         .logo-partner-container { 
             width: 100px; 
             height: 100px; 
@@ -127,104 +178,21 @@
         .logo-partner { max-width: 100%; max-height: 100%; object-fit: contain; }
 
         /* -------------------------------------------
-           NUOVO FOOTER 5X1000 (MINIMAL, ELITE, SENZA CARD)
+           NUOVO FOOTER 5X1000
            ------------------------------------------- */
-        .footer-5x1000 {
-            position: relative;
-            background-color: #000;
-            color: #fff;
-            overflow: hidden;
-            margin-top: 3rem; 
-        }
-
-        .footer-slideshow {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            z-index: 1;
-        }
-
-        .footer-slide {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center top;
-            opacity: 0;
-            animation: crossFade 27s infinite; 
-        }
-
+        .footer-5x1000 { position: relative; background-color: #000; color: #fff; overflow: hidden; margin-top: 3rem; }
+        .footer-slideshow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .footer-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center top; opacity: 0; animation: crossFade 27s infinite; }
         .footer-slide:nth-child(1) { background-image: url('COVER-PAG5X1000-1024x685-INT.jpg'); animation-delay: 0s; }
         .footer-slide:nth-child(2) { background-image: url('COVER-PAG5X1000-1024x685-ITA-1.jpg'); animation-delay: 9s; }
         .footer-slide:nth-child(3) { background-image: url('COVER-PAG5X1000-1024x685-EMG.jpg'); animation-delay: 18s; }
-
-        @keyframes crossFade {
-            0% { opacity: 0; transform: scale(1); }
-            3% { opacity: 1; } 
-            30% { opacity: 1; } 
-            33.33% { opacity: 0; transform: scale(1.03); } 
-            100% { opacity: 0; transform: scale(1); }
-        }
-
-        .footer-overlay {
-            position: absolute;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%);
-            z-index: 2;
-        }
-
-       .footer-content {
-            position: relative;
-            z-index: 3;
-            padding: 8rem 0 1.5rem 0; 
-        }
-
-        .cf-naked-container {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .cf-number {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            line-height: 1;
-            margin: 0;
-        }
-
-        .cf-copy-btn {
-            background: rgba(230, 92, 0, 0.2);
-            color: #e65c00;
-            border: 1px solid rgba(230, 92, 0, 0.4);
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .cf-copy-btn:hover {
-            background: #e65c00;
-            color: #ffffff;
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5);
-        }
-
+        @keyframes crossFade { 0% { opacity: 0; transform: scale(1); } 3% { opacity: 1; } 30% { opacity: 1; } 33.33% { opacity: 0; transform: scale(1.03); } 100% { opacity: 0; transform: scale(1); } }
+        .footer-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.95) 100%); z-index: 2; }
+        .footer-content { position: relative; z-index: 3; padding: 8rem 0 1.5rem 0; }
+        .cf-naked-container { display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 1.5rem; margin-top: 1rem; margin-bottom: 2.5rem; }
+        .cf-number { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: #ffffff; letter-spacing: 4px; text-shadow: 0 4px 20px rgba(0,0,0,0.6); line-height: 1; margin: 0; }
+        .cf-copy-btn { background: rgba(230, 92, 0, 0.2); color: #e65c00; border: 1px solid rgba(230, 92, 0, 0.4); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .cf-copy-btn:hover { background: #e65c00; color: #ffffff; transform: scale(1.1) rotate(5deg); box-shadow: 0 10px 25px rgba(230, 92, 0, 0.5); }
         .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: #e65c00; }
     </style>
@@ -233,120 +201,123 @@
 
     <!-- QUI VERRÀ CARICATA AUTOMATICAMENTE LA NAVBAR DA GLOBAL.JS -->
     <div id="navbar-container"></div>
-
-    <!-- HEADER PAGINA -->
-    <header class="page-hero">
-        <div class="container page-hero-content text-center" data-aos="fade-up">
-            <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider"><i class="fa-solid fa-landmark me-2"></i>RETE OPERATIVA E ISTITUZIONALE</span>
-            <h1 class="display-4 fw-bold text-dark mb-3">Contatti Istituzionali</h1>
-            <p class="lead testo-leggero mx-auto mb-0" style="max-width: 700px;">Riferimenti degli enti partner, organizzazioni di soccorso e autorità locali con cui operiamo in sinergia sul territorio.</p>
-        </div>
-    </header>
-
-    <!-- GRIGLIA ENTI CON LOGHI -->
-    <section class="py-5">
-        <div class="container py-4">
-            <div class="row g-4">
-                
-                <!-- 1. ANPAS Nazionale -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-anpas-nazionale.png" alt="Logo ANPAS Nazionale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=ANPAS';">
-                        </div>
-                        <h5 class="fw-bold mb-2">ANPAS Nazionale</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Associazione Nazionale Pubbliche Assistenze.</p>
-                        <a href="https://www.anpas.org/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 2. ANPAS Sicilia -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-anpas-sicilia.png" alt="Logo ANPAS Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=SICILIA';">
-                        </div>
-                        <h5 class="fw-bold mb-2">ANPAS Sicilia</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Associazione Nazionale Pubbliche Assistenze - Comitato Regionale Sicilia.</p>
-                        <a href="https://www.anpas-sicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 3. DRPC -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-drpc.png" alt="Logo Protezione Civile Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=DRPC';">
-                        </div>
-                        <h5 class="fw-bold mb-2">DRPC Sicilia</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Dipartimento Regionale della Protezione Civile Siciliana.</p>
-                        <a href="https://www.protezionecivilesicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 4. Corpo Forestale -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-forestale.png" alt="Logo Corpo Forestale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=FORESTALE';">
-                        </div>
-                        <h5 class="fw-bold mb-2">CSF</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Corpo Forestale Regionle Sicilia.</p>
-                        <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-territorio-ambiente/comando-corpo-forestale-regione-siciliana" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 5. Vigili del Fuoco -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-vvf.png" alt="Logo Vigili del Fuoco" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=VVF';">
-                        </div>
-                        <h5 class="fw-bold mb-2">CNVVF</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Corpo Nazionale dei Vigli del Fuoco.</p>
-                        <a href="https://www.vigilfuoco.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 6. SEUS 118 -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-seus.png" alt="Logo SEUS 118" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=118';">
-                        </div>
-                        <h5 class="fw-bold mb-2">SEUS 118</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Sicilia Emergenza-Urgenza Sanitaria.</p>
-                        <a href="https://www.118sicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 7. CSVE -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-csve.png" alt="Logo CSVE" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=CSVE';">
-                        </div>
-                        <h5 class="fw-bold mb-2">CSVE</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Centro di Servizo per il Volontariato Etneo.</p>
-                        <a href="https://www.csvetneo.org/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
-                <!-- 8. Comune di Nicosia -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="450">
-                    <div class="inst-card">
-                        <div class="logo-partner-container">
-                            <img src="logo-nicosia.png" alt="Logo Comune di Nicosia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=NICOSIA';">
-                        </div>
-                        <h5 class="fw-bold mb-2">Comune di Nicosia</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Amministrazione Locale e Centro Operativo Comunale (C.O.C.) per le emergenze.</p>
-                        <a href="https://www.comune.nicosia.en.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
-                    </div>
-                </div>
-
+    
+    <main class="overflow-hidden">
+        <!-- HEADER PAGINA CON FOTO -->
+        <header class="page-hero">
+            <div class="page-hero-overlay"></div>
+            <div class="container page-hero-content text-center" data-aos="fade-up">
+                <span class="badge bg-secondary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider text-white"><i class="fa-solid fa-landmark me-2"></i>RETE OPERATIVA E ISTITUZIONALE</span>
+                <h1 class="display-4 fw-bold text-dark mb-3">Contatti Istituzionali</h1>
+                <p class="lead testo-leggero mx-auto mb-0" style="max-width: 700px;">Riferimenti degli enti partner, organizzazioni di soccorso e autorità locali con cui operiamo in sinergia sul territorio.</p>
             </div>
-        </div>
-    </section>
+        </header>
+
+        <!-- GRIGLIA ENTI CON LOGHI -->
+        <section class="py-5 bg-white">
+            <div class="container py-4">
+                <div class="row g-4">
+                    
+                    <!-- 1. ANPAS Nazionale -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-anpas-nazionale.png" alt="Logo ANPAS Nazionale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=ANPAS';">
+                            </div>
+                            <h5 class="fw-bold mb-2">ANPAS Nazionale</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Associazione Nazionale Pubbliche Assistenze.</p>
+                            <a href="https://www.anpas.org/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 2. ANPAS Sicilia -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-anpas-sicilia.png" alt="Logo ANPAS Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=SICILIA';">
+                            </div>
+                            <h5 class="fw-bold mb-2">ANPAS Sicilia</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Associazione Nazionale Pubbliche Assistenze - Comitato Regionale Sicilia.</p>
+                            <a href="https://www.anpas-sicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 3. DRPC -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-drpc.png" alt="Logo Protezione Civile Sicilia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=DRPC';">
+                            </div>
+                            <h5 class="fw-bold mb-2">DRPC Sicilia</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Dipartimento Regionale della Protezione Civile Siciliana.</p>
+                            <a href="https://www.protezionecivilesicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Corpo Forestale -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="250">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-forestale.png" alt="Logo Corpo Forestale" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=FORESTALE';">
+                            </div>
+                            <h5 class="fw-bold mb-2">CFRS</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Corpo Forestale Regionle Sicilia.</p>
+                            <a href="https://www.regione.sicilia.it/istituzioni/regione/strutture-regionali/assessorato-territorio-ambiente/comando-corpo-forestale-regione-siciliana" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Vigili del Fuoco -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-vvf.png" alt="Logo Vigili del Fuoco" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=VVF';">
+                            </div>
+                            <h5 class="fw-bold mb-2">CNVVF</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Corpo Nazionale dei Vigli del Fuoco.</p>
+                            <a href="https://www.vigilfuoco.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 6. SEUS 118 -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="350">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-seus.png" alt="Logo SEUS 118" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=118';">
+                            </div>
+                            <h5 class="fw-bold mb-2">SEUS 118</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Sicilia Emergenza-Urgenza Sanitaria.</p>
+                            <a href="https://www.118sicilia.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 7. CSVE -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-csve.png" alt="Logo CSVE" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=CSVE';">
+                            </div>
+                            <h5 class="fw-bold mb-2">CSVE</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Centro di Servizo per il Volontariato Etneo.</p>
+                            <a href="https://www.csvetneo.org/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Comune di Nicosia -->
+                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="450">
+                        <div class="inst-card">
+                            <div class="logo-partner-container">
+                                <img src="logo-nicosia.png" alt="Logo Comune di Nicosia" class="logo-partner" onerror="this.src='https://via.placeholder.com/100x100?text=NICOSIA';">
+                            </div>
+                            <h5 class="fw-bold mb-2">Comune di Nicosia</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Amministrazione Locale e Centro Operativo Comunale (C.O.C.) per le emergenze.</p>
+                            <a href="https://www.comune.nicosia.en.it/" target="_blank" class="btn btn-elite-outline w-100">Visita il sito</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- QUI VERRÀ CARICATO AUTOMATICAMENTE IL FOOTER DA GLOBAL.JS -->
     <div id="footer-container"></div>
