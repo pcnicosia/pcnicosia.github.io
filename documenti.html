@@ -161,7 +161,6 @@
             display: flex; 
             align-items: center; 
             position: relative; 
-            /* Sostituisci "Sfondo-Documenti.jpg" con la tua immagine reale */
             background: url('Sfondo-Documenti.jpg') center/cover no-repeat; 
             overflow: hidden; 
         }
@@ -226,7 +225,7 @@
         }
 
         .section-title {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid rgba(0,0,0,0.05);
             display: flex;
@@ -398,16 +397,14 @@
                     </div>
                 </div>
 
-                <!-- BILANCI -->
-                <div class="row mb-5" data-aos="fade-up">
-                    <div class="col-12">
+                <!-- SEZIONE COMBINATA: BILANCI E PIANI OPERATIVI -->
+                <div class="row" data-aos="fade-up">
+                    
+                    <!-- Colonna Sinistra: Bilanci -->
+                    <div class="col-md-6 mb-4">
                         <div class="section-title">
-                            <h3 class="fw-bold text-dark mb-0">Bilanci e Trasparenza Economica</h3>
+                            <h4 class="fw-bold text-dark mb-0">Bilanci e Trasparenza</h4>
                         </div>
-                    </div>
-
-                    <!-- Card centrata -->
-                    <div class="col-md-8 col-lg-6 mx-auto mb-4">
                         <div class="doc-card border-success">
                             <div class="doc-icon text-success border-success" style="background: rgba(25, 135, 84, 0.1);"><i class="fa-solid fa-wallet"></i></div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -417,19 +414,13 @@
                             <a href="#" class="btn-elite-download border-success text-success"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
                         </div>
                     </div>
-                </div>
 
-                <!-- MODULISTICA -->
-                <div class="row" data-aos="fade-up">
-                    <div class="col-12">
+                    <!-- Colonna Destra: Piani Operativi -->
+                    <div class="col-md-6 mb-4">
                         <div class="section-title">
-                            <h3 class="fw-bold text-dark mb-0">Modulistica e Piani Operativi</h3>
+                            <h4 class="fw-bold text-dark mb-0">Piani Operativi</h4>
                             <span class="badge bg-danger rounded-pill">Pronto Impiego</span>
                         </div>
-                    </div>
-
-                    <!-- Card centrata -->
-                    <div class="col-md-8 col-lg-6 mx-auto mb-4">
                         <div class="doc-card">
                             <div class="doc-icon text-primary" style="background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fa-solid fa-map-location-dot"></i></div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -440,9 +431,10 @@
                             <a href="#" class="btn-elite-download"><i class="fa-solid fa-file-arrow-down me-2"></i>Consulta Ufficiale</a>
                         </div>
                     </div>
+                    
                 </div>
                 
-                <div class="mt-5 p-4 rounded-4 border border-secondary border-opacity-10 bg-light" data-aos="fade-up">
+                <div class="mt-4 p-4 rounded-4 border border-secondary border-opacity-10 bg-light" data-aos="fade-up">
                     <p class="text-secondary small mb-0"><i class="fa-solid fa-circle-info me-2 text-primary"></i>I file presenti in questa bacheca sono conformi agli standard di trasparenza amministrativa del Terzo Settore. Per qualsiasi chiarimento o richiesta di accesso agli atti storici, contattare la segreteria via PEC.</p>
                 </div>
 
