@@ -98,12 +98,15 @@
             .nav-left-wing { flex: 0 0 auto; }
             .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
             .nav-right-wing { flex: 0 0 auto; }
+            .page-hero { height: calc(100vh - 154px); } /* Incastro perfetto PC */
         }
 
         /* 1. TABLET E IPAD ORIZZONTALI (992px - 1366px) */
         @media (min-width: 992px) and (max-width: 1366px) {
             body { padding-top: 121px; } 
             html { scroll-padding-top: 121px; }
+            .page-hero { height: calc(100vh - 121px) !important; } /* Incastro perfetto iPad orizzontale */
+            
             .logo-main { height: 104px; width: 104px; } 
             .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
             .logo-anpas { height: 72px; max-width: 150px; } 
@@ -127,6 +130,8 @@
         @media (min-width: 768px) and (max-width: 991px) {
             body { padding-top: 107px; padding-bottom: 90px; } 
             html { scroll-padding-top: 107px; }
+            .page-hero { height: calc(100vh - 107px) !important; } /* Incastro perfetto iPad Verticale */
+            
             .logo-main { height: 90px; width: 90px; padding: 3px; } 
             .brand-title { font-size: 0.85rem; margin-left: 12px; }
             .logo-anpas { height: 60px; max-width: 130px; }
@@ -136,26 +141,33 @@
         @media (max-width: 767px) {
             body { padding-top: 77px; padding-bottom: 90px; } 
             html { scroll-padding-top: 77px; }
+            .page-hero { height: calc(100vh - 77px) !important; } /* Incastro perfetto Telefono */
+            
             .logo-main { height: 60px; width: 60px; padding: 2px; } 
             .brand-title { font-size: 0.85rem; margin-left: 10px; }
             .logo-anpas { height: 45px; max-width: 90px; }
         }
 
         /* -------------------------------------------
-           PULSANTI E HEADER (AREA DOCUMENTI)
+           PULSANTI E HEADER (COPERTINA)
            ------------------------------------------- */
         .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
         .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
         .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; }
         .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
 
-        /* Header Documenti (Stile Istituzionale e Pulito) */
+        /* HEADER SFONDO IMMAGINE (ALLINEATO ALLE ALTRE PAGINE) */
         .page-hero { 
-            padding: 5rem 0; 
-            background-color: var(--secondary-bg); 
-            border-bottom: 1px solid var(--card-border); 
+            display: flex; 
+            align-items: center; 
             position: relative; 
+            /* Sostituisci "Sfondo-Documenti.jpg" con la tua immagine reale */
+            background: url('Sfondo-Documenti.jpg') center/cover no-repeat; 
+            overflow: hidden; 
         }
+        
+        .page-hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, transparent 0%, var(--bg-color) 100%); z-index: 1; }
+        .page-hero-content { position: relative; z-index: 2; }
         
         h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); color: var(--text-color); }
         h2, h3, h4, h5, h6 { color: var(--text-color); }
@@ -331,128 +343,131 @@
 
     <!-- QUI VERRÀ CARICATA AUTOMATICAMENTE LA NAVBAR DA GLOBAL.JS -->
     <div id="navbar-container"></div>
+    
+    <main class="overflow-hidden">
+        <!-- HEADER CON FOTO DI COPERTINA -->
+        <header class="page-hero">
+            <div class="page-hero-overlay"></div>
+            <div class="container page-hero-content" data-aos="fade-up">
+                <span class="badge bg-primary mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider"><i class="fa-solid fa-scale-balanced me-2"></i>AMMINISTRAZIONE E TRASPARENZA</span>
+                <h1 class="display-4 fw-bold text-dark mb-2">Documenti Ufficiali</h1>
+                <p class="lead testo-leggero col-lg-8 mb-0">La bacheca digitale dell'Associazione. Consulta e scarica gli atti istituzionali, i bilanci ordinari e i regolamenti operativi.</p>
+            </div>
+        </header>
 
-    <!-- HEADER CHIARO E ISTITUZIONALE -->
-    <header class="page-hero">
-        <div class="container page-hero-content" data-aos="fade-up">
-            <span class="badge bg-primary mb-3 px-3 py-2 rounded-pill fw-bold text-white tracking-wider"><i class="fa-solid fa-scale-balanced me-2"></i>AMMINISTRAZIONE E TRASPARENZA</span>
-            <h1 class="display-4 fw-bold text-dark mb-2">Documenti Ufficiali</h1>
-            <p class="lead testo-leggero col-lg-8 mb-0">La bacheca digitale dell'Associazione. Consulta e scarica gli atti istituzionali, i bilanci ordinari e i regolamenti operativi.</p>
-        </div>
-    </header>
+        <section class="py-5 bg-white">
+            <div class="container py-4">
+                
+                <!-- ATTI ISTITUZIONALI -->
+                <div class="row mb-5" data-aos="fade-up">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h3 class="fw-bold text-dark mb-0">Atti Istituzionali e Fondativi</h3>
+                            <span class="badge bg-secondary rounded-pill">Struttura Legale</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 1: Statuto -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="doc-card">
+                            <div class="doc-icon text-secondary"><i class="fa-solid fa-file-pdf"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Statuto O.d.V.</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">La carta costitutiva fondamentale che fissa scopi, regole assembleari e l'ordinamento interno dell'Associazione.</p>
+                            <a href="Statuto.pdf" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
+                        </div>
+                    </div>
 
-    <section class="py-5 bg-white">
-        <div class="container py-4">
-            
-            <!-- ATTI ISTITUZIONALI -->
-            <div class="row mb-5" data-aos="fade-up">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="fw-bold text-dark mb-0">Atti Istituzionali e Fondativi</h3>
-                        <span class="badge bg-secondary rounded-pill">Struttura Legale</span>
+                    <!-- Card 2: Regolamento Interno -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="doc-card">
+                            <div class="doc-icon text-info" style="background: rgba(13, 202, 240, 0.1); border-color: rgba(13, 202, 240, 0.2);"><i class="fa-solid fa-bars-staggered"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Regolamento Interno</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Disciplina l'organizzazione operativa, i doveri dei turni, il vestiario e le condotte logistiche sul campo.</p>
+                            <a href="Regolamento Interno .pdf" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Codice Etico -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="doc-card">
+                            <div class="doc-icon text-danger" style="background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.2);"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Codice Etico</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">I principi morali di imparzialità, altruismo e rispetto reciproco che guidano ogni volontario ANPAS.</p>
+                            <a href="#" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BILANCI -->
+                <div class="row mb-5" data-aos="fade-up">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h3 class="fw-bold text-dark mb-0">Bilanci e Trasparenza Economica</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="doc-card border-success">
+                            <div class="doc-icon text-success border-success" style="background: rgba(25, 135, 84, 0.1);"><i class="fa-solid fa-wallet"></i></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="fw-bold text-dark mb-0">Bilancio Assicurativo</h5>
+                            </div>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Il bilancio economico trasparente approvato dall'Assemblea dei soci, a disposizione degli organi di controllo RUNTS.</p>
+                            <a href="#" class="btn-elite-download border-success text-success"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="doc-card border-primary">
+                            <div class="doc-icon text-white bg-primary border-primary"><i class="fa-solid fa-building-columns"></i></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="fw-bold text-dark mb-0">Contributi Pubblici</h5>
+                                <span class="badge bg-primary text-white">Legge 124/2017</span>
+                            </div>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Prospetto di trasparenza relativo alle somme, rimborsi o finanziamenti incassati da Pubbliche Amministrazioni.</p>
+                            <a href="#" class="btn-elite-download border-primary text-primary"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODULISTICA -->
+                <div class="row" data-aos="fade-up">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h3 class="fw-bold text-dark mb-0">Modulistica e Piani Operativi</h3>
+                            <span class="badge bg-danger rounded-pill">Pronto Impiego</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="doc-card">
+                            <div class="doc-icon text-secondary" style="background: #f8f9fa; border-color: #dee2e6;"><i class="fa-solid fa-folder-open"></i></div>
+                            <h5 class="fw-bold text-dark mb-2">Modulistica Interna</h5>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Raccolta dei moduli editabili per i volontari: fogli di marcia, richieste di congedo temporaneo o autorizzazioni logistiche.</p>
+                            <a href="#" class="btn-elite-download text-secondary border-secondary"><i class="fa-solid fa-download me-2"></i>Scarica Archivio (ZIP)</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="doc-card">
+                            <div class="doc-icon text-primary" style="background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="fw-bold text-dark mb-0">Piano di Emergenza</h5>
+                                <span class="badge bg-secondary text-white">Comune Nicosia</span>
+                            </div>
+                            <p class="testo-leggero small mb-4 flex-grow-1">Il documento strategico di Protezione Civile che mappa i rischi del territorio di Nicosia, i punti di raccolta e le aree di attesa per la popolazione.</p>
+                            <a href="#" class="btn-elite-download"><i class="fa-solid fa-file-arrow-down me-2"></i>Consulta Ufficiale</a>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Card 1: Statuto -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="doc-card">
-                        <div class="doc-icon text-secondary"><i class="fa-solid fa-file-pdf"></i></div>
-                        <h5 class="fw-bold text-dark mb-2">Statuto O.d.V.</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">La carta costitutiva fondamentale che fissa scopi, regole assembleari e l'ordinamento interno dell'Associazione.</p>
-                        <a href="Statuto.pdf" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
-                    </div>
+                <div class="mt-5 p-4 rounded-4 border border-secondary border-opacity-10 bg-light" data-aos="fade-up">
+                    <p class="text-secondary small mb-0"><i class="fa-solid fa-circle-info me-2 text-primary"></i>I file presenti in questa bacheca sono conformi agli standard di trasparenza amministrativa del Terzo Settore. Per qualsiasi chiarimento o richiesta di accesso agli atti storici, contattare la segreteria via PEC.</p>
                 </div>
 
-                <!-- Card 2: Regolamento Interno -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="doc-card">
-                        <div class="doc-icon text-info" style="background: rgba(13, 202, 240, 0.1); border-color: rgba(13, 202, 240, 0.2);"><i class="fa-solid fa-bars-staggered"></i></div>
-                        <h5 class="fw-bold text-dark mb-2">Regolamento Interno</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Disciplina l'organizzazione operativa, i doveri dei turni, il vestiario e le condotte logistiche sul campo.</p>
-                        <a href="Regolamento Interno .pdf" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
-                    </div>
-                </div>
-
-                <!-- Card 3: Codice Etico -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="doc-card">
-                        <div class="doc-icon text-danger" style="background: rgba(220, 53, 69, 0.1); border-color: rgba(220, 53, 69, 0.2);"><i class="fa-solid fa-scale-unbalanced-flip"></i></div>
-                        <h5 class="fw-bold text-dark mb-2">Codice Etico</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">I principi morali di imparzialità, altruismo e rispetto reciproco che guidano ogni volontario ANPAS.</p>
-                        <a href="#" class="btn-elite-download"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
-                    </div>
-                </div>
             </div>
-
-            <!-- BILANCI -->
-            <div class="row mb-5" data-aos="fade-up">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="fw-bold text-dark mb-0">Bilanci e Trasparenza Economica</h3>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <div class="doc-card border-success">
-                        <div class="doc-icon text-success border-success" style="background: rgba(25, 135, 84, 0.1);"><i class="fa-solid fa-wallet"></i></div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="fw-bold text-dark mb-0">Bilancio Assicurativo</h5>
-                        </div>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Il bilancio economico trasparente approvato dall'Assemblea dei soci, a disposizione degli organi di controllo RUNTS.</p>
-                        <a href="#" class="btn-elite-download border-success text-success"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <div class="doc-card border-primary">
-                        <div class="doc-icon text-white bg-primary border-primary"><i class="fa-solid fa-building-columns"></i></div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="fw-bold text-dark mb-0">Contributi Pubblici</h5>
-                            <span class="badge bg-primary text-white">Legge 124/2017</span>
-                        </div>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Prospetto di trasparenza relativo alle somme, rimborsi o finanziamenti incassati da Pubbliche Amministrazioni.</p>
-                        <a href="#" class="btn-elite-download border-primary text-primary"><i class="fa-solid fa-download me-2"></i>Scarica (PDF)</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MODULISTICA -->
-            <div class="row" data-aos="fade-up">
-                <div class="col-12">
-                    <div class="section-title">
-                        <h3 class="fw-bold text-dark mb-0">Modulistica e Piani Operativi</h3>
-                        <span class="badge bg-danger rounded-pill">Pronto Impiego</span>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <div class="doc-card">
-                        <div class="doc-icon text-secondary" style="background: #f8f9fa; border-color: #dee2e6;"><i class="fa-solid fa-folder-open"></i></div>
-                        <h5 class="fw-bold text-dark mb-2">Modulistica Interna</h5>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Raccolta dei moduli editabili per i volontari: fogli di marcia, richieste di congedo temporaneo o autorizzazioni logistiche.</p>
-                        <a href="#" class="btn-elite-download text-secondary border-secondary"><i class="fa-solid fa-download me-2"></i>Scarica Archivio (ZIP)</a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <div class="doc-card">
-                        <div class="doc-icon text-primary" style="background: rgba(13, 110, 253, 0.1); border-color: rgba(13, 110, 253, 0.2);"><i class="fa-solid fa-map-location-dot"></i></div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="fw-bold text-dark mb-0">Piano di Emergenza</h5>
-                            <span class="badge bg-secondary text-white">Comune Nicosia</span>
-                        </div>
-                        <p class="testo-leggero small mb-4 flex-grow-1">Il documento strategico di Protezione Civile che mappa i rischi del territorio di Nicosia, i punti di raccolta e le aree di attesa per la popolazione.</p>
-                        <a href="#" class="btn-elite-download"><i class="fa-solid fa-file-arrow-down me-2"></i>Consulta Ufficiale</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-5 p-4 rounded-4 border border-secondary border-opacity-10 bg-light" data-aos="fade-up">
-                <p class="text-secondary small mb-0"><i class="fa-solid fa-circle-info me-2 text-primary"></i>I file presenti in questa bacheca sono conformi agli standard di trasparenza amministrativa del Terzo Settore. Per qualsiasi chiarimento o richiesta di accesso agli atti storici, contattare la segreteria via PEC.</p>
-            </div>
-
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- QUI VERRÀ CARICATO AUTOMATICAMENTE IL FOOTER DA GLOBAL.JS -->
     <div id="footer-container"></div>
