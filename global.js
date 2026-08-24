@@ -139,5 +139,26 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.insertAdjacentHTML('beforeend', floatingElements);
         
     }, 150); 
+// Sistema automatico per illuminare il link della pagina corrente
+setTimeout(() => {
+    // 1. Legge il nome della pagina attuale
+    let paginaCorrente = window.location.pathname.split("/").pop();
+    if (paginaCorrente === "" || paginaCorrente === "index.html") {
+        paginaCorrente = "index.html"; 
+    }
 
+    // 2. Prende tutti i pulsanti della navbar e del menu in basso
+    const links = document.querySelectorAll('.nav-link, .bottom-nav-item');
+
+    // 3. Cicla i link e accende quello giusto
+    links.forEach(link => {
+        link.classList.remove('active'); // Spegne tutto di base
+        
+        const href = link.getAttribute('href');
+        // Se il link contiene il nome della pagina corrente, si illumina!
+        if (href && href.includes(paginaCorrente)) {
+            link.classList.add('active');
+        }
+    });
+}, 200); // Piccolo ritardo per assicurarsi che la navbar sia stata caricata
 });
