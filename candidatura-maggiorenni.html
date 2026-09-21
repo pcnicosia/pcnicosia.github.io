@@ -1,171 +1,443 @@
 <!DOCTYPE html>
-
 <html lang="it" data-theme="light">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Candidatura Maggiorenni - P.A. Nicosia O.d.V.</title>
-
     
-
     <link rel="icon" type="image/png" href="Logo.PNG">
-
     
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     
-
-    <!-- Copia qui dentro ESATTAMENTE lo stesso blocco <style> che hai in diventa-volontario.html -->
-
     <style>
-
-        /* INCOLLA QUI TUTTO IL TUO CSS (VARIABILI, NAVBAR, CARDS, FOOTER 5X1000) */
-
-        
-
-        /* Stili aggiuntivi specifici per questa pagina */
-
-        .alert-elite {
-
-            background-color: rgba(230, 92, 0, 0.05);
-
-            border-left: 4px solid #e65c00;
-
-            border-radius: 0 12px 12px 0;
-
-            padding: 1.5rem;
-
-            margin-bottom: 2rem;
-
+        /* VARIABILI DI TEMA E NAVBAR (Ripristinate dalla tua grafica d'élite) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1d1d1f;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --nav-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --secondary-bg: #f5f5f7;
+            --text-light: #515154;
+            --hover-bg: rgba(230, 92, 0, 0.08);
+            --dropdown-bg: #ffffff;
+            --bottom-nav-bg: #ffffff;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
         }
 
+        html { scroll-behavior: smooth; scroll-padding-top: 154px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+            padding-top: 154px; 
+        }
+
+        .glass-nav {
+            background: var(--nav-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--nav-border); 
+            transition: all 0.3s ease;
+        }
+
+        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
+        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
+        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-right-wing { flex: 0 0 auto; }
+        }
+
+        /* STILI SPECIFICI MODULO */
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+        
+        .alert-elite {
+            background-color: rgba(230, 92, 0, 0.05);
+            border-left: 4px solid #e65c00;
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-container-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+        }
+        
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e65c00;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
-
 </head>
-
 <body>
 
-
-
     <!-- NAVBAR CARICATA DA GLOBAL.JS -->
-
     <div id="navbar-container"></div>
 
-
-
     <!-- HEADER PAGINA -->
-
-    <header class="page-hero overflow-hidden" style="min-height: 40vh; padding: 6rem 0 3rem 0;">
-
+    <header class="page-hero overflow-hidden" style="min-height: 40vh; padding: 6rem 0 3rem 0; background: #f8f9fa;">
         <div class="container page-hero-content">
-
             <div class="row justify-content-center text-center">
-
                 <div class="col-lg-8" data-aos="fade-up">
-
                     <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider shadow-sm">MODULISTICA UFFICIALE</span>
-
                     <h1 class="display-5 fw-bold text-dark mb-3" style="letter-spacing: -1px;">Candidatura Maggiorenni</h1>
-
-                    <p class="lead testo-leggero">Compila attentamente tutti i campi del modulo sottostante. Il sistema genererà automaticamente il tuo documento d'iscrizione che valuteremo in sede di colloquio.</p>
-
+                    <p class="lead" style="color: var(--text-light);">Compila attentamente tutti i campi del modulo sottostante. Il sistema genererà automaticamente il tuo documento d'iscrizione che valuteremo in sede di colloquio.</p>
                 </div>
-
             </div>
-
         </div>
-
     </header>
 
-
-
     <!-- SEZIONE MODULO E AVVISI -->
-
     <section class="py-5 bg-white">
-
         <div class="container pb-5">
-
             <div class="row justify-content-center">
-
                 <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-
                     
-
                     <!-- AVVISO IMPORTANTE (Certificato e Quota) -->
-
                     <div class="alert-elite shadow-sm d-flex gap-3 align-items-start">
-
                         <i class="fa-solid fa-circle-exclamation fs-3 mt-1" style="color: #e65c00;"></i>
-
                         <div>
-
                             <h5 class="fw-bold text-dark mb-2">Importante: Documenti da consegnare in sede</h5>
-
-                            <p class="testo-leggero mb-0 small" style="line-height: 1.6;">
-
+                            <p class="mb-0 small" style="line-height: 1.6; color: var(--text-light);">
                                 Per completare l'iter di iscrizione, i seguenti requisiti non possono essere inviati online ma dovranno essere consegnati fisicamente alla segreteria il giorno del colloquio conoscitivo:
-
                                 <br><br>
-
                                 <strong>1. Certificato Medico in originale</strong> (rilasciato dal proprio medico curante).<br>
-
                                 <strong>2. Quota d'iscrizione annuale</strong>.
-
                             </p>
-
                         </div>
-
                     </div>
 
+                    <!-- INIZIO MODULO NATIVO CONNESSO A JOTFORM -->
+                    <div class="form-container-card">
+                        <form action="https://eu-submit.jotform.com/submit/262627298135060" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+                            
+                            <!-- Campi nascosti richiesti da Jotform per processare la richiesta -->
+                            <input type="hidden" name="formID" value="262627298135060" />
+                            <input type="hidden" name="simple_spc" value="262627298135060-262627298135060" />
+                            
+                            <h4 class="fw-bold text-dark mb-4 text-center">Modulo di Iscrizione</h4>
+                            
+                            <!-- SEZIONE 1: DATI ANAGRAFICI -->
+                            <div class="form-section-title"><i class="fa-solid fa-user me-2"></i>Dati Anagrafici</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nome *</label>
+                                    <input type="text" name="q3_cognome[first]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Cognome *</label>
+                                    <input type="text" name="q3_cognome[last]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nato/a a *</label>
+                                    <input type="text" name="q4_natooa" class="form-control" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small fw-semibold">Provincia *</label>
+                                    <input type="text" name="q5_provnascita" class="form-control" placeholder="Es. EN" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label small fw-semibold">Sesso *</label>
+                                    <select name="q72_sesso72[]" class="form-select" required>
+                                        <option value="" disabled selected>Scelta...</option>
+                                        <option value="M">M</option>
+                                        <option value="F">F</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data di Nascita (GG/MM/AAAA) *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-center" name="q6_ildata[day]" placeholder="GG" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q6_ildata[month]" placeholder="MM" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q6_ildata[year]" placeholder="AAAA" maxlength="4" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Codice Fiscale *</label>
+                                    <input type="text" name="q8_codicefiscale" class="form-control text-uppercase" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-semibold">Indirizzo di Residenza (Via/Piazza e Civico) *</label>
+                                    <input type="text" name="q7_residenza[addr_line1]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Città di Residenza *</label>
+                                    <input type="text" name="q7_residenza[city]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Provincia Residenza *</label>
+                                    <input type="text" name="q7_residenza[state]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nazionalità *</label>
+                                    <input type="text" name="q60_scriviUna" class="form-control" value="Italia" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Cittadinanza *</label>
+                                    <input type="text" name="q61_cittadinanza" class="form-control" value="Italiana" required>
+                                </div>
+                            </div>
 
+                            <!-- SEZIONE 2: CONTATTI E PROFESSIONE -->
+                            <div class="form-section-title"><i class="fa-solid fa-address-book me-2"></i>Contatti & Dati Professionali</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Telefono / Cellulare *</label>
+                                    <input type="tel" name="q13_telefono[full]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Email *</label>
+                                    <input type="email" name="q14_email" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">PEC (Opzionale)</label>
+                                    <input type="email" name="q15_pec" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Professione *</label>
+                                    <input type="text" name="q17_professione" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Stato Civile *</label>
+                                    <select name="q63_statoCivile63" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Celibe">Celibe</option>
+                                        <option value="Nubile">Nubile</option>
+                                        <option value="Coniugato/a">Coniugato/a</option>
+                                        <option value="Unito/a civilmente">Unito/a civilmente</option>
+                                        <option value="Separato/a">Separato/a</option>
+                                        <option value="Divorziato/a">Divorziato/a</option>
+                                        <option value="Vedovo/a">Vedovo/a</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Titolo Di Studio *</label>
+                                    <select name="q64_titoloDi" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Licenza Media / Scuola Secondaria di I Grado">Licenza Media</option>
+                                        <option value="Qualifica Professionale (corso triennale / IeFP)">Qualifica Professionale</option>
+                                        <option value="Diploma di Scuola Superiore /Secondaria di II Grado">Diploma Superiore</option>
+                                        <option value="Laurea Triennale / Diploma Accademico di I Livello">Laurea Triennale</option>
+                                        <option value="Laurea Magistrale / Specialistica / Ciclo Unico">Laurea Magistrale</option>
+                                        <option value="Altro">Altro</option>
+                                    </select>
+                                </div>
+                            </div>
 
-                   <!-- INIZIO MODULO JOTFORM -->
-<div class="form-container-card p-0 overflow-hidden shadow-sm border">
-    
-    <script type="text/javascript" src="https://form.jotform.com/jsform/262627298135060"></script>
-    
-</div>
-<!-- FINE MODULO JOTFORM -->
+                            <!-- SEZIONE 3: DOCUMENTI -->
+                            <div class="form-section-title"><i class="fa-solid fa-id-card me-2"></i>Documenti di Riconoscimento</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Carta Identità n° *</label>
+                                    <input type="text" name="q21_cartaident" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Rilasciata da (Es. Comune di Nicosia) *</label>
+                                    <input type="text" name="q22_rilasciatada" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data Rilascio (GG/MM/AAAA) *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-center" name="q23_ildata23[day]" placeholder="GG" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q23_ildata23[month]" placeholder="MM" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q23_ildata23[year]" placeholder="AAAA" maxlength="4" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data Scadenza (GG/MM/AAAA) *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-center" name="q24_datadi[day]" placeholder="GG" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q24_datadi[month]" placeholder="MM" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q24_datadi[year]" placeholder="AAAA" maxlength="4" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mt-4">
+                                    <div class="alert alert-secondary border-0 small">
+                                        <i class="fa-solid fa-file-arrow-up me-2"></i> Allega copia dei documenti in formato PDF, JPG o PNG (Max 10MB per file).
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Fotocopia Carta d'Identità (Fronte/Retro) *</label>
+                                    <input type="file" name="q74_fotocopiaCarta[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Fotocopia Codice Fiscale (Fronte/Retro) *</label>
+                                    <input type="file" name="q75_fotocopiaCodice[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                            </div>
 
+                            <!-- SEZIONE 4: DATI SANITARI E VESTIARIO -->
+                            <div class="form-section-title"><i class="fa-solid fa-notes-medical me-2"></i>Sanitari & Vestiario</div>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Gruppo Sanguigno - RH *</label>
+                                    <select name="q67_gruppoSanguigno" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="0 Positivo (0+)">0 Positivo (0+)</option>
+                                        <option value="0 Negativo (0-)">0 Negativo (0-)</option>
+                                        <option value="A Positivo (A+)">A Positivo (A+)</option>
+                                        <option value="A Negativo (A-)">A Negativo (A-)</option>
+                                        <option value="B Positivo (B+)">B Positivo (B+)</option>
+                                        <option value="B Negativo (B-)">B Negativo (B-)</option>
+                                        <option value="AB Positivo (AB+)">AB Positivo (AB+)</option>
+                                        <option value="AB Negativo (AB-)">AB Negativo (AB-)</option>
+                                        <option value="Non a conoscenza">Non lo so</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Nome e Cognome Medico Curante *</label>
+                                    <input type="text" name="q62_scriviUna62" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Hai Allergie? *</label>
+                                    <select name="q71_allergie71[]" class="form-select" required>
+                                        <option value="No" selected>No</option>
+                                        <option value="Sì">Sì</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali:</label>
+                                    <input type="text" name="q33_descrizioneallergie" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Limitazioni Fisiche? *</label>
+                                    <select name="q70_limitazioniFisiche70[]" class="form-select" required>
+                                        <option value="No" selected>No</option>
+                                        <option value="Sì">Sì</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali:</label>
+                                    <input type="text" name="q37_descrizionelimitazioni" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Taglia Indumenti Divisa *</label>
+                                    <select name="q69_tagliaIndumenti" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="XS (Donna 38/40 - Uomo 42/44)">XS</option>
+                                        <option value="S (Donna 42 - Uomo 46)">S</option>
+                                        <option value="M (Donna 44 - Uomo 48)">M</option>
+                                        <option value="L (Donna 46 - Uomo 50)">L</option>
+                                        <option value="XL (Donna 48/50 - Uomo 52/54)">XL</option>
+                                        <option value="XXL (Donna 52 - Uomo 56)">XXL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche *</label>
+                                    <input type="number" name="q68_calzatureN" class="form-control" min="35" max="50" placeholder="Es. 42" required>
+                                </div>
+                            </div>
 
+                            <!-- SEZIONE 5: DICHIARAZIONI E PRIVACY -->
+                            <div class="form-section-title"><i class="fa-solid fa-file-signature me-2"></i>Dichiarazioni & Privacy</div>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label small fw-semibold">Disponibilità interventi *</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="q41_disponibilitaInterventi[]" value="Disponibile ad interventi operativi in campo della Protezione Civile" id="dispPC">
+                                        <label class="form-check-label small" for="dispPC">Disponibile ad interventi in campo di Protezione Civile</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="q41_disponibilitaInterventi[]" value="Disponibile ad interventi operativi in campo Sanitario" id="dispSan">
+                                        <label class="form-check-label small" for="dispSan">Disponibile ad interventi in campo Sanitario</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <div class="p-3 bg-light rounded border">
+                                        <p class="mb-2 fw-bold text-dark">CHIEDE</p>
+                                        <p class="mb-0 small text-secondary">Di essere ammesso a fare parte della P.A. Gruppo Volontari Protezione Civile Nicosia OdV, nella qualità di Socio Volontario, dichiarando di accettare lo statuto, il regolamento interno e le finalità della stessa.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data Compilazione Candidatura (GG/MM/AAAA) *</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-center" name="q44_nicosiali[day]" placeholder="GG" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q44_nicosiali[month]" placeholder="MM" maxlength="2" required>
+                                        <span class="input-group-text">/</span>
+                                        <input type="text" class="form-control text-center" name="q44_nicosiali[year]" placeholder="AAAA" maxlength="4" required>
+                                    </div>
+                                    <small class="text-muted">Aggiungere per il consenso Privacy i campi data identici sotto:</small>
+                                    <input type="hidden" name="q54_nicosiali54[day]" value="21"> <!-- DA FARE COMPILARE / QUI NASCOSTI PER PRATICITA' SE VUOI-->
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <p class="fw-bold mb-2">CONSENSO AL TRATTAMENTO DEI DATI (GDPR)</p>
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" name="q52_iosottoscrittoa[first]" class="form-control" placeholder="Tuo Nome (Firma Digitale)" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="q52_iosottoscrittoa[last]" class="form-control" placeholder="Tuo Cognome (Firma Digitale)" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03" required>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei miei dati personali in conformità all'informativa e al GDPR. *</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="al trattamento dei miei dati &quot;particolari&quot;, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali" required>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei dati sanitari (es. allergie, gruppo sanguigno). *</label>
+                                    </div>
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="all&#x27;uso della mia immagine per le finalità descritte nell&#x27;informativa (pubblicazione sul sito dell&#x27;Associazione, sui canali Social dell&#x27;Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell&#x27;Associazione)." required>
+                                        <label class="form-check-label small text-secondary">Acconsento all'uso della mia immagine per finalità associative e canali social ufficiali. *</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-elite-primary shadow w-100 w-md-50 px-5 py-3 fs-5">
+                                        <i class="fa-solid fa-paper-plane me-2"></i>Invia Candidatura Ufficiale
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                    <!-- FINE MODULO NATIVO -->
 
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-
-
     <!-- FOOTER CARICATO DA GLOBAL.JS -->
-
     <div id="footer-container"></div>
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script>AOS.init({ once: true, offset: 50 });</script>
-
     <script src="global.js"></script>
-
 </body>
-
-</html> 
-
+</html>
