@@ -144,6 +144,36 @@
             letter-spacing: 1px;
         }
 
+        /* Nuova Sezione D'Élite Minorenne */
+        .elite-section-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 4rem 0 2.5rem 0;
+        }
+        .elite-section-divider::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(90deg, #e65c00 0%, transparent 100%);
+        }
+        .elite-section-badge {
+            background-color: #e65c00;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(230, 92, 0, 0.2);
+        }
+        .minor-fields-wrapper {
+            border-left: 3px solid rgba(230, 92, 0, 0.15);
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+
         /* Classe per evidenziare i campi obbligatori non compilati */
         .is-invalid-field {
             border-color: #dc3545 !important;
@@ -151,16 +181,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Box Minorenne */
-        .minorenne-box {
-            background-color: rgba(0, 123, 255, 0.04);
-            border: 1px solid rgba(0, 123, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
         /* Nascondere freccina calendario Chrome */
         input[type="date"]::-webkit-inner-spin-button { display: none; }
     </style>
@@ -318,13 +338,13 @@
                                 </div>
                             </div>
                             
-                            <hr class="my-5 border-primary border-2 opacity-25">
+                            <!-- DIVISORE ELEGANTE AREA MINORE -->
+                            <div class="elite-section-divider">
+                                <div class="elite-section-badge"><i class="fa-solid fa-child me-2"></i>Area Minore Candidato</div>
+                            </div>
 
-                            <!-- INIZIO AREA MINORE -->
-                            <div class="minorenne-box">
-                                <h5 class="fw-bold text-primary mb-1">DATI DEL MINORE</h5>
-                                <p class="text-muted small mb-4">I seguenti dati si riferiscono esclusivamente al candidato minorenne.</p>
-
+                            <div class="minor-fields-wrapper">
+                                <!-- SEZIONE 1 MINORE: DATI ANAGRAFICI -->
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label small fw-semibold">Cognome</label>
@@ -403,7 +423,6 @@
                                             <option value="Romania">Romania</option>
                                             <option value="Spagna">Spagna</option>
                                             <option value="Stati Uniti d'America">Stati Uniti d'America</option>
-                                            <!-- Puoi incollare qui l'elenco completo dei paesi -->
                                         </select>
                                     </div>
                                     <div class="col-md-6">
@@ -424,7 +443,6 @@
                                             <option value="Romania">Romania</option>
                                             <option value="Spagna">Spagna</option>
                                             <option value="Stati Uniti d'America">Stati Uniti d'America</option>
-                                            <!-- Puoi incollare qui l'elenco completo dei paesi -->
                                         </select>
                                     </div>
                                     
@@ -449,77 +467,77 @@
                                         <input type="text" name="q42_titolodi" class="form-control" required>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- FINE AREA MINORE -->
 
-                            <!-- SEZIONE SANITARI MINORE -->
-                            <div class="form-section-title"><i class="fa-solid fa-notes-medical me-2"></i>Sanitari del Minore</div>
-                            <div class="row g-3">
-                                <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Gruppo Sanguigno - RH</label>
-                                    <select name="q51_grupposanguigno" class="form-select" required>
-                                        <option value="" disabled selected>Seleziona...</option>
-                                        <option value="0 Positivo (0+)">0 Positivo (0+)</option>
-                                        <option value="0 Negativo (0-)">0 Negativo (0-)</option>
-                                        <option value="A Positivo (A+)">A Positivo (A+)</option>
-                                        <option value="A Negativo (A-)">A Negativo (A-)</option>
-                                        <option value="B Positivo (B+)">B Positivo (B+)</option>
-                                        <option value="B Negativo (B-)">B Negativo (B-)</option>
-                                        <option value="AB Positivo (AB+)">AB Positivo (AB+)</option>
-                                        <option value="AB Negativo (AB-)">AB Negativo (AB-)</option>
-                                        <option value="Non a conoscenza">Non lo so</option>
-                                    </select>
+                                <!-- SEZIONE SANITARI MINORE -->
+                                <div class="form-section-title"><i class="fa-solid fa-notes-medical me-2"></i>Sanitari del Minore</div>
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">Gruppo Sanguigno - RH</label>
+                                        <select name="q51_grupposanguigno" class="form-select" required>
+                                            <option value="" disabled selected>Seleziona...</option>
+                                            <option value="0 Positivo (0+)">0 Positivo (0+)</option>
+                                            <option value="0 Negativo (0-)">0 Negativo (0-)</option>
+                                            <option value="A Positivo (A+)">A Positivo (A+)</option>
+                                            <option value="A Negativo (A-)">A Negativo (A-)</option>
+                                            <option value="B Positivo (B+)">B Positivo (B+)</option>
+                                            <option value="B Negativo (B-)">B Negativo (B-)</option>
+                                            <option value="AB Positivo (AB+)">AB Positivo (AB+)</option>
+                                            <option value="AB Negativo (AB-)">AB Negativo (AB-)</option>
+                                            <option value="Non a conoscenza">Non lo so</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="form-label small fw-semibold">Nome e Cognome Medico Curante</label>
+                                        <input type="text" name="q52_medicocurante" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">Ha Allergie?</label>
+                                        <select name="q49_allergie" class="form-select" required>
+                                            <option value="No" selected>No</option>
+                                            <option value="Si">Sì</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                        <input type="text" name="q50_descrizioneallergie" class="form-control">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">Limitazioni Fisiche?</label>
+                                        <select name="q53_limitazionifisiche" class="form-select" required>
+                                            <option value="No" selected>No</option>
+                                            <option value="Si">Sì</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                        <input type="text" name="q54_descrizionelimitazioni" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Nome e Cognome Medico Curante</label>
-                                    <input type="text" name="q52_medicocurante" class="form-control" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Ha Allergie?</label>
-                                    <select name="q49_allergie" class="form-select" required>
-                                        <option value="No" selected>No</option>
-                                        <option value="Si">Sì</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
-                                    <input type="text" name="q50_descrizioneallergie" class="form-control">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Limitazioni Fisiche?</label>
-                                    <select name="q53_limitazionifisiche" class="form-select" required>
-                                        <option value="No" selected>No</option>
-                                        <option value="Si">Sì</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
-                                    <input type="text" name="q54_descrizionelimitazioni" class="form-control">
+                                
+                                <!-- SEZIONE VESTIARIO MINORE -->
+                                <div class="form-section-title"><i class="fa-solid fa-shirt me-2"></i>Vestiario Divisa</div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Taglia Indumenti</label>
+                                        <select name="q56_tagliaindumenti" class="form-select" required>
+                                            <option value="" disabled selected>Seleziona...</option>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="3XL">3XL</option>
+                                            <option value="4XL">4XL</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche</label>
+                                        <input type="number" name="q57_calzaturen" class="form-control" min="35" max="50" placeholder="Es. 42" required>
+                                    </div>
                                 </div>
                             </div>
-                            
-                            <!-- SEZIONE VESTIARIO MINORE -->
-                            <div class="form-section-title"><i class="fa-solid fa-shirt me-2"></i>Vestiario Divisa</div>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Taglia Indumenti</label>
-                                    <select name="q56_tagliaindumenti" class="form-select" required>
-                                        <option value="" disabled selected>Seleziona...</option>
-                                        <option value="XS">XS</option>
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                        <option value="XXL">XXL</option>
-                                        <option value="3XL">3XL</option>
-                                        <option value="4XL">4XL</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche</label>
-                                    <input type="number" name="q57_calzaturen" class="form-control" min="35" max="50" placeholder="Es. 42" required>
-                                </div>
-                            </div>
+                            <!-- FINE CHIUSURA WRAPPER MINORE -->
 
                             <!-- CARICAMENTO DOCUMENTI GENERALI -->
                             <div class="form-section-title"><i class="fa-solid fa-file-arrow-up me-2"></i>Caricamento Allegati (Max 10MB cad.)</div>
@@ -555,7 +573,7 @@
                                 <div class="col-12 mt-4">
                                     <div class="p-3 bg-light rounded border">
                                         <p class="mb-2 fw-bold text-dark">CHIEDE</p>
-                                        <p class="mb-0 small text-secondary">Di ammettere il Figlio/a minore a fare parte della P.A. Gruppo Volontari Protezione Civile Nicosia OdV, nella qualità di Socio Volontario, dichiarando di accettare e di far accettare al minore lo statuto, il regolamento interno e le finalità della stessa, e di esonerare l'associazione da ogni responsabilità.</p>
+                                        <p class="mb-0 small text-secondary">Di ammettere il Figlio/a minore, a fare parte della P.A. Gruppo Volontari Protezione Civile Nicosia OdV, nella qualità di Socio Volontario, dichiarando di accettare lo statuto, il regolamento interno e le finalità della stessa, dichiarando di accettare e di far accettare al minore, lo statuto, il regolamento interno, le finalità della stessa e di esonerare l'associazione da ogni responsabilità.</p>
                                     </div>
                                 </div>
                                 
@@ -577,7 +595,9 @@
                                 </div>
 
                                 <div class="col-12 mt-4">
-                                    <p class="fw-bold mb-2">CONSENSO AL TRATTAMENTO DEI DATI (GDPR)</p>
+                                    <p class="fw-bold mb-2">CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</p>
+                                    <p class="small text-muted mb-3">Io sottoscritto/a, nella qualità di genitore/tutore del socio minorenne sopra indicato, letta l'informativa resa ai sensi dell'art. 13 GDPR, autorizzo/do il consenso:</p>
+                                    
                                     <div class="row g-2 mb-3">
                                         <div class="col-md-6">
                                             <input type="text" name="q70_iosottoscrittoa70[first]" class="form-control" placeholder="Tuo Nome (Genitore/Tutore)" required>
@@ -587,23 +607,23 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-check mb-2">
-                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03" required>
-                                        <label class="form-check-label small text-secondary text-justify">al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03</label>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input mt-1" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03" required>
+                                        <label class="form-check-label small text-secondary">al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03</label>
                                     </div>
-                                    <div class="form-check mb-2">
-                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati &quot;particolari&quot;, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali" required>
-                                        <label class="form-check-label small text-secondary text-justify">al trattamento dei miei dati "particolari", da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali</label>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input mt-1" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati &quot;particolari&quot;, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali" required>
+                                        <label class="form-check-label small text-secondary">al trattamento dei miei dati "particolari", da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali</label>
                                     </div>
                                     <div class="form-check mb-4">
-                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="all&#x27;uso della mia immagine per le finalità descritte nell&#x27;informativa (pubblicazione sul sito dell&#x27;Associazione, sui canali Social dell&#x27;Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell&#x27;Associazione)." required>
-                                        <label class="form-check-label small text-secondary text-justify">all'uso della mia immagine per le finalità descritte nell'informativa (pubblicazione sul sito dell'Associazione, sui canali Social dell'Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell'Associazione).</label>
+                                        <input class="form-check-input mt-1" type="checkbox" name="q71_consensoal71[]" value="all&#x27;uso della mia immagine per le finalità descritte nell&#x27;informativa (pubblicazione sul sito dell&#x27;Associazione, sui canali Social dell&#x27;Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell&#x27;Associazione)." required>
+                                        <label class="form-check-label small text-secondary">all'uso della mia immagine per le finalità descritte nell'informativa (pubblicazione sul sito dell'Associazione, sui canali Social dell'Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell'Associazione).</label>
                                     </div>
                                 </div>
                                 
                                 <div class="col-12 border-top pt-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="privacyCheckFinale" required>
+                                        <input class="form-check-input mt-1" type="checkbox" id="privacyCheckFinale" required>
                                         <label class="form-check-label small fw-bold text-dark ms-2" for="privacyCheckFinale" style="line-height: 1.4;">
                                             Acconsento al trattamento dei miei dati personali e del minore ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per la gestione operativa della candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none" target="_blank">Privacy Policy</a> del portale.
                                         </label>
