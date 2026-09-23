@@ -290,31 +290,32 @@
                             <input type="hidden" name="formID" value="262627298135060" />
                             <input type="hidden" name="simple_spc" value="262627298135060-262627298135060" />
                             
-                            <h4 class="fw-bold text-dark mb-4 text-center">Modulo di Iscrizione</h4>
+                            <h4 class="fw-bold text-dark mb-1 text-center">Modulo di Iscrizione</h4>
+                            <p class="text-center text-muted small mb-4">Tutti i campi sono obbligatori se non diversamente specificato</p>
                             
                             <!-- SEZIONE 1: DATI ANAGRAFICI -->
                             <div class="form-section-title"><i class="fa-solid fa-user me-2"></i>Dati Anagrafici</div>
                             <div class="row g-3">
                                 <!-- NOME E COGNOME INVERTITI -->
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Cognome *</label>
+                                    <label class="form-label small fw-semibold">Cognome</label>
                                     <input type="text" name="q3_cognome[last]" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Nome *</label>
+                                    <label class="form-label small fw-semibold">Nome</label>
                                     <input type="text" name="q3_cognome[first]" class="form-control" required>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Nato/a a *</label>
+                                    <label class="form-label small fw-semibold">Nato/a a</label>
                                     <input type="text" name="q4_natooa" class="form-control" required>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="form-label small fw-semibold">Provincia *</label>
+                                    <label class="form-label small fw-semibold">Provincia</label>
                                     <input type="text" name="q5_provnascita" class="form-control" placeholder="Es. EN" required>
                                 </div>
                                 <div class="col-md-3">
-                                    <label class="form-label small fw-semibold">Sesso *</label>
+                                    <label class="form-label small fw-semibold">Sesso</label>
                                     <select name="q72_sesso72[]" class="form-select" required>
                                         <option value="" disabled selected>Scelta...</option>
                                         <option value="M">M</option>
@@ -323,7 +324,7 @@
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Data di Nascita *</label>
+                                    <label class="form-label small fw-semibold">Data di Nascita</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
                                         <input type="date" class="form-control jotform-date" data-target="q6_ildata" required>
@@ -333,31 +334,31 @@
                                     <input type="hidden" name="q6_ildata[year]" id="q6_ildata_year">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Codice Fiscale *</label>
+                                    <label class="form-label small fw-semibold">Codice Fiscale</label>
                                     <input type="text" name="q8_codicefiscale" class="form-control text-uppercase" required>
                                 </div>
                                 
                                 <!-- INDIRIZZO E CAP AGGIUNTO -->
                                 <div class="col-12">
-                                    <label class="form-label small fw-semibold">Indirizzo di Residenza (Via/Piazza e Civico) *</label>
+                                    <label class="form-label small fw-semibold">Indirizzo di Residenza (Via/Piazza e Civico)</label>
                                     <input type="text" name="q7_residenza[addr_line1]" class="form-control" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Città di Residenza *</label>
+                                    <label class="form-label small fw-semibold">Città di Residenza</label>
                                     <input type="text" name="q7_residenza[city]" class="form-control" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">CAP *</label>
+                                    <label class="form-label small fw-semibold">CAP</label>
                                     <input type="text" name="q7_residenza[postal]" class="form-control" placeholder="Es. 94014" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Provincia *</label>
+                                    <label class="form-label small fw-semibold">Provincia</label>
                                     <input type="text" name="q7_residenza[state]" class="form-control" required>
                                 </div>
                                 
-                                <!-- CAMPI NAZIONALITÀ E CITTADINANZA (Con ricerca attiva via Select2) -->
+                                <!-- CAMPI NAZIONALITÀ E CITTADINANZA -->
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Nazionalità *</label>
+                                    <label class="form-label small fw-semibold">Nazionalità</label>
                                     <select name="q60_scriviUna" class="form-select select2-search" required>
                                         <option value="" disabled>Seleziona...</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -559,7 +560,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Cittadinanza *</label>
+                                    <label class="form-label small fw-semibold">Cittadinanza</label>
                                     <select name="q61_cittadinanza" class="form-select select2-search" required>
                                         <option value="" disabled>Seleziona...</option>
                                         <option value="Afghanistan">Afghanistan</option>
@@ -766,23 +767,23 @@
                             <div class="form-section-title"><i class="fa-solid fa-address-book me-2"></i>Contatti e Dati Professionali</div>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Telefono / Cellulare *</label>
+                                    <label class="form-label small fw-semibold">Telefono / Cellulare</label>
                                     <input type="tel" name="q13_telefono[full]" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Email *</label>
+                                    <label class="form-label small fw-semibold">Email</label>
                                     <input type="email" name="q14_email" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">PEC (Opzionale)</label>
+                                    <label class="form-label small fw-semibold">PEC <span class="text-muted fw-normal">(Opzionale)</span></label>
                                     <input type="email" name="q15_pec" class="form-control">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Professione *</label>
+                                    <label class="form-label small fw-semibold">Professione</label>
                                     <input type="text" name="q17_professione" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Stato Civile *</label>
+                                    <label class="form-label small fw-semibold">Stato Civile</label>
                                     <select name="q63_statoCivile63" class="form-select" required>
                                         <option value="" disabled selected>Seleziona...</option>
                                         <option value="Celibe">Celibe</option>
@@ -795,7 +796,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Titolo Di Studio *</label>
+                                    <label class="form-label small fw-semibold">Titolo Di Studio</label>
                                     <select name="q64_titoloDi" class="form-select" required>
                                         <option value="" disabled selected>Seleziona...</option>
                                         <option value="Licenza Media / Scuola Secondaria di I Grado">Licenza Media</option>
@@ -812,16 +813,16 @@
                             <div class="form-section-title"><i class="fa-solid fa-id-card me-2"></i>Documenti di Riconoscimento</div>
                             <div class="row g-3">
                                 <div class="col-md-12">
-                                    <label class="form-label small fw-semibold">Carta Identità n° *</label>
+                                    <label class="form-label small fw-semibold">Carta Identità n°</label>
                                     <input type="text" name="q21_cartaident" class="form-control" required>
                                 </div>
                                 <div class="col-md-12">
-                                    <label class="form-label small fw-semibold">Rilasciata da (Es. Comune di Nicosia) *</label>
+                                    <label class="form-label small fw-semibold">Rilasciata da (Es. Comune di Nicosia)</label>
                                     <input type="text" name="q22_rilasciatada" class="form-control" required>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Data Rilascio *</label>
+                                    <label class="form-label small fw-semibold">Data Rilascio</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
                                         <input type="date" class="form-control jotform-date" data-target="q23_ildata23" required>
@@ -832,7 +833,7 @@
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Data Scadenza *</label>
+                                    <label class="form-label small fw-semibold">Data Scadenza</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
                                         <input type="date" class="form-control jotform-date" data-target="q24_datadi" required>
@@ -849,17 +850,17 @@
                                 </div>
                                 
                                 <div class="col-12 mb-3">
-                                    <label class="form-label small fw-semibold text-warning-emphasis"><i class="fa-solid fa-camera me-1"></i> Carica Fototessera (Primo piano, sfondo neutro) *</label>
+                                    <label class="form-label small fw-semibold text-warning-emphasis"><i class="fa-solid fa-camera me-1"></i> Carica Fototessera (Primo piano, sfondo neutro)</label>
                                     <input type="file" name="q80_fototessera[]" class="form-control border-warning" accept=".jpg,.jpeg,.png" required>
                                     <small class="text-muted">Solo formati JPG o PNG (Max 5MB).</small>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Fotocopia Carta d'Identità (Fronte/Retro) *</label>
+                                    <label class="form-label small fw-semibold">Fotocopia Carta d'Identità (Fronte/Retro)</label>
                                     <input type="file" name="q74_fotocopiaCarta[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Fotocopia Codice Fiscale (Fronte/Retro) *</label>
+                                    <label class="form-label small fw-semibold">Fotocopia Codice Fiscale (Fronte/Retro)</label>
                                     <input type="file" name="q75_fotocopiaCodice[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
                                 </div>
                             </div>
@@ -868,7 +869,7 @@
                             <div class="form-section-title"><i class="fa-solid fa-notes-medical me-2"></i>Sanitari</div>
                             <div class="row g-3">
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Gruppo Sanguigno - RH *</label>
+                                    <label class="form-label small fw-semibold">Gruppo Sanguigno - RH</label>
                                     <select name="q67_gruppoSanguigno" class="form-select" required>
                                         <option value="" disabled selected>Seleziona...</option>
                                         <option value="0 Positivo (0+)">0 Positivo (0+)</option>
@@ -883,29 +884,29 @@
                                     </select>
                                 </div>
                                 <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Nome e Cognome Medico Curante *</label>
+                                    <label class="form-label small fw-semibold">Nome e Cognome Medico Curante</label>
                                     <input type="text" name="q62_scriviUna62" class="form-control" required>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Hai Allergie? *</label>
+                                    <label class="form-label small fw-semibold">Hai Allergie?</label>
                                     <select name="q71_allergie71[]" class="form-select" required>
                                         <option value="No" selected>No</option>
                                         <option value="Sì">Sì</option>
                                     </select>
                                 </div>
                                 <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Se sì, specifica quali:</label>
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
                                     <input type="text" name="q33_descrizioneallergie" class="form-control">
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label small fw-semibold">Limitazioni Fisiche? *</label>
+                                    <label class="form-label small fw-semibold">Limitazioni Fisiche?</label>
                                     <select name="q70_limitazioniFisiche70[]" class="form-select" required>
                                         <option value="No" selected>No</option>
                                         <option value="Sì">Sì</option>
                                     </select>
                                 </div>
                                 <div class="col-md-8">
-                                    <label class="form-label small fw-semibold">Se sì, specifica quali:</label>
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
                                     <input type="text" name="q37_descrizionelimitazioni" class="form-control">
                                 </div>
                             </div>
@@ -914,7 +915,7 @@
                             <div class="form-section-title"><i class="fa-solid fa-shirt me-2"></i>Vestiario</div>
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Taglia Indumenti Divisa *</label>
+                                    <label class="form-label small fw-semibold">Taglia Indumenti Divisa</label>
                                     <select name="q69_tagliaIndumenti" class="form-select" required>
                                         <option value="" disabled selected>Seleziona...</option>
                                         <option value="XS">XS</option>
@@ -928,7 +929,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche *</label>
+                                    <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche</label>
                                     <input type="number" name="q68_calzatureN" class="form-control" min="35" max="50" placeholder="Es. 42" required>
                                 </div>
                             </div>
@@ -937,7 +938,7 @@
                             <div class="form-section-title"><i class="fa-solid fa-file-signature me-2"></i>Dichiarazioni e Privacy</div>
                             <div class="row g-3">
                                 <div class="col-12">
-                                    <label class="form-label small fw-semibold">Disponibilità interventi *</label>
+                                    <label class="form-label small fw-semibold">Disponibilità interventi</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="q41_disponibilitaInterventi[]" value="Disponibile ad interventi operativi in campo della Protezione Civile" id="dispPC">
                                         <label class="form-check-label small" for="dispPC">Disponibile ad interventi in campo di Protezione Civile</label>
@@ -956,7 +957,7 @@
                                 </div>
                                 
                                 <div class="col-md-12">
-                                    <label class="form-label small fw-semibold">Data Compilazione Candidatura *</label>
+                                    <label class="form-label small fw-semibold">Data Compilazione Candidatura</label>
                                     <div class="input-group">
                                         <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-check"></i></span>
                                         <input type="date" class="form-control jotform-date" data-target="q44_nicosiali" required readonly title="Questa data viene inserita automaticamente dal sistema.">
@@ -983,15 +984,15 @@
                                     </div>
                                     <div class="form-check mb-2">
                                         <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03" required>
-                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei miei dati personali in conformità all'informativa e al GDPR. *</label>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei miei dati personali in conformità all'informativa e al GDPR.</label>
                                     </div>
                                     <div class="form-check mb-2">
                                         <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="al trattamento dei miei dati &quot;particolari&quot;, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali" required>
-                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei dati sanitari (es. allergie, gruppo sanguigno). *</label>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei dati sanitari (es. allergie, gruppo sanguigno).</label>
                                     </div>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" name="q53_selezionai[]" value="all&#x27;uso della mia immagine per le finalità descritte nell&#x27;informativa (pubblicazione sul sito dell&#x27;Associazione, sui canali Social dell&#x27;Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell&#x27;Associazione)." required>
-                                        <label class="form-check-label small text-secondary">Acconsento all'uso della mia immagine per finalità associative e canali social ufficiali. *</label>
+                                        <label class="form-check-label small text-secondary">Acconsento all'uso della mia immagine per finalità associative e canali social ufficiali.</label>
                                     </div>
                                 </div>
                                 
@@ -999,7 +1000,7 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="privacyCheckFinale" required>
                                         <label class="form-check-label small fw-bold text-dark ms-2" for="privacyCheckFinale" style="line-height: 1.4;">
-                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per la gestione operativa della candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none" target="_blank">Privacy Policy</a> del portale. *
+                                            Acconsento al trattamento dei miei dati personali ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per la gestione operativa della candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none" target="_blank">Privacy Policy</a> del portale.
                                         </label>
                                     </div>
                                 </div>
