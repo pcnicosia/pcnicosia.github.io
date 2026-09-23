@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatura Minorenni - P.A. Nicosia O.d.V.</title>
+    
+    <link rel="icon" type="image/png" href="Logo.PNG">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Select2 CSS per menu a tendina ricercabili -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    
+    <style>
+        /* 1. VARIABILI DI TEMA (LIGHT/DARK) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1d1d1f;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --nav-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --secondary-bg: #f5f5f7;
+            --text-light: #515154;
+            --hover-bg: rgba(230, 92, 0, 0.08);
+            --dropdown-bg: #ffffff;
+            --bottom-nav-bg: #ffffff;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --nav-bg: rgba(18, 18, 18, 0.90);
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --card-bg: #1e1e1e;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --secondary-bg: #1a1a1a;
+            --text-light: #a0a0a0;
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --dropdown-bg: #2d2d2d;
+            --bottom-nav-bg: #2d2d2d;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 154px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+            padding-top: 154px; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* NAVBAR DESKTOP */
+        .glass-nav {
+            background: var(--nav-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--nav-border); 
+            transition: all 0.3s ease;
+        }
+        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
+        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
+        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
+        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
+        .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
+        .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item:hover i { opacity: 1; color: #e65c00; }
+
+        /* SISTEMA DI IMPAGINAZIONE RESPONSIVE */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-right-wing { flex: 0 0 auto; }
+        }
+        @media (min-width: 992px) and (max-width: 1366px) {
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .hero-section, .page-hero { height: calc(100vh - 121px); }
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
+        }
+
+        /* MENU MOBILE (<991px) */
+        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
+        .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
+        .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .hero-section, .page-hero { height: calc(100vh - 107px); }
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
+            .hero-section, .page-hero { height: calc(100vh - 77px); }
+            .logo-main { height: 60px; width: 60px; padding: 2px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
+            .logo-anpas { height: 45px; max-width: 90px; }
+        }
+
+        /* BOTTONI E COMPONENTI */
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+        
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); }
+        h2, h3, h4, h5, h6 { color: var(--text-color); }
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
+
+        /* STILI SPECIFICI MODULO E ALERT */
+        .alert-elite { background-color: rgba(230, 92, 0, 0.05); border-left: 4px solid #e65c00; border-radius: 0 12px 12px 0; padding: 1.5rem; margin-bottom: 2rem; }
+        .form-container-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); }
+        
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e65c00;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Classe per evidenziare i campi obbligatori non compilati */
+        .is-invalid-field {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+            transition: all 0.3s ease;
+        }
+        
+        /* Box Minorenne */
+        .minorenne-box {
+            background-color: rgba(0, 123, 255, 0.04);
+            border: 1px solid rgba(0, 123, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Nascondere freccina calendario Chrome */
+        input[type="date"]::-webkit-inner-spin-button { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR CARICATA DA GLOBAL.JS -->
+    <div id="navbar-container"></div>
+
+    <!-- HEADER PAGINA -->
+    <header class="page-hero overflow-hidden" style="min-height: 40vh; height: auto; padding: 6rem 0 3rem 0; background: #f8f9fa;">
+        <div class="container page-hero-content">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider shadow-sm">MODULISTICA UFFICIALE MINORI</span>
+                    <h1 class="display-5 fw-bold text-dark mb-3" style="letter-spacing: -1px;">Candidatura Volontari Minorenni</h1>
+                    <p class="lead" style="color: var(--text-light);">La presente richiesta deve essere compilata con attenzione da un Genitore o Tutore Legale esercente la patria potestà sul minore candidato.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEZIONE MODULO E AVVISI -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- AVVISO IMPORTANTE -->
+                    <div class="alert-elite shadow-sm d-flex gap-3 align-items-start">
+                        <i class="fa-solid fa-circle-exclamation fs-3 mt-1" style="color: #e65c00;"></i>
+                        <div>
+                            <h5 class="fw-bold text-dark mb-2">Importante: Documenti da consegnare in sede</h5>
+                            <p class="mb-0 small" style="line-height: 1.6; color: var(--text-light);">
+                                Per completare l'iter di iscrizione, i seguenti requisiti non possono essere inviati online ma dovranno essere consegnati fisicamente alla segreteria il giorno del colloquio conoscitivo, <strong>con la presenza obbligatoria di almeno un genitore/tutore</strong>:
+                                <br><br>
+                                <strong>1. Certificato Medico in originale del minore</strong> (rilasciato dal proprio medico curante).<br>
+                                <strong>2. Quota d'iscrizione annuale</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- INIZIO MODULO NATIVO CONNESSO A JOTFORM MINORI -->
+                    <div class="form-container-card">
+                        <form id="iscrizioneForm" action="https://eu-submit.jotform.com/submit/262653521055049" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+                            
+                            <!-- Campi nascosti Jotform -->
+                            <input type="hidden" name="formID" value="262653521055049" />
+                            <input type="hidden" name="simple_spc" value="262653521055049-262653521055049" />
+                            
+                            <h4 class="fw-bold text-dark mb-1 text-center">Modulo Iscrizione Minori</h4>
+                            <p class="text-center text-muted small mb-4">Tutti i campi sono obbligatori se non diversamente specificato</p>
+                            
+                            <p class="fw-bold text-primary mt-4 mb-2">IO SOTTOSCRITTO/A (Dati del Genitore o Tutore):</p>
+                            
+                            <!-- SEZIONE 1: DATI ANAGRAFICI GENITORE -->
+                            <div class="form-section-title"><i class="fa-solid fa-user me-2"></i>Dati Anagrafici (Genitore/Tutore)</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Cognome</label>
+                                    <input type="text" name="q6_cognomee[last]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nome</label>
+                                    <input type="text" name="q6_cognomee[first]" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nato/a a</label>
+                                    <input type="text" name="q7_nataoa" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Provincia di Nascita</label>
+                                    <input type="text" name="q8_provinciadi" class="form-control" placeholder="Es. EN" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data di Nascita</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
+                                        <input type="date" class="form-control jotform-date" data-target="q9_datadi" required>
+                                    </div>
+                                    <input type="hidden" name="q9_datadi[day]" id="q9_datadi_day">
+                                    <input type="hidden" name="q9_datadi[month]" id="q9_datadi_month">
+                                    <input type="hidden" name="q9_datadi[year]" id="q9_datadi_year">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Codice Fiscale</label>
+                                    <input type="text" name="q12_codicefiscale" class="form-control text-uppercase" required>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label small fw-semibold">Indirizzo di Residenza (Via/Piazza e Civico)</label>
+                                    <input type="text" name="q10_residenza[addr_line1]" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Città di Residenza</label>
+                                    <input type="text" name="q10_residenza[city]" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">CAP</label>
+                                    <input type="text" name="q10_residenza[postal]" class="form-control" placeholder="Es. 94014" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Provincia</label>
+                                    <input type="text" name="q10_residenza[state]" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <!-- CONTATTI E DOCUMENTI GENITORE -->
+                            <div class="form-section-title"><i class="fa-solid fa-address-book me-2"></i>Contatti & Documenti (Genitore/Tutore)</div>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Nella qualità di:</label>
+                                    <select name="q22_nellaqualita" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Genitore">Genitore</option>
+                                        <option value="Tutore Legale">Tutore Legale</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Telefono / Cellulare</label>
+                                    <input type="tel" name="q14_telefono[full]" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Email</label>
+                                    <input type="email" name="q15_email" class="form-control" required>
+                                </div>
+                                
+                                <div class="col-md-12 mt-3">
+                                    <label class="form-label small fw-semibold">Carta Identità n°</label>
+                                    <input type="text" name="q18_cartaident" class="form-control" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-semibold">Rilasciata da (Es. Comune di Nicosia)</label>
+                                    <input type="text" name="q19_rilasciatada" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data Rilascio</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
+                                        <input type="date" class="form-control jotform-date" data-target="q20_datadi20" required>
+                                    </div>
+                                    <input type="hidden" name="q20_datadi20[day]" id="q20_datadi20_day">
+                                    <input type="hidden" name="q20_datadi20[month]" id="q20_datadi20_month">
+                                    <input type="hidden" name="q20_datadi20[year]" id="q20_datadi20_year">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data Scadenza</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
+                                        <input type="date" class="form-control jotform-date" data-target="q21_datadi21" required>
+                                    </div>
+                                    <input type="hidden" name="q21_datadi21[day]" id="q21_datadi21_day">
+                                    <input type="hidden" name="q21_datadi21[month]" id="q21_datadi21_month">
+                                    <input type="hidden" name="q21_datadi21[year]" id="q21_datadi21_year">
+                                </div>
+                            </div>
+                            
+                            <hr class="my-5 border-primary border-2 opacity-25">
+
+                            <!-- INIZIO AREA MINORE -->
+                            <div class="minorenne-box">
+                                <h5 class="fw-bold text-primary mb-1">DATI DEL MINORE</h5>
+                                <p class="text-muted small mb-4">I seguenti dati si riferiscono esclusivamente al candidato minorenne.</p>
+
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Cognome</label>
+                                        <input type="text" name="q25_cognomee25[last]" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Nome</label>
+                                        <input type="text" name="q25_cognomee25[first]" class="form-control" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Nato/a a</label>
+                                        <input type="text" name="q26_nataoa26" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small fw-semibold">Provincia</label>
+                                        <input type="text" name="q27_provinciadi27" class="form-control" placeholder="Es. EN" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label small fw-semibold">Sesso</label>
+                                        <select name="q34_sesso" class="form-select" required>
+                                            <option value="" disabled selected>Scelta...</option>
+                                            <option value="M">M</option>
+                                            <option value="F">F</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Data di Nascita</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
+                                            <input type="date" class="form-control jotform-date" data-target="q28_datadi28" required>
+                                        </div>
+                                        <input type="hidden" name="q28_datadi28[day]" id="q28_datadi28_day">
+                                        <input type="hidden" name="q28_datadi28[month]" id="q28_datadi28_month">
+                                        <input type="hidden" name="q28_datadi28[year]" id="q28_datadi28_year">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Codice Fiscale</label>
+                                        <input type="text" name="q31_codicefiscale31" class="form-control text-uppercase" required>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label class="form-label small fw-semibold">Indirizzo di Residenza</label>
+                                        <input type="text" name="q29_residenzaminore[addr_line1]" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">Città</label>
+                                        <input type="text" name="q29_residenzaminore[city]" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">CAP</label>
+                                        <input type="text" name="q29_residenzaminore[postal]" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label small fw-semibold">Provincia</label>
+                                        <input type="text" name="q29_residenzaminore[state]" class="form-control" required>
+                                    </div>
+
+                                    <!-- NAZIONALITA E CITTADINANZA MINORE -->
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Nazionalità</label>
+                                        <select name="q32_nazionalitaminore" class="form-select select2-search" required>
+                                            <option value="" disabled>Seleziona...</option>
+                                            <option value="Italia" selected>Italia</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Brasile">Brasile</option>
+                                            <option value="Cina">Cina</option>
+                                            <option value="Egitto">Egitto</option>
+                                            <option value="Francia">Francia</option>
+                                            <option value="Germania">Germania</option>
+                                            <option value="Marocco">Marocco</option>
+                                            <option value="Regno Unito">Regno Unito</option>
+                                            <option value="Romania">Romania</option>
+                                            <option value="Spagna">Spagna</option>
+                                            <option value="Stati Uniti d'America">Stati Uniti d'America</option>
+                                            <!-- È possibile incollare l'elenco completo dei paesi qui -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Cittadinanza</label>
+                                        <select name="q33_cittadinanzaminore" class="form-select select2-search" required>
+                                            <option value="" disabled>Seleziona...</option>
+                                            <option value="Italia" selected>Italia</option>
+                                            <option value="Afghanistan">Afghanistan</option>
+                                            <option value="Albania">Albania</option>
+                                            <option value="Argentina">Argentina</option>
+                                            <option value="Brasile">Brasile</option>
+                                            <option value="Cina">Cina</option>
+                                            <option value="Egitto">Egitto</option>
+                                            <option value="Francia">Francia</option>
+                                            <option value="Germania">Germania</option>
+                                            <option value="Marocco">Marocco</option>
+                                            <option value="Regno Unito">Regno Unito</option>
+                                            <option value="Romania">Romania</option>
+                                            <option value="Spagna">Spagna</option>
+                                            <option value="Stati Uniti d'America">Stati Uniti d'America</option>
+                                            <!-- È possibile incollare l'elenco completo dei paesi qui -->
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- CONTATTI MINORE E PROFESSIONE/STUDIO -->
+                                    <div class="col-12 mt-4">
+                                        <p class="fw-bold text-dark mb-2">Contatti e Studio (Minore)</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Telefono (Minore)</label>
+                                        <input type="tel" name="q36_telefono36[full]" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Email (Minore)</label>
+                                        <input type="email" name="q37_email37" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Professione (Es. Studente)</label>
+                                        <input type="text" name="q40_professione" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label small fw-semibold">Titolo di Studio attuale</label>
+                                        <input type="text" name="q42_titolodi" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FINE AREA MINORE -->
+
+                            <!-- SEZIONE SANITARI MINORE -->
+                            <div class="form-section-title"><i class="fa-solid fa-notes-medical me-2"></i>Sanitari del Minore</div>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Gruppo Sanguigno - RH</label>
+                                    <select name="q51_grupposanguigno" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="0 Positivo (0+)">0 Positivo (0+)</option>
+                                        <option value="0 Negativo (0-)">0 Negativo (0-)</option>
+                                        <option value="A Positivo (A+)">A Positivo (A+)</option>
+                                        <option value="A Negativo (A-)">A Negativo (A-)</option>
+                                        <option value="B Positivo (B+)">B Positivo (B+)</option>
+                                        <option value="B Negativo (B-)">B Negativo (B-)</option>
+                                        <option value="AB Positivo (AB+)">AB Positivo (AB+)</option>
+                                        <option value="AB Negativo (AB-)">AB Negativo (AB-)</option>
+                                        <option value="Non a conoscenza">Non lo so</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Nome e Cognome Medico Curante</label>
+                                    <input type="text" name="q52_medicocurante" class="form-control" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Ha Allergie?</label>
+                                    <select name="q49_allergie" class="form-select" required>
+                                        <option value="No" selected>No</option>
+                                        <option value="Si">Sì</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                    <input type="text" name="q50_descrizioneallergie" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Limitazioni Fisiche?</label>
+                                    <select name="q53_limitazionifisiche" class="form-select" required>
+                                        <option value="No" selected>No</option>
+                                        <option value="Si">Sì</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Se sì, specifica quali: <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                    <input type="text" name="q54_descrizionelimitazioni" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <!-- SEZIONE VESTIARIO MINORE -->
+                            <div class="form-section-title"><i class="fa-solid fa-shirt me-2"></i>Vestiario Divisa</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Taglia Indumenti</label>
+                                    <select name="q56_tagliaindumenti" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="XS">XS</option>
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                        <option value="3XL">3XL</option>
+                                        <option value="4XL">4XL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Numero Calzature Antinfortunistiche</label>
+                                    <input type="number" name="q57_calzaturen" class="form-control" min="35" max="50" placeholder="Es. 42" required>
+                                </div>
+                            </div>
+
+                            <!-- CARICAMENTO DOCUMENTI GENERALI -->
+                            <div class="form-section-title"><i class="fa-solid fa-file-arrow-up me-2"></i>Caricamento Allegati (Max 10MB cad.)</div>
+                            <div class="row g-3">
+                                
+                                <div class="col-12 mb-3">
+                                    <label class="form-label small fw-semibold text-primary"><i class="fa-solid fa-camera me-1"></i> Fototessera Del Minore (Primo piano, sfondo neutro)</label>
+                                    <input type="file" name="q82_fototesseraDel[]" class="form-control border-primary" accept=".jpg,.jpeg,.png" required>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-warning-emphasis">Fotocopia Carta d'Identità GENITORE (Fronte/Retro)</label>
+                                    <input type="file" name="q81_fotocopiaCarta81[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-warning-emphasis">Fotocopia Codice Fiscale GENITORE (Fronte/Retro)</label>
+                                    <input type="file" name="q80_fotocopiaCodice80[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                
+                                <div class="col-md-6 mt-4">
+                                    <label class="form-label small fw-semibold text-info-emphasis">Fotocopia Carta d'Identità MINORE (Fronte/Retro)</label>
+                                    <input type="file" name="q78_fotocopiaCarta[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                                <div class="col-md-6 mt-4">
+                                    <label class="form-label small fw-semibold text-info-emphasis">Fotocopia Codice Fiscale MINORE (Fronte/Retro)</label>
+                                    <input type="file" name="q79_fotocopiaCodice[]" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                                </div>
+                            </div>
+
+                            <!-- SEZIONE 5: DICHIARAZIONI E PRIVACY -->
+                            <div class="form-section-title"><i class="fa-solid fa-file-signature me-2"></i>Dichiarazioni e Privacy</div>
+                            <div class="row g-3">
+                                <div class="col-12 mt-4">
+                                    <div class="p-3 bg-light rounded border">
+                                        <p class="mb-2 fw-bold text-dark">CHIEDE</p>
+                                        <p class="mb-0 small text-secondary">Di ammettere il Figlio/a minore a fare parte della P.A. Gruppo Volontari Protezione Civile Nicosia OdV, nella qualità di Socio Volontario, dichiarando di accettare e di far accettare al minore lo statuto, il regolamento interno e le finalità della stessa, e di esonerare l'associazione da ogni responsabilità.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-semibold">Data Compilazione Candidatura</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-check"></i></span>
+                                        <input type="date" class="form-control jotform-date" data-target="q62_nicosiail" required readonly title="Questa data viene inserita automaticamente dal sistema.">
+                                    </div>
+                                    <small class="text-muted"><i class="fa-solid fa-robot me-1"></i> Data di oggi impostata automaticamente dal sistema.</small>
+                                    
+                                    <!-- Campi Data Autocompilanti Nascosti -->
+                                    <input type="hidden" name="q62_nicosiail[day]" id="q62_nicosiail_day">
+                                    <input type="hidden" name="q62_nicosiail[month]" id="q62_nicosiail_month">
+                                    <input type="hidden" name="q62_nicosiail[year]" id="q62_nicosiail_year">
+                                    <input type="hidden" name="q72_nicosiail72[day]" id="q72_nicosiail72_day">
+                                    <input type="hidden" name="q72_nicosiail72[month]" id="q72_nicosiail72_month">
+                                    <input type="hidden" name="q72_nicosiail72[year]" id="q72_nicosiail72_year">
+                                </div>
+
+                                <div class="col-12 mt-4">
+                                    <p class="fw-bold mb-2">CONSENSO AL TRATTAMENTO DEI DATI (GDPR)</p>
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" name="q70_iosottoscrittoa70[first]" class="form-control" placeholder="Tuo Nome (Genitore/Tutore)" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" name="q70_iosottoscrittoa70[last]" class="form-control" placeholder="Tuo Cognome (Genitore/Tutore)" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati personali, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03" required>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei dati personali in conformità all'informativa e al GDPR.</label>
+                                    </div>
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="al trattamento dei miei dati &quot;particolari&quot;, da svolgersi in conformità a quanto indicato nella suddetta informativa e nel rispetto delle disposizioni del GDPR e del D.Lgs. n. 169/03 e delle autorizzazioni/indicazioni della Commissione UE e del Garante per la Protezione dei Dati Personali" required>
+                                        <label class="form-check-label small text-secondary">Acconsento al trattamento dei dati sanitari (es. allergie, gruppo sanguigno).</label>
+                                    </div>
+                                    <div class="form-check mb-4">
+                                        <input class="form-check-input" type="checkbox" name="q71_consensoal71[]" value="all&#x27;uso della mia immagine per le finalità descritte nell&#x27;informativa (pubblicazione sul sito dell&#x27;Associazione, sui canali Social dell&#x27;Associazione o su altro materiale o sito per la promozione delle attività istituzionali dell&#x27;Associazione)." required>
+                                        <label class="form-check-label small text-secondary">Acconsento all'uso dell'immagine per finalità associative e canali social ufficiali.</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 border-top pt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacyCheckFinale" required>
+                                        <label class="form-check-label small fw-bold text-dark ms-2" for="privacyCheckFinale" style="line-height: 1.4;">
+                                            Acconsento al trattamento dei miei dati personali e del minore ai sensi del regolamento GDPR (UE 2016/679) esclusivamente per la gestione operativa della candidatura, come descritto nella <a href="privacy.html" class="text-warning text-decoration-none" target="_blank">Privacy Policy</a> del portale.
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-elite-primary shadow w-100 w-md-50 px-5 py-3 fs-5">
+                                        <i class="fa-solid fa-paper-plane me-2"></i>Invia Candidatura Minore
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CARICATO DA GLOBAL.JS -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPT NECESSARI -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <script>AOS.init({ once: true, offset: 50 });</script>
+    <script src="global.js"></script>
+    
+    <!-- SCRIPT GESTIONE DATE E VALIDAZIONE -->
+    <script>
+        $(document).ready(function() {
+            // Attiva la ricerca nei menu a tendina
+            $('.select2-search').select2({
+                theme: 'bootstrap-5',
+                width: '100%',
+                placeholder: 'Cerca...',
+                language: {
+                    noResults: function() { return "Nessun risultato"; }
+                }
+            });
+
+            // Gestione Validazione Campi Obbligatori (Bordi Rossi)
+            const form = document.getElementById('iscrizioneForm');
+            const requiredElements = form.querySelectorAll('[required]');
+
+            requiredElements.forEach(el => {
+                el.addEventListener('input', function() {
+                    if (this.checkValidity()) {
+                        this.classList.remove('is-invalid-field');
+                    }
+                });
+                if(el.tagName === 'SELECT') {
+                    $(el).on('change', function() {
+                        if (this.checkValidity()) {
+                            $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid-field');
+                        }
+                    });
+                }
+            });
+
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+                requiredElements.forEach(el => {
+                    if (!el.checkValidity()) {
+                        isValid = false;
+                        if(el.tagName === 'SELECT' && $(el).hasClass('select2-search')) {
+                            $(el).next('.select2-container').find('.select2-selection').addClass('is-invalid-field');
+                        } else {
+                            el.classList.add('is-invalid-field');
+                        }
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                    const firstError = form.querySelector('.is-invalid-field, select.select2-search:invalid + .select2-container');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    dateInputs.forEach(input => syncDate(input));
+                }
+            });
+        });
+
+        // Logica per le Date (Invisibile per l'utente)
+        const dateInputs = document.querySelectorAll('.jotform-date');
+        const today = new Date();
+        const todayString = today.toLocaleDateString('en-CA');
+
+        function syncDate(input) {
+            const target = input.dataset.target;
+            const dateVal = input.value;
+            if (dateVal) {
+                const parts = dateVal.split('-');
+                if(document.getElementById(target + '_year')) {
+                    document.getElementById(target + '_year').value = parts[0];
+                    document.getElementById(target + '_month').value = parts[1];
+                    document.getElementById(target + '_day').value = parts[2];
+                }
+                if(target === 'q62_nicosiail') {
+                    document.getElementById('q72_nicosiail72_year').value = parts[0];
+                    document.getElementById('q72_nicosiail72_month').value = parts[1];
+                    document.getElementById('q72_nicosiail72_day').value = parts[2];
+                }
+            } else {
+                if(document.getElementById(target + '_year')) {
+                    document.getElementById(target + '_year').value = '';
+                    document.getElementById(target + '_month').value = '';
+                    document.getElementById(target + '_day').value = '';
+                }
+            }
+        }
+
+        dateInputs.forEach(input => {
+            if(input.dataset.target === 'q62_nicosiail') {
+                input.value = todayString;
+                syncDate(input);
+            }
+            input.addEventListener('input', function() { syncDate(this); });
+        });
+    </script>
+</body>
+</html>
