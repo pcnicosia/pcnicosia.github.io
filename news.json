@@ -1,5 +1,20 @@
 [
   {
+    "immagine": "news_images/img_1790314900373.jpg",
+    "categoria": "Comunicazione",
+    "data": "22 Settembre 2026",
+    "lettura": "2 min di lettura",
+    "titolo": "Una nuova pubblica assistenza in Anpas Sicilia: bentornata Prociv Niscemi",
+    "descrizione_breve": "La rete di Anpas Sicilia si arricchisce di una nuova pubblica assistenza. Il Consiglio nazionale Anpas, riunito a Firenze, ha deliberato l’ammissione della Prociv Niscemi, associazione impegnata nelle attività di protezione civile e soccorso sanitario.",
+    "lead": "La rete di Anpas Sicilia si arricchisce di una nuova pubblica assistenza. Il Consiglio nazionale Anpas, riunito a Firenze, ha deliberato l’ammissione della Prociv Niscemi, associazione impegnata nelle attività di protezione civile e soccorso sanitario.",
+    "paragrafo_1": "Per il Comitato regionale si tratta di un ingresso importante, che rafforza la presenza del movimento nel territorio e riconosce il percorso compiuto dall’associazione guidata dalla presidente Lorena Rizzo.",
+    "paragrafo_2": "La Prociv Niscemi, ricostituita lo scorso anno, riunisce oggi oltre settanta volontari e volontarie. Nei mesi scorsi l’associazione è stata impegnata anche nell’emergenza legata alla frana che ha interessato Niscemi nel mese di gennaio, garantendo la propria presenza sul territorio giorno e notte.",
+    "paragrafo_3": "L’ammissione rappresenta anche il ritorno della Prociv nella rete Anpas. L’esperienza precedente dell’associazione si era conclusa nel 2018 e aveva determinato la sua esclusione dalla rete nazionale. Con la nuova costituzione è stato avviato un percorso che ha condotto alla deliberazione del Consiglio nazionale e alla piena integrazione della pubblica assistenza nel movimento.\n\nIl risultato è stato raggiunto attraverso il lavoro della presidente Lorena Rizzo, con il supporto del presidente di Anpas Sicilia Lorenzo Colaleo e dell’intero consiglio direttivo dell’associazione, composto da don Giuseppe Cafà, Roberto Buonfiglio, Jenny Ticli, Antonino Di Gregorio e Marco Cilio.\n\nAlla riunione di Firenze hanno partecipato, su delega della presidente, Giuseppe Cafà e Roberto Buonfiglio, accompagnati da Krizia Di Giovanni e Adriano Ticli. Il Consiglio nazionale ANPAS ha rivolto le proprie congratulazioni agli oltre settanta volontari e volontarie della Prociv Niscemi.\n\nAnpas Sicilia accoglie la nuova pubblica assistenza e le persone che ne fanno parte, con l’obiettivo di accompagnarne il percorso associativo e valorizzarne l’impegno all’interno di una rete fondata sulla partecipazione, sulla formazione e sulla responsabilità verso le comunità.\n\nBentornata Prociv Niscemi.",
+    "badgeClass": "bg-success",
+    "borderClass": "border-success",
+    "linkClass": "text-success"
+  },
+  {
     "immagine": "news_images/img_1790314612628.jpg",
     "categoria": "Comunicazione",
     "data": "10 Settembre 2026",
