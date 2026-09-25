@@ -19,13 +19,12 @@ module.exports = async function (req, res) {
   try {
     const body = req.body;
 
-    // CONTROLLO CLONI: Se Telegram ci sta reinviando una richiesta già processata, la blocchiamo subito
+    // CONTROLLO CLONI
     if (body && body.update_id) {
       if (processedUpdates.has(body.update_id)) {
-        return res.status(200).send('OK'); // Risposta istantanea per zittire Telegram
+        return res.status(200).send('OK'); 
       }
       processedUpdates.add(body.update_id);
-      // Puliamo la memoria ogni 50 messaggi per non appesantire Vercel
       if (processedUpdates.size > 50) processedUpdates.clear();
     }
     
@@ -38,7 +37,6 @@ module.exports = async function (req, res) {
       const chatId = callback.message.chat.id.toString();
       const threadId = callback.message.message_thread_id ? callback.message.message_thread_id.toString() : "1";
 
-      // Fermiamo l'orologino di caricamento sul pulsante cliccato
       await answerCallbackQuery(TELEGRAM_TOKEN, callback.id);
 
       if (chatId !== GRUPPO_AUTORIZZATO || threadId !== TOPIC_AUTORIZZATO) {
@@ -57,7 +55,7 @@ module.exports = async function (req, res) {
       }
       
       if (data === 'add_news') {
-        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia hai due modi:\n\n1️⃣ **Testo Corto:** Invia una foto con didascalia iniziando con `#news`\n2️⃣ **Testo Lungo:** Invia SOLO la foto. Poi **rispondi** alla foto scrivendo il tuo articolo iniziando con `#news`", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
+        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia scrivi così:\n\n`#news`\n`Il tuo Titolo`\n`Data: 25 Settembre 2026` (Opzionale)\n`Questo è il primo paragrafo...`\n\nPuoi mandare una foto con didascalia (testo corto), oppure inviare la foto da sola e **rispondere** ad essa col testo lungo.", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       
@@ -237,11 +235,30 @@ async function eliminaUltimaNews(gitToken, repo, teleToken, chatId, threadId) {
 
 async function elaboraEsalvaNews(arrayFoto, text, chatId, teleToken, gitToken, repo, threadId) {
     await sendMessage(teleToken, chatId, "Creazione articolo in corso...", {}, threadId);
+    
     let cleanText = text.replace(/#news/gi, '').trim();
     let righe = cleanText.split('\n').filter(riga => riga.trim() !== '');
+    
     let titolo = righe.length > 0 ? righe[0].trim() : "Nuova Comunicazione";
-    let descrizione = righe.length > 1 ? righe.slice(1).join(' ').trim() : "Nessun dettaglio aggiuntivo.";
-    let dataOggi = new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+    let dataPubblicazione = new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+    let startIndexTesto = 1;
+
+    // Controllo data manuale
+    if (righe.length > 1 && righe[1].toLowerCase().startsWith('data:')) {
+        dataPubblicazione = righe[1].substring(5).trim();
+        startIndexTesto = 2;
+    }
+
+    let restoDelTesto = righe.slice(startIndexTesto);
+    
+    let leadCompleto = restoDelTesto.length > 0 ? restoDelTesto[0].trim() : "Nessun dettaglio aggiuntivo.";
+    
+    // Taglio automatico a 130 caratteri per la homepage
+    let descrizioneBreve = leadCompleto.length > 130 ? leadCompleto.substring(0, 130) + "..." : leadCompleto;
+    
+    let paragrafo_1 = restoDelTesto.length > 1 ? restoDelTesto[1].trim() : "";
+    let paragrafo_2 = restoDelTesto.length > 2 ? restoDelTesto[2].trim() : "";
+    let paragrafo_3 = restoDelTesto.length > 3 ? restoDelTesto.slice(3).join('\n\n').trim() : "";
 
     const photo = arrayFoto[arrayFoto.length - 1]; 
     const fileRes = await fetch(`https://api.telegram.org/bot${teleToken}/getFile?file_id=${photo.file_id}`);
@@ -259,9 +276,24 @@ async function elaboraEsalvaNews(arrayFoto, text, chatId, teleToken, gitToken, r
       }
     } catch (e) {}
 
-    storicoNews.unshift({ immagine: nomeImmagine, categoria: "Comunicazione", data: dataOggi, titolo: titolo, descrizione_breve: descrizione, badgeClass: "bg-success" });
+    storicoNews.unshift({ 
+        immagine: nomeImmagine, 
+        categoria: "Comunicazione", 
+        data: dataPubblicazione, 
+        lettura: "2 min di lettura",
+        titolo: titolo, 
+        descrizione_breve: descrizioneBreve, 
+        lead: leadCompleto,
+        paragrafo_1: paragrafo_1,
+        paragrafo_2: paragrafo_2,
+        paragrafo_3: paragrafo_3,
+        badgeClass: "bg-success",
+        borderClass: "border-success",
+        linkClass: "text-success"
+    });
+    
     await uploadToGitHub(gitToken, repo, `news.json`, Buffer.from(JSON.stringify(storicoNews, null, 2)).toString('base64'), `Nuova news`);
-    await sendMessage(teleToken, chatId, `✅ Notizia pubblicata!\n\n*Titolo:* ${titolo}`, {parse_mode: 'Markdown'}, threadId);
+    await sendMessage(teleToken, chatId, `✅ Notizia pubblicata!\n\n*Titolo:* ${titolo}\n*Data:* ${dataPubblicazione}`, {parse_mode: 'Markdown'}, threadId);
 }
 
 async function elaboraEsalvaBollettino(message, text, sezione, teleToken, gitToken, repo, threadId) {
@@ -297,7 +329,6 @@ async function editMessageText(token, chatId, messageId, text, replyMarkup, thre
     });
 }
 
-// Nuova funzione per fermare l'orologino di caricamento sui pulsanti
 async function answerCallbackQuery(token, callbackQueryId) {
     await fetch(`https://api.telegram.org/bot${token}/answerCallbackQuery`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
