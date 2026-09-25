@@ -55,7 +55,7 @@ module.exports = async function (req, res) {
       }
       
       if (data === 'add_news') {
-        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia scrivi così:\n\n`#news`\n`Il tuo Titolo`\n`Data: 25 Settembre 2026` (Opzionale)\n`Questo è il primo paragrafo...`\n\nPuoi mandare una foto con didascalia (testo corto), oppure inviare la foto da sola e **rispondere** ad essa col testo lungo.", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
+        await sendMessage(TELEGRAM_TOKEN, chatId, "Per aggiungere una notizia scrivi così:\n\n`#news`\n`Il tuo Titolo`\n`Data: 25 Settembre 2026` (Opzionale)\n`Breve: Sintesi per la card in home` (Opzionale)\n`Questo è il primo paragrafo...`\n\nPuoi mandare una foto con didascalia (testo corto), oppure inviare la foto da sola e **rispondere** ad essa col testo lungo.", {parse_mode: 'Markdown'}, TOPIC_AUTORIZZATO);
         return res.status(200).send('OK');
       }
       
@@ -241,20 +241,29 @@ async function elaboraEsalvaNews(arrayFoto, text, chatId, teleToken, gitToken, r
     
     let titolo = righe.length > 0 ? righe[0].trim() : "Nuova Comunicazione";
     let dataPubblicazione = new Intl.DateTimeFormat('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date());
+    let descrizioneBreveManuale = null;
     let startIndexTesto = 1;
 
-    // Controllo data manuale
-    if (righe.length > 1 && righe[1].toLowerCase().startsWith('data:')) {
-        dataPubblicazione = righe[1].substring(5).trim();
-        startIndexTesto = 2;
+    // Ricerca dei parametri opzionali (Data e Breve) nelle prime righe
+    while (startIndexTesto < righe.length) {
+        let rigaLower = righe[startIndexTesto].toLowerCase();
+        if (rigaLower.startsWith('data:')) {
+            dataPubblicazione = righe[startIndexTesto].substring(5).trim();
+            startIndexTesto++;
+        } else if (rigaLower.startsWith('breve:')) {
+            descrizioneBreveManuale = righe[startIndexTesto].substring(6).trim();
+            startIndexTesto++;
+        } else {
+            // Appena trova una riga normale, interrompe la ricerca dei parametri
+            break; 
+        }
     }
 
     let restoDelTesto = righe.slice(startIndexTesto);
-    
     let leadCompleto = restoDelTesto.length > 0 ? restoDelTesto[0].trim() : "Nessun dettaglio aggiuntivo.";
     
-    // Taglio automatico a 130 caratteri per la homepage
-    let descrizioneBreve = leadCompleto.length > 130 ? leadCompleto.substring(0, 130) + "..." : leadCompleto;
+    // Se è stata fornita la breve manuale, usa quella, altrimenti crea un estratto automatico di 130 caratteri
+    let descrizioneBreve = descrizioneBreveManuale ? descrizioneBreveManuale : (leadCompleto.length > 130 ? leadCompleto.substring(0, 130) + "..." : leadCompleto);
     
     let paragrafo_1 = restoDelTesto.length > 1 ? restoDelTesto[1].trim() : "";
     let paragrafo_2 = restoDelTesto.length > 2 ? restoDelTesto[2].trim() : "";
