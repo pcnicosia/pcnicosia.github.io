@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Trasporto Ambulanza - P.A. Nicosia O.d.V.</title>
+    
+    <link rel="icon" type="image/png" href="Logo.PNG">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Select2 CSS per menu a tendina ricercabili -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    
+    <style>
+        /* 1. VARIABILI DI TEMA (LIGHT/DARK) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1d1d1f;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --nav-border: rgba(0, 0, 0, 0.08);
+            --card-bg: #ffffff;
+            --card-border: rgba(0, 0, 0, 0.06);
+            --secondary-bg: #f5f5f7;
+            --text-light: #515154;
+            --hover-bg: rgba(230, 92, 0, 0.08);
+            --dropdown-bg: #ffffff;
+            --bottom-nav-bg: #ffffff;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --nav-bg: rgba(18, 18, 18, 0.90);
+            --nav-border: rgba(255, 255, 255, 0.1);
+            --card-bg: #1e1e1e;
+            --card-border: rgba(255, 255, 255, 0.05);
+            --secondary-bg: #1a1a1a;
+            --text-light: #a0a0a0;
+            --hover-bg: rgba(255, 255, 255, 0.1);
+            --dropdown-bg: #2d2d2d;
+            --bottom-nav-bg: #2d2d2d;
+            --bottom-nav-icon: #8e8e93;
+            --bottom-nav-active: #e65c00;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 154px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            overflow-x: hidden; 
+            padding-top: 154px; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* NAVBAR DESKTOP */
+        .glass-nav {
+            background: var(--nav-bg); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--nav-border); 
+            transition: all 0.3s ease;
+        }
+        .logo-main { height: 137px; width: 137px; border-radius: 50%; object-fit: contain; background: white; padding: 4px; border: 1px solid rgba(0,0,0,0.1); }
+        .brand-title { height: 68.5px; display: flex; flex-direction: column; justify-content: center; font-size: 1rem; line-height: 1.2; letter-spacing: -0.2px; color: var(--text-color); margin-left: 15px; }
+        .logo-anpas { height: 95px; max-width: 200px; object-fit: contain; }
+        .nav-link { color: var(--text-color) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: -0.1px; display: flex; align-items: center; gap: 5px; padding: 0.4rem 0.8rem !important; }
+        .nav-link:hover, .nav-link.active { color: #e65c00 !important; }
+        .dropdown-menu { background: var(--dropdown-bg); border: 1px solid var(--nav-border); border-radius: 12px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        @media (min-width: 992px) { .dropdown:hover .dropdown-menu { display: block; animation: slideFade 0.3s ease forwards; } }
+        @keyframes slideFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .dropdown-item { color: var(--text-color) !important; font-size: 0.92rem; padding: 10px 16px; border-radius: 8px; transition: all 0.2s ease; display: flex; align-items: center; gap: 12px; }
+        .dropdown-item i { width: 20px; text-align: center; opacity: 0.7; }
+        .dropdown-item:hover { background: var(--hover-bg); color: #e65c00 !important; transform: translateX(4px); }
+        .dropdown-item:hover i { opacity: 1; color: #e65c00; }
+
+        /* SISTEMA DI IMPAGINAZIONE RESPONSIVE */
+        @media (min-width: 992px) {
+            .nav-left-wing { flex: 0 0 auto; }
+            .nav-center-wing { flex: 1 1 auto; display: flex; justify-content: center; padding: 0 20px; }
+            .nav-right-wing { flex: 0 0 auto; }
+        }
+        @media (min-width: 992px) and (max-width: 1366px) {
+            body { padding-top: 121px; } 
+            html { scroll-padding-top: 121px; }
+            .hero-section, .page-hero { height: calc(100vh - 121px); }
+            .logo-main { height: 104px; width: 104px; } 
+            .brand-title { height: 52px; font-size: 0.80rem; margin-left: 12px; line-height: 1.15; } 
+            .logo-anpas { height: 72px; max-width: 150px; } 
+            .nav-link { font-size: 0.82rem !important; margin: 0 2px !important; padding: 0.4rem 0.2rem !important; }
+            .nav-link i { font-size: 0.82rem; } 
+        }
+
+        /* MENU MOBILE (<991px) */
+        .bottom-nav { display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 400px; background: var(--bottom-nav-bg); border-radius: 40px; padding: 8px 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1050; border: 1px solid var(--card-border); align-items: center; justify-content: space-between; }
+        .bottom-nav-item { color: var(--bottom-nav-icon); text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; padding: 8px; transition: all 0.2s; }
+        .bottom-nav-item.active { color: var(--bottom-nav-active); transform: translateY(-3px); }
+        .bottom-nav-action { background: rgba(230, 92, 0, 0.1); color: #e65c00; border-radius: 20px; padding: 8px 16px; font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+        @media (max-width: 991px) { .navbar-collapse { display: none !important; } .bottom-nav { display: flex; } .brand-title { height: auto; line-height: 1.1; flex: 1; text-align: left; } }
+        @media (min-width: 768px) and (max-width: 991px) {
+            body { padding-top: 107px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 107px; }
+            .hero-section, .page-hero { height: calc(100vh - 107px); }
+            .logo-main { height: 90px; width: 90px; padding: 3px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 12px; }
+            .logo-anpas { height: 60px; max-width: 130px; }
+        }
+        @media (max-width: 767px) {
+            body { padding-top: 77px; padding-bottom: 90px; } 
+            html { scroll-padding-top: 77px; }
+            .hero-section, .page-hero { height: calc(100vh - 77px); }
+            .logo-main { height: 60px; width: 60px; padding: 2px; } 
+            .brand-title { font-size: 0.85rem; margin-left: 10px; }
+            .logo-anpas { height: 45px; max-width: 90px; }
+        }
+
+        /* BOTTONI E COMPONENTI */
+        .btn-elite-primary { background-color: #e65c00; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 600; border: none; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: inline-block;}
+        .btn-elite-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(230, 92, 0, 0.25); color: white; }
+        
+        .btn-elite-outline { background-color: transparent; color: var(--text-color); border-radius: 50px; padding: 10px 22px; font-weight: 600; font-size: 0.8rem; border: 1px solid var(--text-color); transition: all 0.2s; text-decoration: none;}
+        .btn-elite-outline:hover { background-color: var(--text-color); color: var(--bg-color); }
+        
+        h1 { font-weight: 800; letter-spacing: -1.5px; font-size: clamp(2.3rem, 5vw, 4.2rem); }
+        h2, h3, h4, h5, h6 { color: var(--text-color); }
+        .testo-leggero { color: var(--text-light); font-weight: 400; }
+
+        /* STILI SPECIFICI MODULO E ALERT */
+        .alert-elite { background-color: rgba(230, 92, 0, 0.05); border-left: 4px solid #e65c00; border-radius: 0 12px 12px 0; padding: 1.5rem; margin-bottom: 2rem; }
+        .alert-danger-elite { background-color: rgba(220, 53, 69, 0.05); border-left: 4px solid #dc3545; border-radius: 0 12px 12px 0; padding: 1.5rem; margin-bottom: 2rem; }
+        
+        .form-container-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04); }
+        
+        .form-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e65c00;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Classe per evidenziare i campi obbligatori non compilati */
+        .is-invalid-field {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+            transition: all 0.3s ease;
+        }
+        
+        /* Nascondere freccina calendario Chrome per uniformità */
+        input[type="date"]::-webkit-inner-spin-button,
+        input[type="time"]::-webkit-inner-spin-button { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR CARICATA DA GLOBAL.JS -->
+    <div id="navbar-container"></div>
+
+    <!-- HEADER PAGINA -->
+    <header class="page-hero overflow-hidden" style="min-height: 40vh; height: auto; padding: 6rem 0 3rem 0; background: #f8f9fa;">
+        <div class="container page-hero-content">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold tracking-wider shadow-sm">SERVIZIO AL CITTADINO</span>
+                    <h1 class="display-5 fw-bold text-dark mb-3" style="letter-spacing: -1px;">Richiesta Trasporto in Ambulanza</h1>
+                    <p class="lead" style="color: var(--text-light);">Compila il modulo per prenotare un trasporto sanitario programmato (dimissioni, visite, trasferimenti). Verrai ricontattato dalla nostra Centrale Operativa per la conferma.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEZIONE MODULO E AVVISI -->
+    <section class="py-5 bg-white">
+        <div class="container pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <!-- AVVISO EMERGENZE -->
+                    <div class="alert-danger-elite shadow-sm d-flex gap-3 align-items-start">
+                        <i class="fa-solid fa-triangle-exclamation fs-3 mt-1" style="color: #dc3545;"></i>
+                        <div>
+                            <h5 class="fw-bold text-dark mb-2">ATTENZIONE: Non usare questo modulo per le emergenze!</h5>
+                            <p class="mb-0 small" style="line-height: 1.6; color: var(--text-light);">
+                                Questo modulo è destinato <strong>esclusivamente ai trasporti sanitari programmati</strong>. <br>
+                                In caso di malore improvviso, trauma grave o pericolo di vita, chiama immediatamente il <strong>Numero Unico delle Emergenze 112</strong> (o 118).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- INIZIO MODULO RICHIESTA -->
+                    <div class="form-container-card">
+                        <!-- L'action del form andrà sostituita con l'URL di destinazione (es. un nuovo form Jotform, PHP, ecc.) -->
+                        <form id="richiestaAmbulanzaForm" action="#" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
+                            
+                            <h4 class="fw-bold text-dark mb-1 text-center">Modulo di Prenotazione Trasporto</h4>
+                            <p class="text-center text-muted small mb-4">Tutti i campi sono obbligatori se non diversamente specificato</p>
+                            
+                            <!-- SEZIONE 1: CONTATTI DEL RICHIEDENTE (CHI CHIAMA) -->
+                            <div class="form-section-title"><i class="fa-solid fa-phone-volume me-2"></i>Contatti di chi richiede il servizio</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nome e Cognome Richiedente</label>
+                                    <input type="text" name="richiedente_nome" class="form-control" placeholder="Es. Mario Rossi" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Relazione con il paziente</label>
+                                    <select name="richiedente_relazione" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Paziente stesso">Sono io il paziente</option>
+                                        <option value="Parente / Familiare">Parente / Familiare</option>
+                                        <option value="Medico / Struttura Sanitaria">Medico / Struttura Sanitaria</option>
+                                        <option value="Altro">Altro</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Telefono Cellulare</label>
+                                    <input type="tel" name="richiedente_telefono" class="form-control" placeholder="Indispensabile per contatti rapidi" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Email</label>
+                                    <input type="email" name="richiedente_email" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <!-- SEZIONE 2: DATI DEL PAZIENTE E STATO CLINICO -->
+                            <div class="form-section-title"><i class="fa-solid fa-hospital-user me-2"></i>Dati del Paziente e Stato Clinico</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nome e Cognome Paziente</label>
+                                    <input type="text" name="paziente_nome" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data di Nascita (o Età)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-days"></i></span>
+                                        <input type="date" name="paziente_nascita" class="form-control" required>
+                                    </div>
+                                </div>
+                                
+                                <!-- Dati fondamentali per mezzi bariatrici / movimentazione -->
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Peso Approssimativo (Kg)</label>
+                                    <input type="number" name="paziente_peso" class="form-control" placeholder="Necessario per l'invio del mezzo adeguato" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Motivo della Richiesta</label>
+                                    <select name="motivo_richiesta" class="form-select select2-search" required>
+                                        <option value="" disabled selected>Seleziona il motivo...</option>
+                                        <option value="Dimissione Ospedaliera">Dimissione Ospedaliera</option>
+                                        <option value="Visita Specialistica / Controllo">Visita Specialistica / Controllo</option>
+                                        <option value="Trasferimento ad altra struttura">Trasferimento ad altra struttura</option>
+                                        <option value="Terapia ricorrente (Es. Dialisi)">Terapia ricorrente (Es. Dialisi, Fisioterapia)</option>
+                                        <option value="Altro">Altro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-12 mt-3">
+                                    <label class="form-label small fw-semibold">Stato di coscienza e mobilità attuale:</label>
+                                </div>
+                                <div class="col-md-4 mt-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="stato_clinico[]" value="Cosciente e Vigile" id="stato1">
+                                        <label class="form-check-label small" for="stato1">Cosciente e vigile</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="stato_clinico[]" value="Deambulante" id="stato2">
+                                        <label class="form-check-label small" for="stato2">In grado di camminare</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="stato_clinico[]" value="Allettato" id="stato3">
+                                        <label class="form-check-label small" for="stato3">Completamente allettato</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SEZIONE 3: DETTAGLI E LOGISTICA TRASPORTO (DOVE) -->
+                            <div class="form-section-title"><i class="fa-solid fa-route me-2"></i>Dettagli e Logistica del Trasporto</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Data richiesta per il trasporto</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-calendar-check"></i></span>
+                                        <input type="date" name="data_trasporto" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Orario in cui farsi trovare pronti (o ora visita)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light text-secondary"><i class="fa-regular fa-clock"></i></span>
+                                        <input type="time" name="ora_trasporto" class="form-control" required>
+                                    </div>
+                                </div>
+
+                                <!-- Indirizzo di Partenza -->
+                                <div class="col-12 mt-4">
+                                    <h6 class="fw-bold mb-2 text-dark"><i class="fa-solid fa-location-dot text-danger me-2"></i>Partenza</h6>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Indirizzo di Partenza (Comune, Via, Civico)</label>
+                                    <input type="text" name="partenza_indirizzo" class="form-control" placeholder="Es. Nicosia, Via Roma 15" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Piano</label>
+                                    <input type="text" name="partenza_piano" class="form-control" placeholder="Es. 2° Piano" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Ascensore in partenza?</label>
+                                    <select name="partenza_ascensore" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Sì, capiente per sedia/barella">Sì, molto capiente (entra barella)</option>
+                                        <option value="Sì, ma entra solo sedia">Sì, ma ci entra solo la sedia a rotelle</option>
+                                        <option value="No / Rotto">No (o attualmente guasto)</option>
+                                        <option value="Non necessario (Piano Terra)">Non necessario (Piano Terra)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Ostacoli in partenza? (es. scale strette)</label>
+                                    <input type="text" name="partenza_ostacoli" class="form-control" placeholder="Scale a chiocciola, viale sterrato, ecc.">
+                                </div>
+
+                                <!-- Indirizzo di Destinazione -->
+                                <div class="col-12 mt-4">
+                                    <h6 class="fw-bold mb-2 text-dark"><i class="fa-solid fa-flag-checkered text-success me-2"></i>Destinazione</h6>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label small fw-semibold">Indirizzo o Struttura di Destinazione</label>
+                                    <input type="text" name="destinazione_indirizzo" class="form-control" placeholder="Es. Ospedale Basilotta, Reparto Ortopedia" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label small fw-semibold">Piano/Reparto</label>
+                                    <input type="text" name="destinazione_piano" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Ascensore in destinazione?</label>
+                                    <select name="destinazione_ascensore" class="form-select" required>
+                                        <option value="" disabled selected>Seleziona...</option>
+                                        <option value="Sì (Ospedale/Clinica)">Sì (Ospedale/Struttura attrezzata)</option>
+                                        <option value="Sì, ma entra solo sedia">Sì, ma ci entra solo la sedia a rotelle</option>
+                                        <option value="No">No (o attualmente guasto)</option>
+                                        <option value="Non necessario (Piano Terra)">Non necessario (Piano Terra)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">E' richiesto anche il ritorno?</label>
+                                    <select name="ritorno_richiesto" class="form-select" required>
+                                        <option value="No, solo andata" selected>No, solo andata</option>
+                                        <option value="Sì, con attesa">Sì, l'ambulanza deve attendere (Visita breve)</option>
+                                        <option value="Sì, da concordare">Sì, l'orario di ritorno sarà comunicato dopo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- SEZIONE 4: ESIGENZE SANITARIE SPECIFICHE (COME) -->
+                            <div class="form-section-title"><i class="fa-solid fa-truck-medical me-2"></i>Mezzo e Necessità Sanitarie</div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Modalità di Trasporto Necessaria</label>
+                                    <select name="modalita_trasporto" class="form-select" required>
+                                        <option value="" disabled selected>Come deve viaggiare il paziente?</option>
+                                        <option value="Obbligatoriamente in Barella">Obbligatoriamente in Barella (Allettato)</option>
+                                        <option value="Sedia a rotelle / Cingolata">Sedia a rotelle (o Sedia Cingolata per scale)</option>
+                                        <option value="Deambulante">Deambulante (viaggia seduto normalmente)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Accompagnatori a bordo</label>
+                                    <select name="numero_accompagnatori" class="form-select" required>
+                                        <option value="0">Nessun accompagnatore</option>
+                                        <option value="1" selected>1 Familiare/Accompagnatore (Massimo consentito)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Ossigenoterapia in corso?</label>
+                                    <select name="ossigeno_necessario" class="form-select" required>
+                                        <option value="No" selected>No</option>
+                                        <option value="Sì, a bassi flussi">Sì (Fornito dall'ambulanza durante il viaggio)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Presidi collegati al paziente <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                    <input type="text" name="presidi_collegati" class="form-control" placeholder="Es. Catetere, Sondino nasogastrico, CVP...">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label class="form-label small fw-semibold">Note Aggiuntive per l'Equipaggio <span class="text-muted fw-normal">(Opzionale)</span></label>
+                                    <textarea name="note_aggiuntive" class="form-control" rows="3" placeholder="Scrivi qui eventuali informazioni utili per raggiungere l'abitazione o dettagli importanti sulle condizioni cliniche..."></textarea>
+                                </div>
+                                
+                                <!-- Allegato Medico -->
+                                <div class="col-12 mt-3">
+                                    <label class="form-label small fw-semibold"><i class="fa-solid fa-file-medical me-1"></i> Lettera di dimissione o Impegnativa Medica <span class="text-muted fw-normal">(Consigliato)</span></label>
+                                    <input type="file" name="documentazione_medica" class="form-control" accept=".pdf,.jpg,.jpeg,.png">
+                                    <small class="text-muted">Se disponibile, allega la documentazione che autorizza il trasporto (Max 5MB).</small>
+                                </div>
+                            </div>
+
+                            <!-- SEZIONE 5: PRIVACY E INVIO -->
+                            <div class="form-section-title"><i class="fa-solid fa-shield-halved me-2"></i>Privacy e Consenso</div>
+                            <div class="row g-3">
+                                <div class="col-12 pt-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacyTrasporto" required>
+                                        <label class="form-check-label small text-dark ms-2" for="privacyTrasporto" style="line-height: 1.4;">
+                                            Dichiaro che le informazioni fornite sono veritiere e che il trasporto <strong>non riveste carattere di emergenza o urgenza</strong>. 
+                                            Acconsento al trattamento dei dati personali e sanitari inseriti ai sensi del GDPR (UE 2016/679) per la gestione e la programmazione del servizio richiesto.
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-elite-primary shadow w-100 w-md-50 px-5 py-3 fs-5">
+                                        <i class="fa-solid fa-paper-plane me-2"></i>Invia Richiesta Prenotazione
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CARICATO DA GLOBAL.JS -->
+    <div id="footer-container"></div>
+
+    <!-- SCRIPT NECESSARI -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Script Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <script>AOS.init({ once: true, offset: 50 });</script>
+    <script src="global.js"></script>
+    
+    <!-- SCRIPT GESTIONE VALIDAZIONE -->
+    <script>
+        $(document).ready(function() {
+            // Attiva la ricerca nei menu a tendina singoli (es. Motivo della richiesta se diventa un elenco lungo)
+            $('.select2-search').select2({
+                theme: 'bootstrap-5',
+                width: '100%',
+                placeholder: 'Cerca...',
+                language: { noResults: function() { return "Nessun risultato trovato"; } }
+            });
+            
+            // Gestione Validazione Campi Obbligatori (Bordi Rossi)
+            const form = document.getElementById('richiestaAmbulanzaForm');
+            const requiredElements = form.querySelectorAll('[required]');
+
+            requiredElements.forEach(el => {
+                // Rimuove la classe di errore appena l'utente compila correttamente
+                el.addEventListener('input', function() {
+                    if (this.checkValidity()) { this.classList.remove('is-invalid-field'); }
+                });
+                
+                // Gestione specifica per i <select> che usano il plugin Select2
+                if(el.tagName === 'SELECT') {
+                    $(el).on('change', function() {
+                        if (this.checkValidity()) {
+                            $(this).next('.select2-container').find('.select2-selection').removeClass('is-invalid-field');
+                        }
+                    });
+                }
+            });
+
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+                
+                // Controlla tutti i campi obbligatori
+                requiredElements.forEach(el => {
+                    if (!el.checkValidity()) {
+                        isValid = false;
+                        // Applica l'effetto rosso al container di Select2 o al campo normale
+                        if(el.tagName === 'SELECT' && ($(el).hasClass('select2-search') || $(el).hasClass('select2-multiple'))) {
+                            $(el).next('.select2-container').find('.select2-selection').addClass('is-invalid-field');
+                        } else {
+                            el.classList.add('is-invalid-field');
+                        }
+                    }
+                });
+
+                // Se non è valido, blocca l'invio e scrolla verso il primo errore
+                if (!isValid) {
+                    event.preventDefault();
+                    const firstError = form.querySelector('.is-invalid-field, select.select2-search:invalid + .select2-container');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } 
+                // Se è valido procederà con l'action definita nel tag <form>
+            });
+        });
+    </script>
+</body>
+</html>
